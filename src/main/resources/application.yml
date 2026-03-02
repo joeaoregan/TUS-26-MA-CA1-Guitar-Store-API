@@ -1,5 +1,4 @@
-# spring.application.name=TUS-26-MA-CA1-Guitar-Store-API
-# key principle of the twelve-factor app methodolody - declarative (declare port number)
+# key principle of the twelve-factor app methodology - declarative (declare port number)
 server:
   port: 8080
 
