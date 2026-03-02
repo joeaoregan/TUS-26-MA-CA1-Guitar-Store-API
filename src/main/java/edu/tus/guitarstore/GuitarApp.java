@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class GuitarApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(GuitarManagerApp.class, args);
+        SpringApplication.run(GuitarApp.class, args);
     }
 
 }
