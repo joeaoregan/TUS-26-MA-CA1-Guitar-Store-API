@@ -5,8 +5,12 @@ import java.util.List;
 
 public interface IGuitarStoreService {
 	void createGuitar(GuitarDto guitarDto);
+
 	GuitarDto fetchGuitar(String modelName);
-	boolean updateGuitar(GuitarDto guitarDto);
-	boolean deleteGuitar(String modelName);
+
 	List<GuitarDto> fetchAllGuitars();
+
+	boolean updateGuitar(GuitarDto guitarDto);
+
+	boolean deleteGuitar(String modelName);
 }
