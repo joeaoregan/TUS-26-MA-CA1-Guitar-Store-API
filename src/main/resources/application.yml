@@ -1,0 +1,32 @@
+# spring.application.name=TUS-26-MA-CA1-Guitar-Store-API
+# key principle of the twelve-factor app methodolody - declarative (declare port number)
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:guitardb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ''
+# run scripts every time app starts:
+  sql:
+    init:
+      mode: always
+  h2:
+    console:
+      enabled: true
+# Explicitly define H2 console path
+      path: /h2-console
+  jpa:
+    defer-datasource-initialization: true
+    database-platform: org.hibernate.dialect.H2Dialect
+# first create table then insert data:
+    hibernate:
+#      ddl-auto: validate # use once schema finalised
+      ddl-auto: update # able to alter tables
+    show-sql: true
+# print sql queries in a readable format
+    properties:
+      hibernate:
+        format_sql: true
