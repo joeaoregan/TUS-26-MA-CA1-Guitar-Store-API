@@ -5,8 +5,16 @@
 
 #### Guitar Store REST API
 
-Student Number: A00258304\
-Joe O'Regan
+**Student Name:** Joe O'Regan\
+**Student Number:** A00258304
+
+---
+
+### Project Overivew
+
+- **Domain:** Guitar Store Inventory Management.
+- **Standards:** Compliant with Atlassian RESTful Design Specification.
+- **Base URL:** http://localhost:8080/api/guitarstore/v1.
 
 ---
 
@@ -43,38 +51,56 @@ Joe O'Regan
     - Appropriate HTTP status codes and error messages.
     - Clear, consistent error responses.
 
+    Examples:
+    - 
+
 5. **Pagination**
     The API supports pagination for endpoints returning collections.
+
+- **Validation Error (400):** Triggered by invalid inputs like negative prices.
+- **Resource Not Found (404):** Triggered when a model name does not exist in the database.
 
 ---
 
 ### Technology Stack
 
-- Java 17+.
-- Spring Boot: Framework for the RESTful API.
-- Spring Data JPA: Fro database persistence and relationship mapping.
-- H2 Database: In-memory database for rapid demonstration.
+- **Java Version (Tested with)?** Java 17+.
+- **Framework:** Spring Boot 3.x.\
+  Framework for the RESTful API.
+- **Database:** H2 In-Memory Database (with JPA/Hibernate).\
+  For database persistence and relationship mapping and rapid demonstation.
+- **Validation:** Jakarta Bean Validation.
+- **Utilities:** Lombok and MapStruct\
+  For reducing boilerplate and custom Mappers.
 
 --- 
 
-### API Demonstation
+### API Demonstration
 
-ToDo: add endpooints
-
-Sample Endpoints.
-
+| Method | Endpoint              | Description                             | Status Code |
+| ------ | --------------------- | --------------------------------------- | ----------- |
+| GET    | /guitars              | Fetch all guitars (supports pagination) | 200 OK      |
+| GET    | /guitars/model/{name} | Fetch a specific guitar                 | 200 / 404   |
+| POST   | /guitars              | Create a new guitar (validated)         | 201 Created |
+| PUT    | /guitars              | Update guitar details                   | 200 OK      |
+| DELETE | /guitars/{name}       | Remove a guitar                         | 200 / 204   |
 
 ---
 
 ### How to Run
 
-ToDo: add run data
-
-1. Clone: 
-2. Run:
-3. Access H2 Console: 
+1. **Clone:** `git clone https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git`
+2. **Run:** `./mvnw spring-boot:run` (requires Maven)
+3. **Data Initialisation:** The database is automatically pre-populated using `data.sql` for repeatable testing.
 
 ---
+
+### Database and Audit
+
+- **Access H2 Console:** `https://localhost:8080/h2-console` (using the JDBC URL specified in `application.yml`)
+- **Auditing:** Automated metadata tracking via `BaseEntity` and `JpaAuditAware`
+- **Relationship:** Demonstrates a One-to-Many relationship between `Brands` and `Guitars` with Cascading Deletes.
+
 
 ### Status Codes implemented
 
@@ -89,4 +115,10 @@ ToDo: add run data
 | 405 Method Not Allowed |                                                                  | Won't be able to reconcile it.                                         |
 | 409 Conflict           |                                                                  | In some cases it's not possible to update an existing resource.        |
 
-ToDo: add additional codes
+---
+
+### Validation
+
+Jakarta Validation is used at the DTO level.
+- Example: `@Positive` on price ensures inventory values are realistic.
+- Example: `@PastOrPresent` on manufacture dates prevents future entries.
