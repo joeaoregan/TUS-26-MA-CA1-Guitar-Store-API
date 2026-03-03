@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.tus.guitarstore.constants.GuitarStoreConstants;
+import edu.tus.guitarstore.dto.BrandDto;
 import edu.tus.guitarstore.dto.GuitarDto;
 import edu.tus.guitarstore.dto.ResponseDto;
 import edu.tus.guitarstore.service.IGuitarStoreService;
@@ -34,6 +35,13 @@ public class GuitarStoreController {
 				.body(new ResponseDto(GuitarStoreConstants.STATUS_201, GuitarStoreConstants.MESSAGE_201));
 	}
 
+	@PostMapping("/brands")
+	public ResponseEntity<ResponseDto> createBrand(@RequestBody BrandDto brandDto) {
+		iGuitarStoreService.createBrand(brandDto);
+		return ResponseEntity.status(HttpStatus.CREATED)
+				.body(new ResponseDto(GuitarStoreConstants.STATUS_201, "Brand created successfully"));
+	}
+
 	@GetMapping("/{modelName}")
 	public ResponseEntity<GuitarDto> fetchGuitar(@PathVariable String modelName) {
 		GuitarDto guitarDto = iGuitarStoreService.fetchGuitar(modelName);
@@ -46,6 +54,12 @@ public class GuitarStoreController {
 		return ResponseEntity.status(HttpStatus.OK).body(allGuitars);
 	}
 
+//	@GetMapping("/brands")
+//	public ResponseEntity<List<BrandDto>> fetchAllBrands() {
+//		List<BrandDto> allBrands = iGuitarStoreService.fetchAllBrands();
+//		return ResponseEntity.status(HttpStatus.OK).body(allBrands);
+//	}
+
 	@PutMapping
 	public ResponseEntity<ResponseDto> updateGuitar(@RequestBody GuitarDto guitarDto) {
 		boolean isUpdated = iGuitarStoreService.updateGuitar(guitarDto);
@@ -56,6 +70,17 @@ public class GuitarStoreController {
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
 					.body(new ResponseDto(GuitarStoreConstants.STATUS_417, GuitarStoreConstants.MESSAGE_417_UPDATE));
 		}
+	}
+
+	@PutMapping("/brands")
+	public ResponseEntity<ResponseDto> updateBrand(@RequestBody BrandDto brandDto) {
+		boolean isUpdated = iGuitarStoreService.updateBrand(brandDto);
+		if (isUpdated) {
+			return ResponseEntity.status(HttpStatus.OK)
+					.body(new ResponseDto(GuitarStoreConstants.STATUS_200, "Brand updated successfully"));
+		}
+		return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
+				.body(new ResponseDto(GuitarStoreConstants.STATUS_417, "Update failed"));
 	}
 
 	@DeleteMapping("/{modelName}")
