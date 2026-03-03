@@ -17,7 +17,8 @@
 
 1. **Clone:** `git clone https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git`
 2. **Run:** `./mvnw spring-boot:run` (requires Maven)
-3. **Data Initialisation:** The database is automatically pre-populated using `data.sql` for repeatable testing.
+3. **Test Page:** http://localhost:8080/hello (Test project running OK)
+4. **Data Initialisation:** The database is automatically pre-populated using `data.sql` for repeatable testing.
 </details>
 
 ---
@@ -27,6 +28,7 @@
 - **Domain:** Guitar Store Inventory Management.
 - **Standards:** Compliant with Atlassian RESTful Design Specification.
 - **Base URL:** http://localhost:8080/api/guitarstore/v1.
+- **Test URL:** http://localhost:8080/api/guitarstore/v1/guitars (display guitars in database).
 </details>
 
 ---
@@ -108,7 +110,7 @@
 <details>
   <summary>6. Database and Audit</summary>
 
-- **Access H2 Console:** `https://localhost:8080/h2-console` (using the JDBC URL specified in `application.yml`)
+- **Access H2 Console:** https://localhost:8080/h2-console (using the JDBC URL specified in `application.yml`)
 - **Auditing:** Automated metadata tracking via `BaseEntity` and `JpaAuditAware`
 - **Relationship:** Demonstrates a One-to-Many relationship between `Brands` and `Guitars` with Cascading Deletes.
 </details>
