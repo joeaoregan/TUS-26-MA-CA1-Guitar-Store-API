@@ -113,6 +113,9 @@
 - **Access H2 Console:** https://localhost:8080/h2-console (using the JDBC URL specified in `application.yml`)
 - **Auditing:** Automated metadata tracking via `BaseEntity` and `JpaAuditAware`
 - **Relationship:** Demonstrates a One-to-Many relationship between `Brands` and `Guitars` with Cascading Deletes.
+
+![Entity Relationship Diagram](https://raw.githubusercontent.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/refs/heads/master/static/images/erd.png)
+
 </details>
 
 ---
