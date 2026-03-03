@@ -13,9 +13,16 @@
 
 ---
 <details open>
-  <summary>1. Project Overview</summary>
+  <summary>1. How to Run</summary>
 
-### Project Overview
+1. **Clone:** `git clone https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git`
+2. **Run:** `./mvnw spring-boot:run` (requires Maven)
+3. **Data Initialisation:** The database is automatically pre-populated using `data.sql` for repeatable testing.
+</details>
+
+---
+<details>
+  <summary>2. Project Overview</summary>
 
 - **Domain:** Guitar Store Inventory Management.
 - **Standards:** Compliant with Atlassian RESTful Design Specification.
@@ -24,9 +31,8 @@
 
 ---
 <details>
-  <summary>2. Core Technology Requirements</summary>
+  <summary>3. Core Technology Requirements</summary>
 
-### Core Technology Requirements
 1. **Entity Relationships**
 
     One-to-many / many-to-many relationship between entities.
@@ -73,11 +79,9 @@
 
 ---
 <details>
-  <summary>3. Technology Stack</summary>
+  <summary>4. Technology Stack</summary>
 
-### Technology Stack
-
-- **Java Version (Tested with)?** Java 17+.
+- **Java Version:** Java 17+ (Tested with).
 - **Framework:** Spring Boot 3.x.\
   Framework for the RESTful API.
 - **Database:** H2 In-Memory Database (with JPA/Hibernate).\
@@ -89,9 +93,7 @@
 
 ---
 <details>
-  <summary>4. API Demonstration</summary>
-
-### API Demonstration
+  <summary>5. API Demonstration</summary>
 
 | Method | Endpoint              | Description                             | Status Code |
 | ------ | --------------------- | --------------------------------------- | ----------- |
@@ -104,20 +106,7 @@
 
 ---
 <details>
-  <summary>5. How to Run</summary>
-
-### How to Run
-
-1. **Clone:** `git clone https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git`
-2. **Run:** `./mvnw spring-boot:run` (requires Maven)
-3. **Data Initialisation:** The database is automatically pre-populated using `data.sql` for repeatable testing.
-</details>
-
----
-<details>
   <summary>6. Database and Audit</summary>
-
-### Database and Audit
 
 - **Access H2 Console:** `https://localhost:8080/h2-console` (using the JDBC URL specified in `application.yml`)
 - **Auditing:** Automated metadata tracking via `BaseEntity` and `JpaAuditAware`
@@ -127,8 +116,6 @@
 ---
 <details>
   <summary>7. Status Codes implemented</summary>
-
-### Status Codes implemented
 
 | Status Code            | Description                                                      | Guitar Store API Scenario                                              |
 | ---------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------- |
