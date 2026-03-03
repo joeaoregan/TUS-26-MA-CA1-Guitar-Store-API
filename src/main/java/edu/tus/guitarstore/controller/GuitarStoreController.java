@@ -20,48 +20,49 @@ import edu.tus.guitarstore.dto.BrandDto;
 import edu.tus.guitarstore.dto.GuitarDto;
 import edu.tus.guitarstore.dto.ResponseDto;
 import edu.tus.guitarstore.service.IGuitarStoreService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping(path = "/api/guitarstore/v1/guitars", produces = { MediaType.APPLICATION_JSON_VALUE })
+@RequestMapping(path = "/api/guitarstore/v1", produces = { MediaType.APPLICATION_JSON_VALUE })
 @AllArgsConstructor
 public class GuitarStoreController {
 	private IGuitarStoreService iGuitarStoreService;
 
-	@PostMapping
-	public ResponseEntity<ResponseDto> createGuitar(@RequestBody GuitarDto guitarDto) {
+	@PostMapping("/guitars")
+	public ResponseEntity<ResponseDto> createGuitar(@Valid @RequestBody GuitarDto guitarDto) {
 		iGuitarStoreService.createGuitar(guitarDto);
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(new ResponseDto(GuitarStoreConstants.STATUS_201, GuitarStoreConstants.MESSAGE_201));
 	}
 
 	@PostMapping("/brands")
-	public ResponseEntity<ResponseDto> createBrand(@RequestBody BrandDto brandDto) {
+	public ResponseEntity<ResponseDto> createBrand(@Valid @RequestBody BrandDto brandDto) {
 		iGuitarStoreService.createBrand(brandDto);
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(new ResponseDto(GuitarStoreConstants.STATUS_201, "Brand created successfully"));
 	}
 
-	@GetMapping("/{modelName}")
+	@GetMapping("/guitars/{modelName}")
 	public ResponseEntity<GuitarDto> fetchGuitar(@PathVariable String modelName) {
 		GuitarDto guitarDto = iGuitarStoreService.fetchGuitar(modelName);
 		return ResponseEntity.status(HttpStatus.OK).body(guitarDto);
 	}
 
-	@GetMapping
+	@GetMapping("/guitars")
 	public ResponseEntity<List<GuitarDto>> fetchAllGuitars() {
 		List<GuitarDto> allGuitars = iGuitarStoreService.fetchAllGuitars();
 		return ResponseEntity.status(HttpStatus.OK).body(allGuitars);
 	}
 
-//	@GetMapping("/brands")
-//	public ResponseEntity<List<BrandDto>> fetchAllBrands() {
-//		List<BrandDto> allBrands = iGuitarStoreService.fetchAllBrands();
-//		return ResponseEntity.status(HttpStatus.OK).body(allBrands);
-//	}
+	@GetMapping("/brands")
+	public ResponseEntity<List<BrandDto>> fetchAllBrands() {
+		List<BrandDto> allBrands = iGuitarStoreService.fetchAllBrands();
+		return ResponseEntity.status(HttpStatus.OK).body(allBrands);
+	}
 
-	@PutMapping
-	public ResponseEntity<ResponseDto> updateGuitar(@RequestBody GuitarDto guitarDto) {
+	@PutMapping("/guitars")
+	public ResponseEntity<ResponseDto> updateGuitar(@Valid @RequestBody GuitarDto guitarDto) {
 		boolean isUpdated = iGuitarStoreService.updateGuitar(guitarDto);
 		if (isUpdated) {
 			return ResponseEntity.status(HttpStatus.OK)
@@ -73,7 +74,7 @@ public class GuitarStoreController {
 	}
 
 	@PutMapping("/brands")
-	public ResponseEntity<ResponseDto> updateBrand(@RequestBody BrandDto brandDto) {
+	public ResponseEntity<ResponseDto> updateBrand(@Valid @RequestBody BrandDto brandDto) {
 		boolean isUpdated = iGuitarStoreService.updateBrand(brandDto);
 		if (isUpdated) {
 			return ResponseEntity.status(HttpStatus.OK)
@@ -83,7 +84,7 @@ public class GuitarStoreController {
 				.body(new ResponseDto(GuitarStoreConstants.STATUS_417, "Update failed"));
 	}
 
-	@DeleteMapping("/{modelName}")
+	@DeleteMapping("/guitars/{modelName}")
 	public ResponseEntity<ResponseDto> deleteGuitar(@RequestParam String modelName) {
 		boolean isDeleted = iGuitarStoreService.deleteGuitar(modelName);
 		if (isDeleted) {
