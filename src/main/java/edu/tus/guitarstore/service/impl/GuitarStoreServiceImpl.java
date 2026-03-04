@@ -111,8 +111,8 @@ public class GuitarStoreServiceImpl implements IGuitarStoreService {
 	}
 	
 	@Override
-	public Page<GuitarDto> fetchAllGuitarsPaginated() {
-	    Pageable pageable = PageRequest.of(0, 3, Sort.by("modelName").ascending());
+	public Page<GuitarDto> fetchAllGuitarsPaginated(int page, int size) {
+	    Pageable pageable = PageRequest.of(page, size, Sort.by("modelName").ascending());
 	    Page<Guitar> guitarPage = guitarRepository.findAll(pageable);
 	    
 	    return guitarPage.map(guitar -> GuitarMapper.mapToGuitarDto(guitar, new GuitarDto()));

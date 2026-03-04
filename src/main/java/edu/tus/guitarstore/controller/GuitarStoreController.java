@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import edu.tus.guitarstore.constants.GuitarStoreConstants;
 import edu.tus.guitarstore.dto.BrandDto;
@@ -96,8 +97,10 @@ public class GuitarStoreController {
 	}
 	
 	@GetMapping("/guitars/paginated")
-	public ResponseEntity<Page<GuitarDto>> fetchGuitarsPaginated() {
-		Page<GuitarDto> guitarPage = iGuitarStoreService.fetchAllGuitarsPaginated();
+	public ResponseEntity<Page<GuitarDto>> fetchGuitarsPaginated(
+	        @RequestParam(defaultValue = "0") int page,
+	        @RequestParam(defaultValue = "5") int size) {
+		Page<GuitarDto> guitarPage = iGuitarStoreService.fetchAllGuitarsPaginated(page, size);
 		return ResponseEntity.status(HttpStatus.OK).body(guitarPage);
 	}
 }
