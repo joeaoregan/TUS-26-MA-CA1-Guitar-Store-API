@@ -3,6 +3,7 @@ package edu.tus.guitarstore.dto;
 import java.time.LocalDate;
 
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
@@ -22,6 +23,7 @@ public class GuitarDto {
 	@Positive(message = "Price must be greater than zero")
 	private double price;
 
+	@NotNull(message = "Manufacture date is required, format YYYY-MM-DD")
 	@PastOrPresent(message = "Manufacture date cannot be in the future")
 	private LocalDate manufactureDate;
 
