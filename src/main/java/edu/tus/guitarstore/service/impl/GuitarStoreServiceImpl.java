@@ -111,6 +111,15 @@ public class GuitarStoreServiceImpl implements IGuitarStoreService {
 	}
 	
 	@Override
+	@Transactional
+	public boolean deleteBrand(String brandName) {
+	    Brand brand = brandRepository.findByName(brandName)
+	            .orElseThrow(() -> new ResourceNotFoundException("Brand", "name", brandName));
+	    brandRepository.delete(brand);
+	    return true;
+	}
+	
+	@Override
 	public Page<GuitarDto> fetchAllGuitarsPaginated(int page, int size) {
 	    Pageable pageable = PageRequest.of(page, size, Sort.by("modelName").ascending());
 	    Page<Guitar> guitarPage = guitarRepository.findAll(pageable);

@@ -95,11 +95,22 @@ public class GuitarStoreController {
 					.body(new ResponseDto(GuitarStoreConstants.STATUS_417, GuitarStoreConstants.MESSAGE_417_DELETE));
 		}
 	}
-	
+
+	@DeleteMapping("/brands/{brandName}")
+	public ResponseEntity<ResponseDto> deleteBrand(@PathVariable String brandName) {
+		boolean isDeleted = iGuitarStoreService.deleteBrand(brandName);
+		if (isDeleted) {
+			return ResponseEntity.status(HttpStatus.OK).body(new ResponseDto(GuitarStoreConstants.STATUS_200,
+					"Brand and associated guitars deleted successfully"));
+		} else {
+			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
+					.body(new ResponseDto(GuitarStoreConstants.STATUS_417, "Delete operation failed"));
+		}
+	}
+
 	@GetMapping("/guitars/paginated")
-	public ResponseEntity<Page<GuitarDto>> fetchGuitarsPaginated(
-	        @RequestParam(defaultValue = "0") int page,
-	        @RequestParam(defaultValue = "5") int size) {
+	public ResponseEntity<Page<GuitarDto>> fetchGuitarsPaginated(@RequestParam(defaultValue = "0") int page,
+			@RequestParam(defaultValue = "5") int size) {
 		Page<GuitarDto> guitarPage = iGuitarStoreService.fetchAllGuitarsPaginated(page, size);
 		return ResponseEntity.status(HttpStatus.OK).body(guitarPage);
 	}

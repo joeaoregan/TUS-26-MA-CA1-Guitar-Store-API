@@ -23,5 +23,7 @@ public interface IGuitarStoreService {
 
 	boolean deleteGuitar(String modelName);
 
+	boolean deleteBrand(String brandName);
+
 	Page<GuitarDto> fetchAllGuitarsPaginated(int page, int size);
 }
