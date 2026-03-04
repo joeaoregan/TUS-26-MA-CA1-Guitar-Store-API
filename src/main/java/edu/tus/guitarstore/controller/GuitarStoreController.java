@@ -1,5 +1,6 @@
 package edu.tus.guitarstore.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -113,5 +114,12 @@ public class GuitarStoreController {
 			@RequestParam(defaultValue = "5") int size) {
 		Page<GuitarDto> guitarPage = iGuitarStoreService.fetchAllGuitarsPaginated(page, size);
 		return ResponseEntity.status(HttpStatus.OK).body(guitarPage);
+	}
+
+	@GetMapping("/guitars/filter")
+	public ResponseEntity<List<GuitarDto>> filterGuitarsByDate(@RequestParam LocalDate start,
+			@RequestParam LocalDate end) {
+		List<GuitarDto> guitars = iGuitarStoreService.fetchGuitarsByDateRange(start, end);
+		return ResponseEntity.ok(guitars);
 	}
 }

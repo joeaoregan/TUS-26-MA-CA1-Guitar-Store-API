@@ -1,5 +1,6 @@
 package edu.tus.guitarstore.service.impl;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -125,5 +126,13 @@ public class GuitarStoreServiceImpl implements IGuitarStoreService {
 	    Page<Guitar> guitarPage = guitarRepository.findAll(pageable);
 	    
 	    return guitarPage.map(guitar -> GuitarMapper.mapToGuitarDto(guitar, new GuitarDto()));
+	}
+	
+	@Override
+	public List<GuitarDto> fetchGuitarsByDateRange(LocalDate start, LocalDate end) {
+	    List<Guitar> guitars = guitarRepository.findByManufactureDateBetween(start, end);
+	    return guitars.stream()
+	            .map(g -> GuitarMapper.mapToGuitarDto(g, new GuitarDto()))
+	            .collect(Collectors.toList());
 	}
 }

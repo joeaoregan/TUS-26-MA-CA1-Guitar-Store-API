@@ -1,5 +1,7 @@
 package edu.tus.guitarstore.repository;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,4 +20,6 @@ public interface GuitarRepository extends JpaRepository<Guitar, Long> {
 	@Transactional
 	@Modifying
 	void deleteByModelName(String modelName);
+	
+	List<Guitar> findByManufactureDateBetween(LocalDate start, LocalDate end);
 }
