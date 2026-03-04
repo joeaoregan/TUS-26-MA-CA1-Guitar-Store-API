@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.tus.guitarstore.constants.GuitarStoreConstants;
@@ -85,7 +84,7 @@ public class GuitarStoreController {
 	}
 
 	@DeleteMapping("/guitars/{modelName}")
-	public ResponseEntity<ResponseDto> deleteGuitar(@RequestParam String modelName) {
+	public ResponseEntity<ResponseDto> deleteGuitar(@PathVariable String modelName) {
 		boolean isDeleted = iGuitarStoreService.deleteGuitar(modelName);
 		if (isDeleted) {
 			return ResponseEntity.status(HttpStatus.OK)

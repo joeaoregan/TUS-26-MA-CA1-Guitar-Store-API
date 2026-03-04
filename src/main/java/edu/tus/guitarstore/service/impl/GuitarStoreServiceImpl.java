@@ -17,6 +17,7 @@ import edu.tus.guitarstore.mapper.GuitarMapper;
 import edu.tus.guitarstore.repository.BrandRepository;
 import edu.tus.guitarstore.repository.GuitarRepository;
 import edu.tus.guitarstore.service.IGuitarStoreService;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -71,11 +72,17 @@ public class GuitarStoreServiceImpl implements IGuitarStoreService {
 	}
 
 	@Override
+	@Transactional
 	public boolean updateGuitar(GuitarDto guitarDto) {
 		Guitar guitar = guitarRepository.findByModelName(guitarDto.getModelName())
-				.orElseThrow(() -> new ResourceNotFoundException("Guitar", "modelName", guitarDto.getModelName()));
-		GuitarMapper.mapToGuitar(guitarDto, guitar);
-		guitarRepository.save(guitar);
+				.orElseThrow(() -> new ResourceNotFoundException("Guitar", "modelName", guitarDto.getModelName())); 	// Find existing guitar or throw 404 error
+		GuitarMapper.mapToGuitar(guitarDto, guitar); // Map new data from DTO to Entity
+
+	    Brand brand = brandRepository.findByName(guitarDto.getBrandName())
+	            .orElseThrow(() -> new ResourceNotFoundException("Brand", "name", guitarDto.getBrandName())); 		// Referential integrity check, verify and set brand if changed
+		guitar.setBrand(brand);
+
+		guitarRepository.save(guitar); // Save updated guitar entity
 		return true;
 	}
 
@@ -91,10 +98,11 @@ public class GuitarStoreServiceImpl implements IGuitarStoreService {
 	}
 
 	@Override
+	@Transactional
 	public boolean deleteGuitar(String modelName) {
 		Guitar guitar = guitarRepository.findByModelName(modelName)
-				.orElseThrow(() -> new ResourceNotFoundException("Guitar", "modelName", modelName));
-		guitarRepository.deleteById(guitar.getId());
+				.orElseThrow(() -> new ResourceNotFoundException("Guitar", "modelName", modelName)); // 404 if id doesn't exist
+		guitarRepository.deleteById(guitar.getId()); // delete by ID
 		return true;
 	}
 }
