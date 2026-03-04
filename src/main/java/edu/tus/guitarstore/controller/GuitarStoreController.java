@@ -2,6 +2,7 @@ package edu.tus.guitarstore.controller;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import edu.tus.guitarstore.constants.GuitarStoreConstants;
 import edu.tus.guitarstore.dto.BrandDto;
 import edu.tus.guitarstore.dto.GuitarDto;
@@ -93,5 +93,11 @@ public class GuitarStoreController {
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
 					.body(new ResponseDto(GuitarStoreConstants.STATUS_417, GuitarStoreConstants.MESSAGE_417_DELETE));
 		}
+	}
+	
+	@GetMapping("/guitars/paginated")
+	public ResponseEntity<Page<GuitarDto>> fetchGuitarsPaginated() {
+		Page<GuitarDto> guitarPage = iGuitarStoreService.fetchAllGuitarsPaginated();
+		return ResponseEntity.status(HttpStatus.OK).body(guitarPage);
 	}
 }

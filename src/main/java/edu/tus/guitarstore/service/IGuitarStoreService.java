@@ -4,6 +4,8 @@ import edu.tus.guitarstore.dto.BrandDto;
 import edu.tus.guitarstore.dto.GuitarDto;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
 public interface IGuitarStoreService {
 	void createGuitar(GuitarDto guitarDto);
 
@@ -20,4 +22,6 @@ public interface IGuitarStoreService {
 	boolean updateBrand(BrandDto brandDto);
 
 	boolean deleteGuitar(String modelName);
+
+	Page<GuitarDto> fetchAllGuitarsPaginated();
 }

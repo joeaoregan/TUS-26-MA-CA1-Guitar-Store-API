@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import edu.tus.guitarstore.dto.BrandDto;
@@ -75,11 +79,11 @@ public class GuitarStoreServiceImpl implements IGuitarStoreService {
 	@Transactional
 	public boolean updateGuitar(GuitarDto guitarDto) {
 		Guitar guitar = guitarRepository.findByModelName(guitarDto.getModelName())
-				.orElseThrow(() -> new ResourceNotFoundException("Guitar", "modelName", guitarDto.getModelName())); 	// Find existing guitar or throw 404 error
+				.orElseThrow(() -> new ResourceNotFoundException("Guitar", "modelName", guitarDto.getModelName())); // Find existing guitar or throw 404 error
 		GuitarMapper.mapToGuitar(guitarDto, guitar); // Map new data from DTO to Entity
 
 	    Brand brand = brandRepository.findByName(guitarDto.getBrandName())
-	            .orElseThrow(() -> new ResourceNotFoundException("Brand", "name", guitarDto.getBrandName())); 		// Referential integrity check, verify and set brand if changed
+	            .orElseThrow(() -> new ResourceNotFoundException("Brand", "name", guitarDto.getBrandName())); // Referential integrity check, verify and set brand if changed
 		guitar.setBrand(brand);
 
 		guitarRepository.save(guitar); // Save updated guitar entity
@@ -104,5 +108,13 @@ public class GuitarStoreServiceImpl implements IGuitarStoreService {
 				.orElseThrow(() -> new ResourceNotFoundException("Guitar", "modelName", modelName)); // 404 if id doesn't exist
 		guitarRepository.deleteById(guitar.getId()); // delete by ID
 		return true;
+	}
+	
+	@Override
+	public Page<GuitarDto> fetchAllGuitarsPaginated() {
+	    Pageable pageable = PageRequest.of(0, 3, Sort.by("modelName").ascending());
+	    Page<Guitar> guitarPage = guitarRepository.findAll(pageable);
+	    
+	    return guitarPage.map(guitar -> GuitarMapper.mapToGuitarDto(guitar, new GuitarDto()));
 	}
 }
