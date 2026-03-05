@@ -15,6 +15,8 @@ public interface IGuitarStoreService {
 
 	GuitarDto fetchGuitar(String modelName);
 
+	BrandDto fetchBrand(String name);
+
 	List<GuitarDto> fetchAllGuitars();
 
 	List<BrandDto> fetchAllBrands();
@@ -28,6 +30,6 @@ public interface IGuitarStoreService {
 	boolean deleteBrand(String brandName);
 
 	Page<GuitarDto> fetchAllGuitarsPaginated(int page, int size);
-	
+
 	List<GuitarDto> fetchGuitarsByDateRange(LocalDate start, LocalDate end);
 }

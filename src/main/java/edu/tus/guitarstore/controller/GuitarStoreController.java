@@ -62,6 +62,12 @@ public class GuitarStoreController {
 		return ResponseEntity.status(HttpStatus.OK).body(allBrands);
 	}
 
+	@GetMapping("/brands/{brandName}")
+	public ResponseEntity<BrandDto> fetchBrand(@PathVariable String brandName) {
+		BrandDto brandDto = iGuitarStoreService.fetchBrand(brandName);
+		return ResponseEntity.status(HttpStatus.OK).body(brandDto);
+	}
+
 	@PutMapping("/guitars")
 	public ResponseEntity<ResponseDto> updateGuitar(@Valid @RequestBody GuitarDto guitarDto) {
 		boolean isUpdated = iGuitarStoreService.updateGuitar(guitarDto);

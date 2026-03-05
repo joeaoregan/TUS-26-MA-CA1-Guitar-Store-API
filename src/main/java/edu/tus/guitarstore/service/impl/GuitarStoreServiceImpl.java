@@ -63,7 +63,14 @@ public class GuitarStoreServiceImpl implements IGuitarStoreService {
 
 		return GuitarMapper.mapToGuitarDto(guitar, new GuitarDto());
 	}
-
+	
+	@Override
+	public BrandDto fetchBrand(String name) {
+		Brand brand = brandRepository.findByName(name)
+				.orElseThrow(() -> new ResourceNotFoundException("Brand", "name", name));
+		return BrandMapper.mapToBrandDto(brand, new BrandDto());
+	}
+	
 	@Override
 	public List<GuitarDto> fetchAllGuitars() {
 		return guitarRepository.findAll().stream().map(g -> GuitarMapper.mapToGuitarDto(g, new GuitarDto()))
@@ -132,7 +139,6 @@ public class GuitarStoreServiceImpl implements IGuitarStoreService {
 	public List<GuitarDto> fetchGuitarsByDateRange(LocalDate start, LocalDate end) {
 	    List<Guitar> guitars = guitarRepository.findByManufactureDateBetween(start, end);
 	    return guitars.stream()
-	            .map(g -> GuitarMapper.mapToGuitarDto(g, new GuitarDto()))
-	            .collect(Collectors.toList());
+				.map(g -> GuitarMapper.mapToGuitarDto(g, new GuitarDto())).collect(Collectors.toList());
 	}
 }
