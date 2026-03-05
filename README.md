@@ -108,7 +108,22 @@
 
 ---
 <details>
-  <summary>6. Database and Audit</summary>
+  <summary>6. Diagrams</summary>
+
+![Class Diagram](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/blob/master/static/images/class-diagram.png?raw=true)
+
+### System Architecture & Data Flow
+
+This class diagram illustrates the API’s adherence to the Single Responsibility Principle through a strictly layered architecture.
+* **Controller Layer:** Handles RESTful request mapping and URI routing.
+* **Service Layer:** Encapsulates business logic, managing the Brand and Guitar domains through specialized interfaces to ensure modularity.
+* **Mapping Layer:** Utilizes BrandMapper and GuitarMapper to decouple internal JPA entities from external Data Transfer Objects (DTOs), preventing internal database details from leaking to the consumer.
+* **Persistence Layer:** Leverages Spring Data JPA repositories to manage data access and maintain referential integrity with the H2 database.
+</details>
+
+---
+<details>
+  <summary>7. Database and Audit</summary>
 
 - **Access H2 Console:** https://localhost:8080/h2-console (using the JDBC URL specified in `application.yml`)
 - **Auditing:** Automated metadata tracking via `BaseEntity` and `JpaAuditAware`
@@ -120,7 +135,7 @@
 
 ---
 <details>
-  <summary>7. Status Codes implemented</summary>
+  <summary>8. Status Codes implemented</summary>
 
 | Status Code            | Description                                                      | Guitar Store API Scenario                                              |
 | ---------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------- |
