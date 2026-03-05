@@ -3,6 +3,8 @@ package edu.tus.guitarstore.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Service;
+
 import edu.tus.guitarstore.dto.BrandDto;
 import edu.tus.guitarstore.entity.Brand;
 import edu.tus.guitarstore.exception.ResourceNotFoundException;
@@ -10,7 +12,10 @@ import edu.tus.guitarstore.mapper.BrandMapper;
 import edu.tus.guitarstore.repository.BrandRepository;
 import edu.tus.guitarstore.service.IBrandService;
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
 
+@Service
+@AllArgsConstructor
 public class BrandServiceImpl implements IBrandService {
 	private BrandRepository brandRepository;
 
