@@ -22,31 +22,31 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping(path = "/api/guitarstore/v1", produces = { MediaType.APPLICATION_JSON_VALUE })
+@RequestMapping(path = "/api/guitarstore/v1/brands", produces = { MediaType.APPLICATION_JSON_VALUE })
 @AllArgsConstructor
 public class BrandController {
 	private IGuitarStoreService iGuitarStoreService;
 
-	@PostMapping("/brands")
+	@PostMapping
 	public ResponseEntity<ResponseDto> createBrand(@Valid @RequestBody BrandDto brandDto) {
 		iGuitarStoreService.createBrand(brandDto);
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(new ResponseDto(GuitarStoreConstants.STATUS_201, "Brand created successfully"));
 	}
 
-	@GetMapping("/brands")
+	@GetMapping
 	public ResponseEntity<List<BrandDto>> fetchAllBrands() {
 		List<BrandDto> allBrands = iGuitarStoreService.fetchAllBrands();
 		return ResponseEntity.status(HttpStatus.OK).body(allBrands);
 	}
 
-	@GetMapping("/brands/{brandName}")
+	@GetMapping("/{brandName}")
 	public ResponseEntity<BrandDto> fetchBrand(@PathVariable String brandName) {
 		BrandDto brandDto = iGuitarStoreService.fetchBrand(brandName);
 		return ResponseEntity.status(HttpStatus.OK).body(brandDto);
 	}
 
-	@PutMapping("/brands")
+	@PutMapping
 	public ResponseEntity<ResponseDto> updateBrand(@Valid @RequestBody BrandDto brandDto) {
 		boolean isUpdated = iGuitarStoreService.updateBrand(brandDto);
 		if (isUpdated) {
@@ -57,7 +57,7 @@ public class BrandController {
 				.body(new ResponseDto(GuitarStoreConstants.STATUS_417, "Update failed"));
 	}
 
-	@DeleteMapping("/brands/{brandName}")
+	@DeleteMapping("/{brandName}")
 	public ResponseEntity<ResponseDto> deleteBrand(@PathVariable String brandName) {
 		boolean isDeleted = iGuitarStoreService.deleteBrand(brandName);
 		if (isDeleted) {

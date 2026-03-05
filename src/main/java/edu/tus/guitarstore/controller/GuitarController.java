@@ -24,31 +24,31 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping(path = "/api/guitarstore/v1", produces = { MediaType.APPLICATION_JSON_VALUE })
+@RequestMapping(path = "/api/guitarstore/v1/guitars", produces = { MediaType.APPLICATION_JSON_VALUE })
 @AllArgsConstructor
 public class GuitarController {
 	private IGuitarStoreService iGuitarStoreService;
 
-	@PostMapping("/guitars")
+	@PostMapping
 	public ResponseEntity<ResponseDto> createGuitar(@Valid @RequestBody GuitarDto guitarDto) {
 		iGuitarStoreService.createGuitar(guitarDto);
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(new ResponseDto(GuitarStoreConstants.STATUS_201, GuitarStoreConstants.MESSAGE_201));
 	}
 
-	@GetMapping("/guitars/{modelName}")
+	@GetMapping("/{modelName}")
 	public ResponseEntity<GuitarDto> fetchGuitar(@PathVariable String modelName) {
 		GuitarDto guitarDto = iGuitarStoreService.fetchGuitar(modelName);
 		return ResponseEntity.status(HttpStatus.OK).body(guitarDto);
 	}
 
-	@GetMapping("/guitars")
+	@GetMapping
 	public ResponseEntity<List<GuitarDto>> fetchAllGuitars() {
 		List<GuitarDto> allGuitars = iGuitarStoreService.fetchAllGuitars();
 		return ResponseEntity.status(HttpStatus.OK).body(allGuitars);
 	}
 
-	@PutMapping("/guitars")
+	@PutMapping
 	public ResponseEntity<ResponseDto> updateGuitar(@Valid @RequestBody GuitarDto guitarDto) {
 		boolean isUpdated = iGuitarStoreService.updateGuitar(guitarDto);
 		if (isUpdated) {
@@ -60,7 +60,7 @@ public class GuitarController {
 		}
 	}
 
-	@DeleteMapping("/guitars/{modelName}")
+	@DeleteMapping("/{modelName}")
 	public ResponseEntity<ResponseDto> deleteGuitar(@PathVariable String modelName) {
 		boolean isDeleted = iGuitarStoreService.deleteGuitar(modelName);
 		if (isDeleted) {
@@ -72,7 +72,7 @@ public class GuitarController {
 		}
 	}
 
-	@GetMapping("/guitars/paginated")
+	@GetMapping("/paginated")
 	public ResponseEntity<Page<GuitarDto>> fetchGuitarsPaginated(@RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "5") int size) {
 		Page<GuitarDto> guitarPage = iGuitarStoreService.fetchAllGuitarsPaginated(page, size);
