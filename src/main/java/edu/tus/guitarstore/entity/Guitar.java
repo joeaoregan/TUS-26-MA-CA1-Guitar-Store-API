@@ -40,5 +40,4 @@ public class Guitar extends BaseEntity {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "brand_id") // Match FK column schema.sql
 	private Brand brand;
-
 }
