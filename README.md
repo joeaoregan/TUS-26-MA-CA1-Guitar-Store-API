@@ -21,6 +21,7 @@
 3. **Home Page:** http://localhost:8080
 4. **Test Page:** http://localhost:8080/hello (Test project running OK)
 5. **Data Initialisation:** The database is automatically pre-populated using `data.sql` for repeatable testing.
+6. **H2 Console:** http://localhost:8080/h2-console (Check in-memory database)
 
 </details>
 
@@ -174,6 +175,48 @@ This sequence diagram illustrates the end-to-end flow of a RESTful request withi
 
 </details>
 
+---
+
+<details open>
+  <summary>9. API Endpoints</summary>
+
+| Method | Endpoint                             | Description                               |
+| ------ | ------------------------------------ | ----------------------------------------- |
+| GET    | `/api/guitarstore/v1/guitars`        | Fetch all guitars                         |
+| GET    | `/api/guitarstore/v1/brands/{name}`  | Fetch brand with nested guitars           |
+| POST   | `/api/guitarstore/v1/guitars`        | Create a new guitar                       |
+| GET    | `/api/guitarstore/v1/guitars/filter` | Filter by date range (?start=...&end=...) |
+
+Request Body:
+
+```
+{
+  "modelName": "Player Telecaster",
+  "price": 569.00,
+  "manufactureDate": "2022-01-15",
+  "brandName": "Fender"
+}
+```
+**Note:** The `manufactureDate` must follow the ISO format YYYY-MM-DD
+
+### API-Quick-Start (Postman Ready)
+
+**Resource:** Guitars
+
+| Action | Method | URL                                                                  | Sample JSON Body                                                                                        |
+| ------ | ------ | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Create | POST   | `/api/guitarstore/v1/guitars`                                        | `{"modelName": "Dimebolt", "price": 999.00, "manufactureDate": "2006-07-07", "brandName": "Washburn"}`  |
+| Update | PUT    | `/api/guitarstore/v1/guitars`                                        | `{"modelName": "Dimebolt", "price": 1050.00, "manufactureDate": "2006-07-07", "brandName": "Washburn"}` |
+| Filter | GET    | `/api/guitarstore/v1/guitars/filter?start=2020-01-01&end=2026-12-31` | `None (Query Params)`                                                                                   |
+
+**Resource:** Brands
+
+| Action | Method | URL                                 | Sample JSON Body                       |
+| ------ | ------ | ----------------------------------- | -------------------------------------- |
+| Create | POST   | `/api/guitarstore/v1/brands`        | `{"name": "Gibson", "country": "USA"}` |
+| Fetch  | GET    | `/api/guitarstore/v1/brands/Fender` | None (Returns nested Guitars)          |
+
+</details>
 
 
 
