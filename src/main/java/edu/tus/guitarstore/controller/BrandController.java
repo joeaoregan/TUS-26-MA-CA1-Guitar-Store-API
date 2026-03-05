@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.tus.guitarstore.constants.GuitarStoreConstants;
 import edu.tus.guitarstore.dto.BrandDto;
 import edu.tus.guitarstore.dto.ResponseDto;
-import edu.tus.guitarstore.service.IGuitarStoreService;
+import edu.tus.guitarstore.service.IBrandService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
@@ -25,30 +25,30 @@ import lombok.AllArgsConstructor;
 @RequestMapping(path = "/api/guitarstore/v1/brands", produces = { MediaType.APPLICATION_JSON_VALUE })
 @AllArgsConstructor
 public class BrandController {
-	private IGuitarStoreService iGuitarStoreService;
+	private IBrandService iBrandService;
 
 	@PostMapping
 	public ResponseEntity<ResponseDto> createBrand(@Valid @RequestBody BrandDto brandDto) {
-		iGuitarStoreService.createBrand(brandDto);
+		iBrandService.createBrand(brandDto);
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(new ResponseDto(GuitarStoreConstants.STATUS_201, "Brand created successfully"));
 	}
 
 	@GetMapping
 	public ResponseEntity<List<BrandDto>> fetchAllBrands() {
-		List<BrandDto> allBrands = iGuitarStoreService.fetchAllBrands();
+		List<BrandDto> allBrands = iBrandService.fetchAllBrands();
 		return ResponseEntity.status(HttpStatus.OK).body(allBrands);
 	}
 
 	@GetMapping("/{brandName}")
 	public ResponseEntity<BrandDto> fetchBrand(@PathVariable String brandName) {
-		BrandDto brandDto = iGuitarStoreService.fetchBrand(brandName);
+		BrandDto brandDto = iBrandService.fetchBrand(brandName);
 		return ResponseEntity.status(HttpStatus.OK).body(brandDto);
 	}
 
 	@PutMapping
 	public ResponseEntity<ResponseDto> updateBrand(@Valid @RequestBody BrandDto brandDto) {
-		boolean isUpdated = iGuitarStoreService.updateBrand(brandDto);
+		boolean isUpdated = iBrandService.updateBrand(brandDto);
 		if (isUpdated) {
 			return ResponseEntity.status(HttpStatus.OK)
 					.body(new ResponseDto(GuitarStoreConstants.STATUS_200, "Brand updated successfully"));
@@ -59,7 +59,7 @@ public class BrandController {
 
 	@DeleteMapping("/{brandName}")
 	public ResponseEntity<ResponseDto> deleteBrand(@PathVariable String brandName) {
-		boolean isDeleted = iGuitarStoreService.deleteBrand(brandName);
+		boolean isDeleted = iBrandService.deleteBrand(brandName);
 		if (isDeleted) {
 			return ResponseEntity.status(HttpStatus.OK).body(new ResponseDto(GuitarStoreConstants.STATUS_200,
 					"Brand and associated guitars deleted successfully"));

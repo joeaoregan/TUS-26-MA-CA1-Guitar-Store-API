@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.tus.guitarstore.constants.GuitarStoreConstants;
 import edu.tus.guitarstore.dto.GuitarDto;
 import edu.tus.guitarstore.dto.ResponseDto;
-import edu.tus.guitarstore.service.IGuitarStoreService;
+import edu.tus.guitarstore.service.IGuitarService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
@@ -27,30 +27,30 @@ import lombok.AllArgsConstructor;
 @RequestMapping(path = "/api/guitarstore/v1/guitars", produces = { MediaType.APPLICATION_JSON_VALUE })
 @AllArgsConstructor
 public class GuitarController {
-	private IGuitarStoreService iGuitarStoreService;
+	private IGuitarService iGuitarService;
 
 	@PostMapping
 	public ResponseEntity<ResponseDto> createGuitar(@Valid @RequestBody GuitarDto guitarDto) {
-		iGuitarStoreService.createGuitar(guitarDto);
+		iGuitarService.createGuitar(guitarDto);
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(new ResponseDto(GuitarStoreConstants.STATUS_201, GuitarStoreConstants.MESSAGE_201));
 	}
 
 	@GetMapping("/{modelName}")
 	public ResponseEntity<GuitarDto> fetchGuitar(@PathVariable String modelName) {
-		GuitarDto guitarDto = iGuitarStoreService.fetchGuitar(modelName);
+		GuitarDto guitarDto = iGuitarService.fetchGuitar(modelName);
 		return ResponseEntity.status(HttpStatus.OK).body(guitarDto);
 	}
 
 	@GetMapping
 	public ResponseEntity<List<GuitarDto>> fetchAllGuitars() {
-		List<GuitarDto> allGuitars = iGuitarStoreService.fetchAllGuitars();
+		List<GuitarDto> allGuitars = iGuitarService.fetchAllGuitars();
 		return ResponseEntity.status(HttpStatus.OK).body(allGuitars);
 	}
 
 	@PutMapping
 	public ResponseEntity<ResponseDto> updateGuitar(@Valid @RequestBody GuitarDto guitarDto) {
-		boolean isUpdated = iGuitarStoreService.updateGuitar(guitarDto);
+		boolean isUpdated = iGuitarService.updateGuitar(guitarDto);
 		if (isUpdated) {
 			return ResponseEntity.status(HttpStatus.OK)
 					.body(new ResponseDto(GuitarStoreConstants.STATUS_200, GuitarStoreConstants.MESSAGE_200));
@@ -62,7 +62,7 @@ public class GuitarController {
 
 	@DeleteMapping("/{modelName}")
 	public ResponseEntity<ResponseDto> deleteGuitar(@PathVariable String modelName) {
-		boolean isDeleted = iGuitarStoreService.deleteGuitar(modelName);
+		boolean isDeleted = iGuitarService.deleteGuitar(modelName);
 		if (isDeleted) {
 			return ResponseEntity.status(HttpStatus.OK)
 					.body(new ResponseDto(GuitarStoreConstants.STATUS_200, GuitarStoreConstants.MESSAGE_200));
@@ -75,14 +75,14 @@ public class GuitarController {
 	@GetMapping("/paginated")
 	public ResponseEntity<Page<GuitarDto>> fetchGuitarsPaginated(@RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "5") int size) {
-		Page<GuitarDto> guitarPage = iGuitarStoreService.fetchAllGuitarsPaginated(page, size);
+		Page<GuitarDto> guitarPage = iGuitarService.fetchAllGuitarsPaginated(page, size);
 		return ResponseEntity.status(HttpStatus.OK).body(guitarPage);
 	}
 
 	@GetMapping("/guitars/filter")
 	public ResponseEntity<List<GuitarDto>> filterGuitarsByDate(@RequestParam LocalDate start,
 			@RequestParam LocalDate end) {
-		List<GuitarDto> guitars = iGuitarStoreService.fetchGuitarsByDateRange(start, end);
+		List<GuitarDto> guitars = iGuitarService.fetchGuitarsByDateRange(start, end);
 		return ResponseEntity.ok(guitars);
 	}
 }
