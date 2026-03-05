@@ -16,11 +16,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.tus.guitarstore.constants.GuitarStoreConstants;
 import edu.tus.guitarstore.dto.BrandDto;
+import edu.tus.guitarstore.dto.ErrorResponseDto;
 import edu.tus.guitarstore.dto.ResponseDto;
 import edu.tus.guitarstore.service.IBrandService;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
+@Tag(name = "Brand Controller", description = "CRUD operations for Guitar Brands")
 @RestController
 @RequestMapping(path = "/api/guitarstore/v1/brands", produces = { MediaType.APPLICATION_JSON_VALUE })
 @AllArgsConstructor
@@ -40,6 +48,9 @@ public class BrandController {
 		return ResponseEntity.status(HttpStatus.OK).body(allBrands);
 	}
 
+	@Operation(summary = "Fetch Brand Details", description = "REST API to fetch Brand details based on a brand name")
+	@ApiResponses({ @ApiResponse(responseCode = "200", description = "HTTP Status OK"),
+			@ApiResponse(responseCode = "404", description = "HTTP Status Not Found", content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))) })
 	@GetMapping("/{brandName}")
 	public ResponseEntity<BrandDto> fetchBrand(@PathVariable String brandName) {
 		BrandDto brandDto = iBrandService.fetchBrand(brandName);
