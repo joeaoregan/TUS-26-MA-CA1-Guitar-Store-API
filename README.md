@@ -179,15 +179,25 @@ This sequence diagram illustrates the end-to-end flow of a RESTful request withi
 
 <details open>
   <summary>9. API Endpoints</summary>
+  
+### API-Quick-Start (Postman Ready)
 
-| Method | Endpoint                             | Description                               |
-| ------ | ------------------------------------ | ----------------------------------------- |
-| GET    | `/api/guitarstore/v1/guitars`        | Fetch all guitars                         |
-| GET    | `/api/guitarstore/v1/brands/{name}`  | Fetch brand with nested guitars           |
-| POST   | `/api/guitarstore/v1/guitars`        | Create a new guitar                       |
-| GET    | `/api/guitarstore/v1/guitars/filter` | Filter by date range (?start=...&end=...) |
+The API is accessible at `http://localhost:8080/api/guitarstore/v1`. Below are the primary endpoints and sample payloads for testing.
 
-Request Body:
+**Resource:** Guitars
+
+
+| Action    | Method | Endpoint                                          | Description                               |
+| --------- | ------ | ------------------------------------------------- | ----------------------------------------- |
+| Fetch All | GET    | `/guitars`                                        | Fetch all guitars                         |
+| Search    | GET    | `/guitars/{modelName}`                            | Search for guitar by model name           |
+| Paginated | GET    | `/guitars/paginated?page=0&size=5`                | Server-side pagination                    |
+| Filter    | GET    | `/guitars/filter`                                 | Filter by date range (?start=...&end=...) |
+| Filter    | GET    | `/guitars/filter?start=2020-01-01&end=2025-12-31` | Filter by manufacture date example        |
+| Create    | POST   | `/guitars`                                        | Create a new guitar (include body)        |
+| Update    | PUT    | `/guitars`                                        | Update a guitar (include body)            |
+
+Sample POST Body (Create Guitar):
 
 ```
 {
@@ -199,22 +209,24 @@ Request Body:
 ```
 **Note:** The `manufactureDate` must follow the ISO format YYYY-MM-DD
 
-### API-Quick-Start (Postman Ready)
 
-**Resource:** Guitars
-
-| Action | Method | URL                                                                  | Sample JSON Body                                                                                        |
-| ------ | ------ | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Create | POST   | `/api/guitarstore/v1/guitars`                                        | `{"modelName": "Dimebolt", "price": 999.00, "manufactureDate": "2006-07-07", "brandName": "Washburn"}`  |
-| Update | PUT    | `/api/guitarstore/v1/guitars`                                        | `{"modelName": "Dimebolt", "price": 1050.00, "manufactureDate": "2006-07-07", "brandName": "Washburn"}` |
-| Filter | GET    | `/api/guitarstore/v1/guitars/filter?start=2020-01-01&end=2026-12-31` | `None (Query Params)`                                                                                   |
 
 **Resource:** Brands
 
-| Action | Method | URL                                 | Sample JSON Body                       |
-| ------ | ------ | ----------------------------------- | -------------------------------------- |
-| Create | POST   | `/api/guitarstore/v1/brands`        | `{"name": "Gibson", "country": "USA"}` |
-| Fetch  | GET    | `/api/guitarstore/v1/brands/Fender` | None (Returns nested Guitars)          |
+| Action        | Method | URL                   | Description                           |
+| ------------- | ------ | --------------------- | ------------------------------------- |
+| Fetch All     | POST   | `/brands`             | Retrieve all brands (include body)    |
+| Fetch Details | GET    | `/brands/{brandName}` | Get brand details with nested guitars |
+| Fetch         | GET    | `/brands/Fender`      | Example fetching Brand details        |
+
+Sample POST Body (Create Brand):
+
+```
+{
+  "name": "Gibson",
+  "country": "USA"
+}
+```
 
 </details>
 
