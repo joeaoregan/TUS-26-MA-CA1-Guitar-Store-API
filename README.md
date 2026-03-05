@@ -12,16 +12,20 @@
 (Click to Expand...)
 
 ---
+
 <details open>
   <summary>1. How to Run</summary>
 
 1. **Clone:** `git clone https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git`
 2. **Run:** `./mvnw spring-boot:run` (requires Maven)
-3. **Test Page:** http://localhost:8080/hello (Test project running OK)
-4. **Data Initialisation:** The database is automatically pre-populated using `data.sql` for repeatable testing.
+3. **Home Page:** http://localhost:8080
+4. **Test Page:** http://localhost:8080/hello (Test project running OK)
+5. **Data Initialisation:** The database is automatically pre-populated using `data.sql` for repeatable testing.
+
 </details>
 
 ---
+
 <details>
   <summary>2. Project Overview</summary>
 
@@ -29,9 +33,11 @@
 - **Standards:** Compliant with Atlassian RESTful Design Specification.
 - **Base URL:** http://localhost:8080/api/guitarstore/v1.
 - **Test URL:** http://localhost:8080/api/guitarstore/v1/guitars (display guitars in database).
+
 </details>
 
 ---
+
 <details>
   <summary>3. Core Technology Requirements</summary>
 
@@ -80,6 +86,7 @@
 </details>
 
 ---
+
 <details>
   <summary>4. Technology Stack</summary>
 
@@ -94,6 +101,7 @@
 </details>
 
 ---
+
 <details>
   <summary>5. API Demonstration</summary>
 
@@ -104,9 +112,11 @@
 | POST   | /guitars              | Create a new guitar (validated)         | 201 Created |
 | PUT    | /guitars              | Update guitar details                   | 200 OK      |
 | DELETE | /guitars/{name}       | Remove a guitar                         | 200 / 204   |
+
 </details>
 
 ---
+
 <details>
   <summary>6. Diagrams</summary>
 
@@ -119,9 +129,22 @@ This class diagram illustrates the API’s adherence to the Single Responsibilit
 * **Service Layer:** Encapsulates business logic, managing the Brand and Guitar domains through specialized interfaces to ensure modularity.
 * **Mapping Layer:** Utilizes BrandMapper and GuitarMapper to decouple internal JPA entities from external Data Transfer Objects (DTOs), preventing internal database details from leaking to the consumer.
 * **Persistence Layer:** Leverages Spring Data JPA repositories to manage data access and maintain referential integrity with the H2 database.
+
+![Sequence Diagram](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/blob/master/static/images/sequence-diagram.png?raw=true)
+
+### API Request-Response Lifecycle
+
+This sequence diagram illustrates the end-to-end flow of a RESTful request within the system:
+
+* **Request Interception:** The Controller receives the HTTP request and utilizes @PathVariable or @RequestBody to extract data.
+* **Business Logic Delegation:** The request is passed to the specialized Service layer (e.g., BrandService or GuitarService), ensuring a strict separation of concerns.
+* **Persistence & Mapping:** The service interacts with the JPA Repository for data access and uses Mappers to convert internal entities into DTOs, maintaining a secure API contract.
+* **Global Exception Handling:** If a resource is missing or data is invalid, the service layer throws a custom exception (e.g., ResourceNotFoundException).
+* **Structured Response:** The GlobalExceptionHandler intercepts the error and transforms it into a standardized ErrorResponseDto, ensuring the client receives consistent JSON feedback instead of a raw stack trace
 </details>
 
 ---
+
 <details>
   <summary>7. Database and Audit</summary>
 
@@ -134,6 +157,7 @@ This class diagram illustrates the API’s adherence to the Single Responsibilit
 </details>
 
 ---
+
 <details>
   <summary>8. Status Codes implemented</summary>
 
@@ -147,6 +171,7 @@ This class diagram illustrates the API’s adherence to the Single Responsibilit
 | 404 Not Found          |                                                                  | |
 | 405 Method Not Allowed |                                                                  | Won't be able to reconcile it.                                         |
 | 409 Conflict           |                                                                  | In some cases it's not possible to update an existing resource.        |
+
 </details>
 
 
