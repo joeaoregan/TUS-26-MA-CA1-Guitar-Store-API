@@ -18,11 +18,12 @@ public class Brand extends BaseEntity {
 	@Column(name = "id")
 	private Long id;
 
+	@Column(name = "name", unique=true)
 	private String name;
 
 	private String country;
 
-	@OneToMany(mappedBy = "brand", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "brand", cascade = CascadeType.ALL, orphanRemoval = true)
 	@ToString.Exclude // prevent infinite loops with Lombok
 	private List<Guitar> guitars;
 }

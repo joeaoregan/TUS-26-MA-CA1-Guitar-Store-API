@@ -1,6 +1,7 @@
 package edu.tus.guitarstore.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -21,8 +22,13 @@ public class BrandServiceImpl implements IBrandService {
 
 	@Override
 	public void createBrand(BrandDto brandDto) {
+	    Optional<Brand> existingBrand = brandRepository.findByName(brandDto.getName());	    
+	    if(existingBrand.isPresent()) {
+	        // Possible to throw Custom Exception ...but no time to implement
+	        throw new RuntimeException("Brand already exists with name: " + brandDto.getName());
+	    }
+	    
 		Brand brand = BrandMapper.mapToBrand(brandDto, new Brand());
-
 		brandRepository.save(brand);
 	}
 

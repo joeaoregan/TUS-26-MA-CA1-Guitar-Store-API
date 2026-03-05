@@ -29,7 +29,7 @@ public class Guitar extends BaseEntity {
 	@Column(name = "id")
 	private Long id;
 
-	@Column(name = "model_name") // must match database schema
+	@Column(name = "model_name", unique = true) // must match database schema, and be unique
 	private String modelName;
 
 	private double price;
