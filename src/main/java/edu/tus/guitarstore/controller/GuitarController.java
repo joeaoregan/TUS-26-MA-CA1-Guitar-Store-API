@@ -102,7 +102,7 @@ public class GuitarController {
 	}
 
 	@Operation(summary = "Filter Guitars by Date", description = "Retrieve guitars manufactured within a date range")
-	@GetMapping("/guitars/filter")
+	@GetMapping("/filter")
 	public ResponseEntity<List<GuitarDto>> filterGuitarsByDate(@RequestParam LocalDate start,
 			@RequestParam LocalDate end) {
 		List<GuitarDto> guitars = iGuitarService.fetchGuitarsByDateRange(start, end);
