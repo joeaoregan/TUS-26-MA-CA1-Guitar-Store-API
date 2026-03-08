@@ -38,7 +38,8 @@ public class GuitarController {
 	private IGuitarService iGuitarService;
 
 	@Operation(summary = "Create New Guitar", description = "REST API to create a new Guitar record")
-	@ApiResponses({ @ApiResponse(responseCode = "201", description = "HTTP Status Created"),
+	@ApiResponses({
+			@ApiResponse(responseCode = "201", description = "HTTP Status Created", content = @Content(schema = @Schema(implementation = ResponseDto.class))),
 			@ApiResponse(responseCode = "400", description = "Bad Request - Validation Failed", content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))) })
 	@PostMapping
 	public ResponseEntity<ResponseDto> createGuitar(@Valid @RequestBody GuitarDto guitarDto) {
@@ -57,6 +58,7 @@ public class GuitarController {
 	}
 
 	@Operation(summary = "Fetch All Guitars", description = "Retrieve the complete list of guitars")
+	@ApiResponses({ @ApiResponse(responseCode = "200", description = "HTTP Status OK") })
 	@GetMapping
 	public ResponseEntity<List<GuitarDto>> fetchAllGuitars() {
 		List<GuitarDto> allGuitars = iGuitarService.fetchAllGuitars();
@@ -64,8 +66,10 @@ public class GuitarController {
 	}
 
 	@Operation(summary = "Update Guitar Details", description = "Update price or details for an existing guitar")
-	@ApiResponses({ @ApiResponse(responseCode = "200", description = "HTTP Status OK"),
-			@ApiResponse(responseCode = "417", description = "Expectation Failed - Update Failed") })
+	@ApiResponses({
+			@ApiResponse(responseCode = "200", description = "HTTP Status OK", content = @Content(schema = @Schema(implementation = ResponseDto.class))),
+			@ApiResponse(responseCode = "417", description = "Expectation Failed - Update Failed", content = @Content(schema = @Schema(implementation = ResponseDto.class))),
+			@ApiResponse(responseCode = "400", description = "Bad Request (Validation)", content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))) })
 	@PutMapping
 	public ResponseEntity<ResponseDto> updateGuitar(@Valid @RequestBody GuitarDto guitarDto) {
 		boolean isUpdated = iGuitarService.updateGuitar(guitarDto);
@@ -79,8 +83,10 @@ public class GuitarController {
 	}
 
 	@Operation(summary = "Delete Guitar", description = "Remove a guitar from inventory using model name")
-	@ApiResponses({ @ApiResponse(responseCode = "200", description = "HTTP Status OK"),
-			@ApiResponse(responseCode = "404", description = "Guitar not found") })
+	@ApiResponses({
+			@ApiResponse(responseCode = "200", description = "HTTP Status OK", content = @Content(schema = @Schema(implementation = ResponseDto.class))),
+			@ApiResponse(responseCode = "417", description = "Expectation Failed - Delete Failed", content = @Content(schema = @Schema(implementation = ResponseDto.class))),
+			@ApiResponse(responseCode = "404", description = "Guitar not found", content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))) })
 	@DeleteMapping("/{modelName}")
 	public ResponseEntity<ResponseDto> deleteGuitar(@PathVariable String modelName) {
 		boolean isDeleted = iGuitarService.deleteGuitar(modelName);
@@ -94,6 +100,7 @@ public class GuitarController {
 	}
 
 	@Operation(summary = "Fetch Paginated Guitars", description = "Retrieve guitars using server-side pagination")
+	@ApiResponses({ @ApiResponse(responseCode = "200", description = "HTTP Status OK") })
 	@GetMapping("/paginated")
 	public ResponseEntity<Page<GuitarDto>> fetchGuitarsPaginated(@RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "5") int size) {
@@ -102,6 +109,8 @@ public class GuitarController {
 	}
 
 	@Operation(summary = "Filter Guitars by Date", description = "Retrieve guitars manufactured within a date range")
+	@ApiResponses({ @ApiResponse(responseCode = "200", description = "HTTP Status OK"),
+			@ApiResponse(responseCode = "400", description = "Invalid Date Format", content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))) })
 	@GetMapping("/filter")
 	public ResponseEntity<List<GuitarDto>> filterGuitarsByDate(@RequestParam LocalDate start,
 			@RequestParam LocalDate end) {

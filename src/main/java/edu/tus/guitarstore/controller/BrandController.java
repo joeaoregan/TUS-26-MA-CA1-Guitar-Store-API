@@ -34,7 +34,14 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class BrandController {
 	private IBrandService iBrandService;
-
+	
+	@Operation(summary = "Create Brand", description = "REST API to create a new Guitar Brand")
+	@ApiResponses({
+			@ApiResponse(responseCode = "201", description = "HTTP Status Created", 
+					content = @Content(schema = @Schema(implementation = ResponseDto.class))),
+			@ApiResponse(responseCode = "400", description = "HTTP Status Bad Request", 
+					content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))
+	})
 	@PostMapping
 	public ResponseEntity<ResponseDto> createBrand(@Valid @RequestBody BrandDto brandDto) {
 		iBrandService.createBrand(brandDto);
@@ -42,6 +49,10 @@ public class BrandController {
 				.body(new ResponseDto(GuitarStoreConstants.STATUS_201, "Brand created successfully"));
 	}
 
+	@Operation(summary = "Fetch All Brands", description = "REST API to fetch all available Guitar Brands")
+	@ApiResponses({
+			@ApiResponse(responseCode = "200", description = "HTTP Status OK")
+	})
 	@GetMapping
 	public ResponseEntity<List<BrandDto>> fetchAllBrands() {
 		List<BrandDto> allBrands = iBrandService.fetchAllBrands();
@@ -57,6 +68,15 @@ public class BrandController {
 		return ResponseEntity.status(HttpStatus.OK).body(brandDto);
 	}
 
+	@Operation(summary = "Update Brand", description = "REST API to update Brand details")
+	@ApiResponses({
+			@ApiResponse(responseCode = "200", description = "HTTP Status OK", 
+					content = @Content(schema = @Schema(implementation = ResponseDto.class))),
+			@ApiResponse(responseCode = "417", description = "Expectation Failed", 
+					content = @Content(schema = @Schema(implementation = ResponseDto.class))),
+			@ApiResponse(responseCode = "400", description = "Bad Request (Validation)", 
+					content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))
+	})
 	@PutMapping
 	public ResponseEntity<ResponseDto> updateBrand(@Valid @RequestBody BrandDto brandDto) {
 		boolean isUpdated = iBrandService.updateBrand(brandDto);
@@ -68,6 +88,13 @@ public class BrandController {
 				.body(new ResponseDto(GuitarStoreConstants.STATUS_417, "Update failed"));
 	}
 
+	@Operation(summary = "Delete Brand", description = "REST API to delete Brand and all associated guitars")
+	@ApiResponses({
+			@ApiResponse(responseCode = "200", description = "HTTP Status OK", 
+					content = @Content(schema = @Schema(implementation = ResponseDto.class))),
+			@ApiResponse(responseCode = "417", description = "Expectation Failed", 
+					content = @Content(schema = @Schema(implementation = ResponseDto.class)))
+	})
 	@DeleteMapping("/{brandName}")
 	public ResponseEntity<ResponseDto> deleteBrand(@PathVariable String brandName) {
 		boolean isDeleted = iBrandService.deleteBrand(brandName);
