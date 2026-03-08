@@ -2,6 +2,10 @@
 ## Microservices Architecture - CA1: REST API Assignment
 ### Technological University of the Shannon (Athlone)
 
+#### Branches
+
+- **Microservices Architecture CA1:** [ma-ca1](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/tree/ma-ca1)
+
 ---
 
 #### Guitar Store REST API
