@@ -14,7 +14,12 @@
 **Student Number:** A00258304
 
 
-<a href="https://youtu.be/z5adidLxAFg"><img src="https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/blob/master/static/images/logo.png?raw=true" title="Brands API Demo" height="150"/></a>
+<a href="https://youtu.be/VXFKyfw5zmo" target="_blank"><img src="https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/blob/master/static/images/api_guitars.png?raw=true" title="Guitars API Demo" width="200"/></a>
+
+###### Guitars API Demo Video
+
+
+<a href="https://youtu.be/z5adidLxAFg" target="_blank"><img src="https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/blob/master/static/images/api_brands.png?raw=true" title="Brands API Demo" width="200"/></a>
 
 ###### Brands API Demo Video
 
