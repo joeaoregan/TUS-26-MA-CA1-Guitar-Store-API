@@ -5,7 +5,9 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
+import io.swagger.v3.oas.models.tags.Tag;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.context.annotation.Bean;
@@ -15,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
 public class OpenApiConfig {
 
 	@Bean
-	public OpenAPI guitarStoreOpenAPI() {
+	OpenAPI guitarStoreOpenAPI() {
 		return new OpenAPI()
 				.info(new Info().title("Guitar Store Management API")
 						.description("A comprehensive RESTful API for managing musical instrument inventory. "
@@ -25,6 +27,12 @@ public class OpenApiConfig {
 						.termsOfService("http://swagger.io/terms/")
 						.license(new License().name("Apache 2.0").url("https://www.apache.org/licenses/LICENSE-2.0")))
 				.extensions(Map.of("x-keywords", "Spring Boot, REST, Microservices, JPA, Guitar Store"))
+				.tags(List.of(
+						new Tag().name("Guitar Controller")
+								.description("Operations related to guitar inventory management"),
+						new Tag().name("Brand Controller")
+								.description("Operations for managing instrument manufacturers"),
+						new Tag().name("Health Check").description("System monitoring and diagnostic endpoints")))
 				.externalDocs(new ExternalDocumentation().description("Guitar Store API Source Code & Project Wiki")
 						.url("https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API"));
 	}
