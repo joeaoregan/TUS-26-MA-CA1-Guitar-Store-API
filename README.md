@@ -14,8 +14,10 @@
 **Student Number:** A00258304
 
 
-![Class Diagram](?raw=true)
 <a href="https://youtu.be/z5adidLxAFg"><img src="https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/blob/master/static/images/logo.png?raw=true" title="Brands API Demo" height="150"/></a>
+
+###### Brands API Demo Video
+
 
 
 (Click to Expand...)
