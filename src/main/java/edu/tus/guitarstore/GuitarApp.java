@@ -11,5 +11,4 @@ public class GuitarApp {
     public static void main(String[] args) {
         SpringApplication.run(GuitarApp.class, args);
     }
-
 }
