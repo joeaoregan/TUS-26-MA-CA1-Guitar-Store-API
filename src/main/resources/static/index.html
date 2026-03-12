@@ -12,34 +12,34 @@
 </head>
 
 <body class="bg-gray-100 min-h-screen p-4 md:p-8 font-sans text-gray-900">
-    <div id="app" class="max-w-6xl mx-auto space-y-8">
+    <div id="app" v-cloak class="max-w-6xl mx-auto space-y-8">
 
         <header class="bg-white rounded-3xl shadow-sm p-8 text-center border border-gray-200">
             <img src="images/logo.png" alt="Guitar Store API Logo" class="mx-auto mb-6 max-w-xs md:max-w-sm h-auto">
             <h1 class="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">Guitar Store API is live!</h1>
             <p class="text-gray-500 mt-2 text-lg italic">Management System Dashboard & Monitoring</p>
         </header>
-
+		
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="bg-indigo-600 rounded-3xl p-6 shadow-lg text-white">
                 <h3 class="text-sm font-bold uppercase tracking-widest opacity-80 mb-4">Cloud Production (Render)</h3>
                 <div class="flex flex-col space-y-3">
                     <a href="https://tus-26-ma-ca1-guitar-store-api.onrender.com/swagger-ui/index.html" target="_blank"
-					class="flex justify-between items-center bg-white/10 hover:bg-white/20 p-3 rounded-xl transition">
+                        class="flex justify-between items-center bg-white/10 hover:bg-white/20 p-3 rounded-xl transition">
                         <span>Swagger UI (Cloud)</span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 							d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
 						</svg>
                     </a>
-					<a href="https://tus-26-ma-ca1-guitar-store-api.onrender.com/hello" target="_blank"
-						class="flex justify-between items-center bg-white/10 hover:bg-white/20 p-3 rounded-xl transition">
-						<span>Health Check (Cloud)</span>
-						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <a href="https://tus-26-ma-ca1-guitar-store-api.onrender.com/hello" target="_blank"
+                        class="flex justify-between items-center bg-white/10 hover:bg-white/20 p-3 rounded-xl transition">
+                        <span>Health Check (Cloud)</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+							d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
 						</svg>
-					</a>
+                    </a>
                 </div>
             </div>
 
@@ -47,19 +47,19 @@
                 <h3 class="text-sm font-bold uppercase tracking-widest opacity-80 mb-4">Local Development</h3>
                 <div class="flex flex-col space-y-3">
                     <a href="/swagger-ui/index.html" target="_blank"
-					class="flex justify-between items-center bg-white/5 hover:bg-white/10 p-3 rounded-xl transition">
+                        class="flex justify-between items-center bg-white/5 hover:bg-white/10 p-3 rounded-xl transition">
                         <span>Swagger UI (Local)</span>
                         <span class="text-xs bg-gray-700 px-2 py-1 rounded">8080</span>
                     </a>
                     <a href="/h2-console" target="_blank"
-					class="flex justify-between items-center bg-white/5 hover:bg-white/10 p-3 rounded-xl transition">
+                        class="flex justify-between items-center bg-white/5 hover:bg-white/10 p-3 rounded-xl transition">
                         <span>H2 Console</span>
                         <span class="text-xs bg-gray-700 px-2 py-1 rounded">DB</span>
-					</a>
-					<a href="/hello" target="_blank"
-						class="flex justify-between items-center bg-white/5 hover:bg-white/10 p-3 rounded-xl transition">
-						<span>Health Check</span>
-						<span class="text-xs bg-gray-700 px-2 py-1 rounded">Sanity</span>
+                    </a>
+                    <a href="/hello" target="_blank"
+                        class="flex justify-between items-center bg-white/5 hover:bg-white/10 p-3 rounded-xl transition">
+                        <span>Health Check</span>
+                        <span class="text-xs bg-gray-700 px-2 py-1 rounded">Sanity</span>
                     </a>
                 </div>
             </div>
@@ -68,52 +68,69 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div class="lg:col-span-1 space-y-6">
                 <div class="bg-white rounded-3xl p-6 border border-gray-200 shadow-sm text-center">
-                    <h2 class="text-xl font-black text-gray-800 mb-4 border-b pb-2">Core Specs</h2>
+                    <h2 class="text-xl font-black text-gray-800 mb-4 border-b pb-2 text-center">Core Specs</h2>
                     <ul class="space-y-4 text-sm text-gray-600 text-left">
-                        <li class="flex items-start"><span class="mr-3">🎸</span> One-to-Many entity relationship with cascading delete logic.</li>
-                        <li class="flex items-start"><span class="mr-3">📅</span> Type-safe Date handling with Java 8 Time API</li>
-                        <li class="flex items-start"><span class="mr-3">🏗️</span> Strict Separation of Concerns with DTO / Mapping Layers</li>
-                        <li class="flex items-start"><span class="mr-3">🛡️</span> Centralized Error Handling with Jakarta Validation.</li>
-						<li class="flex items-start"><span class="mr-3">📄</span> Efficient server-side Pagination.</li>
+                        <li class="flex items-start"><span class="mr-3 text-indigo-500">🎸</span> One-to-Many entity relationship with cascading delete logic.</li>
+                        <li class="flex items-start"><span class="mr-3 text-indigo-500">📅</span> Type-safe Date handling with Java 8 Time API</li>
+                        <li class="flex items-start"><span class="mr-3 text-indigo-500">🏗️</span> Strict Separation of Concerns with DTO / Mapping Layers</li>
+                        <li class="flex items-start"><span class="mr-3 text-indigo-500">🛡️</span> Centralized Error Handling with Jakarta Validation.</li>
+                        <li class="flex items-start"><span class="mr-3 text-indigo-500">📄</span> Efficient server-side Pagination.</li>
                     </ul>
                 </div>
+				
                 <div class="space-y-4">
-                    <div class="bg-white p-4 rounded-3xl text-center border border-gray-200 shadow-sm space-y-6">
-                    <h2 class="text-xl font-black text-gray-800 mb-4 border-b pb-2">API Demonstration</h2>
+                    <div class="bg-white p-4 rounded-3xl border border-gray-200 shadow-sm space-y-6">
+                        <!-- Heading centered as requested -->
+                        <h2 class="text-xl font-black text-gray-800 mb-4 border-b pb-2 text-center">API Demonstration</h2>
                         <div>
                             <div class="video-container mb-2">
-                                <iframe src="https://www.youtube.com/embed/VXFKyfw5zmo" title="Guitars Demo" frameborder="0"
-								allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/VXFKyfw5zmo" title="Guitars Demo" frameborder="0" allowfullscreen></iframe>
                             </div>
-                            <p class="text-[10px] font-black text-center text-gray-400 uppercase">Guitars API Demo</p>
+                            <p class="text-[10px] font-black text-center text-gray-400 uppercase tracking-widest">Guitars API Demo</p>
                         </div>
                         <div>
-							<div class="video-container mb-2">
-                                <iframe src="https://www.youtube.com/embed/z5adidLxAFg" frameborder="0"
-								allowfullscreen></iframe>
+                            <div class="video-container mb-2">
+                                <iframe src="https://www.youtube.com/embed/z5adidLxAFg" title="Brands Demo" frameborder="0" allowfullscreen></iframe>
                             </div>
-                            <p class="text-[10px] font-black text-center text-gray-400 uppercase">Brands API Demo</p>
+                            <p class="text-[10px] font-black text-center text-gray-400 uppercase tracking-widest">Brands API Demo</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="lg:col-span-2">
+            <div class="lg:col-span-2 space-y-6">
+                
+                <!-- Date Filter Bar (Guitars View Only) -->
+                <div v-if="activeView === 'guitars'" class="bg-white rounded-3xl p-6 border border-gray-200 shadow-sm">
+                    <h3 class="text-xs font-black text-gray-400 uppercase tracking-widest mb-4">Filter Inventory by Date Range</h3>
+                    <div class="flex flex-col sm:flex-row gap-4 items-end">
+                        <div class="flex-grow space-y-1">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase ml-1">Start Date</label>
+                            <input type="date" v-model="startDate" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition">
+                        </div>
+                        <div class="flex-grow space-y-1">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase ml-1">End Date</label>
+                            <input type="date" v-model="endDate" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition">
+                        </div>
+                        <div class="flex gap-2">
+                            <button @click="applyFilters" class="bg-indigo-600 text-white px-6 py-2 rounded-xl text-xs font-black uppercase hover:bg-indigo-700 transition shadow-lg shadow-indigo-100 active:scale-95">Apply</button>
+                            <button @click="clearFilters" class="bg-gray-100 text-gray-500 px-4 py-2 rounded-xl text-xs font-black uppercase hover:bg-gray-200 transition active:scale-95">Clear</button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden min-h-[600px] flex flex-col">
                     <div class="p-6 border-b flex flex-col sm:flex-row gap-4 justify-between items-center bg-gray-50">
                         <div class="inline-flex bg-gray-200 p-1 rounded-xl shadow-inner">
-                            <button @click="activeView = 'guitars'" :class="activeView === 'guitars' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'" class="px-4 py-2 rounded-lg text-xs font-black uppercase transition-all">Guitars</button>
-                            <button @click="activeView = 'brands'" :class="activeView === 'brands' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'" class="px-4 py-2 rounded-lg text-xs font-black uppercase transition-all">Brands</button>
+                            <button @click="activeView = 'guitars'" :class="activeView === 'guitars' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'" class="px-4 py-2 rounded-lg text-xs font-black uppercase transition-all duration-200">Guitars</button>
+                            <button @click="activeView = 'brands'" :class="activeView === 'brands' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'" class="px-4 py-2 rounded-lg text-xs font-black uppercase transition-all duration-200">Brands</button>
                         </div>
                         <div class="flex items-center gap-3">
                             <h2 class="hidden sm:flex font-black text-gray-800 items-center text-lg">
                                 <span class="w-3 h-3 bg-green-500 rounded-full animate-pulse mr-3"></span>
                                 Live {{ activeView === 'guitars' ? 'Inventory' : 'Manufacturers' }}
                             </h2>
-                            <button @click="refreshData"
-							class="text-xs bg-white border border-gray-300 px-4 py-2 rounded-xl hover:bg-gray-100 font-bold transition shadow-sm">
-							REFRESH API
-						</button>
+                            <button @click="refreshData" class="text-xs bg-white border border-gray-300 px-4 py-2 rounded-xl hover:bg-gray-100 font-bold transition shadow-sm active:scale-95 cursor-pointer">REFRESH API</button>
                         </div>
                     </div>
 
@@ -143,7 +160,7 @@
                                 </tbody>
                             </table>
 
-							<table v-if="activeView === 'brands'" class="w-full text-left border-collapse">
+                            <table v-if="activeView === 'brands'" class="w-full text-left border-collapse">
                                 <thead>
                                     <tr class="text-xs font-black text-gray-400 uppercase tracking-widest bg-gray-50 border-b">
                                         <th class="px-8 py-5">Brand Name</th>
@@ -168,23 +185,29 @@
                         <div v-if="activeView === 'guitars' && guitars.length > 0" class="p-4 border-t bg-gray-50 flex items-center justify-between">
                             <div class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Total Elements: {{ pagination.totalElements }}</div>
                             <div class="flex items-center gap-4">
-                                <button @click="prevPage" :disabled="pagination.currentPage === 0" class="p-2 rounded-lg bg-white border border-gray-300 disabled:opacity-30 hover:bg-gray-100 transition shadow-sm active:scale-95"><svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
+                                <button @click="prevPage" :disabled="pagination.currentPage === 0" class="p-2 rounded-lg bg-white border border-gray-300 disabled:opacity-30 hover:bg-gray-100 transition shadow-sm active:scale-95 cursor-pointer">
+                                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                </button>
                                 <span class="text-[11px] font-black text-indigo-600 uppercase tracking-widest">Page {{ pagination.currentPage + 1 }} / {{ pagination.totalPages }}</span>
-                                <button @click="nextPage" :disabled="pagination.currentPage >= pagination.totalPages - 1" class="p-2 rounded-lg bg-white border border-gray-300 disabled:opacity-30 hover:bg-gray-100 transition shadow-sm active:scale-95"><svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+                                <button @click="nextPage" :disabled="pagination.currentPage >= pagination.totalPages - 1" class="p-2 rounded-lg bg-white border border-gray-300 disabled:opacity-30 hover:bg-gray-100 transition shadow-sm active:scale-95 cursor-pointer">
+                                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                </button>
                             </div>
+                        </div>
+
+                        <div v-if="(activeView === 'guitars' && guitars.length === 0) || (activeView === 'brands' && brands.length === 0)" 
+                             class="px-8 py-20 text-center text-gray-400 italic font-mono text-xs">
+                            No records found matching criteria.
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <footer class="text-center pt-8 pb-12">
-            <p class="text-sm text-gray-400 font-medium tracking-tight uppercase">
-				&copy; 2026 Joe O'Regan &bull; TUS Microservices Architecture CA1
-			</p>
+        <footer class="text-center pt-8 pb-12 mt-4 border-t border-gray-200">
+            <p class="text-sm text-gray-400 font-medium tracking-tight uppercase">&copy; 2026 Joe O'Regan &bull; TUS Microservices Architecture CA1</p>
         </footer>
     </div>
-
     <script src="app.js"></script>
 </body>
 

@@ -3,10 +3,15 @@ const { createApp } = Vue;
 const app = createApp({
     data() {
         return {
-            activeView: 'guitars',
+            activeView: 'guitars', // Toggle state
             guitars: [],
             brands: [],
             loading: true,
+            error: null,
+            // Date parameters matching your backend 'start' and 'end' keys
+            startDate: '',
+            endDate: '',
+            // Pagination state
             pagination: {
                 currentPage: 0,
                 totalPages: 0,
@@ -25,19 +30,52 @@ const app = createApp({
         }
     },
     methods: {
+        applyFilters() {
+            // Logs to verify inputs are captured for your /filter endpoint
+            console.log("Applying filters. start=" + this.startDate + ", end=" + this.endDate);
+            this.pagination.currentPage = 0; // Reset to page 1 for results
+            this.fetchGuitars();
+        },
+        clearFilters() {
+            this.startDate = '';
+            this.endDate = '';
+            this.pagination.currentPage = 0;
+            this.fetchGuitars();
+        },
         async fetchGuitars() {
             this.loading = true;
+            this.error = null;
             try {
-                const url = `/api/guitarstore/v1/guitars/paginated?page=${this.pagination.currentPage}&size=${this.pagination.pageSize}`;
+                // Determine endpoint based on whether filter dates are provided
+                const isFiltered = this.startDate || this.endDate;
+                const endpoint = isFiltered ? 'filter' : 'paginated';
+                
+                let url = `/api/guitarstore/v1/guitars/${endpoint}?page=${this.pagination.currentPage}&size=${this.pagination.pageSize}`;
+                
+                // Append 'start' and 'end' keys confirmed by your Postman test
+                if (this.startDate) url += `&start=${this.startDate}`;
+                if (this.endDate) url += `&end=${this.endDate}`;
+
+                console.log("Requesting URL:", url);
+
                 const response = await fetch(url);
                 if (response.ok) {
                     const data = await response.json();
-                    this.guitars = data.content || [];
-                    this.pagination.totalPages = data.totalPages || 0;
-                    this.pagination.totalElements = data.totalElements || 0;
+                    
+                    // Handle Spring Page object vs raw list
+                    if (data.content) {
+                        this.guitars = data.content;
+                        this.pagination.totalPages = data.totalPages;
+                        this.pagination.totalElements = data.totalElements;
+                    } else {
+                        // Fallback for simple list results
+                        this.guitars = data;
+                        this.pagination.totalPages = 1;
+                        this.pagination.totalElements = data.length;
+                    }
                 }
             } catch (error) {
-                console.error("Fetch error:", error);
+                console.error("Guitar Fetch error:", error);
             } finally {
                 setTimeout(() => { this.loading = false; }, 400);
             }
