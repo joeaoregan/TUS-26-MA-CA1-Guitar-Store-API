@@ -14,12 +14,12 @@
 **Student Number:** A00258304
 
 
-<a href="https://youtu.be/VXFKyfw5zmo" target="_blank"><img src="https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/blob/master/static/images/api_guitars.png?raw=true" title="Guitars API Demo" width="200"/></a>
+<a href="https://youtu.be/VXFKyfw5zmo" target="_blank"><img src="src\main\resources\static\images\api_guitars.png" title="Guitars API Demo" width="200"/></a>
 
 ###### Guitars API Demo Video
 
 
-<a href="https://youtu.be/z5adidLxAFg" target="_blank"><img src="https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/blob/master/static/images/api_brands.png?raw=true" title="Brands API Demo" width="200"/></a>
+<a href="https://youtu.be/z5adidLxAFg" target="_blank"><img src="src\main\resources\static\images\api_brands.png" title="Brands API Demo" width="200"/></a>
 
 ###### Brands API Demo Video
 
@@ -137,7 +137,7 @@
 <details>
   <summary>6. Diagrams</summary>
 
-![Class Diagram](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/blob/master/static/images/class-diagram.png?raw=true)
+![Class Diagram](src\main\resources\static\images\class-diagram.png)
 
 ### System Architecture & Data Flow
 
@@ -147,7 +147,7 @@ This class diagram illustrates the API’s adherence to the Single Responsibilit
 * **Mapping Layer:** Utilizes BrandMapper and GuitarMapper to decouple internal JPA entities from external Data Transfer Objects (DTOs), preventing internal database details from leaking to the consumer.
 * **Persistence Layer:** Leverages Spring Data JPA repositories to manage data access and maintain referential integrity with the H2 database.
 
-![Sequence Diagram](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/blob/master/static/images/sequence-diagram.png?raw=true)
+![Sequence Diagram](src\main\resources\static\images\sequence-diagram.png)
 
 ### API Request-Response Lifecycle
 
@@ -169,7 +169,7 @@ This sequence diagram illustrates the end-to-end flow of a RESTful request withi
 - **Auditing:** Automated metadata tracking via `BaseEntity` and `JpaAuditAware`
 - **Relationship:** Demonstrates a One-to-Many relationship between `Brands` and `Guitars` with Cascading Deletes.
 
-![Entity Relationship Diagram](https://raw.githubusercontent.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/refs/heads/master/static/images/erd.png)
+![Entity Relationship Diagram](src\main\resources\static\images\erd.png)
 
 </details>
 
