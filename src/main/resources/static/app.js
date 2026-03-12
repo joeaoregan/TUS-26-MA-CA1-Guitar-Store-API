@@ -7,12 +7,16 @@ const app = createApp({
             guitars: [],
             brands: [],
             loading: true,
-            error: null
+            pagination: {
+                currentPage: 0,
+                totalPages: 0,
+                totalElements: 0,
+                pageSize: 5
+            }
         }
     },
     watch: {
         activeView(newView) {
-            console.log(`View switched to: ${newView}`);
             if (newView === 'brands' && this.brands.length === 0) {
                 this.fetchBrands();
             } else if (newView === 'guitars' && this.guitars.length === 0) {
@@ -23,46 +27,47 @@ const app = createApp({
     methods: {
         async fetchGuitars() {
             this.loading = true;
-            this.error = null;
-            console.log("Fetching Guitars...");
             try {
-                const response = await fetch('/api/guitarstore/v1/guitars');
+                const url = `/api/guitarstore/v1/guitars/paginated?page=${this.pagination.currentPage}&size=${this.pagination.pageSize}`;
+                const response = await fetch(url);
                 if (response.ok) {
                     const data = await response.json();
-                    this.guitars = Array.isArray(data) ? data : [];
-                    console.log("Guitars loaded:", this.guitars.length);
-                } else {
-                    throw new Error(`Server responded with ${response.status}`);
+                    this.guitars = data.content || [];
+                    this.pagination.totalPages = data.totalPages || 0;
+                    this.pagination.totalElements = data.totalElements || 0;
                 }
             } catch (error) {
-                console.error("Guitar Fetch error:", error);
-                this.error = "Failed to load guitars.";
+                console.error("Fetch error:", error);
             } finally {
                 setTimeout(() => { this.loading = false; }, 400);
             }
         },
         async fetchBrands() {
             this.loading = true;
-            this.error = null;
-            console.log("Fetching Brands...");
             try {
                 const response = await fetch('/api/guitarstore/v1/brands');
                 if (response.ok) {
-                    const data = await response.json();
-                    this.brands = Array.isArray(data) ? data : [];
-                    console.log("Brands loaded:", this.brands.length);
-                } else {
-                    throw new Error(`Server responded with ${response.status}`);
+                    this.brands = await response.json();
                 }
             } catch (error) {
-                console.error("Brand Fetch error:", error);
-                this.error = "Failed to load brands.";
+                console.error("Brand fetch error:", error);
             } finally {
                 setTimeout(() => { this.loading = false; }, 400);
             }
         },
+        nextPage() {
+            if (this.pagination.currentPage < this.pagination.totalPages - 1) {
+                this.pagination.currentPage++;
+                this.fetchGuitars();
+            }
+        },
+        prevPage() {
+            if (this.pagination.currentPage > 0) {
+                this.pagination.currentPage--;
+                this.fetchGuitars();
+            }
+        },
         refreshData() {
-            console.log("Manual refresh triggered");
             if (this.activeView === 'guitars') {
                 this.fetchGuitars();
             } else {
@@ -71,7 +76,6 @@ const app = createApp({
         }
     },
     mounted() {
-        console.log("Vue App Mounted Successfully");
         this.fetchGuitars();
     }
 });
