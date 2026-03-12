@@ -9,7 +9,6 @@ const app = createApp({
             loading: true,
             startDate: '',
             endDate: '',
-            // Store absolute min/max for "Clear" and initialization
             absMinDate: '',
             absMaxDate: '',
             pagination: {
@@ -17,8 +16,7 @@ const app = createApp({
                 totalPages: 0,
                 totalElements: 0,
                 pageSize: 5
-            },
-            isFirstLoad: true
+            }
         }
     },
     watch: {
@@ -31,40 +29,49 @@ const app = createApp({
         }
     },
     methods: {
-        // Scan all records (not just the current page) to find the absolute date bounds
+        // Formats database date strings (YYYY-MM-DD) to friendly table format (DD/MM/YYYY)
+        formatDateForDisplay(dateStr) {
+            if (!dateStr) return 'N/A';
+            const parts = dateStr.split('-');
+            if (parts.length !== 3) return dateStr;
+            const [year, month, day] = parts;
+            return `${day}/${month}/${year}`;
+        },
+
+        // Scans the entire database once on load to find the global 1998 and 2023 range
         async fetchDateBounds() {
             try {
-                // Fetch the full list once without pagination to find 1998-2023 range
                 const response = await fetch('/api/guitarstore/v1/guitars');
                 if (response.ok) {
                     const allGuitars = await response.json();
                     const dates = allGuitars
-                        .map(g => g.manufactureDate)
+                        .map(g => g.manufactureDate) 
                         .filter(d => d)
                         .sort();
 
                     if (dates.length > 0) {
-                        this.absMinDate = dates[0];
-                        this.absMaxDate = dates[dates.length - 1];
-                        // Initialize pickers
+                        this.absMinDate = dates[0]; // Oldest record (e.g. 1998-05-05)
+                        this.absMaxDate = dates[dates.length - 1]; // Newest record (e.g. 2023-05-20)
+                        
+                        // Initialize pickers to this full range immediately
                         this.startDate = this.absMinDate;
                         this.endDate = this.absMaxDate;
-                        console.log("Global Bounds found: " + this.absMinDate + " to " + this.absMaxDate);
+                        console.log("Global data bounds identified: " + this.absMinDate + " to " + this.absMaxDate);
                     }
                 }
             } catch (error) {
-                console.error("Bounds fetch error:", error);
+                console.error("Error setting picker bounds:", error);
             }
         },
 
         applyFilters() {
             console.log("Applying filters. start=" + this.startDate + ", end=" + this.endDate);
-            this.pagination.currentPage = 0; // Reset to page 1 for the filtered result
+            this.pagination.currentPage = 0; // Reset to page 1 for results
             this.fetchGuitars();
         },
 
         clearFilters() {
-            // Reset to global bounds instead of dd/mm/yyyy
+            // Reset pickers back to the absolute range (1998-2023) instead of blank
             this.startDate = this.absMinDate;
             this.endDate = this.absMaxDate;
             this.pagination.currentPage = 0;
@@ -74,12 +81,12 @@ const app = createApp({
         async fetchGuitars() {
             this.loading = true;
             try {
-                // Determine endpoint based on whether filters are different from global bounds
+                // Determine endpoint: use /filter if pickers are active, else /paginated
                 const isFiltered = (this.startDate !== this.absMinDate || this.endDate !== this.absMaxDate);
                 const endpoint = isFiltered ? 'filter' : 'paginated';
-
+                
                 let url = `/api/guitarstore/v1/guitars/${endpoint}?page=${this.pagination.currentPage}&size=${this.pagination.pageSize}`;
-
+                
                 if (this.startDate) url += `&start=${this.startDate}`;
                 if (this.endDate) url += `&end=${this.endDate}`;
 
@@ -88,7 +95,7 @@ const app = createApp({
                 const response = await fetch(url);
                 if (response.ok) {
                     const data = await response.json();
-
+                    
                     if (data.content) {
                         this.guitars = data.content;
                         this.pagination.totalPages = data.totalPages;
@@ -139,9 +146,9 @@ const app = createApp({
         }
     },
     async mounted() {
-        // Step 1: Find absolute bounds (1998 - 2023)
+        // Step 1: Find absolute bounds to restrict pickers
         await this.fetchDateBounds();
-        // Step 2: Fetch the first page of data
+        // Step 2: Load initial data
         this.fetchGuitars();
     }
 });
