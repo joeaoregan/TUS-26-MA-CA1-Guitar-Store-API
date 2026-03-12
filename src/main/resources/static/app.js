@@ -18,7 +18,7 @@ const app = createApp({
                 totalElements: 0,
                 pageSize: 5
             },
-            isFirstLoad: true 
+            isFirstLoad: true
         }
     },
     watch: {
@@ -39,7 +39,7 @@ const app = createApp({
                 if (response.ok) {
                     const allGuitars = await response.json();
                     const dates = allGuitars
-                        .map(g => g.manufactureDate) 
+                        .map(g => g.manufactureDate)
                         .filter(d => d)
                         .sort();
 
@@ -77,9 +77,9 @@ const app = createApp({
                 // Determine endpoint based on whether filters are different from global bounds
                 const isFiltered = (this.startDate !== this.absMinDate || this.endDate !== this.absMaxDate);
                 const endpoint = isFiltered ? 'filter' : 'paginated';
-                
+
                 let url = `/api/guitarstore/v1/guitars/${endpoint}?page=${this.pagination.currentPage}&size=${this.pagination.pageSize}`;
-                
+
                 if (this.startDate) url += `&start=${this.startDate}`;
                 if (this.endDate) url += `&end=${this.endDate}`;
 
@@ -88,7 +88,7 @@ const app = createApp({
                 const response = await fetch(url);
                 if (response.ok) {
                     const data = await response.json();
-                    
+
                     if (data.content) {
                         this.guitars = data.content;
                         this.pagination.totalPages = data.totalPages;
