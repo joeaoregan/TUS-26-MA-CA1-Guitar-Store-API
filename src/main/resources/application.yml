@@ -34,7 +34,12 @@ spring:
         format_sql: true
 # Custom metadata
 app:
+  title: Guitar Store Management API
   version: 1.0.0
   author: Joe O'Regan
   email: A00258304@student.tus.ie
   github: https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API
+  description:
+    A comprehensive RESTful API for managing musical instrument inventory. 
+    Developed as part of the Microservices Architecture Module. 
+    Key features include N-tier architecture, JPA Auditing, and DTO-based separation.
