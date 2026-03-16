@@ -4,6 +4,8 @@ server:
 
 # Use placeholders to read from environment variables or .env file
 spring:
+  application:
+    version: 1.0.0
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:h2:mem:guitardb}
     driverClassName: ${SPRING_DATASOURCE_DRIVER:org.h2.Driver}
@@ -30,3 +32,9 @@ spring:
     properties:
       hibernate:
         format_sql: true
+# Custom metadata
+app:
+  version: 1.0.0
+  author: Joe O'Regan
+  email: A00258304@student.tus.ie
+  github: https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API

@@ -10,11 +10,24 @@ import io.swagger.v3.oas.models.tags.Tag;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class OpenApiConfig {
+	
+	@Value("${spring.application.version}")
+    private String appVersion;
+	
+	@Value("${app.author}")
+    private String appAuthor;
+
+    @Value("${app.email}")
+    private String appEmail;
+
+    @Value("${app.github}")
+    private String appGithub;
 
 	@Bean
 	OpenAPI guitarStoreOpenAPI() {
@@ -23,7 +36,7 @@ public class OpenApiConfig {
 						.description("A comprehensive RESTful API for managing musical instrument inventory. "
 								+ "Developed as part of the Microservices Architecture Module. "
 								+ "Key features include N-tier architecture, JPA Auditing, and DTO-based separation.")
-						.version("v1.0.0").contact(new Contact().name("Joe O'Regan").email("A00258304@student.tus.ie"))
+						.version(appVersion).contact(new Contact().name(appAuthor).email(appEmail))
 						.termsOfService("http://swagger.io/terms/")
 						.license(new License().name("Apache 2.0").url("https://www.apache.org/licenses/LICENSE-2.0")))
 				.extensions(Map.of("x-keywords", "Spring Boot, REST, Microservices, JPA, Guitar Store"))
@@ -34,6 +47,6 @@ public class OpenApiConfig {
 								.description("Operations for managing instrument manufacturers"),
 						new Tag().name("Health Check").description("System monitoring and diagnostic endpoints")))
 				.externalDocs(new ExternalDocumentation().description("Guitar Store API Source Code & Project Wiki")
-						.url("https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API"));
+						.url(appGithub));
 	}
 }
