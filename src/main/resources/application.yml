@@ -40,9 +40,10 @@ app:
   email: A00258304@student.tus.ie
   github: https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API
   description: |
+    <img src="/images/logo.png" width="300" alt="Guitar Store Logo" />
     ### 🎸 Guitar Store Inventory Management
-    A comprehensive RESTful API for managing musical instrument inventory. 
-    Developed as part of the **Microservices Architecture Module**.
+    A comprehensive RESTful API for managing musical instrument inventory. \
+    Developed as part of the **Microservices Architecture** module. \
     Key features include N-tier architecture, JPA Auditing, and DTO-based separation.
     
     #### Key Features:
