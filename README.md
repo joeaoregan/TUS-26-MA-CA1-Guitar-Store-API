@@ -13,6 +13,9 @@
 ![Lombok](https://img.shields.io/badge/Lombok-Enabled-BC043C)
 ![Dotenv](https://img.shields.io/badge/Dotenv-Java--5.2.2-ecd53f?logo=dotenv&logoColor=black)
 ![Architecture](https://img.shields.io/badge/Architecture-N--Tier/DTO-orange)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API?color=orange)
+![GitHub last commit](https://img.shields.io/github/last-commit/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API?color=blue)
 ![Status](https://img.shields.io/badge/Status-Stable-success)
 
 #### Branches
