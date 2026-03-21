@@ -2,6 +2,19 @@
 ## Microservices Architecture - CA1: REST API Assignment
 ### Technological University of the Shannon (Athlone)
 
+![Java 21](https://img.shields.io/badge/Java-21-blue?logo=openjdk&logoColor=white)
+![Spring Boot 3.5.11](https://img.shields.io/badge/Spring_Boot-3.5.11-6DB33F?logo=spring-boot&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-Latest-C71A36?logo=apache-maven&logoColor=white)
+![Render](https://img.shields.io/badge/Render-Deployed-46E3B7?logo=render&logoColor=white)
+![H2 Database](https://img.shields.io/badge/H2_Database-In--Memory-blue?logo=databricks&logoColor=white)
+![Hibernate](https://img.shields.io/badge/Hibernate-JPA-59666C?logo=hibernate&logoColor=white)
+![OpenAPI 3](https://img.shields.io/badge/OpenAPI-3.0-6BA539?logo=openapi-initiative&logoColor=white)
+![Swagger UI](https://img.shields.io/badge/Swagger-UI-85EA2D?logo=swagger&logoColor=black)
+![Lombok](https://img.shields.io/badge/Lombok-Enabled-BC043C)
+![Dotenv](https://img.shields.io/badge/Dotenv-Java--5.2.2-ecd53f?logo=dotenv&logoColor=black)
+![Architecture](https://img.shields.io/badge/Architecture-N--Tier/DTO-orange)
+![Status](https://img.shields.io/badge/Status-Stable-success)
+
 #### Branches
 
 - **Microservices Architecture CA1:** [ma-ca1](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/tree/ma-ca1)
@@ -37,12 +50,22 @@
 <details open>
   <summary>1. How to Run</summary>
 
-1. **Clone:** `git clone https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git`
-2. **Run:** `./mvnw spring-boot:run` (requires Maven)
-3. **Home Page:** http://localhost:8080
-4. **Test Page:** http://localhost:8080/hello (Test project running OK)
-5. **Data Initialisation:** The database is automatically pre-populated using `data.sql` for repeatable testing.
-6. **H2 Console:** http://localhost:8080/h2-console (Check in-memory database)
+1. **Clone Repository:** 
+```bash
+git clone https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git
+```
+2. **Environment Setup:** Create a .env file in the root directory (Project uses java-dotenv).
+3. **Run:** (requires Maven)
+```bash
+./mvnw spring-boot:run
+``` 
+4. **Local Access Points:**
+- **Dashboard:** http://localhost:8080
+- **Swagger UI:** http://localhost:8080/swagger-ui/index.html
+- **Test Page:** http://localhost:8080/hello (Test project running OK)
+- **H2 DB Console:** http://localhost:8080/h2-console (Check in-memory database)
+
+The database is automatically pre-populated using `data.sql` for repeatable testing.
 
 </details>
 
@@ -251,6 +274,8 @@ Sample POST Body (Create Brand):
 
 </details>
 
-
+<p align="center">
+&copy; 2026 Joe O'Regan &bull; TUS Microservices Architecture
+</p>
 
 
