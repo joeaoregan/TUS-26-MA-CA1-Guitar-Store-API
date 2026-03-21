@@ -16,7 +16,9 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API?color=orange)
 ![GitHub last commit](https://img.shields.io/github/last-commit/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API?color=blue)
+![GitHub top language](https://img.shields.io/github/languages/top/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API)
 ![Status](https://img.shields.io/badge/Status-Stable-success)
+![Stars](https://img.shields.io/github/stars/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API?style=social)
 
 #### Branches
 
