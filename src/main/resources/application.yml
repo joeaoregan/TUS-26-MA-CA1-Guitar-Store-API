@@ -27,7 +27,7 @@ spring:
 # first create table then insert data:
     hibernate:
 #      ddl-auto: validate # use once schema finalised - only working with persistent db
-      ddl-auto: update # able to alter tables
+      ddl-auto: none # able to alter tables
     show-sql: true
 # print sql queries in a readable format
     properties:
