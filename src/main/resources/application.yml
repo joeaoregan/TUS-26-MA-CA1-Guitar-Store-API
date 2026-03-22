@@ -26,8 +26,8 @@ spring:
 #     database-platform: org.hibernate.dialect.H2Dialect # db agnostic
 # first create table then insert data:
     hibernate:
-#      ddl-auto: validate # use once schema finalised
-      ddl-auto: validate # able to alter tables
+#      ddl-auto: validate # use once schema finalised - only working with persistent db
+      ddl-auto: update # able to alter tables
     show-sql: true
 # print sql queries in a readable format
     properties:
