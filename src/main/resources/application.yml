@@ -21,12 +21,13 @@ spring:
 # Explicitly define H2 console path
       path: /h2-console
   jpa:
+    open-in-view: false
     defer-datasource-initialization: true
 #     database-platform: org.hibernate.dialect.H2Dialect # db agnostic
 # first create table then insert data:
     hibernate:
 #      ddl-auto: validate # use once schema finalised
-      ddl-auto: update # able to alter tables
+      ddl-auto: validate # able to alter tables
     show-sql: true
 # print sql queries in a readable format
     properties:
