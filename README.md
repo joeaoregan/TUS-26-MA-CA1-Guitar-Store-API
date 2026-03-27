@@ -23,6 +23,8 @@
 #### Branches
 
 - **Microservices Architecture CA1:** [ma-ca1](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/tree/ma-ca1)
+- **Continuous Build & Delivery CA1:** [cbd-ca1](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/tree/cbd-ca1) *(N.B.: Point in time I created the [CBD-CA1](TUS-26-CBD-CA1-AI-Assisted-Testing
+) repo from, not the actual assignment repo)*
 
 #### App
 
