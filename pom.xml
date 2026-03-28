@@ -12,7 +12,7 @@
 	<artifactId>guitar-store-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>TUS-26-MA-CA1-Guitar-Store-API</name>
-	<description>Microservices Architecture CA1 - Development and Demonstration of a REST API.</description>
+	<description>Microservices Architecture CA1 - Development and Demonstration of a REST API. Continuous Build and Delivery CA1 - AI Assisted Testing</description>
 	<url/>
 	<licenses>
 		<license/>

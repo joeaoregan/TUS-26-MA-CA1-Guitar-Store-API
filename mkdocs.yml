@@ -1,0 +1,67 @@
+site_name: Guitar Store API Docs
+docs_dir: docs
+site_dir: site
+theme:
+  logo: images/logo.png
+  palette: 
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - toc.follow
+    - navigation.footer
+    - navigation.instant.preview
+    - navigation.tracking
+    - navigation.path
+    - navigation.top
+
+nav:
+  - Home: 
+    - index.md
+  - Microservices Architecture:
+    - 1_ma/index.md
+  - Continuous Build and Delivery:
+    - 2_cbd/cbdCA1.md
+  - Guide:
+    - guide/index.md
+    - guide/2_project_overview.md
+    - guide/3_core_tech.md
+    - guide/4_tech_stack.md
+    - guide/5_api_demo.md
+    - guide/6_diagrams.md
+    - guide/7_database.md
+    - guide/8_status_codes.md
+    - guide/9_end_points.md
+  - Links:
+    - links/index.md
+  
+markdown_extensions:
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - def_list
+  - pymdownx.superfences
+  
+  - material.extensions.preview:
+      configurations:
+        - targets:
+            include:
+              - index.md
+
+repo_url: https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API
+repo_name: GitHub
+
+site_url: https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/

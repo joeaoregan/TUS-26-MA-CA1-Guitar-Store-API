@@ -1,5 +1,6 @@
 # Guitar Store REST API
 ## Microservices Architecture - CA1: REST API Assignment
+## Continuous Build and Delivery - CA1: AI Assisted Testing
 ### Technological University of the Shannon (Athlone)
 
 ![Java 21](https://img.shields.io/badge/Java-21-blue?logo=openjdk&logoColor=white)
@@ -23,8 +24,7 @@
 #### Branches
 
 - **Microservices Architecture CA1:** [ma-ca1](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/tree/ma-ca1)
-- **Continuous Build & Delivery CA1:** [cbd-ca1](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/tree/cbd-ca1) *(N.B.: Point in time I created the [CBD-CA1](TUS-26-CBD-CA1-AI-Assisted-Testing
-) repo from, not the actual assignment repo)*
+- **Continuous Build and Delivery CA1:** [cbd-ca1](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/tree/cbd-ca1)
 
 #### App
 
@@ -47,10 +47,6 @@
 <a href="https://youtu.be/z5adidLxAFg" target="_blank"><img src="src\main\resources\static\images\api_brands.png" title="Brands API Demo" width="200"/></a>
 
 ###### Brands API Demo Video
-
-
-
-(Click to Expand...)
 
 ---
 
@@ -282,7 +278,8 @@ Sample POST Body (Create Brand):
 </details>
 
 <p align="center">
-&copy; 2026 Joe O'Regan &bull; TUS Microservices Architecture
+&copy; 2026 Joe O'Regan<br/>
+TUS Microservices Architecture CA1 &bull; TUS Continuous Build and Delivery CA1
 </p>
 
 
