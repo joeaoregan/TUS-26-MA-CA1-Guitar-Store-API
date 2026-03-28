@@ -33,8 +33,9 @@
     - Clear, consistent error responses.
 
     Examples:
+
     - Example: `@Positive` on price ensures inventory values are realistic.
-    - Example: `@PastOrPresent` on manufacture dates prevents future entries.\
+    - Example: `@PastOrPresent` on manufacture dates prevents future entries.  
     Jakarta Validation is used at the DTO level.
 
 5. **Pagination**

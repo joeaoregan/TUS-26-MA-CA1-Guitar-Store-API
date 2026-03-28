@@ -6,6 +6,12 @@
 git clone https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git
 ```
 2. **Environment Setup:** Create a .env file in the root directory (Project uses java-dotenv).
+```bash
+SPRING_DATASOURCE_URL=<url>
+SPRING_DATASOURCE_DRIVER=<org.h2.Driver>
+SPRING_DATASOURCE_USERNAME=<username>
+SPRING_DATASOURCE_PASSWORD=<password>
+```
 3. **Run:** (requires Maven)
 ```bash
 ./mvnw spring-boot:run
@@ -16,4 +22,4 @@ git clone https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git
 - **Test Page:** `http://localhost:8080/hello` (Test project running OK)
 - **H2 DB Console:** `http://localhost:8080/h2-console` (Check in-memory database)
 
-The database is automatically pre-populated using `data.sql` for repeatable testing.
+The database is automatically pre-populated using [data.sql](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/blob/master/src/main/resources/data.sql) for repeatable testing.
