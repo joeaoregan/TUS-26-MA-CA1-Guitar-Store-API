@@ -5,7 +5,7 @@
 
 The API is accessible at `http://localhost:8080/api/guitarstore/v1`. Below are the primary endpoints and sample payloads for testing.
 
-**Resource:** Guitars
+### **Resource:** Guitars
 
 
 | Action    | Method | Endpoint                                          | Description                               |
@@ -18,7 +18,7 @@ The API is accessible at `http://localhost:8080/api/guitarstore/v1`. Below are t
 | Create    | POST   | `/guitars`                                        | Create a new guitar (include body)        |
 | Update    | PUT    | `/guitars`                                        | Update a guitar (include body)            |
 
-Sample POST Body (Create Guitar):
+#### Sample POST Body (Create Guitar):
 
 ```
 {
@@ -31,7 +31,7 @@ Sample POST Body (Create Guitar):
 **Note:** The `manufactureDate` must follow the ISO format YYYY-MM-DD
 
 
-**Resource:** Brands
+### **Resource:** Brands
 
 | Action        | Method | URL                   | Description                           |
 | ------------- | ------ | --------------------- | ------------------------------------- |
@@ -39,7 +39,7 @@ Sample POST Body (Create Guitar):
 | Fetch Details | GET    | `/brands/{brandName}` | Get brand details with nested guitars |
 | Fetch         | GET    | `/brands/Fender`      | Example fetching Brand details        |
 
-Sample POST Body (Create Brand):
+#### Sample POST Body (Create Brand):
 
 ```
 {

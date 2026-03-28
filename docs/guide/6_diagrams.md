@@ -1,8 +1,10 @@
 # 6. Diagrams
 
+## Class Diagram
+
 ![Class Diagram](../images/class-diagram.png)
 
-##### Class Diagram
+##### Guitar Store API Class Diagram
 
 ## System Architecture & Data Flow
 
@@ -15,7 +17,7 @@ This class diagram illustrates the API’s adherence to the Single Responsibilit
 
 ![Sequence Diagram](../images/sequence-diagram.png)
 
-##### Sequence Diagram
+##### API Sequence Diagram
 
 ## API Request-Response Lifecycle
 
