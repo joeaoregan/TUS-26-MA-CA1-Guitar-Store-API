@@ -15,6 +15,13 @@
 ![Dotenv](https://img.shields.io/badge/Dotenv-Java--5.2.2-ecd53f?logo=dotenv&logoColor=black)
 ![Architecture](https://img.shields.io/badge/Architecture-N--Tier/DTO-orange)
 
+![Software Testing](https://img.shields.io/badge/Software_Testing-2E3192?style=flat&logo=checkmarx&logoColor=white)
+![JUnit5](https://img.shields.io/badge/JUnit5-25A162?style=flat&logo=junit5&logoColor=white)
+![Mockito](https://img.shields.io/badge/Mockito-78A3AD?style=flat&logo=google-chrome&logoColor=white)
+![Karate](https://img.shields.io/badge/Karate-D45500?style=flat&logo=karate&logoColor=white)
+![TestRestTemplate](https://img.shields.io/badge/TestRestTemplate-6DB33F?style=flat&logo=spring&logoColor=white)
+![Test Pyramid](https://img.shields.io/badge/Test_Pyramid-0052CC?style=flat&logo=atlassian&logoColor=white)
+
 ![GitHub repo size](https://img.shields.io/github/repo-size/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API?color=orange)
 ![GitHub last commit](https://img.shields.io/github/last-commit/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API?color=blue)
 ![GitHub top language](https://img.shields.io/github/languages/top/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API)
