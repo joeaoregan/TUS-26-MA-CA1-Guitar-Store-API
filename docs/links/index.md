@@ -1,5 +1,9 @@
 # Links
 
+## GitHub Repository
+
+- <https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API>
+
 ## Branches
 
 - **Microservices Architecture CA1:** [ma-ca1](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/tree/ma-ca1)
@@ -20,3 +24,7 @@
 <a href="https://youtu.be/z5adidLxAFg" target="_blank"><img src="../images/api_brands.png" title="Brands API Demo" width="200"/></a>
 
 ###### Brands API Demo Video
+
+## Online MkDocs Documentation
+
+- <https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/>

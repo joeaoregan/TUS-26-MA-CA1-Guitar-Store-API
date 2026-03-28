@@ -25,6 +25,7 @@ The relationship must be
 - Navigable through API endpoints  
 
 Required operations include:  
+
 - Retrieving all child entities for a given parent 
 - Creating, updating and deleting child entities associated with a parent. 
 - Implementing a cascading delete if appropriate for the domain model 
@@ -32,7 +33,9 @@ Required operations include:
 ### 2. Use of Date and Time Objects 
 
 The API must correctly handle date-related data. 
+
 Requirements: 
+
 - Accept and validate date inputs 
 - Use a consistent, documented format (e.g. YYY-MM-DD)  
 - Provide at least one endpoint that: 
@@ -43,12 +46,14 @@ Requirements:
 
 Use **Data Transfer Objects (DTOs)** to control the data exchanged between 
 the client and the server. This ensures: 
+
 - Separation of concerns by decoupling the internal data model from 
 the API response format. 
 - Clean and minimal responses that expose only the required data 
 fields. 
 
 Examples: 
+
 - Instead of exposing the full `Customer` entity in the API, use a 
 `CustomerDTO` that includes only essential fields such as `name`, 
 `email`, and `totalOrders`. 
@@ -59,12 +64,14 @@ as `orderId`, `orderDate`, and `amount`.
 
 The API must implement structured and meaningful error handling. 
 Required: API consumers.  
+
 - Validating client input 
 - Appropriate HTTP status codes and error messages (e.g., 400 Bad 
 Request, 404 Not Found). 
 - Clear, consistent error responses  
 
 Examples:  
+
 - Requesting a non-existent resource, the API should return a 404 error 
 with a descriptive message. 
 - Invalid request body, return a 400 error with validation feedback. 
@@ -73,23 +80,25 @@ with a descriptive message.
 
 The API must support pagination for endpoints returning collections. 
 Requirements: 
+
 - Pagination parameters must be documented. 
 - Responses must clearly indicate: 
-  - Page size 
-  - Current page or offset 
-  - Total elements (where applicable)  
+    - Page size 
+    - Current page or offset 
+    - Total elements (where applicable)  
 
 ## Deliverables 
 
 ### 1. Report 
 The report must include: 
+
 - Introduction and overview of the API 
 - Explanation of: 
-  - Entity relationships 
-  - Date handling 
-  - DTO usage 
-  - Pagination strategy 
-  - Error handling approach 
+    - Entity relationships 
+    - Date handling 
+    - DTO usage 
+    - Pagination strategy 
+    - Error handling approach 
 - Database design (ERD or equivalent) 
 - Sample API responses 
 - Challenges encountered and solutions 
@@ -105,80 +114,96 @@ The report must include:
 
 #### 0:00 – 0:45 | Opening Context (≈45 seconds) 
 State clearly and briefly: 
+
 - What the API does 
 - The problem domain (e.g. Customers and Orders) 
 - The core design goals 
 
 #### 0:45 – 2:00 | High-Level Architecture (≈75 seconds) 
-Show: 
+Show:  
+
 - Project structure 
 - Main layers (controller, service, repository, DTOs) 
 
-Explain: 
+Explain:  
+
 - Why the layers exist 
 - How data flows from request → controller → service → persistence → response 
 
 Avoid: 
+
 - Opening every file 
 - Line-by-line explanations 
 
 #### 2:00 – 3:30 | Data Model & Relationships (≈90 seconds) 
 Show: 
+
 - Database schema or ERD 
 - One-to-many (or many-to-many) relationship 
 
 Explain: 
+
 - How entities relate 
 - How this relationship is enforced (foreign keys, mappings, joins) 
 - How the API exposes this relationship via endpoints 
 
 Example: 
+
 - Fetching all orders for a specific customer 
 - Creating a child entity linked to a parent 
 
 #### 3:30 – 5:00 | DTOs and Data Flow (≈90 seconds) 
 Show: 
+
 - At least one DTO 
 - Mapping between entity and DTO 
 
 Explain: 
+
 - Why DTOs are used 
 - What data is intentionally not exposed 
 - Difference between internal model and API response 
 
 #### 5:00 – 6:30 | API Demonstration: Core Endpoints (≈90 seconds) 
 Using Postman (or similar), demonstrate: 
+
 - GET (collection + single resource) 
 - POST (creation) 
 - PUT or DELETE (update or removal) 
 
-Explain: 
+Explain:  
+
 - Request structure 
 - Response structure 
 - HTTP status codes returned 
 
 #### 6:30 – 7:45 | Pagination & Date Handling (≈75 seconds) 
-Demonstrate: 
+Demonstrate:  
+
 - Paginated endpoint 
 - Date-based filtering or sorting 
 
-Explain: 
+Explain:  
+
 - Pagination parameters 
 - Why pagination is necessary 
 - How date validation or formatting is handled 
 
 #### 7:45 – 9:00 | Error Handling & Validation (≈75 seconds) 
-Intentionally trigger errors: 
+Intentionally trigger errors:  
+
 - Request a non-existent resource (404) 
 - Send invalid input (400) 
 
-Explain: 
+Explain:  
+
 - How validation is enforced 
 - How errors are structured 
 - Why meaningful errors matter for API consumers 
 
 #### 9:00 – 10:00 | Wrap-Up & Reflection (≈60 seconds) 
-Summarise: 
+Summarise:  
+
 - What was demonstrated 
 - Key design decisions 
 - One challenge faced and how it was resolved 
@@ -283,8 +308,10 @@ and a complete reference list.
 
 #### Good (55–69) 
 Most sources are cited correctly, with minor formatting errors. 
+
 #### Satisfactory (40–54) 
 Some sources are cited, but referencing is inconsistent or incomplete. 
+
 #### Fail (0–39) 
 Sources are not cited or referencing conventions are not followed. 
 

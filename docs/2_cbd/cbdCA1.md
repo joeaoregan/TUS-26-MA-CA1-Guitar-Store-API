@@ -107,9 +107,9 @@ You must include:
 - the prompt showing the constraint or rule given to the AI (e.g. prohibiting use of the Spring context, restricting mocking, enforcing constructor injection), 
 - the AI-generated output produced under this constraint, 
 - a brief explanation of: 
-  - what behaviour was being prevented, 
-  - why the constraint was necessary, 
-  - how the constraint improved test quality, performance, or alignment with the Test Pyramid. 
+    - what behaviour was being prevented, 
+    - why the constraint was necessary, 
+    - how the constraint improved test quality, performance, or alignment with the Test Pyramid. 
 
 ### 4.3 Test Strategy, Dependency Injection, and Mocking 
 
@@ -165,7 +165,7 @@ Section 1, 2 and 3 in report and based on report and code.
 | ----- | -------- |	
 | Excellent <br>(70%+) | Test suite is well-structured and intentionally designed across multiple <br> levels of the Test Pyramid. Dependency injection is used correctly to <br> enable testability. Mocking is applied appropriately and selectively, with <br>clear justification. Tests are meaningful, non-trivial, and correctly <br>scoped. AI-assisted tests demonstrate clear added value and are <br>guided by strong human judgement. Clear mapping to test pyramid. |
 | Good <br>(55\-69%) | Test suite covers more than one test level with generally sound <br>structure. Dependency injection and mocking are mostly appropriate, <br>though some decisions lack clarity or depth of justification. Most tests <br>are useful but occasionally shallow or redundant. Purpose of tests at <br>each level not clear. |
-| Satisfactory<br>(40\–54%) | Test suite shows limited variety across test levels or inconsistent <br>structure. Use of dependency injection and mocking is uneven or <br>weakly justified. |
+| Satisfactory<br>(40\-54%) | Test suite shows limited variety across test levels or inconsistent <br>structure. Use of dependency injection and mocking is uneven or <br>weakly justified. |
 |Fail <br>(0\-39%) |	Test suite is minimal, poorly structured, or incorrectly implemented. <br>Misuse of Spring testing features, dependency injection, or mocks is <br>evident. Tests are trivial, brittle, or ineffective. No mapping to test <br>pyramid. |
  
 ### 2. AI Interaction Log (Five Examples) (40%) 
