@@ -1085,7 +1085,12 @@
 <li><strong>Clone Repository:</strong> 
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git
 </code></pre></div></li>
-<li><strong>Environment Setup:</strong> Create a .env file in the root directory (Project uses java-dotenv).</li>
+<li><strong>Environment Setup:</strong> Create a .env file in the root directory (Project uses java-dotenv).
+<div class="highlight"><pre><span></span><code><span class="nv">SPRING_DATASOURCE_URL</span><span class="o">=</span>&lt;url&gt;
+<span class="nv">SPRING_DATASOURCE_DRIVER</span><span class="o">=</span>&lt;org.h2.Driver&gt;
+<span class="nv">SPRING_DATASOURCE_USERNAME</span><span class="o">=</span>&lt;username&gt;
+<span class="nv">SPRING_DATASOURCE_PASSWORD</span><span class="o">=</span>&lt;password&gt;
+</code></pre></div></li>
 <li><strong>Run:</strong> (requires Maven)
 <div class="highlight"><pre><span></span><code>./mvnw<span class="w"> </span>spring-boot:run
 </code></pre></div></li>
@@ -1095,7 +1100,7 @@
 <li><strong>Test Page:</strong> <code>http://localhost:8080/hello</code> (Test project running OK)</li>
 <li><strong>H2 DB Console:</strong> <code>http://localhost:8080/h2-console</code> (Check in-memory database)</li>
 </ol>
-<p>The database is automatically pre-populated using <code>data.sql</code> for repeatable testing.</p>
+<p>The database is automatically pre-populated using <a href="https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/blob/master/src/main/resources/data.sql">data.sql</a> for repeatable testing.</p>
 
 
 
