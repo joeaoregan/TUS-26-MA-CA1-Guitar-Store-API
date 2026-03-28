@@ -35,4 +35,8 @@ build/
 # Envionment variables
 .env
 
+# Python virtual environment
 .venv/
+
+# MkDocs
+site/
