@@ -43,12 +43,12 @@
 **Student Number:** A00258304
 
 
-<a href="https://youtu.be/VXFKyfw5zmo" target="_blank"><img src="src\main\resources\static\images\api_guitars.png" title="Guitars API Demo" width="200"/></a>
+<a href="https://youtu.be/VXFKyfw5zmo" target="_blank"><img src="..\src\main\resources\static\images\api_guitars.png" title="Guitars API Demo" width="200"/></a>
 
 ###### Guitars API Demo Video
 
 
-<a href="https://youtu.be/z5adidLxAFg" target="_blank"><img src="src\main\resources\static\images\api_brands.png" title="Brands API Demo" width="200"/></a>
+<a href="https://youtu.be/z5adidLxAFg" target="_blank"><img src="..\src\main\resources\static\images\api_brands.png" title="Brands API Demo" width="200"/></a>
 
 ###### Brands API Demo Video
 
@@ -278,6 +278,8 @@ Sample POST Body (Create Brand):
   "country": "USA"
 }
 ```
+
+*For more information see [online docs](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/)*
 
 </details>
 

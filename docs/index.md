@@ -4,7 +4,7 @@
 
 ## Guitar Store REST API
 
-**Student Name:** Joe O'Regan  
+**Student Name:** [Joe O'Regan](https://github.com/joeaoregan)  
 **Student Number:** A00258304
 
 ## Contents
