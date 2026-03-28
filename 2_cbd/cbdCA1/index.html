@@ -1758,10 +1758,12 @@ control how tests were generated. </p>
 <ul>
 <li>the prompt showing the constraint or rule given to the AI (e.g. prohibiting use of the Spring context, restricting mocking, enforcing constructor injection), </li>
 <li>the AI-generated output produced under this constraint, </li>
-<li>a brief explanation of: </li>
+<li>a brief explanation of: <ul>
 <li>what behaviour was being prevented, </li>
 <li>why the constraint was necessary, </li>
 <li>how the constraint improved test quality, performance, or alignment with the Test Pyramid. </li>
+</ul>
+</li>
 </ul>
 <h3 id="43-test-strategy-dependency-injection-and-mocking">4.3 Test Strategy, Dependency Injection, and Mocking</h3>
 <p><img alt="Testing Pyramid" src="../../images/test-pyramid.jpg" /></p>
@@ -1830,7 +1832,7 @@ control how tests were generated. </p>
 <td>Test suite covers more than one test level with generally sound <br>structure. Dependency injection and mocking are mostly appropriate, <br>though some decisions lack clarity or depth of justification. Most tests <br>are useful but occasionally shallow or redundant. Purpose of tests at <br>each level not clear.</td>
 </tr>
 <tr>
-<td>Satisfactory<br>(40\–54%)</td>
+<td>Satisfactory<br>(40-54%)</td>
 <td>Test suite shows limited variety across test levels or inconsistent <br>structure. Use of dependency injection and mocking is uneven or <br>weakly justified.</td>
 </tr>
 <tr>

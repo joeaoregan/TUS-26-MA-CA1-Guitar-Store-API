@@ -2521,64 +2521,84 @@ separation of concerns. The focus is on clarity, correctness and maintainability
 <li>Reflected in the database schema </li>
 <li>Navigable through API endpoints  </li>
 </ul>
-<p>Required operations include:<br />
-- Retrieving all child entities for a given parent 
-- Creating, updating and deleting child entities associated with a parent. 
-- Implementing a cascading delete if appropriate for the domain model </p>
+<p>Required operations include:  </p>
+<ul>
+<li>Retrieving all child entities for a given parent </li>
+<li>Creating, updating and deleting child entities associated with a parent. </li>
+<li>Implementing a cascading delete if appropriate for the domain model </li>
+</ul>
 <h3 id="2-use-of-date-and-time-objects">2. Use of Date and Time Objects</h3>
-<p>The API must correctly handle date-related data. 
-Requirements: 
-- Accept and validate date inputs 
-- Use a consistent, documented format (e.g. YYY-MM-DD)<br />
-- Provide at least one endpoint that: 
-  - Filters by date range, or 
-  - Sorts results based on date fields </p>
+<p>The API must correctly handle date-related data. </p>
+<p>Requirements: </p>
+<ul>
+<li>Accept and validate date inputs </li>
+<li>Use a consistent, documented format (e.g. YYY-MM-DD)  </li>
+<li>Provide at least one endpoint that: </li>
+<li>Filters by date range, or </li>
+<li>Sorts results based on date fields </li>
+</ul>
 <h3 id="3-incorporating-dtos-data-transfer-objects">3. Incorporating DTOs (Data Transfer Objects)</h3>
 <p>Use <strong>Data Transfer Objects (DTOs)</strong> to control the data exchanged between 
-the client and the server. This ensures: 
-- Separation of concerns by decoupling the internal data model from 
-the API response format. 
-- Clean and minimal responses that expose only the required data 
-fields. </p>
-<p>Examples: 
-- Instead of exposing the full <code>Customer</code> entity in the API, use a 
+the client and the server. This ensures: </p>
+<ul>
+<li>Separation of concerns by decoupling the internal data model from 
+the API response format. </li>
+<li>Clean and minimal responses that expose only the required data 
+fields. </li>
+</ul>
+<p>Examples: </p>
+<ul>
+<li>Instead of exposing the full <code>Customer</code> entity in the API, use a 
 <code>CustomerDTO</code> that includes only essential fields such as <code>name</code>, 
-<code>email</code>, and <code>totalOrders</code>. 
-- For the <code>Order</code> entity, use an <code>OrderDTO</code> that includes fields such 
-as <code>orderId</code>, <code>orderDate</code>, and <code>amount</code>. </p>
+<code>email</code>, and <code>totalOrders</code>. </li>
+<li>For the <code>Order</code> entity, use an <code>OrderDTO</code> that includes fields such 
+as <code>orderId</code>, <code>orderDate</code>, and <code>amount</code>. </li>
+</ul>
 <h3 id="4-error-handling-and-validation">4. Error Handling and Validation</h3>
 <p>The API must implement structured and meaningful error handling. 
-Required: API consumers.<br />
-- Validating client input 
-- Appropriate HTTP status codes and error messages (e.g., 400 Bad 
-Request, 404 Not Found). 
-- Clear, consistent error responses  </p>
-<p>Examples:<br />
-- Requesting a non-existent resource, the API should return a 404 error 
-with a descriptive message. 
-- Invalid request body, return a 400 error with validation feedback. </p>
+Required: API consumers.  </p>
+<ul>
+<li>Validating client input </li>
+<li>Appropriate HTTP status codes and error messages (e.g., 400 Bad 
+Request, 404 Not Found). </li>
+<li>Clear, consistent error responses  </li>
+</ul>
+<p>Examples:  </p>
+<ul>
+<li>Requesting a non-existent resource, the API should return a 404 error 
+with a descriptive message. </li>
+<li>Invalid request body, return a 400 error with validation feedback. </li>
+</ul>
 <h3 id="5-pagination">5. Pagination</h3>
 <p>The API must support pagination for endpoints returning collections. 
-Requirements: 
-- Pagination parameters must be documented. 
-- Responses must clearly indicate: 
-  - Page size 
-  - Current page or offset 
-  - Total elements (where applicable)  </p>
+Requirements: </p>
+<ul>
+<li>Pagination parameters must be documented. </li>
+<li>Responses must clearly indicate: <ul>
+<li>Page size </li>
+<li>Current page or offset </li>
+<li>Total elements (where applicable)  </li>
+</ul>
+</li>
+</ul>
 <h2 id="deliverables">Deliverables</h2>
 <h3 id="1-report">1. Report</h3>
-<p>The report must include: 
-- Introduction and overview of the API 
-- Explanation of: 
-  - Entity relationships 
-  - Date handling 
-  - DTO usage 
-  - Pagination strategy 
-  - Error handling approach 
-- Database design (ERD or equivalent) 
-- Sample API responses 
-- Challenges encountered and solutions 
-- Link to the Github/Bitbucket repo (Mandatory), accessible to lecturer. </p>
+<p>The report must include: </p>
+<ul>
+<li>Introduction and overview of the API </li>
+<li>Explanation of: <ul>
+<li>Entity relationships </li>
+<li>Date handling </li>
+<li>DTO usage </li>
+<li>Pagination strategy </li>
+<li>Error handling approach </li>
+</ul>
+</li>
+<li>Database design (ERD or equivalent) </li>
+<li>Sample API responses </li>
+<li>Challenges encountered and solutions </li>
+<li>Link to the Github/Bitbucket repo (Mandatory), accessible to lecturer. </li>
+</ul>
 <h3 id="2-code">2. Code</h3>
 <ul>
 <li>A zipped archive of the complete codebase </li>
@@ -2587,69 +2607,101 @@ Requirements:
 </ul>
 <h3 id="3-screencast-camera-on">3. Screencast (Camera On)</h3>
 <h4 id="000-045-opening-context-45-seconds">0:00 – 0:45 | Opening Context (≈45 seconds)</h4>
-<p>State clearly and briefly: 
-- What the API does 
-- The problem domain (e.g. Customers and Orders) 
-- The core design goals </p>
+<p>State clearly and briefly: </p>
+<ul>
+<li>What the API does </li>
+<li>The problem domain (e.g. Customers and Orders) </li>
+<li>The core design goals </li>
+</ul>
 <h4 id="045-200-high-level-architecture-75-seconds">0:45 – 2:00 | High-Level Architecture (≈75 seconds)</h4>
-<p>Show: 
-- Project structure 
-- Main layers (controller, service, repository, DTOs) </p>
-<p>Explain: 
-- Why the layers exist 
-- How data flows from request → controller → service → persistence → response </p>
-<p>Avoid: 
-- Opening every file 
-- Line-by-line explanations </p>
+<p>Show:  </p>
+<ul>
+<li>Project structure </li>
+<li>Main layers (controller, service, repository, DTOs) </li>
+</ul>
+<p>Explain:  </p>
+<ul>
+<li>Why the layers exist </li>
+<li>How data flows from request → controller → service → persistence → response </li>
+</ul>
+<p>Avoid: </p>
+<ul>
+<li>Opening every file </li>
+<li>Line-by-line explanations </li>
+</ul>
 <h4 id="200-330-data-model-relationships-90-seconds">2:00 – 3:30 | Data Model &amp; Relationships (≈90 seconds)</h4>
-<p>Show: 
-- Database schema or ERD 
-- One-to-many (or many-to-many) relationship </p>
-<p>Explain: 
-- How entities relate 
-- How this relationship is enforced (foreign keys, mappings, joins) 
-- How the API exposes this relationship via endpoints </p>
-<p>Example: 
-- Fetching all orders for a specific customer 
-- Creating a child entity linked to a parent </p>
+<p>Show: </p>
+<ul>
+<li>Database schema or ERD </li>
+<li>One-to-many (or many-to-many) relationship </li>
+</ul>
+<p>Explain: </p>
+<ul>
+<li>How entities relate </li>
+<li>How this relationship is enforced (foreign keys, mappings, joins) </li>
+<li>How the API exposes this relationship via endpoints </li>
+</ul>
+<p>Example: </p>
+<ul>
+<li>Fetching all orders for a specific customer </li>
+<li>Creating a child entity linked to a parent </li>
+</ul>
 <h4 id="330-500-dtos-and-data-flow-90-seconds">3:30 – 5:00 | DTOs and Data Flow (≈90 seconds)</h4>
-<p>Show: 
-- At least one DTO 
-- Mapping between entity and DTO </p>
-<p>Explain: 
-- Why DTOs are used 
-- What data is intentionally not exposed 
-- Difference between internal model and API response </p>
+<p>Show: </p>
+<ul>
+<li>At least one DTO </li>
+<li>Mapping between entity and DTO </li>
+</ul>
+<p>Explain: </p>
+<ul>
+<li>Why DTOs are used </li>
+<li>What data is intentionally not exposed </li>
+<li>Difference between internal model and API response </li>
+</ul>
 <h4 id="500-630-api-demonstration-core-endpoints-90-seconds">5:00 – 6:30 | API Demonstration: Core Endpoints (≈90 seconds)</h4>
-<p>Using Postman (or similar), demonstrate: 
-- GET (collection + single resource) 
-- POST (creation) 
-- PUT or DELETE (update or removal) </p>
-<p>Explain: 
-- Request structure 
-- Response structure 
-- HTTP status codes returned </p>
+<p>Using Postman (or similar), demonstrate: </p>
+<ul>
+<li>GET (collection + single resource) </li>
+<li>POST (creation) </li>
+<li>PUT or DELETE (update or removal) </li>
+</ul>
+<p>Explain:  </p>
+<ul>
+<li>Request structure </li>
+<li>Response structure </li>
+<li>HTTP status codes returned </li>
+</ul>
 <h4 id="630-745-pagination-date-handling-75-seconds">6:30 – 7:45 | Pagination &amp; Date Handling (≈75 seconds)</h4>
-<p>Demonstrate: 
-- Paginated endpoint 
-- Date-based filtering or sorting </p>
-<p>Explain: 
-- Pagination parameters 
-- Why pagination is necessary 
-- How date validation or formatting is handled </p>
+<p>Demonstrate:  </p>
+<ul>
+<li>Paginated endpoint </li>
+<li>Date-based filtering or sorting </li>
+</ul>
+<p>Explain:  </p>
+<ul>
+<li>Pagination parameters </li>
+<li>Why pagination is necessary </li>
+<li>How date validation or formatting is handled </li>
+</ul>
 <h4 id="745-900-error-handling-validation-75-seconds">7:45 – 9:00 | Error Handling &amp; Validation (≈75 seconds)</h4>
-<p>Intentionally trigger errors: 
-- Request a non-existent resource (404) 
-- Send invalid input (400) </p>
-<p>Explain: 
-- How validation is enforced 
-- How errors are structured 
-- Why meaningful errors matter for API consumers </p>
+<p>Intentionally trigger errors:  </p>
+<ul>
+<li>Request a non-existent resource (404) </li>
+<li>Send invalid input (400) </li>
+</ul>
+<p>Explain:  </p>
+<ul>
+<li>How validation is enforced </li>
+<li>How errors are structured </li>
+<li>Why meaningful errors matter for API consumers </li>
+</ul>
 <h4 id="900-1000-wrap-up-reflection-60-seconds">9:00 – 10:00 | Wrap-Up &amp; Reflection (≈60 seconds)</h4>
-<p>Summarise: 
-- What was demonstrated 
-- Key design decisions 
-- One challenge faced and how it was resolved </p>
+<p>Summarise:  </p>
+<ul>
+<li>What was demonstrated </li>
+<li>Key design decisions </li>
+<li>One challenge faced and how it was resolved </li>
+</ul>
 <p><span style="color:red">Total: <strong>≤10 minutes</strong></span></p>
 <h3 id="4-assessment-rubric">4. Assessment Rubric</h3>
 <h4 id="overall-weighting">Overall Weighting</h4>
