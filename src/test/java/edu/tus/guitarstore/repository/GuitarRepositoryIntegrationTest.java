@@ -1,9 +1,13 @@
 package edu.tus.guitarstore.repository;
 
-import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDate;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,14 +26,14 @@ import edu.tus.guitarstore.entity.Guitar;
 @DisplayName("GuitarRepository Integration Tests")
 public class GuitarRepositoryIntegrationTest {
 
-	@Autowired
-	private GuitarRepository guitarRepository;
+    @Autowired
+    private GuitarRepository guitarRepository;
 
-	@Autowired
-	private BrandRepository brandRepository;
+    @Autowired
+    private BrandRepository brandRepository;
 
-	@Autowired
-	private TestEntityManager entityManager;
+    @Autowired
+    private TestEntityManager entityManager;
 
 //	@BeforeEach
 //	void setUp() {
@@ -54,212 +58,200 @@ public class GuitarRepositoryIntegrationTest {
 //		entityManager.flush();
 //		entityManager.clear();
 //	}
+    private Brand fenderBrand;
+    private Brand gibsonBrand;
+    private Guitar stratocasterGuitar;
+    private Guitar telecasterGuitar;
 
+    @BeforeEach
+    void setUp() {
+        // Clear all data before each test
+        guitarRepository.deleteAll();
+        brandRepository.deleteAll();
+        entityManager.flush();
 
-	private Brand fenderBrand;
-	private Brand gibsonBrand;
-	private Guitar stratocasterGuitar;
-	private Guitar telecasterGuitar;
+        // Create and persist Brand entities
+        fenderBrand = new Brand();
+        fenderBrand.setName("Fender");
+        fenderBrand.setCountry("USA");
+        fenderBrand = brandRepository.save(fenderBrand);
 
-	@BeforeEach
-	void setUp() {
-		// Clear all data before each test
-		guitarRepository.deleteAll();
-		brandRepository.deleteAll();
-		entityManager.flush();
-		
-		// Create and persist Brand entities
-		fenderBrand = new Brand();
-		fenderBrand.setName("Fender");
-		fenderBrand.setCountry("USA");
-		fenderBrand = brandRepository.save(fenderBrand);
+        gibsonBrand = new Brand();
+        gibsonBrand.setName("Gibson");
+        gibsonBrand.setCountry("USA");
+        gibsonBrand = brandRepository.save(gibsonBrand);
 
-		gibsonBrand = new Brand();
-		gibsonBrand.setName("Gibson");
-		gibsonBrand.setCountry("USA");
-		gibsonBrand = brandRepository.save(gibsonBrand);
+        // Create and persist Guitar entities with Fender brand
+        stratocasterGuitar = new Guitar();
+        stratocasterGuitar.setModelName("Stratocaster");
+        stratocasterGuitar.setPrice(999.99);
+        stratocasterGuitar.setManufactureDate(LocalDate.of(2010, 1, 5));
+        stratocasterGuitar.setBrand(fenderBrand);
+        stratocasterGuitar = guitarRepository.save(stratocasterGuitar);
 
-		// Create and persist Guitar entities with Fender brand
-		stratocasterGuitar = new Guitar();
-		stratocasterGuitar.setModelName("Stratocaster");
-		stratocasterGuitar.setPrice(999.99);
-		stratocasterGuitar.setManufactureDate(LocalDate.of(2010, 1, 5));
-		stratocasterGuitar.setBrand(fenderBrand);
-		stratocasterGuitar = guitarRepository.save(stratocasterGuitar);
+        telecasterGuitar = new Guitar();
+        telecasterGuitar.setModelName("Telecaster");
+        telecasterGuitar.setPrice(799.99);
+        telecasterGuitar.setManufactureDate(LocalDate.of(2015, 6, 10));
+        telecasterGuitar.setBrand(fenderBrand);
+        telecasterGuitar = guitarRepository.save(telecasterGuitar);
 
-		telecasterGuitar = new Guitar();
-		telecasterGuitar.setModelName("Telecaster");
-		telecasterGuitar.setPrice(799.99);
-		telecasterGuitar.setManufactureDate(LocalDate.of(2015, 6, 10));
-		telecasterGuitar.setBrand(fenderBrand);
-		telecasterGuitar = guitarRepository.save(telecasterGuitar);
+        // Flush to ensure database operations complete
+        entityManager.flush();
+        entityManager.clear();
+    }
 
-		// Flush to ensure database operations complete
-		entityManager.flush();
-		entityManager.clear();
-	}
+    @Test
+    @DisplayName("Should find Guitar by exact modelName match")
+    void testFindByModelNameExactMatch() {
+        // Act
+        Optional<Guitar> result = guitarRepository.findByModelName("Stratocaster");
 
-	@Test
-	@DisplayName("Should find Guitar by exact modelName match")
-	void testFindByModelNameExactMatch() {
-		// Act
-		Optional<Guitar> result = guitarRepository.findByModelName("Stratocaster");
+        // Assert
+        assertTrue(result.isPresent(), "Guitar should be found");
+        Guitar foundGuitar = result.get();
+        assertEquals("Stratocaster", foundGuitar.getModelName(), "Model name should match");
+        assertEquals(999.99, foundGuitar.getPrice(), "Price should match");
+        assertEquals(LocalDate.of(2010, 1, 5), foundGuitar.getManufactureDate(), "Manufacture date should match");
+        assertNotNull(foundGuitar.getBrand(), "Brand should not be null");
+        assertEquals("Fender", foundGuitar.getBrand().getName(), "Brand name should be Fender");
+    }
 
-		// Assert
-		assertTrue(result.isPresent(), "Guitar should be found");
-		Guitar foundGuitar = result.get();
-		assertEquals("Stratocaster", foundGuitar.getModelName(), "Model name should match");
-		assertEquals(999.99, foundGuitar.getPrice(), "Price should match");
-		assertEquals(LocalDate.of(2010, 1, 5), foundGuitar.getManufactureDate(), 
-			"Manufacture date should match");
-		assertNotNull(foundGuitar.getBrand(), "Brand should not be null");
-		assertEquals("Fender", foundGuitar.getBrand().getName(), "Brand name should be Fender");
-	}
+    @Test
+    @DisplayName("Should return empty Optional when modelName does not exist")
+    void testFindByModelNameNotFound() {
+        // Act
+        Optional<Guitar> result = guitarRepository.findByModelName("NonExistentModel");
 
-	@Test
-	@DisplayName("Should return empty Optional when modelName does not exist")
-	void testFindByModelNameNotFound() {
-		// Act
-		Optional<Guitar> result = guitarRepository.findByModelName("NonExistentModel");
+        // Assert
+        assertFalse(result.isPresent(), "Optional should be empty");
+        assertTrue(result.isEmpty(), "No guitar should be found");
+    }
 
-		// Assert
-		assertFalse(result.isPresent(), "Optional should be empty");
-		assertTrue(result.isEmpty(), "No guitar should be found");
-	}
+    @Test
+    @DisplayName("Should find correct Guitar among multiple records")
+    void testFindByModelNameAmongMultipleRecords() {
+        // Act - Search for Telecaster when multiple guitars exist
+        Optional<Guitar> result = guitarRepository.findByModelName("Telecaster");
 
-	@Test
-	@DisplayName("Should find correct Guitar among multiple records")
-	void testFindByModelNameAmongMultipleRecords() {
-		// Act - Search for Telecaster when multiple guitars exist
-		Optional<Guitar> result = guitarRepository.findByModelName("Telecaster");
+        // Assert - Should return Telecaster, not Stratocaster
+        assertTrue(result.isPresent(), "Telecaster should be found");
+        Guitar foundGuitar = result.get();
+        assertEquals("Telecaster", foundGuitar.getModelName(), "Model name should be Telecaster");
+        assertEquals(799.99, foundGuitar.getPrice(), "Price should be 799.99");
+        assertNotNull(foundGuitar.getId(), "Guitar ID should be set");
+        assertEquals(stratocasterGuitar.getId() + 1, foundGuitar.getId(),
+                "Telecaster ID should be different from Stratocaster");
+    }
 
-		// Assert - Should return Telecaster, not Stratocaster
-		assertTrue(result.isPresent(), "Telecaster should be found");
-		Guitar foundGuitar = result.get();
-		assertEquals("Telecaster", foundGuitar.getModelName(), "Model name should be Telecaster");
-		assertEquals(799.99, foundGuitar.getPrice(), "Price should be 799.99");
-		assertNotNull(foundGuitar.getId(), "Guitar ID should be set");
-		assertEquals(stratocasterGuitar.getId() + 1, foundGuitar.getId(), 
-			"Telecaster ID should be different from Stratocaster");
-	}
+    @Test
+    @DisplayName("Should preserve Brand relationship when finding Guitar")
+    void testFindByModelNamePreservesBrandRelationship() {
+        // Act
+        Optional<Guitar> result = guitarRepository.findByModelName("Stratocaster");
 
-	@Test
-	@DisplayName("Should preserve Brand relationship when finding Guitar")
-	void testFindByModelNamePreservesBrandRelationship() {
-		// Act
-		Optional<Guitar> result = guitarRepository.findByModelName("Stratocaster");
+        // Assert
+        assertTrue(result.isPresent(), "Guitar should be found");
+        Guitar foundGuitar = result.get();
 
-		// Assert
-		assertTrue(result.isPresent(), "Guitar should be found");
-		Guitar foundGuitar = result.get();
-		
-		// Verify brand is properly loaded
-		assertNotNull(foundGuitar.getBrand(), "Brand should not be null");
-		assertEquals(fenderBrand.getId(), foundGuitar.getBrand().getId(), 
-			"Brand ID should match");
-		assertEquals("Fender", foundGuitar.getBrand().getName(), 
-			"Brand name should be Fender");
-		assertEquals("USA", foundGuitar.getBrand().getCountry(), 
-			"Brand country should be USA");
-	}
+        // Verify brand is properly loaded
+        assertNotNull(foundGuitar.getBrand(), "Brand should not be null");
+        assertEquals(fenderBrand.getId(), foundGuitar.getBrand().getId(), "Brand ID should match");
+        assertEquals("Fender", foundGuitar.getBrand().getName(), "Brand name should be Fender");
+        assertEquals("USA", foundGuitar.getBrand().getCountry(), "Brand country should be USA");
+    }
 
-	@Test
-	@DisplayName("Should handle case-sensitive modelName search")
-	void testFindByModelNameCaseSensitivity() {
-		// Act - Search with different case
-		Optional<Guitar> resultLowerCase = guitarRepository.findByModelName("stratocaster");
-		Optional<Guitar> resultUpperCase = guitarRepository.findByModelName("STRATOCASTER");
-		Optional<Guitar> resultMixedCase = guitarRepository.findByModelName("Stratocaster");
+    @Test
+    @DisplayName("Should handle case-sensitive modelName search")
+    void testFindByModelNameCaseSensitivity() {
+        // Act - Search with different case
+        Optional<Guitar> resultLowerCase = guitarRepository.findByModelName("stratocaster");
+        Optional<Guitar> resultUpperCase = guitarRepository.findByModelName("STRATOCASTER");
+        Optional<Guitar> resultMixedCase = guitarRepository.findByModelName("Stratocaster");
 
-		// Assert
-		assertFalse(resultLowerCase.isPresent(), 
-			"Lowercase search should not find the guitar (case-sensitive)");
-		assertFalse(resultUpperCase.isPresent(), 
-			"Uppercase search should not find the guitar (case-sensitive)");
-		assertTrue(resultMixedCase.isPresent(), 
-			"Exact case match should find the guitar");
-	}
+        // Assert
+        assertFalse(resultLowerCase.isPresent(), "Lowercase search should not find the guitar (case-sensitive)");
+        assertFalse(resultUpperCase.isPresent(), "Uppercase search should not find the guitar (case-sensitive)");
+        assertTrue(resultMixedCase.isPresent(), "Exact case match should find the guitar");
+    }
 
-	@Test
-	@DisplayName("Should retrieve all Guitar attributes correctly from database")
-	void testFindByModelNameRetrievesAllAttributes() {
-		// Act
-		Optional<Guitar> result = guitarRepository.findByModelName("Stratocaster");
+    @Test
+    @DisplayName("Should retrieve all Guitar attributes correctly from database")
+    void testFindByModelNameRetrievesAllAttributes() {
+        // Act
+        Optional<Guitar> result = guitarRepository.findByModelName("Stratocaster");
 
-		// Assert
-		assertTrue(result.isPresent(), "Guitar should be found");
-		Guitar foundGuitar = result.get();
+        // Assert
+        assertTrue(result.isPresent(), "Guitar should be found");
+        Guitar foundGuitar = result.get();
 
-		// Verify all attributes are correctly mapped from database
-		assertNotNull(foundGuitar.getId(), "ID should be set");
-		assertEquals("Stratocaster", foundGuitar.getModelName(), "Model name should be set");
-		assertEquals(999.99, foundGuitar.getPrice(), "Price should be correctly persisted");
-		assertEquals(LocalDate.of(2010, 1, 5), foundGuitar.getManufactureDate(), 
-			"Manufacture date should be correctly persisted");
-		assertNotNull(foundGuitar.getBrand(), "Brand should be loaded");
-		assertTrue(foundGuitar.getBrand().getId() > 0, "Brand ID should be positive");
-	}
+        // Verify all attributes are correctly mapped from database
+        assertNotNull(foundGuitar.getId(), "ID should be set");
+        assertEquals("Stratocaster", foundGuitar.getModelName(), "Model name should be set");
+        assertEquals(999.99, foundGuitar.getPrice(), "Price should be correctly persisted");
+        assertEquals(LocalDate.of(2010, 1, 5), foundGuitar.getManufactureDate(),
+                "Manufacture date should be correctly persisted");
+        assertNotNull(foundGuitar.getBrand(), "Brand should be loaded");
+        assertTrue(foundGuitar.getBrand().getId() > 0, "Brand ID should be positive");
+    }
 
-	@Test
-	@DisplayName("Should return independent Optional instances for separate queries")
-	void testFindByModelNameReturnsIndependentOptionals() {
-		// Act - Execute same query twice
-		Optional<Guitar> firstResult = guitarRepository.findByModelName("Stratocaster");
-		Optional<Guitar> secondResult = guitarRepository.findByModelName("Stratocaster");
+    @Test
+    @DisplayName("Should return independent Optional instances for separate queries")
+    void testFindByModelNameReturnsIndependentOptionals() {
+        // Act - Execute same query twice
+        Optional<Guitar> firstResult = guitarRepository.findByModelName("Stratocaster");
+        Optional<Guitar> secondResult = guitarRepository.findByModelName("Stratocaster");
 
-		// Assert - Both should return present optionals with same data
-		assertTrue(firstResult.isPresent(), "First query should find guitar");
-		assertTrue(secondResult.isPresent(), "Second query should find guitar");
-		assertEquals(firstResult.get().getId(), secondResult.get().getId(), 
-			"Both results should have same ID");
-		assertEquals(firstResult.get().getModelName(), secondResult.get().getModelName(), 
-			"Both results should have same model name");
-	}
+        // Assert - Both should return present optionals with same data
+        assertTrue(firstResult.isPresent(), "First query should find guitar");
+        assertTrue(secondResult.isPresent(), "Second query should find guitar");
+        assertEquals(firstResult.get().getId(), secondResult.get().getId(), "Both results should have same ID");
+        assertEquals(firstResult.get().getModelName(), secondResult.get().getModelName(),
+                "Both results should have same model name");
+    }
 
-	@Test
-	@DisplayName("Should only return Guitar with matching modelName, not similar names")
-	void testFindByModelNameDoesNotReturnSimilarNames() {
-		// Arrange - Add a guitar with similar name
-		Guitar lesPaulGuitar = new Guitar();
-		lesPaulGuitar.setModelName("StratocasterPlus");
-		lesPaulGuitar.setPrice(1299.99);
-		lesPaulGuitar.setManufactureDate(LocalDate.of(2018, 3, 15));
-		lesPaulGuitar.setBrand(fenderBrand);
-		guitarRepository.save(lesPaulGuitar);
-		entityManager.flush();
-		entityManager.clear();
+    @Test
+    @DisplayName("Should only return Guitar with matching modelName, not similar names")
+    void testFindByModelNameDoesNotReturnSimilarNames() {
+        // Arrange - Add a guitar with similar name
+        Guitar lesPaulGuitar = new Guitar();
+        lesPaulGuitar.setModelName("StratocasterPlus");
+        lesPaulGuitar.setPrice(1299.99);
+        lesPaulGuitar.setManufactureDate(LocalDate.of(2018, 3, 15));
+        lesPaulGuitar.setBrand(fenderBrand);
+        guitarRepository.save(lesPaulGuitar);
+        entityManager.flush();
+        entityManager.clear();
 
-		// Act
-		Optional<Guitar> result = guitarRepository.findByModelName("Stratocaster");
+        // Act
+        Optional<Guitar> result = guitarRepository.findByModelName("Stratocaster");
 
-		// Assert - Should find exact match only, not "StratocasterPlus"
-		assertTrue(result.isPresent(), "Exact match should be found");
-		assertEquals("Stratocaster", result.get().getModelName(), 
-			"Should return exact model name match");
-		assertNotNull(result.get().getId(), "Should return correct guitar ID");
-	}
+        // Assert - Should find exact match only, not "StratocasterPlus"
+        assertTrue(result.isPresent(), "Exact match should be found");
+        assertEquals("Stratocaster", result.get().getModelName(), "Should return exact model name match");
+        assertNotNull(result.get().getId(), "Should return correct guitar ID");
+    }
 
-	@Test
-	@DisplayName("Should work with special characters in modelName")
-	void testFindByModelNameWithSpecialCharacters() {
-		// Arrange - Create guitar with special characters
-		Guitar specialGuitar = new Guitar();
-		specialGuitar.setModelName("Stratocaster-USA");
-		specialGuitar.setPrice(1199.99);
-		specialGuitar.setManufactureDate(LocalDate.of(2019, 5, 20));
-		specialGuitar.setBrand(fenderBrand);
-		guitarRepository.save(specialGuitar);
-		entityManager.flush();
-		entityManager.clear();
+    @Test
+    @DisplayName("Should work with special characters in modelName")
+    void testFindByModelNameWithSpecialCharacters() {
+        // Arrange - Create guitar with special characters
+        Guitar specialGuitar = new Guitar();
+        specialGuitar.setModelName("Stratocaster-USA");
+        specialGuitar.setPrice(1199.99);
+        specialGuitar.setManufactureDate(LocalDate.of(2019, 5, 20));
+        specialGuitar.setBrand(fenderBrand);
+        guitarRepository.save(specialGuitar);
+        entityManager.flush();
+        entityManager.clear();
 
-		// Act
-		Optional<Guitar> result = guitarRepository.findByModelName("Stratocaster-USA");
+        // Act
+        Optional<Guitar> result = guitarRepository.findByModelName("Stratocaster-USA");
 
-		// Assert
-		assertTrue(result.isPresent(), "Guitar with special characters should be found");
-		assertEquals("Stratocaster-USA", result.get().getModelName(), 
-			"Special characters should be preserved");
-	}
+        // Assert
+        assertTrue(result.isPresent(), "Guitar with special characters should be found");
+        assertEquals("Stratocaster-USA", result.get().getModelName(), "Special characters should be preserved");
+    }
 
 //	@Test
 //	@DisplayName("Should verify unique constraint on modelName at database level")
@@ -304,35 +296,31 @@ public class GuitarRepositoryIntegrationTest {
 //		// Assert
 //		assertFalse(result.isPresent(), "Searching for null should not return anything");
 //	}
-	
-	// Fix unique constraint
-	@Test
-	@DisplayName("Should enforce UNIQUE constraint on modelName")
-	void testModelNameUniqueConstraint() {
-	    Guitar duplicate = new Guitar();
-	    duplicate.setModelName("Stratocaster"); // already exists from setup
-	    duplicate.setPrice(850.00);
-	    duplicate.setManufactureDate(LocalDate.of(2020, 7, 25));
-	    duplicate.setBrand(gibsonBrand);
+    // Fix unique constraint
+    @Test
+    @DisplayName("Should enforce UNIQUE constraint on modelName")
+    void testModelNameUniqueConstraint() {
+        Guitar duplicate = new Guitar();
+        duplicate.setModelName("Stratocaster"); // already exists from setup
+        duplicate.setPrice(850.00);
+        duplicate.setManufactureDate(LocalDate.of(2020, 7, 25));
+        duplicate.setBrand(gibsonBrand);
 
-	    assertThrows(DataIntegrityViolationException.class, () -> {
-	        guitarRepository.saveAndFlush(duplicate); // saveAndFlush is better here
-	    });
-	}
+		assertThrows(DataIntegrityViolationException.class, () -> guitarRepository.saveAndFlush(duplicate));
+    }
 
-	@Test
-	@DisplayName("Should verify lazy loading of Brand relationship")
-	void testFindByModelNameBrandLazyLoading() {
-		// Act
-		Optional<Guitar> result = guitarRepository.findByModelName("Stratocaster");
+    @Test
+    @DisplayName("Should verify lazy loading of Brand relationship")
+    void testFindByModelNameBrandLazyLoading() {
+        // Act
+        Optional<Guitar> result = guitarRepository.findByModelName("Stratocaster");
 
-		// Assert
-		assertTrue(result.isPresent(), "Guitar should be found");
-		Guitar foundGuitar = result.get();
+        // Assert
+        assertTrue(result.isPresent(), "Guitar should be found");
+        Guitar foundGuitar = result.get();
 
-		// Access brand after query (tests lazy loading)
-		assertNotNull(foundGuitar.getBrand(), "Brand should be accessible");
-		assertEquals("Fender", foundGuitar.getBrand().getName(), 
-			"Brand name should be loaded lazily");
-	}
+        // Access brand after query (tests lazy loading)
+        assertNotNull(foundGuitar.getBrand(), "Brand should be accessible");
+        assertEquals("Fender", foundGuitar.getBrand().getName(), "Brand name should be loaded lazily");
+    }
 }
