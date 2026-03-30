@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
-
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import static org.mockito.Mockito.never;
@@ -136,7 +135,6 @@ public class GuitarServiceTest {
 	}
 
 	// Example 2: Original
-	
 	@Test
 	@DisplayName("Should successfully create guitar when brand is found and guitar does not already exist")
 	void testCreateGuitarSuccess() {
@@ -169,5 +167,55 @@ public class GuitarServiceTest {
 		verify(guitarRepository).findByModelName("Telecaster");
 		verify(brandRepository).findByName("Fender");
 		verify(guitarRepository).save(any(Guitar.class));
+	}
+
+	// Example 2: Modified
+	@Test
+	@DisplayName("Should throw GuitarAlreadyExistsException when guitar model already exists")
+	void testCreateGuitarAlreadyExists() {
+		// Arrange
+		GuitarDto duplicateGuitarDto = new GuitarDto();
+		duplicateGuitarDto.setModelName("Stratocaster");
+		duplicateGuitarDto.setPrice(999.99);
+		duplicateGuitarDto.setManufactureDate(LocalDate.of(2010, 1, 5));
+		duplicateGuitarDto.setBrandName("Fender");
+
+		// Mock: Guitar already exists
+		when(guitarRepository.findByModelName("Stratocaster")).thenReturn(Optional.of(guitar));
+
+		// Act & Assert
+		assertThrows(GuitarAlreadyExistsException.class, () -> guitarService.createGuitar(duplicateGuitarDto),
+				"Should throw GuitarAlreadyExistsException when guitar already exists");
+
+		// Verify that we only checked for existing guitar and did not proceed further
+		verify(guitarRepository).findByModelName("Stratocaster");
+		verify(brandRepository, never()).findByName(anyString());
+		verify(guitarRepository, never()).save(any(Guitar.class));
+	}
+
+	@Test
+	@DisplayName("Should throw ResourceNotFoundException when brand name is not found")
+	void testCreateGuitarBrandNotFound() {
+		// Arrange
+		GuitarDto newGuitarDto = new GuitarDto();
+		newGuitarDto.setModelName("Les Paul");
+		newGuitarDto.setPrice(1299.99);
+		newGuitarDto.setManufactureDate(LocalDate.of(2012, 3, 20));
+		newGuitarDto.setBrandName("Gibson");
+
+		// Mock: Guitar does not already exist
+		when(guitarRepository.findByModelName("Les Paul")).thenReturn(Optional.empty());
+
+		// Mock: Brand is not found
+		when(brandRepository.findByName("Gibson")).thenReturn(Optional.empty());
+
+		// Act & Assert
+		assertThrows(ResourceNotFoundException.class, () -> guitarService.createGuitar(newGuitarDto),
+				"Should throw ResourceNotFoundException when brand is not found");
+
+		// Verify the sequence of calls
+		verify(guitarRepository).findByModelName("Les Paul");
+		verify(brandRepository).findByName("Gibson");
+		verify(guitarRepository, never()).save(any(Guitar.class));
 	}
 }
