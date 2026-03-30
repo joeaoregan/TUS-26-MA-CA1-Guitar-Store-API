@@ -377,7 +377,7 @@ public class GuitarServiceTest {
 		verify(guitarRepository, never()).save(any(Guitar.class));
 	}
 
-	// Example 5: Race Condition / Duplicate Check Gap
+	// Example 4: 5. Race Condition / Duplicate Check Gap
 
 	@Test
 	@DisplayName("Should verify duplicate check happens before save")
@@ -399,5 +399,26 @@ public class GuitarServiceTest {
 		InOrder inOrder = Mockito.inOrder(guitarRepository);
 		inOrder.verify(guitarRepository).findByModelName("Stratocaster");
 		inOrder.verify(guitarRepository).save(any(Guitar.class));
+	}
+
+	// Example 4: 6. Mapper Null Handling Gap
+
+	@Test
+	@DisplayName("Should verify mapper correctly handles null brand before setBrand")
+	void testMapperBrandNullHandling() {
+		// Arrange
+		GuitarDto guitarDto = new GuitarDto();
+		guitarDto.setModelName("Stratocaster");
+		guitarDto.setPrice(999.99);
+		guitarDto.setManufactureDate(LocalDate.of(2010, 1, 5));
+		guitarDto.setBrandName("NonExistentBrand");
+
+		when(guitarRepository.findByModelName("Stratocaster")).thenReturn(Optional.empty());
+		when(brandRepository.findByName("NonExistentBrand")).thenReturn(Optional.empty());
+
+		// Act & Assert
+		assertThrows(ResourceNotFoundException.class, () -> guitarService.createGuitar(guitarDto));
+
+		verify(guitarRepository, never()).save(any(Guitar.class));
 	}
 }
