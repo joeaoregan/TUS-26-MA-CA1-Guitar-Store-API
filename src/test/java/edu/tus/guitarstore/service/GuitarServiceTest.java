@@ -319,4 +319,60 @@ public class GuitarServiceTest {
 
 		verify(guitarRepository).save(any(Guitar.class));
 	}
+
+	// Example 4: 3. Empty / Whitespace String Handling
+	@Test
+	@DisplayName("Should handle empty modelName string")
+	void testCreateGuitarWithEmptyModelName() {
+		// Arrange
+		GuitarDto emptyModelDto = new GuitarDto();
+		emptyModelDto.setModelName(""); // Empty string
+		emptyModelDto.setPrice(999.99);
+		emptyModelDto.setManufactureDate(LocalDate.of(2010, 1, 5));
+		emptyModelDto.setBrandName("Fender");
+
+		when(guitarRepository.findByModelName("")).thenReturn(Optional.empty());
+
+		// Act & Assert
+		guitarService.createGuitar(emptyModelDto);
+
+		verify(guitarRepository).save(any(Guitar.class));
+	}
+
+	@Test
+	@DisplayName("Should handle whitespace-only modelName")
+	void testCreateGuitarWithWhitespaceModelName() {
+		// Arrange
+		GuitarDto whitespaceModelDto = new GuitarDto();
+		whitespaceModelDto.setModelName("   "); // Whitespace only
+		whitespaceModelDto.setPrice(999.99);
+		whitespaceModelDto.setManufactureDate(LocalDate.of(2010, 1, 5));
+		whitespaceModelDto.setBrandName("Fender");
+
+		when(guitarRepository.findByModelName("   ")).thenReturn(Optional.empty());
+
+		// Act & Assert
+		guitarService.createGuitar(whitespaceModelDto);
+
+		verify(guitarRepository).save(any(Guitar.class));
+	}
+
+	@Test
+	@DisplayName("Should handle empty brandName string")
+	void testCreateGuitarWithEmptyBrandName() {
+		// Arrange
+		GuitarDto emptyBrandDto = new GuitarDto();
+		emptyBrandDto.setModelName("Stratocaster");
+		emptyBrandDto.setPrice(999.99);
+		emptyBrandDto.setManufactureDate(LocalDate.of(2010, 1, 5));
+		emptyBrandDto.setBrandName(""); // Empty string
+
+		when(guitarRepository.findByModelName("Stratocaster")).thenReturn(Optional.empty());
+		when(brandRepository.findByName("")).thenReturn(Optional.empty());
+
+		// Act & Assert
+		assertThrows(ResourceNotFoundException.class, () -> guitarService.createGuitar(emptyBrandDto));
+
+		verify(guitarRepository, never()).save(any(Guitar.class));
+	}
 }
