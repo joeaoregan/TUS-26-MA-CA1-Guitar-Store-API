@@ -218,4 +218,45 @@ public class GuitarServiceTest {
 		verify(brandRepository).findByName("Gibson");
 		verify(guitarRepository, never()).save(any(Guitar.class));
 	}
+
+	// Example 4: 1. NULL input handling
+	@Test
+	@DisplayName("Should throw NullPointerException when guitarDto is null")
+	void testCreateGuitarWithNullDto() {
+		// Act & Assert
+		assertThrows(NullPointerException.class, () -> guitarService.createGuitar(null),
+				"The service should fail fast if a null DTO is provided.");
+	}
+
+	@Test
+	@DisplayName("Should handle null modelName in guitarDto")
+	void testCreateGuitarWithNullModelName() {
+		// Arrange
+		GuitarDto guitarDtoWithNullModelName = new GuitarDto();
+		guitarDtoWithNullModelName.setModelName(null);
+		guitarDtoWithNullModelName.setPrice(999.99);
+		guitarDtoWithNullModelName.setManufactureDate(LocalDate.of(2010, 1, 5));
+		guitarDtoWithNullModelName.setBrandName("Fender");
+
+		// Act & Assert
+		assertThrows(ResourceNotFoundException.class, () -> guitarService.createGuitar(guitarDtoWithNullModelName),
+				"Should throw NullPointerException for null modelName");
+	}
+
+	@Test
+	@DisplayName("Should handle null brandName in guitarDto")
+	void testCreateGuitarWithNullBrandName() {
+		// Arrange
+		GuitarDto guitarDtoWithNullBrandName = new GuitarDto();
+		guitarDtoWithNullBrandName.setModelName("Stratocaster");
+		guitarDtoWithNullBrandName.setPrice(999.99);
+		guitarDtoWithNullBrandName.setManufactureDate(LocalDate.of(2010, 1, 5));
+		guitarDtoWithNullBrandName.setBrandName(null);
+
+		when(guitarRepository.findByModelName("Stratocaster")).thenReturn(Optional.empty());
+
+		// Act & Assert
+		assertThrows(ResourceNotFoundException.class, () -> guitarService.createGuitar(guitarDtoWithNullBrandName),
+				"Should handle null brandName");
+	}
 }
