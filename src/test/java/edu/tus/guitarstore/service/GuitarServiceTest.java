@@ -259,4 +259,64 @@ public class GuitarServiceTest {
 		assertThrows(ResourceNotFoundException.class, () -> guitarService.createGuitar(guitarDtoWithNullBrandName),
 				"Should handle null brandName");
 	}
+
+	// Example 4: 2. Invalid / Boundary Value Inputs
+	@Test
+	@DisplayName("Should create guitar with negative price (validation not in service)")
+	void testCreateGuitarWithNegativePrice() {
+		// Arrange
+		GuitarDto negativePriceDto = new GuitarDto();
+		negativePriceDto.setModelName("Stratocaster");
+		negativePriceDto.setPrice(-100.00); // Invalid: negative price
+		negativePriceDto.setManufactureDate(LocalDate.of(2010, 1, 5));
+		negativePriceDto.setBrandName("Fender");
+
+		when(guitarRepository.findByModelName("Stratocaster")).thenReturn(Optional.empty());
+		when(brandRepository.findByName("Fender")).thenReturn(Optional.of(brand));
+		when(guitarRepository.save(any(Guitar.class))).thenReturn(new Guitar());
+
+		// Act - Service allows this, but DTO validation should catch it
+		guitarService.createGuitar(negativePriceDto);
+
+		// Assert - Guitar is saved with negative price (potential data corruption)
+		verify(guitarRepository).save(any(Guitar.class));
+	}
+
+	@Test
+	@DisplayName("Should create guitar with zero price")
+	void testCreateGuitarWithZeroPrice() {
+		// Arrange
+		GuitarDto zeroPriceDto = new GuitarDto();
+		zeroPriceDto.setModelName("Stratocaster");
+		zeroPriceDto.setPrice(0.0); // Invalid: zero price
+		zeroPriceDto.setManufactureDate(LocalDate.of(2010, 1, 5));
+		zeroPriceDto.setBrandName("Fender");
+
+		when(guitarRepository.findByModelName("Stratocaster")).thenReturn(Optional.empty());
+		when(brandRepository.findByName("Fender")).thenReturn(Optional.of(brand));
+
+		// Act & Assert
+		guitarService.createGuitar(zeroPriceDto);
+
+		verify(guitarRepository).save(any(Guitar.class));
+	}
+
+	@Test
+	@DisplayName("Should create guitar with future manufacture date")
+	void testCreateGuitarWithFutureManufactureDate() {
+		// Arrange
+		GuitarDto futureDateDto = new GuitarDto();
+		futureDateDto.setModelName("Stratocaster");
+		futureDateDto.setPrice(999.99);
+		futureDateDto.setManufactureDate(LocalDate.now().plusYears(1)); // Future date
+		futureDateDto.setBrandName("Fender");
+
+		when(guitarRepository.findByModelName("Stratocaster")).thenReturn(Optional.empty());
+		when(brandRepository.findByName("Fender")).thenReturn(Optional.of(brand));
+
+		// Act & Assert
+		guitarService.createGuitar(futureDateDto);
+
+		verify(guitarRepository).save(any(Guitar.class));
+	}
 }
