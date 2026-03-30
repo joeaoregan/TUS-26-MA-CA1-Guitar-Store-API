@@ -1,0 +1,133 @@
+package edu.tus.guitarstore.service;
+
+import java.time.LocalDate;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import edu.tus.guitarstore.dto.GuitarDto;
+import edu.tus.guitarstore.entity.Brand;
+import edu.tus.guitarstore.entity.Guitar;
+import edu.tus.guitarstore.exception.ResourceNotFoundException;
+import edu.tus.guitarstore.repository.BrandRepository;
+import edu.tus.guitarstore.repository.GuitarRepository;
+import edu.tus.guitarstore.service.impl.GuitarServiceImpl;
+
+@ExtendWith(MockitoExtension.class)
+@DisplayName("GuitarServiceImpl Unit Tests")
+public class GuitarServiceTest {
+
+    @Mock
+    private GuitarRepository guitarRepository;
+
+    @Mock
+    private BrandRepository brandRepository;
+
+    @InjectMocks
+    private GuitarServiceImpl guitarService;
+
+    private Guitar guitar;
+    private GuitarDto guitarDto;
+    private Brand brand;
+
+    @BeforeEach
+    void setUp() {
+        // Initialize test data
+        brand = new Brand();
+        brand.setId(1L);
+        brand.setName("Fender");
+
+        guitar = new Guitar();
+        guitar.setId(1L);
+        guitar.setModelName("Stratocaster");
+        guitar.setPrice(999.99);
+        guitar.setManufactureDate(LocalDate.of(2010, 1, 5));
+        guitar.setBrand(brand);
+
+        guitarDto = new GuitarDto();
+        guitarDto.setModelName("Stratocaster");
+        guitarDto.setPrice(999.99);
+        guitarDto.setManufactureDate(LocalDate.of(2010, 1, 5));
+        guitarDto.setBrandName("Fender");
+    }
+
+    @Test
+    @DisplayName("Should return GuitarDto when guitar is found by model name")
+    void testFetchGuitarSuccess() {
+        // Arrange
+        String modelName = "Stratocaster";
+        when(guitarRepository.findByModelName(modelName)).thenReturn(Optional.of(guitar));
+
+        // Act
+        GuitarDto result = guitarService.fetchGuitar(modelName);
+
+        // Assert
+        assertNotNull(result, "GuitarDto should not be null");
+        assertEquals(guitarDto.getModelName(), result.getModelName(), "Model names should match");
+        assertEquals(guitarDto.getPrice(), result.getPrice(), "Prices should match");
+        assertEquals(guitarDto.getManufactureDate(), result.getManufactureDate(), "Manufacture dates should match");
+        assertEquals(guitarDto.getBrandName(), result.getBrandName(), "Brand names should match");
+
+        // Verify the mock was called
+        verify(guitarRepository).findByModelName(modelName);
+    }
+
+    @Test
+    @DisplayName("Should throw ResourceNotFoundException when guitar is not found by model name")
+    void testFetchGuitarNotFound() {
+        // Arrange
+        String modelName = "NonExistentGuitar";
+        when(guitarRepository.findByModelName(modelName)).thenReturn(Optional.empty());
+
+        // Act & Assert
+        assertThrows(ResourceNotFoundException.class, () -> guitarService.fetchGuitar(modelName),
+                "Should throw ResourceNotFoundException when guitar is not found");
+
+        // Verify the mock was called
+        verify(guitarRepository).findByModelName(modelName);
+    }
+
+    @Test
+    @DisplayName("Should correctly map guitar entity to GuitarDto with all fields")
+    void testFetchGuitarMappingAllFields() {
+        // Arrange
+        String modelName = "Stratocaster";
+        when(guitarRepository.findByModelName(modelName)).thenReturn(Optional.of(guitar));
+
+        // Act
+        GuitarDto result = guitarService.fetchGuitar(modelName);
+
+        // Assert
+        assertNotNull(result, "GuitarDto should not be null");
+        assertEquals("Stratocaster", result.getModelName(), "Model name should be correctly mapped");
+        assertEquals(999.99, result.getPrice(), "Price should be correctly mapped");
+        assertEquals(LocalDate.of(2010, 1, 5), result.getManufactureDate(),
+                "Manufacture date should be correctly mapped");
+        assertEquals("Fender", result.getBrandName(), "Brand name should be correctly mapped from related entity");
+    }
+
+    @Test
+    @DisplayName("Should return empty Optional when searching for non-existent model")
+    void testFetchGuitarEmptyOptional() {
+        // Arrange
+        String modelName = "InvalidModel";
+        when(guitarRepository.findByModelName(modelName)).thenReturn(Optional.empty());
+
+        // Act & Assert
+        assertThrows(ResourceNotFoundException.class, () -> guitarService.fetchGuitar(modelName));
+        verify(guitarRepository).findByModelName(modelName);
+        verify(guitarRepository, never()).findAll();
+    }
+}
