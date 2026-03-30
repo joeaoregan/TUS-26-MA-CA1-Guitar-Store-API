@@ -55,9 +55,9 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
+		    <groupId>com.h2database</groupId>
+		    <artifactId>h2</artifactId>
+		    <scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -76,6 +76,12 @@
 		    <artifactId>java-dotenv</artifactId>
 		    <version>5.2.2</version>
 		</dependency>
+		<!-- Jakarta Persistence API -->
+		<dependency>
+		    <groupId>jakarta.persistence</groupId>
+		    <artifactId>jakarta.persistence-api</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
