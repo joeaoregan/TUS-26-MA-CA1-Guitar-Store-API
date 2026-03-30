@@ -12,8 +12,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+
+import org.mockito.InOrder;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
+
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -371,5 +375,29 @@ public class GuitarServiceTest {
 		assertThrows(ResourceNotFoundException.class, () -> guitarService.createGuitar(emptyBrandDto));
 
 		verify(guitarRepository, never()).save(any(Guitar.class));
+	}
+
+	// Example 5: Race Condition / Duplicate Check Gap
+
+	@Test
+	@DisplayName("Should verify duplicate check happens before save")
+	void testCreateGuitarDuplicateCheckTiming() {
+		// Arrange
+		GuitarDto guitarDto = new GuitarDto();
+		guitarDto.setModelName("Stratocaster");
+		guitarDto.setPrice(999.99);
+		guitarDto.setManufactureDate(LocalDate.of(2010, 1, 5));
+		guitarDto.setBrandName("Fender");
+
+		when(guitarRepository.findByModelName("Stratocaster")).thenReturn(Optional.empty());
+		when(brandRepository.findByName("Fender")).thenReturn(Optional.of(brand));
+
+		// Act
+		guitarService.createGuitar(guitarDto);
+
+		// Assert - Verify findByModelName was called BEFORE save
+		InOrder inOrder = Mockito.inOrder(guitarRepository);
+		inOrder.verify(guitarRepository).findByModelName("Stratocaster");
+		inOrder.verify(guitarRepository).save(any(Guitar.class));
 	}
 }
