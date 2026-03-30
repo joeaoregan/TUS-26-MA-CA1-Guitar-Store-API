@@ -331,12 +331,11 @@ public class GuitarServiceTest {
 		emptyModelDto.setManufactureDate(LocalDate.of(2010, 1, 5));
 		emptyModelDto.setBrandName("Fender");
 
-		when(guitarRepository.findByModelName("")).thenReturn(Optional.empty());
+		// Act & Assert: Now expecting an exception instead of a save
+		assertThrows(ResourceNotFoundException.class, () -> guitarService.createGuitar(emptyModelDto));
 
-		// Act & Assert
-		guitarService.createGuitar(emptyModelDto);
-
-		verify(guitarRepository).save(any(Guitar.class));
+		// Verify that save was never called
+		verify(guitarRepository, never()).save(any(Guitar.class));
 	}
 
 	@Test
@@ -349,12 +348,10 @@ public class GuitarServiceTest {
 		whitespaceModelDto.setManufactureDate(LocalDate.of(2010, 1, 5));
 		whitespaceModelDto.setBrandName("Fender");
 
-		when(guitarRepository.findByModelName("   ")).thenReturn(Optional.empty());
+		// Act & Assert: Now expecting an exception
+		assertThrows(ResourceNotFoundException.class, () -> guitarService.createGuitar(whitespaceModelDto));
 
-		// Act & Assert
-		guitarService.createGuitar(whitespaceModelDto);
-
-		verify(guitarRepository).save(any(Guitar.class));
+		verify(guitarRepository, never()).save(any(Guitar.class));
 	}
 
 	@Test

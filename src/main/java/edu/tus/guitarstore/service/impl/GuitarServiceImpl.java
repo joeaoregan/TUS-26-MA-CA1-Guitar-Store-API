@@ -32,6 +32,10 @@ public class GuitarServiceImpl implements IGuitarService {
 
 	@Override
 	public void createGuitar(GuitarDto guitarDto) {
+		if (guitarDto.getModelName() == null || guitarDto.getModelName().trim().isEmpty()) {
+		    throw new ResourceNotFoundException("Guitar", "modelName", "Empty");
+		}
+		
 		Optional<Guitar> optionalGuitar = guitarRepository.findByModelName(guitarDto.getModelName());
 		if (optionalGuitar.isPresent()) {
 			throw new GuitarAlreadyExistsException(
