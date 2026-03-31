@@ -8,7 +8,7 @@ Unit tests validate service-layer behaviour in isolation using **JUnit 5** and *
 
 ---
 
-## GuitarServiceTest.java Unit Tests
+## GuitarServiceTest.java (Unit Tests)
 
 1. [**Fetch / Read behaviour** (happy path + not found + mapping)](#testfetchguitarsuccess)
 2. [**Create / Write behaviour** (core create workflow)](#testcreateguitarsuccess)
