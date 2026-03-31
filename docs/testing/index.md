@@ -9,8 +9,11 @@ This project follows the **Test Pyramid** approach: the majority of tests are fa
 Unit tests focus on individual classes (typically service-layer logic) in isolation using **JUnit 5** and **Mockito**. Dependencies such as repositories are mocked so that tests execute quickly and fail only when the unit’s business logic is incorrect. These tests provide the bulk of coverage and fast feedback during development.
 
 **Unit test suite(s) in this project:**
+
 - `src/test/java/edu/tus/guitarstore/service/GuitarServiceTest.java`  
   Service-layer unit tests using Mockito to mock repository dependencies and verify service behaviour in isolation.
+- `src/test/java/edu/tus/guitarstore/GuitarAppTests.java`  
+  Spring Boot context **smoke test** (`contextLoads()`) that verifies the application starts successfully under `@SpringBootTest` (no HTTP assertions).
 
 [Go To Unit Tests](unit-tests/index.md)  
 

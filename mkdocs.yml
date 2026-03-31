@@ -47,17 +47,17 @@ nav:
     - guide/8_status_codes.md
     - guide/9_end_points.md
   - Testing:
-    - testing/index.md
+    - Overview: testing/index.md
     - Unit Tests:
-      - testing/unit-tests/index.md
+      - Overview: testing/unit-tests/index.md
     - Integration Tests:
-      - testing/integration-tests/index.md
-      - testing/integration-tests/guitar-repository-integration-test.md
-      - testing/integration-tests/guitar-repository-test.md
-    - End to End Tests:
-      - testing/end-to-end-tests/index.md
-      - testing/end-to-end-tests/api-end-to-end.md
-      - testing/end-to-end-tests/karate.md
+      - Overview: testing/integration-tests/index.md
+      - GuitarRepositoryIntegrationTest: testing/integration-tests/guitar-repository-integration-test.md
+      - GuitarRepositoryTest: testing/integration-tests/guitar-repository-test.md
+    - End-to-End Tests:
+      - Overview: testing/end-to-end-tests/index.md
+      - API (TestRestTemplate): testing/end-to-end-tests/api-end-to-end.md
+      - Karate: testing/end-to-end-tests/karate.md
   - Links:
     - links/index.md
   

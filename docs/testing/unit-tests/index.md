@@ -5,6 +5,15 @@ Unit tests validate service-layer behaviour in isolation using **JUnit 5** and *
 ## Implemented Unit Test Suites
 - `src/test/java/edu/tus/guitarstore/service/GuitarServiceTest.java`  
   Tests service logic by mocking repository calls and verifying returned DTOs and repository interactions.
+- `src/test/java/edu/tus/guitarstore/GuitarAppTests.java`  
+  Spring Boot context **smoke test** (`contextLoads()`) that verifies the application starts successfully under `@SpringBootTest` (no HTTP assertions).
+
+---
+
+## GuitarAppTests.java (Smoke Test)
+
+### contextLoads()
+A minimal Spring Boot smoke test that verifies the application context starts successfully with `@SpringBootTest`. It does not perform HTTP/API assertions (those are covered in the E2E test suite).
 
 ---
 
@@ -29,7 +38,7 @@ Unit tests validate service-layer behaviour in isolation using **JUnit 5** and *
     - [testCreateGuitarWithZeroPrice()](#testcreateguitarwithzeroprice)
     - [testCreateGuitarWithFutureManufactureDate()](#testcreateguitarwithfuturemanufacturedate)
     - [testCreateGuitarWithEmptyModelName()](#testcreateguitarwithemptymodelname)
-    - [testCreateGuitarWithWhitespaceModelName()](#testfetchguitarsutestcreateguitarwithemptymodelnameccess)
+    - [testCreateGuitarWithWhitespaceModelName()](#testcreateguitarwithwhitespacemodelname)
     - [testCreateGuitarWithEmptyBrandName()](#testcreateguitarwithemptybrandname)
 5. **Mapper / DTO** conversion edge cases
     - [testMapperBrandNullHandling()](#testmapperbrandnullhandling)
