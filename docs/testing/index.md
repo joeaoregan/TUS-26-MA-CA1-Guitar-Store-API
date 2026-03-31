@@ -27,7 +27,7 @@ Integration tests verify that multiple components work together, typically inclu
 - `src/test/java/edu/tus/guitarstore/config/TestJpaAuditingConfig.java`  
   Test-only configuration to supply auditing context (e.g., `AuditorAware`) required by JPA auditing fields during integration/E2E tests.
 
-[Go To Integration Tests](integration-tests.md)
+[Go To Integration Tests](integration-tests/index.md)
 
 ---
 

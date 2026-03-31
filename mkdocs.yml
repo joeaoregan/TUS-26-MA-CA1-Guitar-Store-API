@@ -49,7 +49,10 @@ nav:
   - Testing:
     - testing/index.md
     - testing/unit-tests.md
-    - testing/integration-tests.md
+    - Integration Tests:
+      - testing/integration-tests/index.md
+      - testing/integration-tests/guitar-repository-integration-test.md
+      - testing/integration-tests/guitar-repository-test.md
     - testing/end-to-end-tests.md
   - Links:
     - links/index.md

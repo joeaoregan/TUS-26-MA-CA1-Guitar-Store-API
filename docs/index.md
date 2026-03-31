@@ -10,8 +10,8 @@
 ## Contents
 
 - [Home](index.md)
-- [Microservices Architecture CA1](1_ma/index.md)
-- [Continuous Build and Delivery CA1](2_cbd/cbdCA1.md)
+- [Microservices Architecture CA1](microservices-architecture-ca1/index.md)
+- [Continuous Build and Delivery CA1](continuous-build-and-delivery-ca1/index.md)
 - Guide:  
     1 [How to Run](guide/index.md)  
     2 [Project Overview](guide/2_project_overview.md)  
