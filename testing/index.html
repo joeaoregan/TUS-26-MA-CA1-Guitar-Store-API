@@ -1730,25 +1730,31 @@
 <hr />
 <h3 id="integration-tests-middle-of-the-pyramid">Integration Tests (middle of the pyramid)</h3>
 <p>Integration tests verify that multiple components work together, typically including the <strong>database layer</strong> (e.g., JPA repositories and entity mappings) using a real H2 test database. These tests ensure persistence, mappings, constraints, and repository queries behave as expected in a realistic environment.</p>
-<p><strong>Integration test suite(s) in this project:</strong>
-- <code>src/test/java/edu/tus/guitarstore/repository/GuitarRepositoryIntegrationTest.java</code><br />
-  Repository-level integration tests that verify Spring Data JPA queries and persistence against the test database.
-- <code>src/test/java/edu/tus/guitarstore/repository/GuitarRepositoryTest.java</code><br />
-  Additional repository tests that validate CRUD/query behaviour and entity mapping assumptions.
-- <code>src/test/java/edu/tus/guitarstore/config/TestJpaAuditingConfig.java</code><br />
-  Test-only configuration to supply auditing context (e.g., <code>AuditorAware</code>) required by JPA auditing fields during integration/E2E tests.</p>
+<p><strong>Integration test suite(s) in this project:</strong></p>
+<ul>
+<li><code>src/test/java/edu/tus/guitarstore/repository/GuitarRepositoryIntegrationTest.java</code><br />
+  Repository-level integration tests that verify Spring Data JPA queries and persistence against the test database.</li>
+<li><code>src/test/java/edu/tus/guitarstore/repository/GuitarRepositoryTest.java</code><br />
+  Additional repository tests that validate CRUD/query behaviour and entity mapping assumptions.</li>
+<li><code>src/test/java/edu/tus/guitarstore/config/TestJpaAuditingConfig.java</code><br />
+  Test-only configuration to supply auditing context (e.g., <code>AuditorAware</code>) required by JPA auditing fields during integration/E2E tests.</li>
+</ul>
 <p><a href="integration-tests/">Go To Integration Tests</a></p>
 <hr />
 <h3 id="end-to-end-api-tests-top-of-the-pyramid">End-to-End / API Tests (top of the pyramid)</h3>
-<p>A small number of E2E tests validate the system from an external client perspective by calling the REST API over HTTP. Two complementary approaches are used:
-- <strong>JUnit + TestRestTemplate</strong> (<code>@SpringBootTest(webEnvironment = RANDOM_PORT)</code>) to start the application in the test runtime and verify real controller/service/repository/DB behaviour.
-- <strong>Karate feature tests</strong> against <code>http://localhost:8080</code> for readable, scenario-based API checks (happy path, validation failures, not-found responses, and simple lifecycle flows such as create→delete→verify).
-These tests provide high confidence in the complete request/response flow but are intentionally fewer in number because they are slower and more environment-dependent.</p>
-<p><strong>End-to-end test suite(s) in this project:</strong>
-- <code>src/test/java/edu/tus/guitarstore/e2e/GuitarApiE2ETest.java</code><br />
-  JUnit-based E2E tests that start the full Spring Boot application and exercise REST endpoints via HTTP.
-- <code>src/test/java/edu/tus/guitarstore/karate/BrandKarateTest.java</code> and <code>src/test/java/edu/tus/guitarstore/karate/brands.feature</code><br />
-  Karate-based black-box API tests for the Brand endpoints, executed against a locally running app on <code>http://localhost:8080</code>.</p>
+<p>A small number of E2E tests validate the system from an external client perspective by calling the REST API over HTTP. Two complementary approaches are used:</p>
+<ul>
+<li><strong>JUnit + TestRestTemplate</strong> (<code>@SpringBootTest(webEnvironment = RANDOM_PORT)</code>) to start the application in the test runtime and verify real controller/service/repository/DB behaviour.</li>
+<li><strong>Karate feature tests</strong> against <code>http://localhost:8080</code> for readable, scenario-based API checks (happy path, validation failures, not-found responses, and simple lifecycle flows such as create→delete→verify).
+These tests provide high confidence in the complete request/response flow but are intentionally fewer in number because they are slower and more environment-dependent.</li>
+</ul>
+<p><strong>End-to-end test suite(s) in this project:</strong></p>
+<ul>
+<li><code>src/test/java/edu/tus/guitarstore/e2e/GuitarApiE2ETest.java</code><br />
+  JUnit-based E2E tests that start the full Spring Boot application and exercise REST endpoints via HTTP.</li>
+<li><code>src/test/java/edu/tus/guitarstore/karate/BrandKarateTest.java</code> and <code>src/test/java/edu/tus/guitarstore/karate/brands.feature</code><br />
+  Karate-based black-box API tests for the Brand endpoints, executed against a locally running app on <code>http://localhost:8080</code>.</li>
+</ul>
 <p><a href="end-to-end-tests/">Go To E2E Tests</a>  </p>
 
 
