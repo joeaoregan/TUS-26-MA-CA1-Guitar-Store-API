@@ -33,9 +33,9 @@ nav:
   - Home: 
     - index.md
   - Microservices Architecture:
-    - 1_ma/index.md
+    - microservices-architecture-ca1/index.md
   - Continuous Build and Delivery:
-    - 2_cbd/cbdCA1.md
+    - continuous-build-and-delivery-ca1/index.md
   - Guide:
     - guide/index.md
     - guide/2_project_overview.md
@@ -46,6 +46,11 @@ nav:
     - guide/7_database.md
     - guide/8_status_codes.md
     - guide/9_end_points.md
+  - Testing:
+    - testing/index.md
+    - testing/unit-tests.md
+    - testing/integration-tests.md
+    - testing/end-to-end-tests.md
   - Links:
     - links/index.md
   
