@@ -1,11 +1,15 @@
 package edu.tus.guitarstore.service;
 
 import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,6 +23,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -420,5 +425,62 @@ public class GuitarServiceTest {
 		assertThrows(ResourceNotFoundException.class, () -> guitarService.createGuitar(guitarDto));
 
 		verify(guitarRepository, never()).save(any(Guitar.class));
+	}
+
+	// Test Dates
+	@Test
+	@DisplayName("Should return list of GuitarDto when guitars exist in manufacture date range")
+	void testFetchGuitarsByDateRange_Success() {
+		// Arrange
+		LocalDate start = LocalDate.of(2010, 1, 1);
+		LocalDate end = LocalDate.of(2016, 12, 31);
+
+		Guitar guitar1 = new Guitar();
+		guitar1.setId(1L);
+		guitar1.setModelName("Stratocaster");
+		guitar1.setPrice(999.99);
+		guitar1.setManufactureDate(LocalDate.of(2010, 1, 5));
+		guitar1.setBrand(brand);
+
+		Guitar guitar2 = new Guitar();
+		guitar2.setId(2L);
+		guitar2.setModelName("Telecaster");
+		guitar2.setPrice(799.99);
+		guitar2.setManufactureDate(LocalDate.of(2015, 6, 10));
+		guitar2.setBrand(brand);
+
+		when(guitarRepository.findByManufactureDateBetween(start, end)).thenReturn(List.of(guitar1, guitar2));
+
+		// Act
+		List<GuitarDto> result = guitarService.fetchGuitarsByDateRange(start, end);
+
+		// Assert
+		assertNotNull(result, "Result list should not be null");
+		assertEquals(2, result.size(), "Should return two GuitarDto results");
+
+		// Ensure mapping to DTO happened (using the service's existing mapping logic)
+		assertEquals("Stratocaster", result.get(0).getModelName());
+		assertEquals("Telecaster", result.get(1).getModelName());
+
+		verify(guitarRepository, times(1)).findByManufactureDateBetween(start, end);
+	}
+
+	@Test
+	@DisplayName("Should return empty list when no guitars exist in manufacture date range")
+	void testFetchGuitarsByDateRange_NoResults() {
+		// Arrange
+		LocalDate start = LocalDate.of(2020, 1, 1);
+		LocalDate end = LocalDate.of(2020, 12, 31);
+
+		when(guitarRepository.findByManufactureDateBetween(start, end)).thenReturn(Collections.emptyList());
+
+		// Act
+		List<GuitarDto> result = guitarService.fetchGuitarsByDateRange(start, end);
+
+		// Assert
+		assertNotNull(result, "Result list should not be null");
+		assertTrue(result.isEmpty(), "Result list should be empty when repository returns no matches");
+
+		verify(guitarRepository, times(1)).findByManufactureDateBetween(start, end);
 	}
 }
