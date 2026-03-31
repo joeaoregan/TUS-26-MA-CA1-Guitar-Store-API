@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/guide/4_tech_stack/">
+        <link rel="canonical" href="https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/testing/integration-tests/guitar-repository-integration-test/">
       
       
-        <link rel="prev" href="../3_core_tech/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../5_api_demo/">
+        <link rel="next" href="../guitar-repository-test/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>4. Technology Stack - Guitar Store API Docs</title>
+        <title>GuitarRepositoryIntegrationTests.java - Guitar Store API Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#4-technology-stack" class="md-skip">
+        <a href="#guitarrepositoryintegrationtestsjava" class="md-skip">
           Skip to content
         </a>
       
@@ -92,9 +92,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Guitar Store API Docs" class="md-header__button md-logo" aria-label="Guitar Store API Docs" data-md-component="logo">
+    <a href="../../.." title="Guitar Store API Docs" class="md-header__button md-logo" aria-label="Guitar Store API Docs" data-md-component="logo">
       
-  <img src="../../images/logo.png" alt="logo">
+  <img src="../../../images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              4. Technology Stack
+              GuitarRepositoryIntegrationTests.java
             
           </span>
         </div>
@@ -218,7 +218,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../.." class="md-tabs__link">
+        <a href="../../.." class="md-tabs__link">
           
   
   
@@ -238,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../microservices-architecture-ca1/" class="md-tabs__link">
+        <a href="../../../microservices-architecture-ca1/" class="md-tabs__link">
           
   
   
@@ -258,11 +258,31 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../continuous-build-and-delivery-ca1/" class="md-tabs__link">
+        <a href="../../../continuous-build-and-delivery-ca1/" class="md-tabs__link">
           
   
   
   Continuous Build and Delivery
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guide/" class="md-tabs__link">
+          
+  
+  
+  Guide
 
         </a>
       </li>
@@ -280,27 +300,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
-          
-  
-  
-  Guide
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../testing/" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -320,7 +320,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../links/" class="md-tabs__link">
+        <a href="../../../links/" class="md-tabs__link">
           
   
   
@@ -360,9 +360,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Guitar Store API Docs" class="md-nav__button md-logo" aria-label="Guitar Store API Docs" data-md-component="logo">
+    <a href="../../.." title="Guitar Store API Docs" class="md-nav__button md-logo" aria-label="Guitar Store API Docs" data-md-component="logo">
       
-  <img src="../../images/logo.png" alt="logo">
+  <img src="../../../images/logo.png" alt="logo">
 
     </a>
     Guitar Store API Docs
@@ -441,7 +441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -528,7 +528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../microservices-architecture-ca1/" class="md-nav__link">
+      <a href="../../../microservices-architecture-ca1/" class="md-nav__link">
         
   
   
@@ -615,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../continuous-build-and-delivery-ca1/" class="md-nav__link">
+      <a href="../../../continuous-build-and-delivery-ca1/" class="md-nav__link">
         
   
   
@@ -623,6 +623,317 @@
     
   
     Continuous Build and Delivery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. How to Run
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/2_project_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Project Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/3_core_tech/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Core Technology Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/4_tech_stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Technology Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/5_api_demo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. API Demonstration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/6_diagrams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Diagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/7_database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Database and Audit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/8_status_codes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Status Codes implemented
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/9_end_points/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. API Endpoints
   
 
     
@@ -668,331 +979,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Guide
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Guide
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    1. How to Run
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2_project_overview/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2. Project Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../3_core_tech/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    3. Core Technology Requirements
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    4. Technology Stack
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../5_api_demo/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    5. API Demonstration
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../6_diagrams/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    6. Diagrams
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../7_database/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    7. Database and Audit
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../8_status_codes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    8. Status Codes implemented
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../9_end_points/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    9. API Endpoints
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -1010,7 +1000,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1028,7 +1018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -1062,17 +1052,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
         
           
-          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="">
             
   
   
@@ -1108,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/unit-tests/" class="md-nav__link">
+      <a href="../../unit-tests/" class="md-nav__link">
         
   
   
@@ -1141,26 +1134,31 @@
                 
   
   
+    
   
   
+  
     
     
     
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
-          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
             
   
   
@@ -1178,7 +1176,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1196,7 +1194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/integration-tests/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -1221,10 +1219,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../testing/integration-tests/guitar-repository-integration-test/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GuitarRepositoryIntegrationTests.java
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1240,6 +1265,294 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (Integration Tests)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-basic-query-behaviour-happy-path-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Basic query behaviour (happy path + not found)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Basic query behaviour (happy path + not found)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnameexactmatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameExactMatch()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnamenotfound" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameNotFound()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-query-correctness-with-multiple-records-precision-false-positives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Query correctness with multiple records (precision / false positives)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Query correctness with multiple records (precision / false positives)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnameamongmultiplerecords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameAmongMultipleRecords()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnamedoesnotreturnsimilarnames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameDoesNotReturnSimilarNames()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-data-integrity-constraints-database-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Data integrity / constraints (database rules)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Data integrity / constraints (database rules)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testmodelnameuniqueconstraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testModelNameUniqueConstraint()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-mapping-completeness-all-columns-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Mapping completeness (all columns / attributes)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Mapping completeness (all columns / attributes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnameretrievesallattributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameRetrievesAllAttributes()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-relationships-brand-association-correctness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Relationships (Brand association correctness)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Relationships (Brand association correctness)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnamepreservesbrandrelationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNamePreservesBrandRelationship()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-optional-semantics-repository-contract-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Optional semantics / repository contract behaviour
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Optional semantics / repository contract behaviour">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnamereturnsindependentoptionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameReturnsIndependentOptionals()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-edge-cases-in-querying-case-sensitivity-special-characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Edge cases in querying (case sensitivity, special characters)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Edge cases in querying (case sensitivity, special characters)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnamecasesensitivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameCaseSensitivity()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnamewithspecialcharacters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameWithSpecialCharacters()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-jpa-fetch-strategy-lazy-loading-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. JPA fetch strategy / lazy loading behaviour
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. JPA fetch strategy / lazy loading behaviour">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnamebrandlazyloading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameBrandLazyLoading()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1252,7 +1565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/integration-tests/guitar-repository-test/" class="md-nav__link">
+      <a href="../guitar-repository-test/" class="md-nav__link">
         
   
   
@@ -1294,17 +1607,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
           
-          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="">
             
   
   
@@ -1340,7 +1656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/end-to-end-tests/" class="md-nav__link">
+      <a href="../../end-to-end-tests/" class="md-nav__link">
         
   
   
@@ -1368,7 +1684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/end-to-end-tests/api-end-to-end/" class="md-nav__link">
+      <a href="../../end-to-end-tests/api-end-to-end/" class="md-nav__link">
         
   
   
@@ -1396,7 +1712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/end-to-end-tests/karate/" class="md-nav__link">
+      <a href="../../end-to-end-tests/karate/" class="md-nav__link">
         
   
   
@@ -1491,7 +1807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../links/" class="md-nav__link">
+      <a href="../../../links/" class="md-nav__link">
         
   
   
@@ -1539,6 +1855,282 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (Integration Tests)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-basic-query-behaviour-happy-path-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Basic query behaviour (happy path + not found)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Basic query behaviour (happy path + not found)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnameexactmatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameExactMatch()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnamenotfound" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameNotFound()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-query-correctness-with-multiple-records-precision-false-positives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Query correctness with multiple records (precision / false positives)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Query correctness with multiple records (precision / false positives)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnameamongmultiplerecords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameAmongMultipleRecords()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnamedoesnotreturnsimilarnames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameDoesNotReturnSimilarNames()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-data-integrity-constraints-database-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Data integrity / constraints (database rules)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Data integrity / constraints (database rules)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testmodelnameuniqueconstraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testModelNameUniqueConstraint()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-mapping-completeness-all-columns-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Mapping completeness (all columns / attributes)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Mapping completeness (all columns / attributes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnameretrievesallattributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameRetrievesAllAttributes()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-relationships-brand-association-correctness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Relationships (Brand association correctness)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Relationships (Brand association correctness)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnamepreservesbrandrelationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNamePreservesBrandRelationship()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-optional-semantics-repository-contract-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Optional semantics / repository contract behaviour
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Optional semantics / repository contract behaviour">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnamereturnsindependentoptionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameReturnsIndependentOptionals()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-edge-cases-in-querying-case-sensitivity-special-characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Edge cases in querying (case sensitivity, special characters)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Edge cases in querying (case sensitivity, special characters)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnamecasesensitivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameCaseSensitivity()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnamewithspecialcharacters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameWithSpecialCharacters()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-jpa-fetch-strategy-lazy-loading-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. JPA fetch strategy / lazy loading behaviour
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. JPA fetch strategy / lazy loading behaviour">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfindbymodelnamebrandlazyloading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFindByModelNameBrandLazyLoading()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1553,6 +2145,49 @@
 
 
 
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Testing
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Integration Tests
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -1563,17 +2198,55 @@
   
 
 
-<h1 id="4-technology-stack">4. Technology Stack</h1>
-<ul>
-<li><strong>Java Version:</strong> <a href="https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html">Java 17</a>+ (Tested with).</li>
-<li><strong>Framework:</strong> <a href="https://spring.io/projects/spring-boot">Spring Boot</a> 3.x.<br />
-  Framework for the RESTful API.</li>
-<li><strong>Database:</strong> <a href="https://www.h2database.com/html/main.html">H2 In-Memory Database</a> (with <a href="https://spring.io/projects/spring-data-jpa#overview">JPA</a>/<a href="https://hibernate.org/orm/">Hibernate</a>).<br />
-  For database persistence and relationship mapping and rapid demonstation.</li>
-<li><strong>Validation:</strong> <a href="https://beanvalidation.org/">Jakarta Bean Validation</a>.  </li>
-<li><strong>Utilities:</strong> <a href="https://projectlombok.org/">Lombok</a> and <a href="https://mapstruct.org/">MapStruct</a><br />
-  For reducing boilerplate and custom Mappers.</li>
-</ul>
+<h1 id="guitarrepositoryintegrationtestsjava">GuitarRepositoryIntegrationTests.java</h1>
+<h2 id="integration-tests">(Integration Tests)</h2>
+<ol>
+<li><a href="#testfindbymodelnameexactmatch"><strong>Basic query behaviour</strong> (happy path + not found)</a></li>
+<li><a href="#testfindbymodelnameamongmultiplerecords"><strong>Query correctness with multiple records</strong> (precision / false positives)</a></li>
+<li><a href="#testmodelnameuniqueconstraint"><strong>Data integrity / constraints</strong> (database rules)</a></li>
+<li><a href="#testfindbymodelnameretrievesallattributes"><strong>Mapping completeness</strong> (all columns / attributes)</a></li>
+<li><a href="#testfindbymodelnamepreservesbrandrelationship"><strong>Relationships</strong> (Brand association correctness)</a></li>
+<li><a href="#testfindbymodelnamereturnsindependentoptionals"><strong>Optional semantics / repository contract behaviour</strong></a></li>
+<li><a href="#testfindbymodelnamecasesensitivity"><strong>Edge cases in querying</strong> (case sensitivity, special characters)</a></li>
+<li><a href="#testfindbymodelnamebrandlazyloading"><strong>JPA fetch strategy / lazy loading behaviour</strong></a></li>
+</ol>
+<h2 id="1-basic-query-behaviour-happy-path-not-found">1. <strong>Basic query behaviour</strong> (happy path + not found)</h2>
+<h3 id="testfindbymodelnameexactmatch">testFindByModelNameExactMatch()</h3>
+<p>Verifies the repository returns a Guitar when modelName matches exactly. Confirms persisted fields (modelName, price, manufactureDate) and the Brand relationship are retrieved correctly.</p>
+<h3 id="testfindbymodelnamenotfound">testFindByModelNameNotFound()</h3>
+<p>Verifies the repository returns Optional.empty() when a model name does not exist. Confirms the query does not return unexpected data.</p>
+<hr />
+<h2 id="2-query-correctness-with-multiple-records-precision-false-positives">2. <strong>Query correctness with multiple records</strong> (precision / false positives)</h2>
+<h3 id="testfindbymodelnameamongmultiplerecords">testFindByModelNameAmongMultipleRecords()</h3>
+<p>Verifies the repository returns the correct guitar when multiple guitars exist in the database. Confirms the query targets the correct record and not a different row.</p>
+<h3 id="testfindbymodelnamedoesnotreturnsimilarnames">testFindByModelNameDoesNotReturnSimilarNames()</h3>
+<p>Adds a “similar but not equal” model name (e.g., StratocasterPlus) and verifies the exact name still resolves to the correct row. Confirms the query is exact-match and does not return partial matches.</p>
+<hr />
+<h2 id="3-data-integrity-constraints-database-rules">3. <strong>Data integrity / constraints</strong> (database rules)</h2>
+<h3 id="testmodelnameuniqueconstraint">testModelNameUniqueConstraint()</h3>
+<p>Attempts to persist a second guitar with an existing modelName and asserts a DataIntegrityViolationException. Confirms the UNIQUE constraint is enforced at the database level.</p>
+<hr />
+<h2 id="4-mapping-completeness-all-columns-attributes">4. <strong>Mapping completeness</strong> (all columns / attributes)</h2>
+<h3 id="testfindbymodelnameretrievesallattributes">testFindByModelNameRetrievesAllAttributes()</h3>
+<p>Verifies that all guitar attributes are correctly persisted and retrieved from the database. Confirms entity mapping correctness (id, modelName, price, manufactureDate, brand id).</p>
+<hr />
+<h2 id="5-relationships-brand-association-correctness">5. <strong>Relationships</strong> (Brand association correctness)</h2>
+<h3 id="testfindbymodelnamepreservesbrandrelationship">testFindByModelNamePreservesBrandRelationship()</h3>
+<p>Verifies that when a guitar is retrieved, its associated Brand is also correctly mapped and accessible. Confirms relationship integrity (brand id/name/country).</p>
+<hr />
+<h2 id="6-optional-semantics-repository-contract-behaviour">6. <strong>Optional semantics / repository contract behaviour</strong></h2>
+<h3 id="testfindbymodelnamereturnsindependentoptionals">testFindByModelNameReturnsIndependentOptionals()</h3>
+<p>Runs the same repository query twice and ensures both results contain consistent data. Confirms repeated queries behave deterministically and don’t mutate shared state.</p>
+<hr />
+<h2 id="7-edge-cases-in-querying-case-sensitivity-special-characters">7. <strong>Edge cases in querying</strong> (case sensitivity, special characters)</h2>
+<h3 id="testfindbymodelnamecasesensitivity">testFindByModelNameCaseSensitivity()</h3>
+<p>Verifies the query behaviour is case-sensitive by checking that wrong-case values do not match. Confirms only the exact-cased model name returns a result.</p>
+<h3 id="testfindbymodelnamewithspecialcharacters">testFindByModelNameWithSpecialCharacters()</h3>
+<p>Persists a guitar with special characters in the model name and verifies it can be retrieved correctly. Confirms the database + JPA mapping handle special characters in query parameters.</p>
+<hr />
+<h2 id="8-jpa-fetch-strategy-lazy-loading-behaviour">8. <strong>JPA fetch strategy / lazy loading behaviour</strong></h2>
+<h3 id="testfindbymodelnamebrandlazyloading">testFindByModelNameBrandLazyLoading()</h3>
+<p>Retrieves a guitar and then accesses the brand fields to verify the relationship can be loaded through JPA. Confirms the entity association remains usable after the initial query (lazy loading behaviour).</p>
 
 
 
@@ -1609,7 +2282,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../3_core_tech/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 3. Core Technology Requirements">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1619,20 +2292,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                3. Core Technology Requirements
+                Overview
               </div>
             </div>
           </a>
         
         
           
-          <a href="../5_api_demo/" class="md-footer__link md-footer__link--next" aria-label="Next: 5. API Demonstration">
+          <a href="../guitar-repository-test/" class="md-footer__link md-footer__link--next" aria-label="Next: GuitarRepositoryTest.java">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                5. API Demonstration
+                GuitarRepositoryTest.java
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1669,10 +2342,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.follow", "navigation.footer", "navigation.instant.preview", "navigation.tracking", "navigation.path", "navigation.top"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.follow", "navigation.footer", "navigation.instant.preview", "navigation.tracking", "navigation.path", "navigation.top"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

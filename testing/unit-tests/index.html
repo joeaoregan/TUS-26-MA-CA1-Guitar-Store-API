@@ -25,7 +25,7 @@
     
     
       
-        <title>Unit Tests - Guitar Store API Docs</title>
+        <title>Overview - Guitar Store API Docs</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#unit-tests" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Unit Tests
+              Overview
             
           </span>
         </div>
@@ -1047,6 +1047,63 @@
   
   
   
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unit Tests
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Unit Tests
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -1062,7 +1119,7 @@
   <span class="md-ellipsis">
     
   
-    Unit Tests
+    Overview
   
 
     
@@ -1080,7 +1137,7 @@
   <span class="md-ellipsis">
     
   
-    Unit Tests
+    Overview
   
 
     
@@ -1116,6 +1173,300 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#guitarservicetestjava-unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GuitarServiceTest.java (Unit Tests)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-fetch-read-behaviour-happy-path-not-found-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Fetch / Read behaviour (happy path + not found + mapping)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Fetch / Read behaviour (happy path + not found + mapping)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfetchguitarsuccess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFetchGuitarSuccess()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testfetchguitarnotfound" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFetchGuitarNotFound()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testfetchguitarmappingallfields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFetchGuitarMappingAllFields()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testfetchguitaremptyoptional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFetchGuitarEmptyOptional()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-write-behaviour-core-create-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create / Write behaviour (core create workflow)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Create / Write behaviour (core create workflow)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarsuccess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarSuccess()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-create-guards-duplicates-and-missing-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create guards: duplicates and missing dependencies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Create guards: duplicates and missing dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitaralreadyexists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarAlreadyExists()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarbrandnotfound" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarBrandNotFound()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarduplicatechecktiming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarDuplicateCheckTiming()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-input-validation-defensive-programming-nulls-blanks-invalid-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Input validation / defensive programming (nulls, blanks, invalid values)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Input validation / defensive programming (nulls, blanks, invalid values)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithnulldto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithNullDto()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithnullmodelname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithNullModelName()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithnullbrandname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithNullBrandName()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithnegativeprice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithNegativePrice()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithzeroprice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithZeroPrice()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithfuturemanufacturedate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithFutureManufactureDate()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithemptymodelname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithEmptyModelName()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithwhitespacemodelname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithWhitespaceModelName()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithemptybrandname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithEmptyBrandName()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mapper-dto-conversion-edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Mapper / DTO conversion edge cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Mapper / DTO conversion edge cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testmapperbrandnullhandling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testMapperBrandNullHandling()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1124,6 +1475,69 @@
   
 
               
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration Tests
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Integration Tests
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1139,7 +1553,7 @@
   <span class="md-ellipsis">
     
   
-    Integration Tests
+    Overview
   
 
     
@@ -1152,6 +1566,125 @@
   
 
               
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integration-tests/guitar-repository-integration-test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GuitarRepositoryIntegrationTests.java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integration-tests/guitar-repository-test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GuitarRepositoryTest.java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    End to End Tests
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    End to End Tests
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1176,6 +1709,70 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../end-to-end-tests/api-end-to-end/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API End-to-End Tests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../end-to-end-tests/karate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Karate Testss
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1312,6 +1909,300 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#guitarservicetestjava-unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GuitarServiceTest.java (Unit Tests)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-fetch-read-behaviour-happy-path-not-found-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Fetch / Read behaviour (happy path + not found + mapping)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Fetch / Read behaviour (happy path + not found + mapping)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testfetchguitarsuccess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFetchGuitarSuccess()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testfetchguitarnotfound" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFetchGuitarNotFound()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testfetchguitarmappingallfields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFetchGuitarMappingAllFields()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testfetchguitaremptyoptional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testFetchGuitarEmptyOptional()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-write-behaviour-core-create-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create / Write behaviour (core create workflow)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Create / Write behaviour (core create workflow)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarsuccess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarSuccess()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-create-guards-duplicates-and-missing-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create guards: duplicates and missing dependencies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Create guards: duplicates and missing dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitaralreadyexists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarAlreadyExists()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarbrandnotfound" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarBrandNotFound()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarduplicatechecktiming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarDuplicateCheckTiming()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-input-validation-defensive-programming-nulls-blanks-invalid-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Input validation / defensive programming (nulls, blanks, invalid values)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Input validation / defensive programming (nulls, blanks, invalid values)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithnulldto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithNullDto()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithnullmodelname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithNullModelName()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithnullbrandname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithNullBrandName()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithnegativeprice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithNegativePrice()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithzeroprice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithZeroPrice()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithfuturemanufacturedate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithFutureManufactureDate()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithemptymodelname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithEmptyModelName()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithwhitespacemodelname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithWhitespaceModelName()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcreateguitarwithemptybrandname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testCreateGuitarWithEmptyBrandName()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mapper-dto-conversion-edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Mapper / DTO conversion edge cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Mapper / DTO conversion edge cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testmapperbrandnullhandling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testMapperBrandNullHandling()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1328,6 +2219,49 @@
 
 
 
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Testing
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Unit Tests
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -1338,22 +2272,51 @@
   
 
 
-<h1 id="unit-tests">Unit Tests</h1>
+<h1 id="overview">Overview</h1>
 <p>Unit tests validate service-layer behaviour in isolation using <strong>JUnit 5</strong> and <strong>Mockito</strong>. Repository dependencies are mocked so tests run quickly and focus on business logic rather than persistence or HTTP concerns.</p>
 <h2 id="implemented-unit-test-suites">Implemented Unit Test Suites</h2>
 <ul>
 <li><code>src/test/java/edu/tus/guitarstore/service/GuitarServiceTest.java</code><br />
   Tests service logic by mocking repository calls and verifying returned DTOs and repository interactions.</li>
 </ul>
-<h1 id="unit-tests_1">Unit Tests</h1>
-<p>Unit tests validate service-layer behaviour in isolation using <strong>JUnit 5</strong> and <strong>Mockito</strong>. Repository dependencies are mocked so tests run quickly and focus on business logic rather than persistence or HTTP concerns.</p>
-<h2 id="implemented-unit-test-suites_1">Implemented Unit Test Suites</h2>
-<ul>
-<li><code>src/test/java/edu/tus/guitarstore/service/GuitarServiceTest.java</code><br />
-  Tests service logic by mocking repository calls and verifying returned DTOs and repository interactions.</li>
+<hr />
+<h2 id="guitarservicetestjava-unit-tests">GuitarServiceTest.java (Unit Tests)</h2>
+<ol>
+<li><strong>Fetch / Read behaviour</strong> (happy path + not found + mapping)<ul>
+<li><a href="#testfetchguitarsuccess">testFetchGuitarSuccess()</a></li>
+<li><a href="#testfetchguitarnotfound">testFetchGuitarNotFound()</a></li>
+<li><a href="#testfetchguitarmappingallfields">testFetchGuitarMappingAllFields()</a></li>
+<li><a href="#testfetchguitaremptyoptional">testFetchGuitarEmptyOptional()</a></li>
 </ul>
-<p>--</p>
-<h2 id="guitarservicetestjava">GuitarServiceTest.java</h2>
+</li>
+<li><strong>Create / Write behaviour</strong> (core create workflow)<ul>
+<li><a href="#testcreateguitarsuccess">testCreateGuitarSuccess()</a></li>
+</ul>
+</li>
+<li><strong>Create guards:</strong> duplicates and missing dependencies<ul>
+<li><a href="#testcreateguitaralreadyexists">testCreateGuitarAlreadyExists()</a></li>
+<li><a href="#testcreateguitarbrandnotfound">testCreateGuitarBrandNotFound()</a></li>
+<li><a href="#testcreateguitarduplicatechecktiming">testCreateGuitarDuplicateCheckTiming()</a></li>
+</ul>
+</li>
+<li><strong>Input validation / defensive programming</strong> (nulls, blanks, invalid values)<ul>
+<li><a href="#testcreateguitarwithnulldto">testCreateGuitarWithNullDto()</a></li>
+<li><a href="#testcreateguitarwithnullmodelname">testCreateGuitarWithNullModelName()</a></li>
+<li><a href="#testcreateguitarwithnullbrandname">testCreateGuitarWithNullBrandName()</a></li>
+<li><a href="#testcreateguitarwithnegativeprice">testCreateGuitarWithNegativePrice()</a></li>
+<li><a href="#testcreateguitarwithzeroprice">testCreateGuitarWithZeroPrice()</a></li>
+<li><a href="#testcreateguitarwithfuturemanufacturedate">testCreateGuitarWithFutureManufactureDate()</a></li>
+<li><a href="#testcreateguitarwithemptymodelname">testCreateGuitarWithEmptyModelName()</a></li>
+<li><a href="#testfetchguitarsutestcreateguitarwithemptymodelnameccess">testCreateGuitarWithWhitespaceModelName()</a></li>
+<li><a href="#testcreateguitarwithemptybrandname">testCreateGuitarWithEmptyBrandName()</a></li>
+</ul>
+</li>
+<li><strong>Mapper / DTO</strong> conversion edge cases<ul>
+<li><a href="#testmapperbrandnullhandling">testMapperBrandNullHandling()</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="1-fetch-read-behaviour-happy-path-not-found-mapping">1. <strong>Fetch / Read behaviour</strong> (happy path + not found + mapping)</h2>
 <h3 id="testfetchguitarsuccess">testFetchGuitarSuccess()</h3>
 <p>Verifies that when the repository returns a <code>Guitar</code> entity, the service returns a populated <code>GuitarDto</code> for the requested model name. Confirms the repository method is called as expected and a normal “happy path” fetch works.</p>
 <h3 id="testfetchguitarnotfound">testFetchGuitarNotFound()</h3>
@@ -1362,12 +2325,20 @@
 <p>Ensures the service returns a DTO with all relevant fields correctly mapped from the entity (i.e., mapping consistency across the main attributes). Confirms the mapper/service does not drop or mis-map data.</p>
 <h3 id="testfetchguitaremptyoptional">testFetchGuitarEmptyOptional()</h3>
 <p>Validates behaviour when the repository returns <code>Optional.empty()</code> for a lookup. Confirms the service handles the empty Optional path correctly (error/exception path) instead of returning null or invalid DTOs.</p>
+<hr />
+<h2 id="2-create-write-behaviour-core-create-workflow">2. <strong>Create / Write behaviour</strong> (core create workflow)</h2>
 <h3 id="testcreateguitarsuccess">testCreateGuitarSuccess()</h3>
 <p>Verifies that a valid <code>GuitarDto</code> results in a successful create operation, including mapping DTO → entity and persisting via the repository. Confirms repository <code>save()</code> is called and the service returns the expected success outcome.</p>
+<hr />
+<h2 id="3-create-guards-duplicates-and-missing-dependencies">3. <strong>Create guards:</strong> duplicates and missing dependencies</h2>
 <h3 id="testcreateguitaralreadyexists">testCreateGuitarAlreadyExists()</h3>
 <p>Verifies that attempting to create a guitar with a model name that already exists triggers the correct exception/guard behaviour. Confirms duplicates are prevented at the service layer.</p>
 <h3 id="testcreateguitarbrandnotfound">testCreateGuitarBrandNotFound()</h3>
 <p>Verifies that creating a guitar fails when the brand referenced in the DTO does not exist. Confirms the service validates foreign-key/business dependency rules before saving.</p>
+<h3 id="testcreateguitarduplicatechecktiming">testCreateGuitarDuplicateCheckTiming()</h3>
+<p>Verifies that the duplicate check (existence query) happens as part of the create flow and prevents saving duplicates. Confirms correct ordering of operations (check before save).</p>
+<hr />
+<h2 id="4-input-validation-defensive-programming-nulls-blanks-invalid-values">4. <strong>Input validation / defensive programming</strong> (nulls, blanks, invalid values)</h2>
 <h3 id="testcreateguitarwithnulldto">testCreateGuitarWithNullDto()</h3>
 <p>Verifies that passing <code>null</code> into the create method fails fast (throws) rather than producing a NullPointerException later or persisting invalid data. Confirms input validation at method boundary.</p>
 <h3 id="testcreateguitarwithnullmodelname">testCreateGuitarWithNullModelName()</h3>
@@ -1386,8 +2357,8 @@
 <p>Verifies that a whitespace-only model name is rejected. Confirms trimming/blank validation is applied.</p>
 <h3 id="testcreateguitarwithemptybrandname">testCreateGuitarWithEmptyBrandName()</h3>
 <p>Verifies that an empty string brand name is rejected. Confirms brand name must be meaningful/non-blank.</p>
-<h3 id="testcreateguitarduplicatechecktiming">testCreateGuitarDuplicateCheckTiming()</h3>
-<p>Verifies that the duplicate check (existence query) happens as part of the create flow and prevents saving duplicates. Confirms correct ordering of operations (check before save).</p>
+<hr />
+<h2 id="5-mapper-dto-conversion-edge-cases">5. <strong>Mapper / DTO</strong> conversion edge cases</h2>
 <h3 id="testmapperbrandnullhandling">testMapperBrandNullHandling()</h3>
 <p>Verifies mapping behaviour when brand information is missing/null (e.g., entity has null brand). Confirms the mapper/service handles null nested objects safely and consistently.</p>
 
@@ -1442,13 +2413,13 @@
         
         
           
-          <a href="../integration-tests/" class="md-footer__link md-footer__link--next" aria-label="Next: Integration Tests">
+          <a href="../integration-tests/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Integration Tests
+                Overview
               </div>
             </div>
             <div class="md-footer__button md-icon">
