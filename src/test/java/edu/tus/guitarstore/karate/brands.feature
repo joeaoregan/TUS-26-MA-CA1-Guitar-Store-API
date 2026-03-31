@@ -46,3 +46,8 @@ Scenario: Create then delete brand, then fetch returns 404
   Given path '/api/guitarstore/v1/brands', name
   When method get
   Then status 404
+  
+  Then status 404
+  And match response.apiPath contains '/api/guitarstore/v1/brands'
+  And match response.errorMessage == '#present'
+  And match response.errorTime == '#present'
