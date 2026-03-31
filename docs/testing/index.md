@@ -20,6 +20,7 @@ Unit tests focus on individual classes (typically service-layer logic) in isolat
 Integration tests verify that multiple components work together, typically including the **database layer** (e.g., JPA repositories and entity mappings) using a real H2 test database. These tests ensure persistence, mappings, constraints, and repository queries behave as expected in a realistic environment.
 
 **Integration test suite(s) in this project:**
+
 - `src/test/java/edu/tus/guitarstore/repository/GuitarRepositoryIntegrationTest.java`  
   Repository-level integration tests that verify Spring Data JPA queries and persistence against the test database.
 - `src/test/java/edu/tus/guitarstore/repository/GuitarRepositoryTest.java`  
@@ -33,11 +34,13 @@ Integration tests verify that multiple components work together, typically inclu
 
 ### End-to-End / API Tests (top of the pyramid)
 A small number of E2E tests validate the system from an external client perspective by calling the REST API over HTTP. Two complementary approaches are used:
+
 - **JUnit + TestRestTemplate** (`@SpringBootTest(webEnvironment = RANDOM_PORT)`) to start the application in the test runtime and verify real controller/service/repository/DB behaviour.
 - **Karate feature tests** against `http://localhost:8080` for readable, scenario-based API checks (happy path, validation failures, not-found responses, and simple lifecycle flows such as create→delete→verify).
 These tests provide high confidence in the complete request/response flow but are intentionally fewer in number because they are slower and more environment-dependent.
 
 **End-to-end test suite(s) in this project:**
+
 - `src/test/java/edu/tus/guitarstore/e2e/GuitarApiE2ETest.java`  
   JUnit-based E2E tests that start the full Spring Boot application and exercise REST endpoints via HTTP.
 - `src/test/java/edu/tus/guitarstore/karate/BrandKarateTest.java` and `src/test/java/edu/tus/guitarstore/karate/brands.feature`  
