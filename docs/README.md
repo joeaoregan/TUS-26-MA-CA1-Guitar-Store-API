@@ -41,6 +41,8 @@
 #### Online MkDocs Documentation
 
 - <https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/>
+    - [API Demo](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/guide/5_api_demo/)
+    - [Testing Documentation](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/testing/)
 
 ---
 
@@ -287,6 +289,19 @@ Sample POST Body (Create Brand):
 ```
 
 *For more information see [online docs](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/)*
+
+</details>
+
+<details>
+  <summary>10. Testing Summary</summary>
+
+Testing follows the **Test Pyramid** approach:
+
+- **Unit tests (JUnit 5 + Mockito):** fast service-layer tests (e.g., `GuitarServiceTest`) that validate business rules and mapping using mocked repositories.
+- **Integration tests (Spring `@DataJpaTest` + H2):** repository-focused tests (e.g., `GuitarRepositoryIntegrationTest`) that verify JPA mappings, query correctness, relationships, and database constraints.
+- **End-to-end / API tests:** full HTTP-level checks using `TestRestTemplate` (`GuitarApiE2ETest`) and scenario-based **Karate** features (`brands.feature`) to validate real request/response behaviour including happy paths and error handling.
+
+Full testing documentation is available in the MkDocs site under **Testing Documentation**.
 
 </details>
 
