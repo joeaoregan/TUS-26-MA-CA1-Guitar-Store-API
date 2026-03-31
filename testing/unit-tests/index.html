@@ -1174,6 +1174,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#guitarapptestsjava-smoke-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GuitarAppTests.java (Smoke Test)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GuitarAppTests.java (Smoke Test)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contextloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        contextLoads()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#guitarservicetestjava-unit-tests" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1581,7 +1609,7 @@
   <span class="md-ellipsis">
     
   
-    GuitarRepositoryIntegrationTests.java
+    GuitarRepositoryIntegrationTest
   
 
     
@@ -1609,7 +1637,7 @@
   <span class="md-ellipsis">
     
   
-    GuitarRepositoryTest.java
+    GuitarRepositoryTest
   
 
     
@@ -1664,7 +1692,7 @@
   <span class="md-ellipsis">
     
   
-    End to End Tests
+    End-to-End Tests
   
 
     
@@ -1680,7 +1708,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    End to End Tests
+    End-to-End Tests
   
 
           </label>
@@ -1700,7 +1728,7 @@
   <span class="md-ellipsis">
     
   
-    End-to-End (E2E) / API Tests
+    Overview
   
 
     
@@ -1728,7 +1756,7 @@
   <span class="md-ellipsis">
     
   
-    API End-to-End Tests
+    API (TestRestTemplate)
   
 
     
@@ -1756,7 +1784,7 @@
   <span class="md-ellipsis">
     
   
-    Karate Testss
+    Karate
   
 
     
@@ -1906,6 +1934,34 @@
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guitarapptestsjava-smoke-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GuitarAppTests.java (Smoke Test)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GuitarAppTests.java (Smoke Test)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contextloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        contextLoads()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2278,7 +2334,13 @@
 <ul>
 <li><code>src/test/java/edu/tus/guitarstore/service/GuitarServiceTest.java</code><br />
   Tests service logic by mocking repository calls and verifying returned DTOs and repository interactions.</li>
+<li><code>src/test/java/edu/tus/guitarstore/GuitarAppTests.java</code><br />
+  Spring Boot context <strong>smoke test</strong> (<code>contextLoads()</code>) that verifies the application starts successfully under <code>@SpringBootTest</code> (no HTTP assertions).</li>
 </ul>
+<hr />
+<h2 id="guitarapptestsjava-smoke-test">GuitarAppTests.java (Smoke Test)</h2>
+<h3 id="contextloads">contextLoads()</h3>
+<p>A minimal Spring Boot smoke test that verifies the application context starts successfully with <code>@SpringBootTest</code>. It does not perform HTTP/API assertions (those are covered in the E2E test suite).</p>
 <hr />
 <h2 id="guitarservicetestjava-unit-tests">GuitarServiceTest.java (Unit Tests)</h2>
 <ol>
@@ -2307,7 +2369,7 @@
 <li><a href="#testcreateguitarwithzeroprice">testCreateGuitarWithZeroPrice()</a></li>
 <li><a href="#testcreateguitarwithfuturemanufacturedate">testCreateGuitarWithFutureManufactureDate()</a></li>
 <li><a href="#testcreateguitarwithemptymodelname">testCreateGuitarWithEmptyModelName()</a></li>
-<li><a href="#testfetchguitarsutestcreateguitarwithemptymodelnameccess">testCreateGuitarWithWhitespaceModelName()</a></li>
+<li><a href="#testcreateguitarwithwhitespacemodelname">testCreateGuitarWithWhitespaceModelName()</a></li>
 <li><a href="#testcreateguitarwithemptybrandname">testCreateGuitarWithEmptyBrandName()</a></li>
 </ul>
 </li>

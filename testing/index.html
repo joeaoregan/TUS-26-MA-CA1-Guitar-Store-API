@@ -1324,7 +1324,7 @@
   <span class="md-ellipsis">
     
   
-    GuitarRepositoryIntegrationTests.java
+    GuitarRepositoryIntegrationTest
   
 
     
@@ -1352,7 +1352,7 @@
   <span class="md-ellipsis">
     
   
-    GuitarRepositoryTest.java
+    GuitarRepositoryTest
   
 
     
@@ -1407,7 +1407,7 @@
   <span class="md-ellipsis">
     
   
-    End to End Tests
+    End-to-End Tests
   
 
     
@@ -1423,7 +1423,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    End to End Tests
+    End-to-End Tests
   
 
           </label>
@@ -1443,7 +1443,7 @@
   <span class="md-ellipsis">
     
   
-    End-to-End (E2E) / API Tests
+    Overview
   
 
     
@@ -1471,7 +1471,7 @@
   <span class="md-ellipsis">
     
   
-    API End-to-End Tests
+    API (TestRestTemplate)
   
 
     
@@ -1499,7 +1499,7 @@
   <span class="md-ellipsis">
     
   
-    Karate Testss
+    Karate
   
 
     
@@ -1723,9 +1723,13 @@
 <p><img alt="Test Pyramid" src="../images/test-pyramid.jpg" /></p>
 <h3 id="unit-tests-base-of-the-pyramid">Unit Tests (base of the pyramid)</h3>
 <p>Unit tests focus on individual classes (typically service-layer logic) in isolation using <strong>JUnit 5</strong> and <strong>Mockito</strong>. Dependencies such as repositories are mocked so that tests execute quickly and fail only when the unit’s business logic is incorrect. These tests provide the bulk of coverage and fast feedback during development.</p>
-<p><strong>Unit test suite(s) in this project:</strong>
-- <code>src/test/java/edu/tus/guitarstore/service/GuitarServiceTest.java</code><br />
-  Service-layer unit tests using Mockito to mock repository dependencies and verify service behaviour in isolation.</p>
+<p><strong>Unit test suite(s) in this project:</strong></p>
+<ul>
+<li><code>src/test/java/edu/tus/guitarstore/service/GuitarServiceTest.java</code><br />
+  Service-layer unit tests using Mockito to mock repository dependencies and verify service behaviour in isolation.</li>
+<li><code>src/test/java/edu/tus/guitarstore/GuitarAppTests.java</code><br />
+  Spring Boot context <strong>smoke test</strong> (<code>contextLoads()</code>) that verifies the application starts successfully under <code>@SpringBootTest</code> (no HTTP assertions).</li>
+</ul>
 <p><a href="unit-tests/">Go To Unit Tests</a>  </p>
 <hr />
 <h3 id="integration-tests-middle-of-the-pyramid">Integration Tests (middle of the pyramid)</h3>
