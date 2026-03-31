@@ -12,7 +12,7 @@ Unit tests focus on individual classes (typically service-layer logic) in isolat
 - `src/test/java/edu/tus/guitarstore/service/GuitarServiceTest.java`  
   Service-layer unit tests using Mockito to mock repository dependencies and verify service behaviour in isolation.
 
-[Go To Unit Tests](unit-tests.md)  
+[Go To Unit Tests](unit-tests/index.md)  
 
 ---
 
@@ -43,4 +43,4 @@ These tests provide high confidence in the complete request/response flow but ar
 - `src/test/java/edu/tus/guitarstore/karate/BrandKarateTest.java` and `src/test/java/edu/tus/guitarstore/karate/brands.feature`  
   Karate-based black-box API tests for the Brand endpoints, executed against a locally running app on `http://localhost:8080`.
   
-[Go To E2E Tests](end-to-end-tests.md)  
+[Go To E2E Tests](end-to-end-tests/index.md)  

@@ -48,12 +48,16 @@ nav:
     - guide/9_end_points.md
   - Testing:
     - testing/index.md
-    - testing/unit-tests.md
+    - Unit Tests:
+      - testing/unit-tests/index.md
     - Integration Tests:
       - testing/integration-tests/index.md
       - testing/integration-tests/guitar-repository-integration-test.md
       - testing/integration-tests/guitar-repository-test.md
-    - testing/end-to-end-tests.md
+    - End to End Tests:
+      - testing/end-to-end-tests/index.md
+      - testing/end-to-end-tests/api-end-to-end.md
+      - testing/end-to-end-tests/karate.md
   - Links:
     - links/index.md
   

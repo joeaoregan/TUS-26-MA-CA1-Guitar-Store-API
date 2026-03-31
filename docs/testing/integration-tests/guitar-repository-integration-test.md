@@ -1,4 +1,5 @@
-## GuitarRepositoryIntegrationTests.java (Integration Tests)
+# GuitarRepositoryIntegrationTests.java 
+## (Integration Tests)
 
 1. [**Basic query behaviour** (happy path + not found)](#testfindbymodelnameexactmatch)
 2. [**Query correctness with multiple records** (precision / false positives)](#testfindbymodelnameamongmultiplerecords)

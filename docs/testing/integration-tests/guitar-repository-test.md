@@ -1,4 +1,5 @@
-## GuitarRepositoryTest.java (Mock-based “Unit-Style” Repository Tests)
+# GuitarRepositoryTest.java 
+## (Mock-based “Unit-Style” Repository Tests)
 
 > Note: Although this class lives under the `repository` package, it uses **Mockito** to mock `GuitarRepository`. This means the tests validate *expected repository interactions / return shapes* in isolation, and **do not** hit a real database. The real persistence behaviour is covered by `GuitarRepositoryIntegrationTest` (`@DataJpaTest`).
 

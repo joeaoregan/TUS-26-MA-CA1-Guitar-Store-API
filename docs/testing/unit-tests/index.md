@@ -1,4 +1,4 @@
-# Unit Tests
+# Overview
 
 Unit tests validate service-layer behaviour in isolation using **JUnit 5** and **Mockito**. Repository dependencies are mocked so tests run quickly and focus on business logic rather than persistence or HTTP concerns.
 
@@ -10,11 +10,29 @@ Unit tests validate service-layer behaviour in isolation using **JUnit 5** and *
 
 ## GuitarServiceTest.java (Unit Tests)
 
-1. [**Fetch / Read behaviour** (happy path + not found + mapping)](#testfetchguitarsuccess)
-2. [**Create / Write behaviour** (core create workflow)](#testcreateguitarsuccess)
-3. [**Create guards:** duplicates and missing dependencies](#testcreateguitaralreadyexists)
-4. [**Input validation / defensive programming** (nulls, blanks, invalid values)](#testcreateguitarwithnulldto)
-5. [**Mapper / DTO** conversion edge cases](#testmapperbrandnullhandling)
+1. **Fetch / Read behaviour** (happy path + not found + mapping)
+    - [testFetchGuitarSuccess()](#testfetchguitarsuccess)
+    - [testFetchGuitarNotFound()](#testfetchguitarnotfound)
+    - [testFetchGuitarMappingAllFields()](#testfetchguitarmappingallfields)
+    - [testFetchGuitarEmptyOptional()](#testfetchguitaremptyoptional)
+2. **Create / Write behaviour** (core create workflow)
+    - [testCreateGuitarSuccess()](#testcreateguitarsuccess)
+3. **Create guards:** duplicates and missing dependencies
+    - [testCreateGuitarAlreadyExists()](#testcreateguitaralreadyexists)
+    - [testCreateGuitarBrandNotFound()](#testcreateguitarbrandnotfound)
+    - [testCreateGuitarDuplicateCheckTiming()](#testcreateguitarduplicatechecktiming)
+4. **Input validation / defensive programming** (nulls, blanks, invalid values)
+    - [testCreateGuitarWithNullDto()](#testcreateguitarwithnulldto)
+    - [testCreateGuitarWithNullModelName()](#testcreateguitarwithnullmodelname)
+    - [testCreateGuitarWithNullBrandName()](#testcreateguitarwithnullbrandname)
+    - [testCreateGuitarWithNegativePrice()](#testcreateguitarwithnegativeprice)
+    - [testCreateGuitarWithZeroPrice()](#testcreateguitarwithzeroprice)
+    - [testCreateGuitarWithFutureManufactureDate()](#testcreateguitarwithfuturemanufacturedate)
+    - [testCreateGuitarWithEmptyModelName()](#testcreateguitarwithemptymodelname)
+    - [testCreateGuitarWithWhitespaceModelName()](#testfetchguitarsutestcreateguitarwithemptymodelnameccess)
+    - [testCreateGuitarWithEmptyBrandName()](#testcreateguitarwithemptybrandname)
+5. **Mapper / DTO** conversion edge cases
+    - [testMapperBrandNullHandling()](#testmapperbrandnullhandling)
 
 ## 1. **Fetch / Read behaviour** (happy path + not found + mapping)
 
