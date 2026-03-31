@@ -24,6 +24,7 @@ class GuitarApiE2ETest {
 	@Autowired
 	private TestRestTemplate rest;
 
+	// Test 1: Happy Path
 	@Test
 	void createBrand_thenCreateGuitar_thenFetchByModelName() {
 		// Use unique values so we don't collide with data.sql / previous runs
