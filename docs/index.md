@@ -22,6 +22,10 @@
     7 [Database and Audit](guide/7_database.md)  
     8 [Status Codes implemented](guide/8_status_codes.md)  
     9 [API Endpoints](guide/9_end_points.md)
+- [Testing](testing/index.md)
+    - [Unit Tests](testing/unit-tests/index.md)
+    - [Integration Tests](testing/integration-tests/index.md)
+    - [End-to-End(E2E) / API Tests](testing/end-to-end-tests/index.md)
 - [Links](links/index.md)
 
 ## Application
@@ -29,3 +33,10 @@
 - [View App on Render](https://tus-26-ma-ca1-guitar-store-api.onrender.com/)
 - [View Swagger UI API Docs](https://tus-26-ma-ca1-guitar-store-api.onrender.com/swagger-ui/index.html)
 - [Online Documentation](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/)
+
+## Information
+
+Technological University of the Shannon  
+
+- Microservices Architecture CA1: Development and Deployment of a REST API
+- Continuous Build and Delivery CA1: AI Assisted Testing
