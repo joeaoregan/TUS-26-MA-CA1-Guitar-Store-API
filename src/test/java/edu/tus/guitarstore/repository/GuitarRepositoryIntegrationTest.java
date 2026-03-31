@@ -306,7 +306,10 @@ public class GuitarRepositoryIntegrationTest {
         duplicate.setManufactureDate(LocalDate.of(2020, 7, 25));
         duplicate.setBrand(gibsonBrand);
 
-		assertThrows(DataIntegrityViolationException.class, () -> guitarRepository.saveAndFlush(duplicate));
+        DataIntegrityViolationException ex = assertThrows(DataIntegrityViolationException.class,
+                () -> guitarRepository.saveAndFlush(duplicate));
+
+        assertNotNull(ex.getCause());
     }
 
     @Test
