@@ -43,6 +43,11 @@
 
 ###### Brands API Demo Video
 
+
+<a href="https://youtu.be/jyT-ziHCOLA" target="_blank"><img src="../images/testing.jpg" title="Testing, Coverage and Reports" width="200"/></a>
+
+###### AI Assisted Testing, Coverage, and Reports Demo Video
+
 ## Online MkDocs Documentation
 
 - <https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/>

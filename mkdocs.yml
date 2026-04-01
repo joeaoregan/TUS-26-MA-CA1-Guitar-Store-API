@@ -48,6 +48,7 @@ nav:
     - guide/9_end_points.md
   - Testing:
     - Overview: testing/index.md
+    - Demo: testing/demo.md
     - Unit Tests:
       - Overview: testing/unit-tests/index.md
     - Integration Tests:
