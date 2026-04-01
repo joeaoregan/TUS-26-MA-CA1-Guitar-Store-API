@@ -1,4 +1,4 @@
-# Karate Testss
+# Karate Tests
 ## brands.feature
 
 ### Scenario: Happy path - create a brand then fetch it

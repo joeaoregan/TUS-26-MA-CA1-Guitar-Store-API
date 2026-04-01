@@ -292,6 +292,8 @@ Sample POST Body (Create Brand):
 
 </details>
 
+---
+
 <details>
   <summary>10. Testing Summary</summary>
 
