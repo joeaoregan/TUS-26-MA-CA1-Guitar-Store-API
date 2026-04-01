@@ -54,12 +54,18 @@
 
 <a href="https://youtu.be/VXFKyfw5zmo" target="_blank"><img src="..\src\main\resources\static\images\api_guitars.png" title="Guitars API Demo" width="200"/></a>
 
-###### Guitars API Demo Video
+###### Guitars API - Short Demo Video
 
 
 <a href="https://youtu.be/z5adidLxAFg" target="_blank"><img src="..\src\main\resources\static\images\api_brands.png" title="Brands API Demo" width="200"/></a>
 
-###### Brands API Demo Video
+###### Brands API - Short Demo Video
+
+<a href="https://youtu.be/jyT-ziHCOLA" target="_blank"><img src="..\src\main\resources\static\images\testing.jpg" title="Testing, Coverage and Reports" width="200"/></a>
+
+###### AI Assisted Testing, Coverage, and Reports - Short Demo Video
+
+
 
 ---
 
