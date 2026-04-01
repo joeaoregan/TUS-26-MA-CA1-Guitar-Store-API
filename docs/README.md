@@ -51,17 +51,21 @@
 **Student Name:** Joe O'Regan\
 **Student Number:** A00258304
 
-<iframe width="480" height="270" src="https://www.youtube.com/embed/VXFKyfw5zmo" title="Guitar Strore API - Guitars Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<a href="https://youtu.be/VXFKyfw5zmo" target="_blank"><img src="..\src\main\resources\static\images\api_guitars.png" title="Guitars API Demo" width="200"/></a>
 
 ###### Guitars API - Short Demo Video
 
-<iframe width="480" height="270" src="https://www.youtube.com/embed/z5adidLxAFg" title="Guitar Store API - Brands Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<a href="https://youtu.be/z5adidLxAFg" target="_blank"><img src="..\src\main\resources\static\images\api_brands.png" title="Brands API Demo" width="200"/></a>
 
 ###### Brands API - Short Demo Video
 
-<iframe width="480" height="270" src="https://www.youtube.com/embed/jyT-ziHCOLA" title="Continuous Build &amp; Delivery CA1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<a href="https://youtu.be/jyT-ziHCOLA" target="_blank"><img src="..\src\main\resources\static\images\testing.jpg" title="Testing, Coverage and Reports" width="200"/></a>
 
 ###### AI Assisted Testing, Coverage, and Reports - Short Demo Video
+
+
 
 ---
 
@@ -96,15 +100,6 @@ The database is automatically pre-populated using `data.sql` for repeatable test
 - **Standards:** Compliant with Atlassian RESTful Design Specification.
 - **Base URL:** http://localhost:8080/api/guitarstore/v1.
 - **Test URL:** http://localhost:8080/api/guitarstore/v1/guitars (display guitars in database).
-
-<a href="https://youtu.be/VXFKyfw5zmo" target="_blank"><img src="..\src\main\resources\static\images\api_guitars.png" title="Guitars API Demo" width="200"/></a>
-
-###### Guitars API - Short Demo Video
-
-
-<a href="https://youtu.be/z5adidLxAFg" target="_blank"><img src="..\src\main\resources\static\images\api_brands.png" title="Brands API Demo" width="200"/></a>
-
-###### Brands API - Short Demo Video
 
 </details>
 
@@ -307,10 +302,6 @@ Sample POST Body (Create Brand):
 
 <details>
   <summary>10. Testing Summary</summary>
-  
-<a href="https://youtu.be/jyT-ziHCOLA" target="_blank"><img src="..\src\main\resources\static\images\testing.jpg" title="Testing, Coverage and Reports" width="200"/></a>
-
-###### AI Assisted Testing, Coverage, and Reports - Short Demo Video
 
 Testing follows the **Test Pyramid** approach:
 
