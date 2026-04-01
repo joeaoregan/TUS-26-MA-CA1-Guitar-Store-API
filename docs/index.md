@@ -34,6 +34,20 @@
 - [View Swagger UI API Docs](https://tus-26-ma-ca1-guitar-store-api.onrender.com/swagger-ui/index.html)
 - [Online Documentation](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/)
 
+## Demonstration
+
+<iframe width="480" height="270" src="https://www.youtube.com/embed/VXFKyfw5zmo" title="Guitar Strore API - Guitars Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+###### Guitars API Demo Video
+
+<iframe width="480" height="270" src="https://www.youtube.com/embed/z5adidLxAFg" title="Guitar Store API - Brands Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+###### Brands API Demo Video
+
+<iframe width="480" height="270" src="https://www.youtube.com/embed/jyT-ziHCOLA" title="Continuous Build &amp; Delivery CA1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+###### AI Assisted Testing, Coverage, and Reports Demo Video
+
 ## Information
 
 Technological University of the Shannon  
