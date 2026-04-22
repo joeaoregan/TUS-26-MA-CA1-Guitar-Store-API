@@ -41,16 +41,22 @@ app:
   github: https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API
   description: |
     <img src="/images/logo.png" width="300" alt="Guitar Store Logo" />
+
     ### 🎸 Guitar Store Inventory Management
+
     A comprehensive RESTful API for managing musical instrument inventory. \
-    Developed as part of the **Microservices Architecture** module. \
+    Developed as part of the **Microservices Architecture** module [CA 1](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/microservices-architecture-ca1/) and [CA 2](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/microservices-architecture-ca2/),   
+    and expanded for the Continuous Build and Delivery module [CA 1](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/continuous-build-and-delivery-ca1/).  
     Key features include N-tier architecture, JPA Auditing, and DTO-based separation.
     
     #### Key Features:
+
     * **N-tier Architecture**: Strict separation between Controller, Service, and Repository layers.
     * **Data Integrity**: DTO-based separation and specialized Mapping.
     * **Advanced Filtering**: Type-safe date handling with Java 8 Time API.
     * **Reliability**: Centralized Error Handling & Jakarta Validation.
-    
+    * **AI-assisted automated testing** aligned with the Test Pyramid (unit, integration, API/E2E where appropriate).
+
+    [![Stars](https://img.shields.io/github/stars/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API?style=social)](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API "GitHub: TUS-26-MA-CA1-Guitar-Store-API")    
     ---
-    *Developed by Joe O'Regan (A00258304)*
+    *Developed by [Joe O'Regan (A00258304)](https://github.com/joeaoregan)*
