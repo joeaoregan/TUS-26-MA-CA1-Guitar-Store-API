@@ -448,7 +448,63 @@
   <span class="md-ellipsis">
     
   
-    Guitar Store API Documentation
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://tus-26-ma-ca1-guitar-store-api.onrender.com/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Render App
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://tus-26-ma-ca1-guitar-store-api.onrender.com/swagger-ui/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swagger UI
   
 
     
@@ -622,7 +678,7 @@
   <span class="md-ellipsis">
     
   
-    CA1
+    CA1 AI Assisted Testing
   
 
     
@@ -650,7 +706,7 @@
   <span class="md-ellipsis">
     
   
-    CA2
+    CA2 CI/CD Pipeline
   
 
     
@@ -935,6 +991,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#high-level-architecture-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High-Level Architecture Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#class-diagram" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -942,23 +1009,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Class Diagram">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#guitar-store-api-class-diagram" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Guitar Store API Class Diagram
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -970,23 +1020,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="System Architecture &amp; Data Flow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#api-sequence-diagram" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Sequence Diagram
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1706,6 +1739,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#high-level-architecture-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High-Level Architecture Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#class-diagram" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1713,23 +1757,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Class Diagram">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#guitar-store-api-class-diagram" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Guitar Store API Class Diagram
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1741,23 +1768,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="System Architecture &amp; Data Flow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#api-sequence-diagram" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Sequence Diagram
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1799,9 +1809,14 @@
 
 
 <h1 id="6-diagrams">6. Diagrams</h1>
+<h2 id="high-level-architecture-diagram">High-Level Architecture Diagram</h2>
+<p><img alt="High-Level Architecture" src="../../images/architecture-high-level.png" /></p>
+<pre><code>Figure 1. High-Level Architecture Diagram
+</code></pre>
 <h2 id="class-diagram">Class Diagram</h2>
 <p><img alt="Class Diagram" src="../../images/class-diagram.png" /></p>
-<h5 id="guitar-store-api-class-diagram">Guitar Store API Class Diagram</h5>
+<pre><code>Figure 2. Guitar Store API Class Diagram
+</code></pre>
 <h2 id="system-architecture-data-flow">System Architecture &amp; Data Flow</h2>
 <p>This class diagram illustrates the API’s adherence to the Single Responsibility Principle through a strictly layered architecture.  </p>
 <ul>
@@ -1811,7 +1826,8 @@
 <li><strong>Persistence Layer:</strong> Leverages Spring Data JPA repositories to manage data access and maintain referential integrity with the H2 database.</li>
 </ul>
 <p><img alt="Sequence Diagram" src="../../images/sequence-diagram.png" /></p>
-<h5 id="api-sequence-diagram">API Sequence Diagram</h5>
+<pre><code>Figure 3. Guitar Store API Sequence Diagram
+</code></pre>
 <h2 id="api-request-response-lifecycle">API Request-Response Lifecycle</h2>
 <p>This sequence diagram illustrates the end-to-end flow of a RESTful request within the system:  </p>
 <ul>
