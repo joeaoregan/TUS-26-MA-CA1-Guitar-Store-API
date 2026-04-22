@@ -1,0 +1,60 @@
+@startuml
+!theme plain
+skinparam componentStyle rectangle
+
+title High-Level Architecture: Guitar Store Management API
+
+package "Presentation Layer" {
+    [GuitarController] <<Controller>>
+    [BrandController] <<Controller>>
+    [HealthCheckController] <<Controller>>
+}
+
+package "Business Logic Layer" {
+    interface "IGuitarService"
+    [GuitarServiceImpl]
+    interface "IBrandService"
+    [BrandServiceImpl]
+    
+    [GuitarServiceImpl] ..|> "IGuitarService"
+    [BrandServiceImpl] ..|> "IBrandService"
+}
+
+package "Mapping Layer" {
+    [GuitarMapper]
+    [BrandMapper]
+    [GuitarDto] <<DTO>>
+    [BrandDto] <<DTO>>
+}
+
+package "Persistence Layer" {
+    [GuitarRepository] <<Spring Data JPA>>
+    [BrandRepository] <<Spring Data JPA>>
+    database "H2 In-Memory DB" {
+        [Guitars Table]
+        [Brands Table]
+    }
+}
+
+package "Cross-Cutting Concerns" {
+    [GlobalExceptionHandler]
+    [AuditAwareImpl]
+    [OpenApiConfig]
+}
+
+' Relationships / Data Flow
+[GuitarController] --> "IGuitarService" : invokes
+[BrandController] --> "IBrandService" : invokes
+
+"IGuitarService" --> [GuitarRepository] : data access
+"IBrandService" --> [BrandRepository] : data access
+
+[GuitarServiceImpl] --> [GuitarMapper] : uses for conversion
+[BrandServiceImpl] --> [BrandMapper] : uses for conversion
+
+[GuitarRepository] --> [Guitars Table]
+[BrandRepository] --> [Brands Table]
+
+[GlobalExceptionHandler] ..> "Presentation Layer" : intercepts errors
+
+@enduml

@@ -1,10 +1,16 @@
 # 6. Diagrams
 
+## High-Level Architecture Diagram
+
+![High-Level Architecture](../images/architecture-high-level.png)
+
+    Figure 1. High-Level Architecture Diagram
+
 ## Class Diagram
 
 ![Class Diagram](../images/class-diagram.png)
 
-##### Guitar Store API Class Diagram
+    Figure 2. Guitar Store API Class Diagram
 
 ## System Architecture & Data Flow
 
@@ -17,7 +23,7 @@ This class diagram illustrates the API’s adherence to the Single Responsibilit
 
 ![Sequence Diagram](../images/sequence-diagram.png)
 
-##### API Sequence Diagram
+    Figure 3. Guitar Store API Sequence Diagram
 
 ## API Request-Response Lifecycle
 

@@ -32,12 +32,14 @@ theme:
 
 nav:
   - Home: 
-    - index.md
+    - Overview: index.md
+    - Render App: https://tus-26-ma-ca1-guitar-store-api.onrender.com/
+    - Swagger UI: https://tus-26-ma-ca1-guitar-store-api.onrender.com/swagger-ui/index.html
   - Microservices Architecture:
     - microservices-architecture-ca1/index.md
   - Continuous Build and Delivery:
-    - CA1: continuous-build-and-delivery-ca1/index.md
-    - CA2: continuous-build-and-delivery-ca2/index.md
+    - CA1 AI Assisted Testing: continuous-build-and-delivery-ca1/index.md
+    - CA2 CI/CD Pipeline: continuous-build-and-delivery-ca2/index.md
   - Guide:
     - guide/index.md
     - guide/2_project_overview.md
