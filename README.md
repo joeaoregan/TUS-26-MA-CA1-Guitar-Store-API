@@ -38,6 +38,7 @@
 
 - **Microservices Architecture CA1:** [ma-ca1](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/tree/ma-ca1)
 - **Continuous Build and Delivery CA1:** [cbd-ca1](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/tree/cbd-ca1)
+- **Continuous Build and Delivery CA2:** [cbd-ca2](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/tree/cbd-ca2)
 
 #### App
 

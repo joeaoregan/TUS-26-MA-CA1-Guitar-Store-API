@@ -36,7 +36,8 @@ nav:
   - Microservices Architecture:
     - microservices-architecture-ca1/index.md
   - Continuous Build and Delivery:
-    - continuous-build-and-delivery-ca1/index.md
+    - CA1: continuous-build-and-delivery-ca1/index.md
+    - CA2: continuous-build-and-delivery-ca2/index.md
   - Guide:
     - guide/index.md
     - guide/2_project_overview.md
