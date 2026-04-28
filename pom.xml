@@ -28,6 +28,16 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		
+		<sonar.organization>joeaoregan</sonar.organization>
+	    <sonar.projectKey>tus-26-ma-ca1-guitar-store-api</sonar.projectKey>
+	    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	    
+	    <sonar.coverage.jacoco.xmlReportPaths>
+	        ${project.build.directory}/site/jacoco/jacoco.xml
+	    </sonar.coverage.jacoco.xmlReportPaths>
+	    
+    <sonar.exclusions>src/main/java/edu/tus/guitarstore/dto/**</sonar.exclusions>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -69,7 +79,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
 		<!-- Standard Dotenv Library -->
 		<dependency>
 		    <groupId>io.github.cdimascio</groupId>
@@ -92,6 +101,12 @@
 
 	<build>
 		<plugins>
+			<!-- SonarQube Plugin -->
+			<plugin>
+	            <groupId>org.sonarsource.scanner.maven</groupId>
+	            <artifactId>sonar-maven-plugin</artifactId>
+	            <version>3.11.0.3922</version>
+	        </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -103,10 +118,10 @@
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
-			</plugin>
+			</plugin>			
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<artifactId>spring-boot-maven-plugin</artifactId>				
 				<configuration>
 					<excludes>
 						<exclude>
