@@ -1,0 +1,36 @@
+@startuml
+title Deployment View: CI/CD Pipeline to Local Docker Deployment
+
+actor Developer as dev
+node "GitHub Repo\njoeaoregan/TUS-26-MA-CA1-Guitar-Store-API" as gh
+
+node "CI Runner\n(GitHub Actions / CI Server)" as ci {
+  component "Checkout" as checkout
+  component "Build\nmvn clean package" as build
+  component "Test\nmvn test" as test
+  component "Code Quality\nSonarQube Scan\n+ Quality Gate" as sonar
+  component "Docker Build\nDockerfile" as dockerBuild
+  artifact "Docker Image\n(guitar-store-api)" as image
+}
+
+node "Deployment Host\n(Local machine / VM)" as host {
+  node "Docker Engine" as docker
+  component "Container: guitar-store-api" as container
+}
+
+dev --> gh: git push (commit)
+gh --> ci: triggers pipeline
+
+ci --> checkout
+checkout --> build
+build --> test
+test --> sonar
+sonar --> dockerBuild
+dockerBuild --> image
+
+image --> docker: docker run / docker compose
+docker --> container
+
+container --> dev: API available\nhttp://localhost:8080\nSwagger UI / endpoints
+
+@enduml
