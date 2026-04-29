@@ -1,0 +1,53 @@
+@startuml
+title Sequence: Create Brand (POST /api/guitarstore/v1/brands)
+
+actor Client as client
+participant "BrandController\n(Presentation Layer)" as controller
+participant "IBrandService\n(Business Layer)" as service
+participant "BrandServiceImpl\n(Business Layer)" as serviceImpl
+participant "BrandMapper\n(Mapping Layer)" as mapper
+participant "BrandRepository\n(Persistence Layer)" as repo
+database "H2 In-Memory DB" as db
+participant "GlobalExceptionHandler\n(Cross-cutting)" as geh
+
+client -> controller: POST /api/guitarstore/v1/brands\n{ name, country }
+activate controller
+
+controller -> service: createBrand(BrandDto)
+activate service
+
+service -> serviceImpl: createBrand(BrandDto)
+activate serviceImpl
+
+serviceImpl -> mapper: toEntity(BrandDto)
+activate mapper
+mapper --> serviceImpl: Brand entity
+deactivate mapper
+
+serviceImpl -> repo: save(Brand)
+activate repo
+repo -> db: INSERT Brand
+db --> repo: Brand persisted
+repo --> serviceImpl: saved Brand
+deactivate repo
+
+serviceImpl -> mapper: toDto(saved Brand)
+activate mapper
+mapper --> serviceImpl: BrandDto
+deactivate mapper
+
+serviceImpl --> service: BrandDto
+deactivate serviceImpl
+service --> controller: BrandDto
+deactivate service
+
+controller --> client: 201 Created + BrandDto
+deactivate controller
+
+== Error handling ==
+note over controller, geh
+Any uncaught exceptions are mapped to a consistent
+HTTP error payload by GlobalExceptionHandler.
+end note
+
+@enduml

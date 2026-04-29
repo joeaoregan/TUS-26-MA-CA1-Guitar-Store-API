@@ -72,8 +72,6 @@
 
 ###### AI Assisted Testing, Coverage, and Reports - Short Demo Video
 
-
-
 ---
 
 <details open>
@@ -215,6 +213,9 @@ This sequence diagram illustrates the end-to-end flow of a RESTful request withi
 * **Persistence & Mapping:** The service interacts with the JPA Repository for data access and uses Mappers to convert internal entities into DTOs, maintaining a secure API contract.
 * **Global Exception Handling:** If a resource is missing or data is invalid, the service layer throws a custom exception (e.g., ResourceNotFoundException).
 * **Structured Response:** The GlobalExceptionHandler intercepts the error and transforms it into a standardized ErrorResponseDto, ensuring the client receives consistent JSON feedback instead of a raw stack trace
+
+[View All Diagrams in MkDocs](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/guide/6_diagrams/#api-request-response-lifecycle)
+
 </details>
 
 ---
@@ -322,7 +323,7 @@ Full testing documentation is available in the MkDocs site under **Testing Docum
 
 <p align="center">
 &copy; 2026 Joe O'Regan<br/>
-TUS Microservices Architecture CA1 &bull; TUS Continuous Build and Delivery CA1
+TUS Microservices Architecture CA1 &bull; TUS Continuous Build and Delivery CA1 | CA2
 </p>
 
 
