@@ -30,12 +30,18 @@ pipeline {
         stage('Stage 5: Containerisation') {
             steps {
                 echo 'Stage 5: Building Docker Image...'
+
+                // Clean up previous test container if it exists
+                bat 'docker rm -f test-container || rem'
+
                 bat 'docker build -t joe0regan/guitar-store-api:latest .'
+
                 echo 'Running Smoke Test on Container...'
                 bat 'docker run -d --name test-container -p 8081:8080 joe0regan/guitar-store-api:latest'
-                // Give it a second to start, then kill it
-                // bat 'timeout /t 5'
+
+                // 5 second wait to allow the container to start up
                 bat 'ping 127.0.0.1 -n 6 > nul'
+
                 bat 'docker stop test-container'
                 bat 'docker rm test-container'
             }
