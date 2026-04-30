@@ -21,12 +21,20 @@ pipeline {
         }
         stage('Stage 4: Static Analysis') {
             steps {
-                echo 'Performing static analysis'
+                echo 'Stage 4: Analysing Code Quality (SonarCloud)...'
+                bat 'mvn sonar:sonar'
             }
         }
         stage('Stage 5: Containerisation') {
             steps {
-                echo 'Containerising'
+                echo 'Stage 5: Building Docker Image...'
+                bat 'docker build -t joe0regan/guitar-store-api:latest .'
+                echo 'Running Smoke Test on Container...'
+                bat 'docker run -d --name test-container -p 8081:8080 joe0regan/guitar-store-api:latest'
+                // Give it a second to start, then kill it
+                bat 'timeout /t 5'
+                bat 'docker stop test-container'
+                bat 'docker rm test-container'
             }
         }
         stage('Stage 6: Artifact Delivery') {
