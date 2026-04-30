@@ -42,3 +42,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: "Stage 5/6: Build and push Docker image"
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: joe0regan/guitar-store-api:latest
