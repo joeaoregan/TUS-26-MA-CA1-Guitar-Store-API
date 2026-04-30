@@ -488,6 +488,58 @@
   
   
   
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External Links
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    External Links
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="https://tus-26-ma-ca1-guitar-store-api.onrender.com/" class="md-nav__link">
         
@@ -533,6 +585,126 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Github
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bitbucket.org/joeaoregan/cbd-ca2-guitarstoreapi-pipeline" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bitbucket
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://sonarcloud.io/project/overview?id=tus-26-ma-ca1-guitar-store-api" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SonarCloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://hub.docker.com/r/joe0regan/guitar-store-api/tags" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2154,7 +2326,7 @@
 <p>A multi-stage Docker build packages the JAR into a slim, production-ready image using a JRE-only base to minimize the security attack surface. A trial run is performed within the pipeline as a "smoke test" to ensure the container is responsive before delivery.  </p>
 <p><strong>Configuration</strong>: Executes a batch command: <code>docker build -t joe0regan/guitar-store-api:latest .</code>.  </p>
 <h3 id="stage-6-artifact-delivery-docker-hub">Stage 6: Artifact Delivery (Docker Hub)</h3>
-<p>The verified Docker image is tagged and pushed to a central repository on <a href="https://hub.docker.com/repository/docker/joe0regan/guitar-store-api">Docker Hub</a>. This transforms the image into an immutable artifact that can be pulled by any authorized server in the network.  </p>
+<p>The verified Docker image is tagged and pushed to a central repository on <a href="https://hub.docker.com/r/joe0regan/guitar-store-api/tags">Docker Hub</a>. This transforms the image into an immutable artifact that can be pulled by any authorized server in the network.  </p>
 <p><strong>Configuration</strong>: Uses <code>docker login</code> with masked Jenkins credentials (<code>DOCKER_USER</code>, <code>DOCKER_PASS</code>) followed by <code>docker push</code>.  </p>
 <h3 id="stage-7-ansible-configuration">Stage 7: Ansible Configuration</h3>
 <p>Jenkins securely transmits the deployment blueprints—specifically the Ansible Playbook (deploy-guitar-api.yml) and the Dockerfile—to the Ansible Control Node via SSH. This decouples the build environment from the deployment orchestration logic.  </p>
