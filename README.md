@@ -1,12 +1,14 @@
 # Guitar Store REST API
+
 ## Microservices Architecture - CA1: REST API Assignment
+
 ## Continuous Build and Delivery - CA1: AI Assisted Testing
+
 ### Technological University of the Shannon (Athlone)
 
 ![TUS](https://img.shields.io/badge/TUS-2026-black?style=flat-square&logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iMTU3LjU1OTM2bW0iCiAgIGhlaWdodD0iMjA1LjE3MTE2bW0iCiAgIHZpZXdCb3g9IjAgMCAxNTcuNTU5MzYgMjA1LjE3MTE2IgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcxIgogICB4bWw6c3BhY2U9InByZXNlcnZlIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBpZD0ibmFtZWR2aWV3MSIKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiMwMDAwMDAiCiAgICAgYm9yZGVyb3BhY2l0eT0iMC4yNSIKICAgICBpbmtzY2FwZTpzaG93cGFnZXNoYWRvdz0iMiIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMC4wIgogICAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9IjAiCiAgICAgaW5rc2NhcGU6ZGVza2NvbG9yPSIjZDFkMWQxIgogICAgIGlua3NjYXBlOmRvY3VtZW50LXVuaXRzPSJtbSI+PGlua3NjYXBlOnBhZ2UKICAgICAgIHg9IjAiCiAgICAgICB5PSIwIgogICAgICAgd2lkdGg9IjE1Ny41NTkzNiIKICAgICAgIGhlaWdodD0iMjA1LjE3MTE2IgogICAgICAgaWQ9InBhZ2UyIgogICAgICAgbWFyZ2luPSIwIgogICAgICAgYmxlZWQ9IjAiIC8+PC9zb2RpcG9kaTpuYW1lZHZpZXc+PGRlZnMKICAgICBpZD0iZGVmczEiPjxzdHlsZQogICAgICAgaWQ9InN0eWxlMSI+LmNscy0xe2ZpbGw6I2EzOTQ2MTt9PC9zdHlsZT48c3R5bGUKICAgICAgIGlkPSJzdHlsZTEtNCI+LmNscy0xe2ZpbGw6I2EzOTQ2MTt9PC9zdHlsZT48L2RlZnM+PGcKICAgICBpbmtzY2FwZTpsYWJlbD0iTGF5ZXIgMSIKICAgICBpbmtzY2FwZTpncm91cG1vZGU9ImxheWVyIgogICAgIGlkPSJsYXllcjEiCiAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjA4LjE2MDkzLDQ4Ljg3NTE2MikiPjxnCiAgICAgICBpZD0iQXJ0d29yayIKICAgICAgIHRyYW5zZm9ybT0ibWF0cml4KDAuMjY0NTgzMzMsMCwwLDAuMjY0NTgzMzMsLTIwOC4xNjA5NCwtNDguODc1MTU4KSI+PHBhdGgKICAgICAgICAgY2xhc3M9ImNscy0xIgogICAgICAgICBkPSJNIDU5NS40OCwwIEggNDc2LjM4IFYgNTguNTIgSCAzNTcuMyBWIDAgSCAyMzguMiBWIDU4LjUyIEggMTE5LjEgViAwIEggMCB2IDM1Ny4yOSBoIDExOS4xIGEgMTc4LjY0LDE3OC42NCAwIDEgMSAzNTcuMjgsMCBoIDExOS4wNiB6IgogICAgICAgICBpZD0icGF0aDEiIC8+PHJlY3QKICAgICAgICAgY2xhc3M9ImNscy0xIgogICAgICAgICB4PSI0NzYuMzgiCiAgICAgICAgIHk9IjcxNS45MDAwMiIKICAgICAgICAgd2lkdGg9IjExOS4xIgogICAgICAgICBoZWlnaHQ9IjU5LjU0OTk5OSIKICAgICAgICAgaWQ9InJlY3QxIiAvPjxyZWN0CiAgICAgICAgIGNsYXNzPSJjbHMtMSIKICAgICAgICAgeT0iNzE1LjkwMDAyIgogICAgICAgICB3aWR0aD0iMTE5LjEiCiAgICAgICAgIGhlaWdodD0iNTkuNTQ5OTk5IgogICAgICAgICBpZD0icmVjdDIiCiAgICAgICAgIHg9IjAiIC8+PHJlY3QKICAgICAgICAgY2xhc3M9ImNscy0xIgogICAgICAgICB5PSI1OTYuNzk5OTkiCiAgICAgICAgIHdpZHRoPSIxMTkuMSIKICAgICAgICAgaGVpZ2h0PSI1OS41NDk5OTkiCiAgICAgICAgIGlkPSJyZWN0MyIKICAgICAgICAgeD0iMCIgLz48cmVjdAogICAgICAgICBjbGFzcz0iY2xzLTEiCiAgICAgICAgIHg9IjQ3Ni4zOTk5OSIKICAgICAgICAgeT0iNTk2Ljc5OTk5IgogICAgICAgICB3aWR0aD0iMTE5LjEiCiAgICAgICAgIGhlaWdodD0iNTkuNTQ5OTk5IgogICAgICAgICBpZD0icmVjdDQiIC8+PHJlY3QKICAgICAgICAgY2xhc3M9ImNscy0xIgogICAgICAgICB4PSIxMTkuMSIKICAgICAgICAgeT0iNTM3LjI1IgogICAgICAgICB3aWR0aD0iMzU3LjI5OTk5IgogICAgICAgICBoZWlnaHQ9IjU5LjU0OTk5OSIKICAgICAgICAgaWQ9InJlY3Q1IiAvPjxwb2x5Z29uCiAgICAgICAgIGNsYXNzPSJjbHMtMSIKICAgICAgICAgcG9pbnRzPSI0NzYuMzksNjU2LjM1IDExOS4xLDY1Ni4zNSAxMTkuMSw3MTUuOSAyMzguMiw3MTUuOSAyMzguMiw3NzUuNDUgMzU3LjI5LDc3NS40NSAzNTcuMjksNzE1LjkgNDc2LjM5LDcxNS45ICIKICAgICAgICAgaWQ9InBvbHlnb241IiAvPjxyZWN0CiAgICAgICAgIGNsYXNzPSJjbHMtMSIKICAgICAgICAgeD0iNDc2LjM5OTk5IgogICAgICAgICB5PSI0MTguMTYiCiAgICAgICAgIHdpZHRoPSIxMTkuMSIKICAgICAgICAgaGVpZ2h0PSIxMTkuMSIKICAgICAgICAgaWQ9InJlY3Q2IiAvPjxyZWN0CiAgICAgICAgIGNsYXNzPSJjbHMtMSIKICAgICAgICAgeT0iNDE4LjE2IgogICAgICAgICB3aWR0aD0iMTE5LjEiCiAgICAgICAgIGhlaWdodD0iMTE5LjEiCiAgICAgICAgIGlkPSJyZWN0NyIKICAgICAgICAgeD0iMCIgLz48L2c+PC9nPjwvc3ZnPgo=)
 ![Microservices Architecture](https://img.shields.io/badge/Module-Microservices%20Architecture-blue?style=flat-square)
 ![Continuous Build and Delivery](https://img.shields.io/badge/Module-Continuous%20Build%20and%20Delivery-green?style=flat-square)
-
 
 ![Java 21](https://img.shields.io/badge/Java-21-blue?logo=openjdk&logoColor=white)
 ![Spring Boot 3.5.11](https://img.shields.io/badge/Spring_Boot-3.5.11-6DB33F?logo=spring-boot&logoColor=white)
@@ -28,6 +30,16 @@
 ![TestRestTemplate](https://img.shields.io/badge/TestRestTemplate-6DB33F?style=flat&logo=spring&logoColor=white)
 ![Test Pyramid](https://img.shields.io/badge/Test_Pyramid-0052CC?style=flat&logo=atlassian&logoColor=white)
 
+![Bitbucket Pipelines](https://img.shields.io/badge/Bitbucket_Pipeline-CI%2FCD-0052CC?logo=bitbucket&logoColor=white)
+![Jenkins](https://img.shields.io/badge/Jenkins-CI%2FCD-D24939?logo=jenkins&logoColor=white)
+![Ansible](https://img.shields.io/badge/Ansible-Automation-EE0000?logo=ansible&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Containerised-2496ED?logo=docker&logoColor=white)
+![Docker Hub](https://img.shields.io/badge/Docker_Hub-Registry-0DB7ED?logo=docker&logoColor=white)
+![AWS EC2](https://img.shields.io/badge/AWS_EC2-T3.Micro-FF9900?logo=amazon-ec2&logoColor=white)
+
+![SonarCloud](https://img.shields.io/badge/SonarCloud-Quality_Gate-F3702A?logo=sonarcloud&logoColor=white)
+![Checkstyle](https://img.shields.io/badge/Checkstyle-Code_Style-3E7BFA?logo=checkmarx&logoColor=white)
+
 ![GitHub repo size](https://img.shields.io/github/repo-size/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API?color=orange)
 ![GitHub last commit](https://img.shields.io/github/last-commit/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API?color=blue)
 ![GitHub top language](https://img.shields.io/github/languages/top/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API)
@@ -48,8 +60,8 @@
 #### Online MkDocs Documentation
 
 - <https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/>
-    - [API Demo](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/guide/5_api_demo/)
-    - [Testing Documentation](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/testing/)
+  - [API Demo](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/guide/5_api_demo/)
+  - [Testing Documentation](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/testing/)
 
 ---
 
@@ -58,11 +70,9 @@
 **Student Name:** Joe O'Regan  
 **Student Number:** A00258304
 
-
 <a href="https://youtu.be/VXFKyfw5zmo" target="_blank"><img src="src\main\resources\static\images\api_guitars.png" title="Guitars API Demo" width="200"/></a>
 
 ###### Guitars API - Short Demo Video
-
 
 <a href="https://youtu.be/z5adidLxAFg" target="_blank"><img src="src\main\resources\static\images\api_brands.png" title="Brands API Demo" width="200"/></a>
 
@@ -77,16 +87,21 @@
 <details open>
   <summary>1. How to Run</summary>
 
-1. **Clone Repository:** 
+1. **Clone Repository:**
+
 ```bash
 git clone https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git
 ```
+
 2. **Environment Setup:** Create a .env file in the root directory (Project uses java-dotenv).
 3. **Run:** (requires Maven)
+
 ```bash
 ./mvnw spring-boot:run
-``` 
+```
+
 4. **Local Access Points:**
+
 - **Dashboard:** http://localhost:8080
 - **Swagger UI:** http://localhost:8080/swagger-ui/index.html
 - **Test Page:** http://localhost:8080/hello (Test project running OK)
@@ -115,43 +130,39 @@ The database is automatically pre-populated using `data.sql` for repeatable test
 
 1. **Entity Relationships**
 
-    One-to-many / many-to-many relationship between entities.
-    Operations:
-
-    - Retrieving all child entities for a given parent.
-    - Creating, updating and deleting child entities associated with a parent. 
-    - Implementing a cascading delete.
+   One-to-many / many-to-many relationship between entities.
+   Operations:
+   - Retrieving all child entities for a given parent.
+   - Creating, updating and deleting child entities associated with a parent.
+   - Implementing a cascading delete.
 
 2. **Use of Date and Time Objects**
 
-    Handling date-related data.
-
-    - Accept and validate date inputs.
-    - Using a consistent format.
-    - An endpoint that filters by date range / sorts results based on date fields.
+   Handling date-related data.
+   - Accept and validate date inputs.
+   - Using a consistent format.
+   - An endpoint that filters by date range / sorts results based on date fields.
 
 3. **Incorporating DTOs (Data Transfer Objects)**
 
-    Use DTOs to control data exchanged between the client and server.
-
-    - Separation of concerns by decoupling the internal data model from the API response format.
-    - Clean and minimal responses that expose only the required data fields.
+   Use DTOs to control data exchanged between the client and server.
+   - Separation of concerns by decoupling the internal data model from the API response format.
+   - Clean and minimal responses that expose only the required data fields.
 
 4. **Error Handling and Validation**
 
-    Implement structured and meaningful error handling.
+   Implement structured and meaningful error handling.
+   - Validating client input.
+   - Appropriate HTTP status codes and error messages.
+   - Clear, consistent error responses.
 
-    - Validating client input.
-    - Appropriate HTTP status codes and error messages.
-    - Clear, consistent error responses.
-
-    Examples:
-    - Example: `@Positive` on price ensures inventory values are realistic.
-    - Example: `@PastOrPresent` on manufacture dates prevents future entries.\
-    Jakarta Validation is used at the DTO level.
+   Examples:
+   - Example: `@Positive` on price ensures inventory values are realistic.
+   - Example: `@PastOrPresent` on manufacture dates prevents future entries.\
+     Jakarta Validation is used at the DTO level.
 
 5. **Pagination**
-    The API supports pagination for endpoints returning collections.
+   The API supports pagination for endpoints returning collections.
 
 - **Validation Error (400):** Triggered by invalid inputs like negative prices.
 - **Resource Not Found (404):** Triggered when a model name does not exist in the database.
@@ -169,7 +180,7 @@ The database is automatically pre-populated using `data.sql` for repeatable test
   For database persistence and relationship mapping and rapid demonstation.
 - **Validation:** Jakarta Bean Validation.
 - **Utilities:** Lombok and MapStruct\
-  For reducing boilerplate and custom Mappers.
+ For reducing boilerplate and custom Mappers.
 </details>
 
 ---
@@ -197,10 +208,11 @@ The database is automatically pre-populated using `data.sql` for repeatable test
 ### System Architecture & Data Flow
 
 This class diagram illustrates the API’s adherence to the Single Responsibility Principle through a strictly layered architecture.
-* **Controller Layer:** Handles RESTful request mapping and URI routing.
-* **Service Layer:** Encapsulates business logic, managing the Brand and Guitar domains through specialized interfaces to ensure modularity.
-* **Mapping Layer:** Utilizes BrandMapper and GuitarMapper to decouple internal JPA entities from external Data Transfer Objects (DTOs), preventing internal database details from leaking to the consumer.
-* **Persistence Layer:** Leverages Spring Data JPA repositories to manage data access and maintain referential integrity with the H2 database.
+
+- **Controller Layer:** Handles RESTful request mapping and URI routing.
+- **Service Layer:** Encapsulates business logic, managing the Brand and Guitar domains through specialized interfaces to ensure modularity.
+- **Mapping Layer:** Utilizes BrandMapper and GuitarMapper to decouple internal JPA entities from external Data Transfer Objects (DTOs), preventing internal database details from leaking to the consumer.
+- **Persistence Layer:** Leverages Spring Data JPA repositories to manage data access and maintain referential integrity with the H2 database.
 
 ![Sequence Diagram](src\main\resources\static\images\sequence-diagram.png)
 
@@ -208,11 +220,11 @@ This class diagram illustrates the API’s adherence to the Single Responsibilit
 
 This sequence diagram illustrates the end-to-end flow of a RESTful request within the system:
 
-* **Request Interception:** The Controller receives the HTTP request and utilizes @PathVariable or @RequestBody to extract data.
-* **Business Logic Delegation:** The request is passed to the specialized Service layer (e.g., BrandService or GuitarService), ensuring a strict separation of concerns.
-* **Persistence & Mapping:** The service interacts with the JPA Repository for data access and uses Mappers to convert internal entities into DTOs, maintaining a secure API contract.
-* **Global Exception Handling:** If a resource is missing or data is invalid, the service layer throws a custom exception (e.g., ResourceNotFoundException).
-* **Structured Response:** The GlobalExceptionHandler intercepts the error and transforms it into a standardized ErrorResponseDto, ensuring the client receives consistent JSON feedback instead of a raw stack trace
+- **Request Interception:** The Controller receives the HTTP request and utilizes @PathVariable or @RequestBody to extract data.
+- **Business Logic Delegation:** The request is passed to the specialized Service layer (e.g., BrandService or GuitarService), ensuring a strict separation of concerns.
+- **Persistence & Mapping:** The service interacts with the JPA Repository for data access and uses Mappers to convert internal entities into DTOs, maintaining a secure API contract.
+- **Global Exception Handling:** If a resource is missing or data is invalid, the service layer throws a custom exception (e.g., ResourceNotFoundException).
+- **Structured Response:** The GlobalExceptionHandler intercepts the error and transforms it into a standardized ErrorResponseDto, ensuring the client receives consistent JSON feedback instead of a raw stack trace
 
 [View All Diagrams in MkDocs](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/guide/6_diagrams/#api-request-response-lifecycle)
 
@@ -242,8 +254,8 @@ This sequence diagram illustrates the end-to-end flow of a RESTful request withi
 | 201 Created            | A new resouce was created.                                       | Successfully added guitar data to the database inventory.              |
 | 202 Accepted           |                                                                  | Indicate the request was accepted for processing but is not completed. |
 | 204 No Content         | There is no content to send for this request except for headers  | No content because it has deleted it.                                  |
-| 400 Bad Request        | The server could not understand the request. Maybe a bad syntax? | |
-| 404 Not Found          |                                                                  | |
+| 400 Bad Request        | The server could not understand the request. Maybe a bad syntax? |                                                                        |
+| 404 Not Found          |                                                                  |                                                                        |
 | 405 Method Not Allowed |                                                                  | Won't be able to reconcile it.                                         |
 | 409 Conflict           |                                                                  | In some cases it's not possible to update an existing resource.        |
 
@@ -259,7 +271,6 @@ This sequence diagram illustrates the end-to-end flow of a RESTful request withi
 The API is accessible at `http://localhost:8080/api/guitarstore/v1`. Below are the primary endpoints and sample payloads for testing.
 
 **Resource:** Guitars
-
 
 | Action    | Method | Endpoint                                          | Description                               |
 | --------- | ------ | ------------------------------------------------- | ----------------------------------------- |
@@ -281,9 +292,8 @@ Sample POST Body (Create Guitar):
   "brandName": "Fender"
 }
 ```
+
 **Note:** The `manufactureDate` must follow the ISO format YYYY-MM-DD
-
-
 
 **Resource:** Brands
 
@@ -302,7 +312,7 @@ Sample POST Body (Create Brand):
 }
 ```
 
-*For more information see [online docs](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/)*
+_For more information see [online docs](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/)_
 
 </details>
 
@@ -325,5 +335,3 @@ Full testing documentation is available in the MkDocs site under **Testing Docum
 &copy; 2026 Joe O'Regan<br/>
 TUS Microservices Architecture CA1 &bull; TUS Continuous Build and Delivery CA1 | CA2
 </p>
-
-
