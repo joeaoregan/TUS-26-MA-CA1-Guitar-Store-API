@@ -34,14 +34,20 @@ pipeline {
                 echo 'Running Smoke Test on Container...'
                 bat 'docker run -d --name test-container -p 8081:8080 joe0regan/guitar-store-api:latest'
                 // Give it a second to start, then kill it
-                bat 'timeout /t 5'
+                // bat 'timeout /t 5'
+                bat 'ping 127.0.0.1 -n 6 > nul'
                 bat 'docker stop test-container'
                 bat 'docker rm test-container'
             }
         }
         stage('Stage 6: Artifact Delivery') {
             steps {
-                echo 'Delivering artifacts'
+                echo 'Pushing to Docker Hub...'
+                // Use the ID of your Docker Hub credentials from Jenkins
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-token', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    bat "docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}"
+                    bat 'docker push joe0regan/guitar-store-api:latest'
+                }
             }
         }
         stage('Stage 7: Ansible Configuration') {
