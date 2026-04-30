@@ -47,7 +47,7 @@ A multi-stage Docker build packages the JAR into a slim, production-ready image 
 **Configuration**: Executes a batch command: `docker build -t joe0regan/guitar-store-api:latest .`.  
 
 ### Stage 6: Artifact Delivery (Docker Hub)
-The verified Docker image is tagged and pushed to a central repository on [Docker Hub](https://hub.docker.com/repository/docker/joe0regan/guitar-store-api). This transforms the image into an immutable artifact that can be pulled by any authorized server in the network.  
+The verified Docker image is tagged and pushed to a central repository on [Docker Hub](https://hub.docker.com/r/joe0regan/guitar-store-api/tags). This transforms the image into an immutable artifact that can be pulled by any authorized server in the network.  
 
 **Configuration**: Uses `docker login` with masked Jenkins credentials (`DOCKER_USER`, `DOCKER_PASS`) followed by `docker push`.  
 

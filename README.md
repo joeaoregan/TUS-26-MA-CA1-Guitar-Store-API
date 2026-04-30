@@ -62,6 +62,7 @@
 - <https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/>
   - [API Demo](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/guide/5_api_demo/)
   - [Testing Documentation](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/testing/)
+  - [Pipeline Documentation](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/pipeline/)
 
 ---
 
@@ -342,7 +343,7 @@ Full testing documentation is available in the MkDocs site in the [Testing](http
 
 The pipeline is architected into eight distinct stages to provide clear separation of concerns. This ensures that if a build fails during Stage 4 (Static Analysis), the subsequent containerisation and deployment stages are blocked, preserving the integrity of the production environment.
 
-Full pipeline documentation is available in the MkDocs site in the [Pipeline](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/pipeline/).
+Full pipeline documentation is available in the MkDocs site in the [Pipeline](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/pipeline/) section.
 
 </details>
 

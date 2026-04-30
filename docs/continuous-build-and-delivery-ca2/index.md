@@ -34,7 +34,7 @@ minimum coverage or no blocker issues)
 end-to-end)
 - Tests much be automatically triggered by the CI server.
 ### Deployment
-- Create a [Docker image](https://hub.docker.com/repository/docker/joe0regan/guitar-store-api/general "Docker Hub Repository") for the application.
+- Create a [Docker image](https://hub.docker.com/r/joe0regan/guitar-store-api/tags "Docker Hub Repository") for the application.
 - Automate deployment using a tool such as Ansible or scripted automation.
 - Deploy to a local server or [cloud](https://tus-26-ma-ca1-guitar-store-api.onrender.com/ "Render App") environment
 ### Automation and Failure Handling

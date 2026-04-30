@@ -33,8 +33,13 @@ theme:
 nav:
   - Home: 
     - Overview: index.md
-    - Render App: https://tus-26-ma-ca1-guitar-store-api.onrender.com/
-    - Swagger UI: https://tus-26-ma-ca1-guitar-store-api.onrender.com/swagger-ui/index.html
+    - External Links:
+      - Render App: https://tus-26-ma-ca1-guitar-store-api.onrender.com/
+      - Swagger UI: https://tus-26-ma-ca1-guitar-store-api.onrender.com/swagger-ui/index.html
+      - Github: https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API
+      - Bitbucket: https://bitbucket.org/joeaoregan/cbd-ca2-guitarstoreapi-pipeline
+      - SonarCloud: https://sonarcloud.io/project/overview?id=tus-26-ma-ca1-guitar-store-api
+      - Docker Hub: https://hub.docker.com/r/joe0regan/guitar-store-api/tags
   - Microservices Architecture:
     - microservices-architecture-ca1/index.md
   - Continuous Build and Delivery:
