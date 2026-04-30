@@ -28,7 +28,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
-@Tag(name = "Brand Controller", description = "CRUD operations for Guitar Brands")
+@Tag(name = "Brand Controller", description = "Guitar Brands CRUD operations")
 @RestController
 @RequestMapping(path = "/api/guitarstore/v1/brands", produces = {MediaType.APPLICATION_JSON_VALUE})
 @AllArgsConstructor
