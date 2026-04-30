@@ -21,9 +21,10 @@ pipeline {
         }
         stage('Stage 4: Static Analysis') {
             steps {
-                echo 'Stage 4: Analysing Code Quality (SonarCloud)...'
-                bat 'mvn sonar:sonar'
-            }
+                echo 'Stage 4: Analysing Code Quality (SonarCloud)...'                
+                withCredentials([string(credentialsId: 'sonar-cloud-token', variable: 'SONAR_TOKEN')]) {
+                    bat "mvn sonar:sonar -Dsonar.token=${SONAR_TOKEN}"
+                }
         }
         stage('Stage 5: Containerisation') {
             steps {
