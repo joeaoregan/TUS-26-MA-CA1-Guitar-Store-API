@@ -20,56 +20,133 @@
 			<p class="text-gray-500 mt-2 text-lg italic">Management System Dashboard & Monitoring</p>
 		</header>
 
+
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-			<div class="bg-indigo-600 rounded-3xl p-6 shadow-lg text-white">
-				<h3 class="text-sm font-bold uppercase tracking-widest opacity-80 mb-4">Cloud Production (Render)</h3>
-				<div class="flex flex-col space-y-3">
-					<a href="https://tus-26-ma-ca1-guitar-store-api.onrender.com/swagger-ui/index.html" target="_blank"
+			<div class="flex flex-col gap-6">
+				<div class="bg-indigo-600 rounded-3xl p-6 shadow-lg text-white">
+					<h3 class="text-sm font-bold uppercase tracking-widest opacity-80 mb-4">Cloud Production (Render)
+					</h3>
+					<div class="flex flex-col space-y-3">
+						<a href="https://tus-26-ma-ca1-guitar-store-api.onrender.com/swagger-ui/index.html"
+							target="_blank"
+							class="flex justify-between items-center bg-white/10 hover:bg-white/20 p-3 rounded-xl transition">
+							<span>Swagger UI (Cloud)</span>
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+								</path>
+							</svg>
+						</a>
+						<a href="https://tus-26-ma-ca1-guitar-store-api.onrender.com/hello" target="_blank"
+							class="flex justify-between items-center bg-white/10 hover:bg-white/20 p-3 rounded-xl transition">
+							<span>Health Check (Cloud)</span>
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+								</path>
+							</svg>
+						</a>
+						<a href="https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API" target="_blank"
+							class="flex justify-between items-center bg-white/10 hover:bg-white/20 p-3 rounded-xl transition border-t border-white/10 pt-3">
+							<span class="font-bold">Source Code (GitHub)</span>
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-label="GitHub">
+								<path
+									d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+							</svg>
+						</a>
+						<a href="https://bitbucket.org/joeaoregan/cbd-ca2-guitarstoreapi-pipeline" target="_blank"
+							class="flex justify-between items-center bg-white/10 hover:bg-white/20 p-3 rounded-xl transition border-t border-white/10 pt-3">
+							<span class="font-bold">Source Code (Bitbucket)</span>
+							<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-label="Bitbucket">
+								<path
+									d="M2.747 3.172c.144-.177.366-.28.598-.277h17.31c.233-.003.455.1.6.277.144.177.191.414.127.632l-3.462 16.07a.668.668 0 0 1-.653.515h-10.58a.667.667 0 0 1-.654-.515L2.11 3.804a.605.605 0 0 1 .126-.632zm14.022 12.812.925-6.066H6.327l.924 6.066h9.518zm-1.437 2.064.261-1.702h-7.127l.26 1.702h6.606zm-5.68-8.174h3.716l-.569 3.689h-2.576l-.57-3.689z" />
+							</svg>
+						</a>
+					</div>
+				</div>
+
+				<div class="bg-gray-800 rounded-3xl p-6 shadow-lg text-white">
+					<h3 class="text-sm font-bold uppercase tracking-widest opacity-80 mb-4">Documentation</h3>
+
+					<a href="https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/" target="_blank"
 						class="flex justify-between items-center bg-white/10 hover:bg-white/20 p-3 rounded-xl transition">
-						<span>Swagger UI (Cloud)</span>
-						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+						<span class="font-bold">MkDocs Site</span>
+
+						<svg class="w-6 h-6 shrink-0" viewBox="0 0 89 89" fill="currentColor" aria-label="MkDocs"
+							xmlns="http://www.w3.org/2000/svg">
+							<path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z"></path>
+							<path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z"
+								style="fill-opacity: 0.5"></path>
+							<path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z"></path>
+							<path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z"
+								style="fill-opacity: 0.25"></path>
 						</svg>
 					</a>
-					<a href="https://tus-26-ma-ca1-guitar-store-api.onrender.com/hello" target="_blank"
-						class="flex justify-between items-center bg-white/10 hover:bg-white/20 p-3 rounded-xl transition">
-						<span>Health Check (Cloud)</span>
-						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
-							</path>
-						</svg>
-					</a>
-					<a href="https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API" target="_blank"
-						class="flex justify-between items-center bg-white/10 hover:bg-white/20 p-3 rounded-xl transition border-t border-white/10 pt-3">
-						<span class="font-bold">Source Code (GitHub)</span>
-						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-							<path
-								d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-						</svg>
-					</a>
+
+					<p class="mt-4 text-xs text-white/80 leading-relaxed">
+						Architecture notes, usage guides, and screenshots.
+					</p>
 				</div>
 			</div>
 
-			<div class="bg-gray-800 rounded-3xl p-6 shadow-lg text-white">
-				<h3 class="text-sm font-bold uppercase tracking-widest opacity-80 mb-4">Local Development</h3>
-				<div class="flex flex-col space-y-3">
-					<a href="/swagger-ui/index.html" target="_blank"
-						class="flex justify-between items-center bg-white/5 hover:bg-white/10 p-3 rounded-xl transition">
-						<span>Swagger UI (Local)</span>
-						<span class="text-xs bg-gray-700 px-2 py-1 rounded">8080</span>
-					</a>
-					<a href="/h2-console" target="_blank"
-						class="flex justify-between items-center bg-white/5 hover:bg-white/10 p-3 rounded-xl transition">
-						<span>H2 Console</span>
-						<span class="text-xs bg-gray-700 px-2 py-1 rounded">DB</span>
-					</a>
-					<a href="/hello" target="_blank"
-						class="flex justify-between items-center bg-white/5 hover:bg-white/10 p-3 rounded-xl transition">
-						<span>Health Check</span>
-						<span class="text-xs bg-gray-700 px-2 py-1 rounded">Sanity</span>
-					</a>
+			<div class="flex flex-col gap-6">
+				<div class="bg-gray-800 rounded-3xl p-6 shadow-lg text-white">
+					<h3 class="text-sm font-bold uppercase tracking-widest opacity-80 mb-4">Local Development</h3>
+					<div class="flex flex-col space-y-3">
+						<a href="/swagger-ui/index.html" target="_blank"
+							class="flex justify-between items-center bg-white/5 hover:bg-white/10 p-3 rounded-xl transition">
+							<span>Swagger UI (Local)</span>
+							<span class="text-xs bg-gray-700 px-2 py-1 rounded">8080</span>
+						</a>
+						<a href="/h2-console" target="_blank"
+							class="flex justify-between items-center bg-white/5 hover:bg-white/10 p-3 rounded-xl transition">
+							<span>H2 Console</span>
+							<span class="text-xs bg-gray-700 px-2 py-1 rounded">DB</span>
+						</a>
+						<a href="/hello" target="_blank"
+							class="flex justify-between items-center bg-white/5 hover:bg-white/10 p-3 rounded-xl transition">
+							<span>Health Check</span>
+							<span class="text-xs bg-gray-700 px-2 py-1 rounded">Sanity</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="bg-indigo-600 rounded-3xl p-6 shadow-lg text-white">
+					<h3 class="text-sm font-bold uppercase tracking-widest opacity-80 mb-4">CI / Deployment</h3>
+
+					<div class="flex flex-col space-y-3">
+						<a href="https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/actions" target="_blank"
+							class="flex justify-between items-center bg-white/5 hover:bg-white/10 p-3 rounded-xl transition">
+							<span>GitHub Actions</span>
+							<span class="text-xs bg-gray-700 px-2 py-1 rounded">CI</span>
+						</a>
+
+						<a href="https://sonarcloud.io/project/overview?id=tus-26-ma-ca1-guitar-store-api"
+							target="_blank"
+							class="flex justify-between items-center bg-white/5 hover:bg-white/10 p-3 rounded-xl transition">
+							<span>SonarCloud Quality Gate</span>
+
+							<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-label="SonarCloud">
+								<path
+									d="M22.406 10.9a7.088 7.088 0 00-3.377-2.358v-.085c0-4.035-3.156-7.324-7.047-7.324-3.893 0-7.05 3.282-7.05 7.325v.1C2.081 9.492 0 12.268 0 15.542c0 4.035 3.159 7.325 7.05 7.325a6.907 6.907 0 004.952-2.108 6.885 6.885 0 004.947 2.108c3.884 0 7.051-3.282 7.051-7.325a7.572 7.572 0 00-1.594-4.643zM16.95 21.014c-2.903 0-5.267-2.456-5.267-5.474a.91.91 0 00-.89-.924.906.906 0 00-.892.925c0 1.368.367 2.651.994 3.748a5.156 5.156 0 01-3.845 1.733c-2.904 0-5.27-2.457-5.27-5.474 0-3.016 2.366-5.473 5.27-5.473.63 0 1.241.117 1.827.335.007 0 .013.007.02.007.203.071.489.21.578.287a.858.858 0 001.249-.1.942.942 0 00-.097-1.3c-.39-.342-.995-.575-1.144-.63a6.814 6.814 0 00-2.425-.443c-.113 0-.225 0-.338.007.12-2.916 2.433-5.247 5.27-5.247 2.903 0 5.267 2.456 5.267 5.474a5.569 5.569 0 01-2.215 4.463.948.948 0 00-.21 1.283c.171.25.45.39.727.39a.86.86 0 00.516-.172 7.381 7.381 0 002.709-4.02c2.035.785 3.449 2.829 3.449 5.139-.007 3.01-2.371 5.466-5.283 5.466z" />
+							</svg>
+						</a>
+
+						<a href="https://hub.docker.com/repository/docker/joe0regan/guitar-store-api/general"
+							target="_blank"
+							class="flex justify-between items-center bg-white/5 hover:bg-white/10 p-3 rounded-xl transition">
+							<span>Docker Hub Image</span>
+							<svg class="w-5 h-5 shrink-0" viewBox="0 0 38 30" fill="currentColor"
+								aria-label="Docker Hub" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M37.413,12.315c-0.933,-0.627 -3.382,-0.896 -5.163,-0.415c-0.097,-1.774 -1.012,-3.27 -2.685,-4.573l-0.619,-0.416l-0.414,0.624c-0.811,1.232 -1.153,2.873 -1.032,4.366c0.095,0.92 0.415,1.953 1.032,2.703c-2.318,1.345 -4.455,1.039 -13.919,1.039l-14.61,0c-0.042,2.137 0.302,6.248 2.915,9.593c0.289,0.37 0.604,0.727 0.948,1.072c2.126,2.128 5.336,3.689 10.138,3.693c7.325,0.007 13.601,-3.953 17.419,-13.527c1.257,0.02 4.572,0.225 6.195,-2.911c0.039,-0.052 0.413,-0.831 0.413,-0.831l-0.618,-0.415l0,-0.002Zm-27.875,-1.953l-4.108,0l-0,4.108l4.108,0l0,-4.108Zm5.308,0l-4.108,0l-0,4.108l4.108,0l0,-4.108Zm5.308,0l-4.108,0l-0,4.108l4.108,0l0,-4.108Zm5.308,0l-4.108,0l-0,4.108l4.108,0l0,-4.108Zm-21.232,0l-4.108,0l-0,4.108l4.108,0l0,-4.108Zm5.308,-5.19l-4.108,-0l-0,4.108l4.108,0l0,-4.108Zm5.308,-0l-4.108,-0l-0,4.108l4.108,0l0,-4.108Zm5.308,-0l-4.108,-0l-0,4.108l4.108,0l0,-4.108Zm0,-5.19l-4.108,0l-0,4.109l4.108,-0l0,-4.109Z" />
+							</svg>
+						</a>
+					</div>
+
+					<p class="mt-6 text-xs text-gray-300/80 leading-relaxed">
+						Links to pipeline tooling, artefacts, and quality checks used for this project.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -117,7 +194,6 @@
 			</div>
 
 			<div class="lg:col-span-2 space-y-6">
-				<!-- Replace your current Date Filter Bar with this code -->
 				<div v-if="activeView === 'guitars'" class="bg-white rounded-3xl p-6 border border-gray-200 shadow-sm">
 					<h3 class="text-xs font-black text-gray-400 uppercase tracking-widest mb-4">Filter Inventory by Date
 						Range</h3>

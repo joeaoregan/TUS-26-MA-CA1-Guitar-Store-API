@@ -40,3 +40,6 @@ build/
 
 # MkDocs
 site/
+
+# Checkstyle
+.checkstyle
