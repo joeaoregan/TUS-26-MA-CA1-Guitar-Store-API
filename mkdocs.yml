@@ -63,6 +63,8 @@ nav:
       - Overview: testing/end-to-end-tests/index.md
       - API (TestRestTemplate): testing/end-to-end-tests/api-end-to-end.md
       - Karate: testing/end-to-end-tests/karate.md
+  - Pipeline: 
+    - pipeline/index.md
   - Links:
     - links/index.md
   

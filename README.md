@@ -327,7 +327,22 @@ Testing follows the **Test Pyramid** approach:
 - **Integration tests (Spring `@DataJpaTest` + H2):** repository-focused tests (e.g., `GuitarRepositoryIntegrationTest`) that verify JPA mappings, query correctness, relationships, and database constraints.
 - **End-to-end / API tests:** full HTTP-level checks using `TestRestTemplate` (`GuitarApiE2ETest`) and scenario-based **Karate** features (`brands.feature`) to validate real request/response behaviour including happy paths and error handling.
 
-Full testing documentation is available in the MkDocs site under **Testing Documentation**.
+Full testing documentation is available in the MkDocs site in the [Testing](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/testing/) section.
+
+</details>
+
+---
+
+<details open>
+  <summary>11. Pipeline</summary>
+
+![Pipeline Diagram](docs/images/maven-build-pipeline.png)
+
+###### The Pipeline
+
+The pipeline is architected into eight distinct stages to provide clear separation of concerns. This ensures that if a build fails during Stage 4 (Static Analysis), the subsequent containerisation and deployment stages are blocked, preserving the integrity of the production environment.
+
+Full pipeline documentation is available in the MkDocs site in the [Pipeline](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/pipeline/).
 
 </details>
 
