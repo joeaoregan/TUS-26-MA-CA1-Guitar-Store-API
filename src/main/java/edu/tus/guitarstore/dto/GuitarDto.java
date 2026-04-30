@@ -18,20 +18,37 @@ import lombok.NoArgsConstructor;
 @Schema(name = "Guitar", description = "Schema to hold Guitar")
 public class GuitarDto {
 
+    /**
+     * Unique identifier for the guitar. This field is auto-generated
+     * and should not be provided by the client when creating a
+     * new guitar record.
+     */
 	@Schema(description = "Name of the guitar model", example = "Stratocaster")
 	@NotEmpty(message = "Model name cannot be null or empty")
 	@Size(min = 2, max = 50, message = "Model name should be between 2 and 50 characters")
 	private String modelName;
 
+	/**
+	 * Price of the guitar. This field is mandatory and must be a positive
+	 */
 	@Schema(description = "Price of the guitar", example = "999.99")
 	@Positive(message = "Price must be greater than zero")
 	private double price;
 
-	@Schema(description = "Date guitar was manufactured", example = "2010-01-05")
-	@NotNull(message = "Manufacture date is required, format YYYY-MM-DD")
-	@PastOrPresent(message = "Manufacture date cannot be in the future")
-	private LocalDate manufactureDate;
+	/**
+	 * Manufacture date of the guitar. This field is mandatory and must be a
+	 * valid date in the past or present (not in the future).
+	 */
+    @Schema(description = "Date guitar was manufactured",
+    		example = "2010-01-05")
+    @NotNull(message = "Manufacture date is required, format YYYY-MM-DD")
+    @PastOrPresent(message = "Manufacture date cannot be in the future")
+    private LocalDate manufactureDate;
 
+	/**
+     * Brand name of the guitar. This field is mandatory and should correspond
+     * to an existing brand in the system.
+     */
 	@Schema(description = "Brand name of the Guitar", example = "Fender")
 	@NotEmpty(message = "Brand name is required")
 	private String brandName;

@@ -8,7 +8,11 @@ public class BrandAlreadyExistsException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
-    public BrandAlreadyExistsException(String message) {
+    /**
+     * Constructor for BrandAlreadyExistsException.
+     * @param message
+     */
+    public BrandAlreadyExistsException(final String message) {
         super(message);
     }
 }

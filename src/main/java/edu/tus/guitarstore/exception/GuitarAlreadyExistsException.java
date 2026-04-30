@@ -8,7 +8,11 @@ public class GuitarAlreadyExistsException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
-    public GuitarAlreadyExistsException(String message) {
+    /**
+     * GuitarAlreadyExistsException constructor with message parameter.
+     * @param message
+     */
+    public GuitarAlreadyExistsException(final String message) {
         super(message);
     }
 }

@@ -8,6 +8,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @EnableJpaAuditing(auditorAwareRef = "auditAwareImpl")
 public class GuitarApp {
 
+    /**
+     * main method to run the application.
+     * @param args
+     */
     public static void main(final String[] args) {
         SpringApplication.run(GuitarApp.class, args);
     }

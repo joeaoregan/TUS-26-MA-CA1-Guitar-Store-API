@@ -17,28 +17,53 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class OpenApiConfig {
 
+    /**
+     * The title of the application.
+     */
     @Value("${app.title}")
     private String appTitle;
 
-	@Value("${spring.application.version}")
-	private String appVersion;
+    /**
+     * The version of the application.
+     */
+    @Value("${spring.application.version}")
+    private String appVersion;
 
-	@Value("${app.author}")
-	private String appAuthor;
+    /**
+     * The author of the application.
+     */
+    @Value("${app.author}")
+    private String appAuthor;
 
-	@Value("${app.email}")
-	private String appEmail;
+    /**
+     * The email of the author.
+     */
+    @Value("${app.email}")
+    private String appEmail;
 
-	@Value("${app.github}")
-	private String appGithub;
+    /**
+     * The GitHub repository of the application.
+     */
+    @Value("${app.github}")
+    private String appGithub;
 
-	@Value("${app.description}")
-	private String appDescription;
+    /**
+     * The description of the application.
+     */
+    @Value("${app.description}")
+    private String appDescription;
 
-	@Bean
-	OpenAPI guitarStoreOpenAPI() {
-		return new OpenAPI()
-				.info(new Info().title(appTitle).description(appDescription).version(appVersion)
+    /**
+     * Configures the OpenAPI documentation for the Guitar Store API.
+     * This method creates an OpenAPI bean that defines the API's metadata,
+     * including title, version, contact information,
+     * terms of service, license, keywords, and tags.
+     * @return the OpenAPI configuration
+     */
+    @Bean
+    OpenAPI guitarStoreOpenAPI() {
+        return new OpenAPI()
+        	    .info(new Info().title(appTitle).description(appDescription).version(appVersion)
 						.contact(new Contact().name(appAuthor).email(appEmail))
 						.termsOfService("http://swagger.io/terms/")
 						.license(new License().name("Apache 2.0").url("https://www.apache.org/licenses/LICENSE-2.0")))

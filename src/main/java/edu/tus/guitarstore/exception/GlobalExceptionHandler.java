@@ -25,24 +25,33 @@ import edu.tus.guitarstore.dto.ErrorResponseDto;
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-	@ExceptionHandler(GuitarAlreadyExistsException.class)
-	public ResponseEntity<ErrorResponseDto> handleGuitarAlreadyExistsException(GuitarAlreadyExistsException exception,
-			WebRequest webRequest) {
-		ErrorResponseDto errorResponseDTO = new ErrorResponseDto(webRequest.getDescription(false),
-				HttpStatus.BAD_REQUEST, exception.getMessage(), LocalDateTime.now());
-		return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
+     /**
+     * 400 Bad Request handling Handle GuitarAlreadyExistsException.
+     * @return ResponseEntity with error details and HTTP status 400
+     */
+    @ExceptionHandler(GuitarAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponseDto> handleGuitarAlreadyExistsException(GuitarAlreadyExistsException exception,
+            final WebRequest webRequest) {
+        ErrorResponseDto errorResponseDTO = new ErrorResponseDto(webRequest.getDescription(false),
+                HttpStatus.BAD_REQUEST, exception.getMessage(), LocalDateTime.now());
+        return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
 	}
 
+	/**
+	 * 400 Bad Request handling Handle BrandAlreadyExistsException.
+	 * @return ResponseEntity with error details and HTTP status 400
+	 */
 	@ExceptionHandler(BrandAlreadyExistsException.class)
-	public ResponseEntity<ErrorResponseDto> handleBrandAlreadyExistsException(
-			final BrandAlreadyExistsException exception, final WebRequest webRequest) {
-		ErrorResponseDto errorResponseDTO = new ErrorResponseDto(webRequest.getDescription(false),
-				HttpStatus.BAD_REQUEST, exception.getMessage(), LocalDateTime.now());
-		return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
+    public ResponseEntity<ErrorResponseDto> handleBrandAlreadyExistsException(
+        final BrandAlreadyExistsException exception, final WebRequest webRequest) {
+        ErrorResponseDto errorResponseDTO = new ErrorResponseDto(webRequest.getDescription(false),
+            HttpStatus.BAD_REQUEST, exception.getMessage(), LocalDateTime.now());
+        return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
 	}
 
-	/*
-	 * 404 Not Found handling Handle ResourceNotFoundException
+	/**
+	 * 404 Not Found handling Handle ResourceNotFoundException.
+	 * @return ResponseEntity with error details and HTTP status 404
 	 */
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<ErrorResponseDto> handleResourceNotFoundException(ResourceNotFoundException exception,
@@ -52,8 +61,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<>(errorResponseDTO, HttpStatus.NOT_FOUND);
 	}
 
-	/*
-	 * 404 Not Found handling Handle incorrect URL paths / routing errors
+	/**
+	 * 404 Not Found handling Handle incorrect URL paths / routing errors.
+	 * @return ResponseEntity with error details and HTTP status 404
 	 */
 	@Override
 	@Nullable
@@ -66,8 +76,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<>(errorResponseDTO, HttpStatus.NOT_FOUND);
 	}
 
-	/*
-	 * 500 Internal Server Error Catch-all exception handling
+    /**
+	 * 500 Internal Server Error Catch-all exception handling.
+	 * @return ResponseEntity with error details and HTTP status 500
 	 */
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<ErrorResponseDto> handleGlobalException(final Exception exception,
@@ -77,8 +88,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<>(errorResponseDTO, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
-	/*
-	 * 400 Bad Request handling Handle MethodArgumentNotValidException
+	/**
+	 * 400 Bad Request handling Handle MethodArgumentNotValidException.
+	 * @return ResponseEntity with validation error details
+	 * and HTTP status 400
 	 */
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(
@@ -99,8 +112,13 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<>(validationErrors, HttpStatus.BAD_REQUEST);
 	}
 
-	/*
-	 * 400 Bad Request handling Handle MethodArgumentTypeMismatchException
+	/**
+	 * 400 Bad Request handling Handle MethodArgumentTypeMismatchException.
+	 * @return ResponseEntity with error details and HTTP status 400
+	 * @param exception the exception thrown
+	 * when a method argument type mismatch occurs
+	 * @param webRequest the current web request
+	 * during which the exception was thrown
 	 */
 	@ExceptionHandler(org.springframework.web.method.annotation.MethodArgumentTypeMismatchException.class)
 	public ResponseEntity<ErrorResponseDto> handleTypeMismatchException(

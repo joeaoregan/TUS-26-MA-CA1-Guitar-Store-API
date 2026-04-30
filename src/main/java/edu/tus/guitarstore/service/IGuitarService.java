@@ -8,17 +8,53 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 
 public interface IGuitarService {
-	void createGuitar(GuitarDto guitarDto);
 
-	GuitarDto fetchGuitar(String modelName);
+    /**
+     * Create a new guitar in the system.
+     * @param guitarDto
+     */
+    void createGuitar(GuitarDto guitarDto);
 
-	List<GuitarDto> fetchAllGuitars();
+    /**
+     * Fetch a guitar by its model name.
+     * @param modelName
+     * @return GuitarDto fetched guitar details as GuitarDto
+     */
+    GuitarDto fetchGuitar(String modelName);
 
-	boolean updateGuitar(GuitarDto guitarDto);
+    /**
+     * Fetch all guitars in the system.
+     * @return list of GuitarDto
+     */
+    List<GuitarDto> fetchAllGuitars();
 
-	boolean deleteGuitar(String modelName);
+    /**
+     * Update an existing guitar in the system.
+     * @param guitarDto
+     * @return boolean indicating success or failure
+     */
+    boolean updateGuitar(GuitarDto guitarDto);
 
-	Page<GuitarDto> fetchAllGuitarsPaginated(int page, int size);
+    /**
+     * Delete a guitar by its model name.
+     * @param modelName
+     * @return boolean indicating success or failure of delete operation
+     */
+    boolean deleteGuitar(String modelName);
 
-	List<GuitarDto> fetchGuitarsByDateRange(LocalDate start, LocalDate end);
+    /**
+     * Fetch all guitars in a paginated manner.
+     * @param page the page number to fetch
+     * @param size the number of items per page
+     * @return a page of GuitarDto
+     */
+    Page<GuitarDto> fetchAllGuitarsPaginated(int page, int size);
+
+    /**
+     * Fetch guitars that were manufactured within a specified date range.
+     * @param start
+     * @param end the end date of the range
+     * @return a list of GuitarDto within the specified date range
+     */
+    List<GuitarDto> fetchGuitarsByDateRange(LocalDate start, LocalDate end);
 }

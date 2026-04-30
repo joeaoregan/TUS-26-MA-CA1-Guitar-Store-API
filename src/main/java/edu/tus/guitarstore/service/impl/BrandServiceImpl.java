@@ -18,35 +18,64 @@ import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class BrandServiceImpl implements IBrandService {
-	private BrandRepository brandRepository;
 
-	@Override
-	public void createBrand(BrandDto brandDto) {
-	    Optional<Brand> existingBrand = brandRepository.findByName(brandDto.getName());	    
-	    if(existingBrand.isPresent()) {
-	        // Possible to throw Custom Exception ...but no time to implement
-	        throw new RuntimeException("Brand already exists with name: " + brandDto.getName());
+    /**
+     * BrandRepository is injected to perform
+     * CRUD operations on Brand entities.
+     */
+    private BrandRepository brandRepository;
+
+    /**
+     * Creates a new Brand based on the provided BrandDto.
+     * It first checks if a brand with the same name already exists
+     * in the system. If it does, a RuntimeException is thrown.
+     * @param brandDto the BrandDto containing brand details
+     */
+    @Override
+    public void createBrand(final BrandDto brandDto) {
+        Optional<Brand> existingBrand = brandRepository.findByName(brandDto.getName());	    
+	    if (existingBrand.isPresent()) {
+	        // Possible to throw Custom Exception here
+            throw new RuntimeException("Brand already exists with name: " + brandDto.getName());
 	    }
-	    
+
 		Brand brand = BrandMapper.mapToBrand(brandDto, new Brand());
 		brandRepository.save(brand);
 	}
 
+    /**
+     * Fetches a Brand based on the provided brand name.
+     * If no brand is found with the given name,
+     * a ResourceNotFoundException is thrown.
+     * Brand details are returned as a BrandDto.
+     * @param name the name of the brand to fetch
+     * @return BrandDto containing brand details
+     */
 	@Override
-	public BrandDto fetchBrand(String name) {
+	public BrandDto fetchBrand(final String name) {
 		Brand brand = brandRepository.findByName(name)
 				.orElseThrow(() -> new ResourceNotFoundException("Brand", "name", name));
 		return BrandMapper.mapToBrandDto(brand, new BrandDto());
 	}
 
-	@Override
-	public List<BrandDto> fetchAllBrands() {
-		return brandRepository.findAll().stream().map(brand -> BrandMapper.mapToBrandDto(brand, new BrandDto()))
-				.collect(Collectors.toList());
+	/**
+	 * Fetches all available brands in the system and
+	 * returns them as a list of BrandDto.
+	 * @return List of BrandDto containing details of all brands
+	 */
+    @Override
+    public List<BrandDto> fetchAllBrands() {
+        return brandRepository.findAll().stream().map(brand -> BrandMapper.mapToBrandDto(brand, new BrandDto()))
+            .collect(Collectors.toList());
 	}
 
+    /**
+     * Updates the details of an existing Brand based on the provided BrandDto.
+     * @param brandDto the BrandDto containing updated brand details
+     * @return true if the update was successful, false otherwise
+     */
 	@Override
-	public boolean updateBrand(BrandDto brandDto) {
+	public boolean updateBrand(final BrandDto brandDto) {
 		Brand brand = brandRepository.findByName(brandDto.getName())
 				.orElseThrow(() -> new ResourceNotFoundException("Brand", "name", brandDto.getName()));
 
@@ -56,9 +85,17 @@ public class BrandServiceImpl implements IBrandService {
 		return true;
 	}
 
+	/**
+	 * Deletes a Brand and all its associated guitar
+	 * inventory based on the unique brand name.
+	 * If no brand is found with the given name,
+	 * a ResourceNotFoundException is thrown.
+	 * @param brandName the unique name of the brand to delete
+	 * @return true if the delete operation was successful, false otherwise
+	 */
 	@Override
 	@Transactional
-	public boolean deleteBrand(String brandName) {
+	public boolean deleteBrand(final String brandName) {
 		Brand brand = brandRepository.findByName(brandName)
 				.orElseThrow(() -> new ResourceNotFoundException("Brand", "name", brandName));
 		brandRepository.delete(brand);

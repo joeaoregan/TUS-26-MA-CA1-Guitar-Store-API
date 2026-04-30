@@ -10,9 +10,13 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RestController
 public class HealthCheckController {
 
-	@Operation(summary = "Sanity Test", description = "Simple endpoint to verify the DispatcherServlet is routing requests properly")
-	@GetMapping("/hello")
-	public String sayHello() {
-		return "Guitar Manager API is up and running!";
-	}
+    /**
+     * Simple endpoint to verify that the API is up and running.
+     * @return A simple message confirming the API is operational
+     */
+    @Operation(summary = "Sanity Test", description = "Simple endpoint to verify the DispatcherServlet is routing requests properly")
+    @GetMapping("/hello")
+    public String sayHello() {
+        return "Guitar Manager API is up and running!";
+    }
 }
