@@ -48,3 +48,13 @@ jobs:
           context: .
           push: true
           tags: joe0regan/guitar-store-api:latest
+
+      - name: "Stage 7/8: Copy deploy files to Ansible server with SSH"
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.ANSIBLE_HOST }}
+          username: ${{ secrets.ANSIBLE_USER }}
+          key: ${{ secrets.ANSIBLE_SSH_KEY }}
+          source: "deploy-guitar-api.yml,Dockerfile"
+          target: "/opt/docker"
+
