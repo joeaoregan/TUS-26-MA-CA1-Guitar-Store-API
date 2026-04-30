@@ -3,17 +3,20 @@ pipeline {
     stages {
         stage('Stage 1: Compile') {
             steps {
-                echo 'Compiling...'
+                echo 'Stage 1: Compiling Source Code...'
+                bat 'mvn clean compile -Dcheckstyle.skip'
             }
         }
         stage('Stage 2: Test') {
             steps {
-                echo 'Testing'
+                echo 'Stage 2: Running Unit & Integration Tests...'
+                bat 'mvn test'
             }
         }
         stage('Stage 3: Package') {
             steps {
-                echo 'Packaging'
+                echo 'Stage 3: Creating Executable JAR...'
+                bat 'mvn package -DskipTests -Dcheckstyle.skip'
             }
         }
         stage('Stage 4: Static Analysis') {
