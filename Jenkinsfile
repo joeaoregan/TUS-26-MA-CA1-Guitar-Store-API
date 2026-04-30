@@ -56,14 +56,18 @@ pipeline {
                 }
             }
         }
-        stage('Stage 7: Ansible Configuration') {
+        stage('Stage 7 & 8: Remote Deployment') {
             steps {
-                echo 'Configuring with Ansible'
-            }
-        }
-        stage('Stage 8: Deploy') {
-            steps {
-                echo 'Deploying'
+                echo 'Deploying to AWS EC2 via Ansible...'
+                sshPublisher(publishers: [
+                    sshPublisherDesc(configName: 'ansible-server', transfers: [
+                        sshTransfer(
+                            sourceFiles: 'deploy-guitar-api.yml, Dockerfile',
+                            remoteDirectory: '/',
+                            execCommand: 'cd /opt/docker && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml'
+                        )
+                    ])
+                ])
             }
         }
     }
