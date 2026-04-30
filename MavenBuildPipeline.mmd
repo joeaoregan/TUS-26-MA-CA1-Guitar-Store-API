@@ -1,0 +1,27 @@
+graph LR
+    subgraph "Stage 1: Compile"
+        S1[mvn compile]
+    end
+    subgraph "Stage 2: Test"
+        S2[JUnit & Karate]
+    end
+    subgraph "Stage 3: Package"
+        S3[mvn package]
+    end
+    subgraph "Stage 4: Static Analysis"
+        S4[SonarCloud]
+    end
+    subgraph "Stage 5: Containerisation"
+        S5[Docker Build & Smoke Test]
+    end
+    subgraph "Stage 6: Artifact Delivery"
+        S6[Docker Hub Push]
+    end
+    subgraph "Stage 7: Ansible Config"
+        S7[SSH Handshake & Inventory]
+    end
+    subgraph "Stage 8: Deployment"
+        S8[Ansible Playbook & AWS EC2]
+    end
+
+    S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7 --> S8

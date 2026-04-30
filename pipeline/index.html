@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/testing/integration-tests/guitar-repository-test/">
+        <link rel="canonical" href="https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/pipeline/">
       
       
-        <link rel="prev" href="../guitar-repository-integration-test/">
+        <link rel="prev" href="../testing/end-to-end-tests/karate/">
       
       
-        <link rel="next" href="../../end-to-end-tests/">
+        <link rel="next" href="../links/">
       
       
         
       
       
-      <link rel="icon" href="../../../images/favicon.ico">
+      <link rel="icon" href="../images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>GuitarRepositoryTest - Guitar Store API Docs</title>
+        <title>CI/CD Pipeline Architecture - Guitar Store API Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#guitarrepositorytestjava" class="md-skip">
+        <a href="#cicd-pipeline-architecture" class="md-skip">
           Skip to content
         </a>
       
@@ -92,9 +92,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Guitar Store API Docs" class="md-header__button md-logo" aria-label="Guitar Store API Docs" data-md-component="logo">
+    <a href=".." title="Guitar Store API Docs" class="md-header__button md-logo" aria-label="Guitar Store API Docs" data-md-component="logo">
       
-  <img src="../../../images/logo.png" alt="logo">
+  <img src="../images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GuitarRepositoryTest
+              CI/CD Pipeline Architecture
             
           </span>
         </div>
@@ -218,7 +218,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../.." class="md-tabs__link">
+        <a href=".." class="md-tabs__link">
           
   
   
@@ -238,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../microservices-architecture-ca1/" class="md-tabs__link">
+        <a href="../microservices-architecture-ca1/" class="md-tabs__link">
           
   
   
@@ -258,7 +258,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../continuous-build-and-delivery-ca1/" class="md-tabs__link">
+        <a href="../continuous-build-and-delivery-ca1/" class="md-tabs__link">
           
   
   
@@ -278,11 +278,31 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../guide/" class="md-tabs__link">
+        <a href="../guide/" class="md-tabs__link">
           
   
   
   Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../testing/" class="md-tabs__link">
+          
+  
+  
+  Testing
 
         </a>
       </li>
@@ -300,27 +320,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
-          
-  
-  
-  Testing
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../../pipeline/" class="md-tabs__link">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -340,7 +340,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../links/" class="md-tabs__link">
+        <a href="../links/" class="md-tabs__link">
           
   
   
@@ -380,9 +380,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Guitar Store API Docs" class="md-nav__button md-logo" aria-label="Guitar Store API Docs" data-md-component="logo">
+    <a href=".." title="Guitar Store API Docs" class="md-nav__button md-logo" aria-label="Guitar Store API Docs" data-md-component="logo">
       
-  <img src="../../../images/logo.png" alt="logo">
+  <img src="../images/logo.png" alt="logo">
 
     </a>
     Guitar Store API Docs
@@ -461,7 +461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -604,7 +604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../microservices-architecture-ca1/" class="md-nav__link">
+      <a href="../microservices-architecture-ca1/" class="md-nav__link">
         
   
   
@@ -691,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../continuous-build-and-delivery-ca1/" class="md-nav__link">
+      <a href="../continuous-build-and-delivery-ca1/" class="md-nav__link">
         
   
   
@@ -719,7 +719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../continuous-build-and-delivery-ca2/" class="md-nav__link">
+      <a href="../continuous-build-and-delivery-ca2/" class="md-nav__link">
         
   
   
@@ -806,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guide/" class="md-nav__link">
+      <a href="../guide/" class="md-nav__link">
         
   
   
@@ -834,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guide/2_project_overview/" class="md-nav__link">
+      <a href="../guide/2_project_overview/" class="md-nav__link">
         
   
   
@@ -862,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guide/3_core_tech/" class="md-nav__link">
+      <a href="../guide/3_core_tech/" class="md-nav__link">
         
   
   
@@ -890,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guide/4_tech_stack/" class="md-nav__link">
+      <a href="../guide/4_tech_stack/" class="md-nav__link">
         
   
   
@@ -918,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guide/5_api_demo/" class="md-nav__link">
+      <a href="../guide/5_api_demo/" class="md-nav__link">
         
   
   
@@ -946,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guide/6_diagrams/" class="md-nav__link">
+      <a href="../guide/6_diagrams/" class="md-nav__link">
         
   
   
@@ -974,7 +974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guide/7_database/" class="md-nav__link">
+      <a href="../guide/7_database/" class="md-nav__link">
         
   
   
@@ -1002,7 +1002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guide/8_status_codes/" class="md-nav__link">
+      <a href="../guide/8_status_codes/" class="md-nav__link">
         
   
   
@@ -1030,7 +1030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guide/9_end_points/" class="md-nav__link">
+      <a href="../guide/9_end_points/" class="md-nav__link">
         
   
   
@@ -1062,31 +1062,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -1104,7 +1099,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1122,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../testing/" class="md-nav__link">
         
   
   
@@ -1150,7 +1145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../demo/" class="md-nav__link">
+      <a href="../testing/demo/" class="md-nav__link">
         
   
   
@@ -1184,20 +1179,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
-          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
             
   
   
@@ -1233,7 +1225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../unit-tests/" class="md-nav__link">
+      <a href="../testing/unit-tests/" class="md-nav__link">
         
   
   
@@ -1266,31 +1258,26 @@
                 
   
   
-    
   
   
-  
     
     
     
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
           
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
             
   
   
@@ -1308,7 +1295,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1326,7 +1313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../testing/integration-tests/" class="md-nav__link">
         
   
   
@@ -1354,7 +1341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guitar-repository-integration-test/" class="md-nav__link">
+      <a href="../testing/integration-tests/guitar-repository-integration-test/" class="md-nav__link">
         
   
   
@@ -1379,37 +1366,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GuitarRepositoryTest
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../testing/integration-tests/guitar-repository-test/" class="md-nav__link">
         
   
   
@@ -1425,132 +1385,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#mock-based-unit-style-repository-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        (Mock-based “Unit-Style” Repository Tests)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-basic-query-behaviour-happy-path-not-found" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Basic query behaviour (happy path + not found)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Basic query behaviour (happy path + not found)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#testfindbymodelnamesuccess" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        testFindByModelNameSuccess()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#testfindbymodelnamenotfound" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        testFindByModelNameNotFound()
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-multiple-calls-different-inputs-repository-contract-behaviour" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Multiple calls / different inputs (repository contract behaviour)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Multiple calls / different inputs (repository contract behaviour)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#testfindbymodelnamemultiplecalls" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        testFindByModelNameMultipleCalls()
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-entity-integrity-returned-object-contains-expected-fields" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Entity integrity (returned object contains expected fields)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Entity integrity (returned object contains expected fields)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#testfindbymodelnameentityintegrity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        testFindByModelNameEntityIntegrity()
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1577,20 +1411,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
         
           
-          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
             
   
   
@@ -1626,7 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../end-to-end-tests/" class="md-nav__link">
+      <a href="../testing/end-to-end-tests/" class="md-nav__link">
         
   
   
@@ -1654,7 +1485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../end-to-end-tests/api-end-to-end/" class="md-nav__link">
+      <a href="../testing/end-to-end-tests/api-end-to-end/" class="md-nav__link">
         
   
   
@@ -1682,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../end-to-end-tests/karate/" class="md-nav__link">
+      <a href="../testing/end-to-end-tests/karate/" class="md-nav__link">
         
   
   
@@ -1722,26 +1553,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -1759,7 +1595,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1774,10 +1610,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../pipeline/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Pipeline Architecture
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1793,6 +1656,164 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cicd-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 CI/CD Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-stages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline Stages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pipeline Stages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stage-1-compile-bitbucket-maven" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 1: Compile (Bitbucket &amp; Maven)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2-test-junit-karate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2: Test (JUnit &amp; Karate)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-3-package-maven" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 3: Package (Maven)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-4-static-analysis-sonarcloud-checkstyle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 4: Static Analysis (SonarCloud &amp; Checkstyle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-5-containerisation-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 5: Containerisation (Docker)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-6-artifact-delivery-docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 6: Artifact Delivery (Docker Hub)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-7-ansible-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 7: Ansible Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-8-deployment-aws-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 8: Deployment (AWS EC2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1864,7 +1885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../links/" class="md-nav__link">
+      <a href="../links/" class="md-nav__link">
         
   
   
@@ -1919,10 +1940,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mock-based-unit-style-repository-tests" class="md-nav__link">
+  <a href="#the-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        (Mock-based “Unit-Style” Repository Tests)
+        The Pipeline
       
     </span>
   </a>
@@ -1930,22 +1951,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-basic-query-behaviour-happy-path-not-found" class="md-nav__link">
+  <a href="#cicd-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Basic query behaviour (happy path + not found)
+        🚀 CI/CD Pipeline
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Basic query behaviour (happy path + not found)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-stages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline Stages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pipeline Stages">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#testfindbymodelnamesuccess" class="md-nav__link">
+  <a href="#stage-1-compile-bitbucket-maven" class="md-nav__link">
     <span class="md-ellipsis">
       
-        testFindByModelNameSuccess()
+        Stage 1: Compile (Bitbucket &amp; Maven)
       
     </span>
   </a>
@@ -1953,10 +1985,76 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#testfindbymodelnamenotfound" class="md-nav__link">
+  <a href="#stage-2-test-junit-karate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        testFindByModelNameNotFound()
+        Stage 2: Test (JUnit &amp; Karate)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-3-package-maven" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 3: Package (Maven)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-4-static-analysis-sonarcloud-checkstyle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 4: Static Analysis (SonarCloud &amp; Checkstyle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-5-containerisation-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 5: Containerisation (Docker)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-6-artifact-delivery-docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 6: Artifact Delivery (Docker Hub)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-7-ansible-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 7: Ansible Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-8-deployment-aws-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 8: Deployment (AWS EC2)
       
     </span>
   </a>
@@ -1969,58 +2067,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-multiple-calls-different-inputs-repository-contract-behaviour" class="md-nav__link">
+  <a href="#detailed-diagram" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Multiple calls / different inputs (repository contract behaviour)
+        Detailed Diagram
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="2. Multiple calls / different inputs (repository contract behaviour)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#testfindbymodelnamemultiplecalls" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        testFindByModelNameMultipleCalls()
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-entity-integrity-returned-object-contains-expected-fields" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Entity integrity (returned object contains expected fields)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Entity integrity (returned object contains expected fields)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#testfindbymodelnameentityintegrity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        testFindByModelNameEntityIntegrity()
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2040,49 +2093,6 @@
 
 
 
-  <nav class="md-path" aria-label="Navigation" >
-    <ol class="md-path__list">
-      
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../../" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Testing
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Integration Tests
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
-
               
               <article class="md-content__inner md-typeset">
                 
@@ -2093,30 +2103,69 @@
   
 
 
-<h1 id="guitarrepositorytestjava">GuitarRepositoryTest.java</h1>
-<h2 id="mock-based-unit-style-repository-tests">(Mock-based “Unit-Style” Repository Tests)</h2>
-<blockquote>
-<p>Note: Although this class lives under the <code>repository</code> package, it uses <strong>Mockito</strong> to mock <code>GuitarRepository</code>. This means the tests validate <em>expected repository interactions / return shapes</em> in isolation, and <strong>do not</strong> hit a real database. The real persistence behaviour is covered by <code>GuitarRepositoryIntegrationTest</code> (<code>@DataJpaTest</code>).</p>
-</blockquote>
-<ol>
-<li><a href="#testfindbymodelnamesuccess"><strong>Basic query behaviour</strong> (happy path + not found)</a></li>
-<li><a href="#testfindbymodelnamemultiplecalls"><strong>Multiple calls / different inputs</strong> (repository contract behaviour)</a></li>
-<li><a href="#testfindbymodelnameentityintegrity"><strong>Entity integrity</strong> (returned object contains expected fields)</a></li>
-</ol>
-<hr />
-<h2 id="1-basic-query-behaviour-happy-path-not-found">1. <strong>Basic query behaviour</strong> (happy path + not found)</h2>
-<h3 id="testfindbymodelnamesuccess">testFindByModelNameSuccess()</h3>
-<p>Mocks <code>findByModelName()</code> to return a populated <code>Guitar</code> entity and verifies the returned <code>Optional</code> is present. Confirms that key fields (modelName, price, manufactureDate, brand) match the expected test entity.</p>
-<h3 id="testfindbymodelnamenotfound">testFindByModelNameNotFound()</h3>
-<p>Mocks <code>findByModelName()</code> to return <code>Optional.empty()</code> and verifies the result is empty. Confirms the “not found” path behaves as expected and does not return an unexpected entity.</p>
-<hr />
-<h2 id="2-multiple-calls-different-inputs-repository-contract-behaviour">2. <strong>Multiple calls / different inputs</strong> (repository contract behaviour)</h2>
-<h3 id="testfindbymodelnamemultiplecalls">testFindByModelNameMultipleCalls()</h3>
-<p>Mocks two different model name lookups to return two different <code>Guitar</code> entities. Verifies both calls return the correct results, demonstrating predictable behaviour across multiple invocations with different inputs.</p>
-<hr />
-<h2 id="3-entity-integrity-returned-object-contains-expected-fields">3. <strong>Entity integrity</strong> (returned object contains expected fields)</h2>
-<h3 id="testfindbymodelnameentityintegrity">testFindByModelNameEntityIntegrity()</h3>
-<p>Mocks <code>findByModelName()</code> to return a <code>Guitar</code> entity and asserts that all expected attributes are present and correct (id, modelName, price, manufactureDate, brand). Confirms the service/test fixtures treat the returned entity as fully populated.</p>
+<h1 id="cicd-pipeline-architecture">CI/CD Pipeline Architecture</h1>
+<h2 id="the-pipeline">The Pipeline</h2>
+<p><img alt="Pipeline Diagram" src="../images/build-pipeline-formatted.png" /></p>
+<pre><code>Figure 1. Build Pipeline
+</code></pre>
+<p>The pipeline is architected into eight distinct stages to provide clear separation of concerns. This ensures that if a build fails during Stage 4 (Static Analysis), the subsequent containerisation and deployment stages are blocked, preserving the integrity of the production environment.</p>
+<h2 id="cicd-pipeline">🚀 CI/CD Pipeline</h2>
+<p>This project utilizes a fully automated <strong>Declarative Jenkins Pipeline</strong> to manage the lifecycle of the Guitar Store API.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Status</th>
+<th style="text-align: left;">Stage</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">✅</td>
+<td style="text-align: left;"><strong>CI</strong></td>
+<td style="text-align: left;">Maven Build, JUnit Testing, &amp; SonarCloud Analysis</td>
+</tr>
+<tr>
+<td style="text-align: left;">✅</td>
+<td style="text-align: left;"><strong>CD</strong></td>
+<td style="text-align: left;">Docker Hub Delivery &amp; Ansible Orchestration</td>
+</tr>
+<tr>
+<td style="text-align: left;">🌐</td>
+<td style="text-align: left;"><strong>Live</strong></td>
+<td style="text-align: left;">Automated Deployment to AWS EC2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pipeline-stages">Pipeline Stages</h2>
+<h3 id="stage-1-compile-bitbucket-maven">Stage 1: Compile (Bitbucket &amp; Maven)</h3>
+<p>Jenkins monitors the <a href="https://bitbucket.org/joeaoregan/cbd-ca2-guitarstoreapi-pipeline">Bitbucket repository</a> and pulls the latest source code from the cbd-ca2 branch upon detecting a commit. Maven then validates the project structure and compiles the Java 21 source code to ensure the application is syntactically correct before testing.  </p>
+<p><strong>Configuration</strong>: Source Code Management (SCM) uses the Bitbucket repository URL with the branch specifier <code>*/cbd-ca2</code>.  </p>
+<h3 id="stage-2-test-junit-karate">Stage 2: Test (JUnit &amp; Karate)</h3>
+<p>The pipeline executes a suite of 43 automated tests, including JUnit for internal business logic and Karate for BDD-style API integration. The pipeline is configured with a "fail-fast" logic; if any test fails, the build stops immediately to prevent broken code from reaching production.  </p>
+<p><strong>Configuration</strong>: Maven goal <code>mvn test</code> is used, with results parsed by the Jenkins JUnit plugin from the target/surefire-reports directory.  </p>
+<h3 id="stage-3-package-maven">Stage 3: Package (Maven)</h3>
+<p>Once verified by tests, Maven packages the compiled code into a single, executable .jar file. This creates a portable artifact containing the entire Spring Boot application, ready for containerisation.  </p>
+<p><strong>Configuration</strong>: The <code>mvn package -DskipTests -Dcheckstyle.skip</code> command generates guitar-store-api-0.0.1-SNAPSHOT.jar in the target folder.  </p>
+<h3 id="stage-4-static-analysis-sonarcloud-checkstyle">Stage 4: Static Analysis (SonarCloud &amp; Checkstyle)</h3>
+<p>This stage implements Continuous Inspection by triggering a SonarScanner process. The code is uploaded to <a href="https://sonarcloud.io/project/overview?id=tus-26-ma-ca1-guitar-store-api">SonarCloud</a> to check for bugs, vulnerabilities, and "code smells," while Checkstyle enforces strict formatting standards.  </p>
+<p><strong>Configuration</strong>: Uses the <code>sonar:sonar</code> goal with a secure authentication token stored in Jenkins Credentials.  </p>
+<h3 id="stage-5-containerisation-docker">Stage 5: Containerisation (Docker)</h3>
+<p>A multi-stage Docker build packages the JAR into a slim, production-ready image using a JRE-only base to minimize the security attack surface. A trial run is performed within the pipeline as a "smoke test" to ensure the container is responsive before delivery.  </p>
+<p><strong>Configuration</strong>: Executes a batch command: <code>docker build -t joe0regan/guitar-store-api:latest .</code>.  </p>
+<h3 id="stage-6-artifact-delivery-docker-hub">Stage 6: Artifact Delivery (Docker Hub)</h3>
+<p>The verified Docker image is tagged and pushed to a central repository on <a href="https://hub.docker.com/repository/docker/joe0regan/guitar-store-api">Docker Hub</a>. This transforms the image into an immutable artifact that can be pulled by any authorized server in the network.  </p>
+<p><strong>Configuration</strong>: Uses <code>docker login</code> with masked Jenkins credentials (<code>DOCKER_USER</code>, <code>DOCKER_PASS</code>) followed by <code>docker push</code>.  </p>
+<h3 id="stage-7-ansible-configuration">Stage 7: Ansible Configuration</h3>
+<p>Jenkins securely transmits the deployment blueprints—specifically the Ansible Playbook (deploy-guitar-api.yml) and the Dockerfile—to the Ansible Control Node via SSH. This decouples the build environment from the deployment orchestration logic.  </p>
+<p><strong>Configuration</strong>: The "Publish over SSH" plugin transfers files to <code>/opt/docker</code> on the Ansible EC2 instance using the ansadmin service user.  </p>
+<h3 id="stage-8-deployment-aws-ec2">Stage 8: Deployment (AWS EC2)</h3>
+<p>The final stage triggers the automated deployment on the target AWS Docker Host. Jenkins sends a remote command to Ansible, which executes a "Stop, Remove, Pull, and Run" sequence to ensure the latest version of the API is live on <code>port 8080</code>.  </p>
+<p><strong>Configuration</strong>: Exec command: <code>ansible-playbook -i /etc/ansible/hosts /opt/docker/deploy-guitar-api.yml</code>.</p>
+<h2 id="detailed-diagram">Detailed Diagram</h2>
+<p><img alt="Detailed Pipeline Diagram" src="../images/pipeline.png" /></p>
+<pre><code>Figure 2. Detailed Pipeline Diagram
+</code></pre>
 
 
 
@@ -2152,7 +2201,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../guitar-repository-integration-test/" class="md-footer__link md-footer__link--prev" aria-label="Previous: GuitarRepositoryIntegrationTest">
+          <a href="../testing/end-to-end-tests/karate/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Karate">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2162,20 +2211,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                GuitarRepositoryIntegrationTest
+                Karate
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../end-to-end-tests/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+          <a href="../links/" class="md-footer__link md-footer__link--next" aria-label="Next: Links">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Overview
+                Links
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2212,10 +2261,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.follow", "navigation.footer", "navigation.instant.preview", "navigation.tracking", "navigation.path", "navigation.top"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.follow", "navigation.footer", "navigation.instant.preview", "navigation.tracking", "navigation.path", "navigation.top"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

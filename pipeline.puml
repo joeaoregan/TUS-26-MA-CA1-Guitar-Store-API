@@ -1,0 +1,55 @@
+@startuml name "Guitar Store API - CI/CD Pipeline"
+!theme plain
+skinparam componentStyle rectangle
+title Deployment View: Bitbucket -> Jenkins Pipeline -> Docker Hub -> Ansible (AWS EC2) -> Docker Deployment
+
+actor Developer as dev
+node "Bitbucket Cloud\njoeaoregan/TUS-26-MA-CA1-Guitar-Store-API" as bitbucket
+
+node "CI Runner\n(Jenkins Pipeline)" as jenkins {
+  component "Stage 1: Compile\nmvn clean compile -Dcheckstyle.skip" as s1_compile
+  component "Stage 2: Test\nmvn test" as s2_test
+  component "Stage 3: Package\nmvn package -DskipTests -Dcheckstyle.skip" as s3_package
+  component "Stage 4: Static Analysis\nSonarQube\nBuild step goals: sonar:sonar\n+ test reports\n+ quality gate" as s4_sonar
+  component "Stage 5: Containerisation\nDocker build & smoke run\n- docker build -t guitar-store-api:latest .\n- docker images | findstr guitar-store-api\n- docker run --rm -entrypoint java guitar-store-api:latest -version" as s5_container
+  component "Stage 6: Artifact Delivery\nDocker Hub\n- docker login\n- build + tag\n- docker push" as s6_delivery
+}
+
+node "Docker Hub\nContainer Registry" as dockerhub
+artifact "Docker Image\njoe0regan/guitar-store-api:<tag>" as image
+
+node "AWS EC2\nansible-server" as ec2_ansible {
+  component "Stage 7: Ansible Config\nSSH to ansible-server\nTransfer files:\n- deploy-guitar-api.yml\n- Dockerfile\n(to /opt/docker)" as s7_ansible_config
+  component "Stage 8: Deployment\nSSH to ansible-server\ncd /opt/docker &&\nansible-playbook -i /etc/ansible/hosts \\\n  deploy-guitar-api.yml" as s8_deploy
+}
+  node "Docker Runtime\n(on EC2)" as ec2_docker {
+    component "Docker Engine" as docker_engine
+    component "Container\njoe0regan/guitar-store-api" as running_container
+}
+
+
+' --- Trigger / CI flow ---
+dev --> bitbucket : git push (commit)
+bitbucket --> jenkins : webhook triggers pipeline
+
+s1_compile --> s2_test
+s2_test --> s3_package
+s3_package --> s4_sonar
+s4_sonar --> s5_container
+s5_container --> s6_delivery
+
+' --- Registry flow ---
+s6_delivery --> dockerhub : docker push
+dockerhub --> image
+
+' --- Remote config + deploy flow ---
+jenkins --> ec2_ansible : SSH + scp\n(deploy-guitar-api.yml, Dockerfile)
+ec2_ansible --> s7_ansible_config
+s7_ansible_config --> s8_deploy
+
+s8_deploy --> dockerhub : docker login + docker pull\n(from playbook)
+s8_deploy --> docker_engine : docker run / update container
+docker_engine --> running_container
+
+running_container --> dev : API available\nhttp://34.250.0.2:8080\nSwagger UI / endpoints
+@enduml
