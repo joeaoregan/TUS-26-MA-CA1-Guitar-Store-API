@@ -24,3 +24,7 @@ jobs:
         
       - name: "Stage 2: Test"
         run: mvn test
+
+      - name: "Stage 3: Package"
+        run: mvn package -DskipTests -Dcheckstyle.skip
+
