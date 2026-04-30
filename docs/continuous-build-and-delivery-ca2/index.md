@@ -5,11 +5,11 @@
 ## 1. Assignment Outline
 
 The objective of this assignment is to take one microservice (for example, one developed in the MicroServices Architecture module) and demonstrate its journey
-through a **complete Continuous Integration/Continuous Deployment (CI/CD) pipeline**. The emphasis of this assignment is on:
+through a **[complete Continuous Integration/Continuous Deployment (CI/CD) pipeline](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/pipeline/ "Pipeline MkDocs")**. The emphasis of this assignment is on:
 
 - Automation from code commit to deployment
 - Clear alignment with CI/CD and DEVOPS principles
-- Evidence-based demonstration of testing, code quality, and deployment.
+- Evidence-based demonstration of testing, [code quality](https://sonarcloud.io/project/overview?id=tus-26-ma-ca1-guitar-store-api "SonarQube Cloud Project"), and [deployment](https://tus-26-ma-ca1-guitar-store-api.onrender.com/ "Render App").
 
 You can use your local machine, cloud infrastructure (e.g. AWS) or a combination
 of both. Tool sophistication is not a grading criterion; clarity, automation, and
@@ -18,13 +18,13 @@ rationale are.
 ## 2. What to include in the Pipeline
 ### Version Control
 - Use version control on the developer machine
-- Push code to a remote repository. (Bitbucket or Github)
+- Push code to a remote repository. ([Bitbucket](https://bitbucket.org/joeaoregan/cbd-ca2-guitarstoreapi-pipeline "Bitbucket Repository") or [Github](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API "GitHub Repository"))
 ### Build
 - Automatically clone from the repository and build the application using Maven
 (or equivalent. build tool).
 - Package the application into a deployable artefact (e.g. a.jar or .war)
 ### Code Analysis
-- Integrate automated static code analysis (e.g. SonarQube – recommended,
+- Integrate automated static code analysis (e.g. [SonarQube](https://sonarcloud.io/project/overview?id=tus-26-ma-ca1-guitar-store-api "SonarQube Cloud Project") – recommended,
 PMD or Checkstyle)
 - Define and enforce **quality gates** (automated pass/fail criteria such as
 minimum coverage or no blocker issues)
@@ -34,9 +34,9 @@ minimum coverage or no blocker issues)
 end-to-end)
 - Tests much be automatically triggered by the CI server.
 ### Deployment
-- Create a Docker image for the application.
+- Create a [Docker image](https://hub.docker.com/repository/docker/joe0regan/guitar-store-api/general "Docker Hub Repository") for the application.
 - Automate deployment using a tool such as Ansible or scripted automation.
-- Deploy to a local server or cloud environment
+- Deploy to a local server or [cloud](https://tus-26-ma-ca1-guitar-store-api.onrender.com/ "Render App") environment
 ### Automation and Failure Handling
 - The pipeline should fail automatically when a stage fails (e.g. build, test or
 quality gate)
