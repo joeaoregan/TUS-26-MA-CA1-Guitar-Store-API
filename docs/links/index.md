@@ -24,13 +24,31 @@
 
 ## Branches
 
+### GitHub
+
 - **Microservices Architecture CA1:** [ma-ca1](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/tree/ma-ca1)
-- **Continuous Build and Delivery CA1:** [cbd-ca1](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/tree/cbd-ca1)
+- **Continuous Build and Delivery CA1 AI Assisted Testing:** [cbd-ca1](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/tree/cbd-ca1)
+- **Continuous Build and Delivery CA2 Pipelines:** [cbd-ca2](https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API/tree/cbd-ca2)
+
+### Bitbucket
+
+- **Master Branch:** [master](https://bitbucket.org/joeaoregan/cbd-ca2-guitarstoreapi-pipeline)
+- **Continuous Build and Delivery CA2 Pipelines:** [cbd-ca2](https://bitbucket.org/joeaoregan/cbd-ca2-guitarstoreapi-pipeline/src/cbd-ca2/)
 
 ## Render Deployment
 
 - [View App](https://tus-26-ma-ca1-guitar-store-api.onrender.com/)
 - [View Swagger UI API Docs](https://tus-26-ma-ca1-guitar-store-api.onrender.com/swagger-ui/index.html)
+
+## SonarQube Cloud
+
+- [TUS-26-MA-CA1-Guitar-Store-API](https://sonarcloud.io/project/overview?id=tus-26-ma-ca1-guitar-store-api)
+
+## Docker Hub
+
+- [joe0regan/guitar-store-api](https://hub.docker.com/r/joe0regan/guitar-store-api)
+
+---
 
 ## YouTube Demos
 
