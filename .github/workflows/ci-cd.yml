@@ -74,16 +74,14 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${ANSIBLE_USER}@${ANSIBLE_HOST} "hostname"
 
-      - name: "Stage 7: Copy deploy files to Ansible server (SCP)"
+      - name: "Stage 7: Copy deploy files (using Password)"
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.ANSIBLE_HOST }}
           username: ${{ secrets.ANSIBLE_USER }}
-          key: ${{ secrets.ANSIBLE_SSH_KEY }}
+          password: ${{ secrets.ANSIBLE_PASSWORD }} # Use password instead of key
           source: "deploy-guitar-api.yml,Dockerfile"
           target: "/opt/docker"
-          overwrite: true
-          timeout: 60s
 
       - name: "Stage 8: Run Ansible playbook remotely"
         shell: bash
