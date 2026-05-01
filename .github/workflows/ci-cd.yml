@@ -74,7 +74,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${ANSIBLE_USER}@${ANSIBLE_HOST} "hostname"
 
-      - name: "Stage 7: Copy deploy files (using Password)"
+      - name: "Stage 7: Copy deploy files to Ansible server (SCP)"
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.ANSIBLE_HOST }}
@@ -82,12 +82,18 @@ jobs:
           password: ${{ secrets.ANSIBLE_PASSWORD }} # Use password instead of key
           source: "deploy-guitar-api.yml,Dockerfile"
           target: "/opt/docker"
+          overwrite: true
 
       - name: "Stage 8: Run Ansible playbook remotely"
         shell: bash
         env:
           ANSIBLE_HOST: ${{ secrets.ANSIBLE_HOST }}
           ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
+          ANSIBLE_PASSWORD: ${{ secrets.ANSIBLE_PASSWORD }}
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${ANSIBLE_USER}@${ANSIBLE_HOST} \
-            "cd /opt/docker && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml"
+          # Install sshpass to allow password injection in the ssh command
+          sudo apt-get update && sudo apt-get install -y sshpass
+          
+          # Execute the playbook using password authentication
+          sshpass -e ssh -o StrictHostKeyChecking=no ${ANSIBLE_USER}@${ANSIBLE_HOST} \
+            "cd /opt/docker && echo $ANSIBLE_PASSWORD | sudo -S ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml"
