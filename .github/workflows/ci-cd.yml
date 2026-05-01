@@ -54,7 +54,7 @@ jobs:
         with:
           host: ${{ secrets.ANSIBLE_HOST }}
           username: ${{ secrets.ANSIBLE_USER }}
-          password: ${{ secrets.ANSIBLE_PASSWORD }} # Matches Jenkins 'image_3adb78.png'
+          password: ${{ secrets.ANSIBLE_PASSWORD }}
           source: "deploy-guitar-api.yml,Dockerfile"
           target: "/opt/docker"
           overwrite: true
@@ -64,11 +64,11 @@ jobs:
         env:
           ANSIBLE_HOST: ${{ secrets.ANSIBLE_HOST }}
           ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
-          ANSIBLE_PASSWORD: ${{ secrets.ANSIBLE_PASSWORD }}
+          SSHPASS: ${{ secrets.ANSIBLE_PASSWORD }} 
         run: |
-          # Install sshpass for non-interactive password injection
-          sudo apt-get update && sudo apt-get install -y sshpass
+          # Install sshpass non-interactively
+          sudo apt-get update -y && sudo apt-get install -y sshpass
           
-          # Execute the playbook using the verified password
+          # Execute the playbook. sshpass -e automatically uses the $SSHPASS variable.
           sshpass -e ssh -o StrictHostKeyChecking=no ${ANSIBLE_USER}@${ANSIBLE_HOST} \
-            "cd /opt/docker && echo $ANSIBLE_PASSWORD | sudo -S ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml"
+            "cd /opt/docker && echo '$SSHPASS' | sudo -S ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml"
