@@ -50,20 +50,19 @@ jobs:
           tags: joe0regan/guitar-store-api:latest
 
       # Debugging step to check if the ANSIBLE_HOST secret is correctly set and resolvable
-      - name: "Debug: DNS check"
+      - name: "Debug: SSH handshake"
         run: |
-          python - <<'PY'
-          import os, socket
-          host = os.environ.get("ANSIBLE_HOST","")
-          print("host length:", len(host))
-          print("host startswith https:", host.startswith("https://"))
-          try:
-            print("resolved:", socket.gethostbyname(host))
-          except Exception as e:
-            print("resolve failed:", e)
-          PY
+          sudo apt-get update
+          sudo apt-get install -y openssh-client
+          mkdir -p ~/.ssh
+          printf "%s" "${ANSIBLE_SSH_KEY}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa $ANSIBLE_USER@$ANSIBLE_HOST "hostname"
+        shell: bash
         env:
           ANSIBLE_HOST: ${{ secrets.ANSIBLE_HOST }}
+          ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
+          ANSIBLE_SSH_KEY: ${{ secrets.ANSIBLE_SSH_KEY }}
         # Delete this step after confirming the ANSIBLE_HOST value is correct and resolvable ^^^
 
       - name: "Stage 7/8: Copy deploy files to Ansible server with SSH"
