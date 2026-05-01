@@ -68,6 +68,17 @@ jobs:
           ANSIBLE_HOST: ${{ secrets.ANSIBLE_HOST }}
           ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
 
+      - name: "Prepare SSH key (mounted into scp container)"
+        run: |
+          echo "HOME=$HOME"
+          install -m 700 -d "$HOME/.ssh"
+          printf "%s" "${ANSIBLE_SSH_KEY}" > "$HOME/.ssh/id_rsa"
+          chmod 600 "$HOME/.ssh/id_rsa"
+          ls -la "$HOME/.ssh"
+        shell: bash
+        env:
+          ANSIBLE_SSH_KEY: ${{ secrets.ANSIBLE_SSH_KEY }}
+
       - name: "Stage 7/8: Copy deploy files to Ansible server with SSH"
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -78,4 +89,4 @@ jobs:
           target: "/opt/docker"
           overwrite: true
           timeout: 60s
-
+          
