@@ -65,13 +65,12 @@ jobs:
           ANSIBLE_HOST: ${{ secrets.ANSIBLE_HOST }}
           ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
           SSHPASS: ${{ secrets.ANSIBLE_PASSWORD }}
-          DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }} # Get the username for Ansible
+          DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
         run: |
           sudo apt-get update -y && sudo apt-get install -y sshpass
 
           sshpass -e ssh -o StrictHostKeyChecking=no ${ANSIBLE_USER}@${ANSIBLE_HOST} \
             "cd /opt/docker && \
-             echo '$SSHPASS' | sudo -S env ANSIBLE_HOST_KEY_CHECKING=False \
-             ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml \
-             -u ${ANSIBLE_USER} -c local \
-             -e 'docker_user=${DOCKER_USER}'"
+            echo '$SSHPASS' | sudo -S env ANSIBLE_HOST_KEY_CHECKING=False \
+            ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml \
+            -e docker_user=${DOCKER_USER}"
