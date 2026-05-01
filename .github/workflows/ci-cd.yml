@@ -64,11 +64,10 @@ jobs:
         env:
           ANSIBLE_HOST: ${{ secrets.ANSIBLE_HOST }}
           ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
-          SSHPASS: ${{ secrets.ANSIBLE_PASSWORD }} 
+          SSHPASS: ${{ secrets.ANSIBLE_PASSWORD }}
         run: |
-          # Install sshpass non-interactively
           sudo apt-get update -y && sudo apt-get install -y sshpass
-          
-          # Execute the playbook. 
+
           sshpass -e ssh -o StrictHostKeyChecking=no ${ANSIBLE_USER}@${ANSIBLE_HOST} \
-            "cd /opt/docker && echo '$SSHPASS' | sudo -S ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml"
+            "cd /opt/docker && \
+            echo '$SSHPASS' | sudo -S env ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml"
