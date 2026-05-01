@@ -1,26 +1,45 @@
 @startuml name "Guitar Store API - CI/CD Pipeline"
 !theme plain
 skinparam componentStyle rectangle
+
+skinparam ArrowThickness 2
+skinparam RectangleBorderThickness 2
+skinparam nodesep 60
+skinparam ranksep 80
+skinparam NoteBackgroundColor #FEFFD2
+skinparam node {
+  BackgroundColor #DDEEFF
+  BorderColor #000000
+  FontSize 12
+}
+skinparam artifact {
+  BackgroundColor #FFDDDD
+  BorderColor #000000
+  FontSize 12
+}
+
 title Deployment View: Bitbucket -> Jenkins Pipeline -> Docker Hub -> Ansible (AWS EC2) -> Docker Deployment
 
 actor Developer as dev
-node "Bitbucket Cloud\njoeaoregan/TUS-26-MA-CA1-Guitar-Store-API" as bitbucket
+node "**Bitbucket Cloud**\njoeaoregan/TUS-26-MA-CA1-Guitar-Store-API" as bitbucket
 
-node "CI Runner\n(Jenkins Pipeline)" as jenkins {
-  component "Stage 1: Compile\nmvn clean compile -Dcheckstyle.skip" as s1_compile
-  component "Stage 2: Test\nmvn test" as s2_test
-  component "Stage 3: Package\nmvn package -DskipTests -Dcheckstyle.skip" as s3_package
-  component "Stage 4: Static Analysis\nSonarQube\nBuild step goals: sonar:sonar\n+ test reports\n+ quality gate" as s4_sonar
-  component "Stage 5: Containerisation\nDocker build & smoke run\n- docker build -t guitar-store-api:latest .\n- docker images | findstr guitar-store-api\n- docker run --rm -entrypoint java guitar-store-api:latest -version" as s5_container
-  component "Stage 6: Artifact Delivery\nDocker Hub\n- docker login\n- build + tag\n- docker push" as s6_delivery
+node "CI Runner\n(Jenkins Pipeline)\nLocal Machine" as jenkins {
+  component "**Stage 1**: Compile\nmvn clean compile -Dcheckstyle.skip" as s1_compile
+  component "**Stage 2**: Test\nmvn test jacoco:report" as s2_test
+  component "**Stage 3**: Package\nmvn package -DskipTests -Dcheckstyle.skip" as s3_package
+  component "**Stage 4**: Static Analysis\nSonarQube\nBuild step goals: sonar:sonar\n+ test reports\n+ quality gate" as s4_sonar
+  component "**Stage 5**: Containerisation\nDocker build & smoke run\n- docker build -t guitar-store-api:latest .\n- docker images | findstr guitar-store-api\n- docker run --rm -entrypoint java guitar-store-api:latest -version" as s5_container
+  component "**Stage 6**: Artifact Delivery\nDocker Hub\n- docker login\n- build + tag\n- docker push" as s6_delivery
 }
 
-node "Docker Hub\nContainer Registry" as dockerhub
-artifact "Docker Image\njoe0regan/guitar-store-api:<tag>" as image
+note left of jenkins : All stages inside this box\nrun on the local developer\nmachine using Docker Desktop.
+
+node "**Docker Hub**\nContainer Registry" as dockerhub
+artifact "**Docker Image**\njoe0regan/guitar-store-api:<tag>" as image
 
 node "AWS EC2\nansible-server" as ec2_ansible {
-  component "Stage 7: Ansible Config\nSSH to ansible-server\nTransfer files:\n- deploy-guitar-api.yml\n- Dockerfile\n(to /opt/docker)" as s7_ansible_config
-  component "Stage 8: Deployment\nSSH to ansible-server\ncd /opt/docker &&\nansible-playbook -i /etc/ansible/hosts \\\n  deploy-guitar-api.yml" as s8_deploy
+  component "**Stage 7**: Ansible Config\nSSH to ansible-server\nTransfer files:\n- deploy-guitar-api.yml\n- Dockerfile\n(to /opt/docker)" as s7_ansible_config
+  component "**Stage 8**: Deployment\nSSH to ansible-server\ncd /opt/docker &&\nansible-playbook -i /etc/ansible/hosts \\\n  deploy-guitar-api.yml" as s8_deploy
 }
   node "Docker Runtime\n(on EC2)" as ec2_docker {
     component "Docker Engine" as docker_engine
