@@ -22,13 +22,6 @@ jobs:
           java-version: "21"
           cache: maven
 
-      - name: Set up Java 21
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: "21"
-          cache: maven
-
       - name: "Stage 1: Compile"
         run: mvn clean compile -Dcheckstyle.skip
 
@@ -56,30 +49,12 @@ jobs:
           push: true
           tags: joe0regan/guitar-store-api:latest
 
-      - name: "Prepare SSH key (for ssh command)"
-        shell: bash
-        env:
-          ANSIBLE_SSH_KEY: ${{ secrets.ANSIBLE_SSH_KEY }}
-        run: |
-          install -m 700 -d ~/.ssh
-          printf "%s" "${ANSIBLE_SSH_KEY}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ls -la ~/.ssh
-
-      - name: "Debug: SSH handshake"
-        shell: bash
-        env:
-          ANSIBLE_HOST: ${{ secrets.ANSIBLE_HOST }}
-          ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
-        run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${ANSIBLE_USER}@${ANSIBLE_HOST} "hostname"
-
       - name: "Stage 7: Copy deploy files to Ansible server (SCP)"
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.ANSIBLE_HOST }}
           username: ${{ secrets.ANSIBLE_USER }}
-          password: ${{ secrets.ANSIBLE_PASSWORD }} # Use password instead of key
+          password: ${{ secrets.ANSIBLE_PASSWORD }} # Matches Jenkins 'image_3adb78.png'
           source: "deploy-guitar-api.yml,Dockerfile"
           target: "/opt/docker"
           overwrite: true
@@ -91,9 +66,9 @@ jobs:
           ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
           ANSIBLE_PASSWORD: ${{ secrets.ANSIBLE_PASSWORD }}
         run: |
-          # Install sshpass to allow password injection in the ssh command
+          # Install sshpass for non-interactive password injection
           sudo apt-get update && sudo apt-get install -y sshpass
           
-          # Execute the playbook using password authentication
+          # Execute the playbook using the verified password
           sshpass -e ssh -o StrictHostKeyChecking=no ${ANSIBLE_USER}@${ANSIBLE_HOST} \
             "cd /opt/docker && echo $ANSIBLE_PASSWORD | sudo -S ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml"
