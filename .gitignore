@@ -43,3 +43,7 @@ site/
 
 # Checkstyle
 .checkstyle
+
+# SonarQube
+.scannerwork/
+.sonar-project.local.properties

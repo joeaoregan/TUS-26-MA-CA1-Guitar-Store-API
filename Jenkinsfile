@@ -10,7 +10,7 @@ pipeline {
         stage('Stage 2: Test') {
             steps {
                 echo 'Stage 2: Running Unit & Integration Tests...'
-                bat 'mvn test'
+                bat 'mvn test jacoco:report'
             }
         }
         stage('Stage 3: Package') {
@@ -23,6 +23,7 @@ pipeline {
             steps {
                 echo 'Stage 4: Analysing Code Quality (SonarCloud)...'
                 withCredentials([string(credentialsId: 'sonar-cloud-token', variable: 'SONAR_TOKEN')]) {
+                    // bat "mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.token=${SONAR_TOKEN}"
                     bat "mvn sonar:sonar -Dsonar.token=${SONAR_TOKEN}"
                 }
             }

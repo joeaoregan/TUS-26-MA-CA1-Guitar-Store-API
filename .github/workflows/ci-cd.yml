@@ -49,6 +49,23 @@ jobs:
           push: true
           tags: joe0regan/guitar-store-api:latest
 
+      # Debugging step to check if the ANSIBLE_HOST secret is correctly set and resolvable
+      - name: "Debug: DNS check"
+        run: |
+          python - <<'PY'
+          import os, socket
+          host = os.environ.get("ANSIBLE_HOST","")
+          print("host length:", len(host))
+          print("host startswith https:", host.startswith("https://"))
+          try:
+            print("resolved:", socket.gethostbyname(host))
+          except Exception as e:
+            print("resolve failed:", e)
+          PY
+        env:
+          ANSIBLE_HOST: ${{ secrets.ANSIBLE_HOST }}
+        # Delete this step after confirming the ANSIBLE_HOST value is correct and resolvable ^^^
+
       - name: "Stage 7/8: Copy deploy files to Ansible server with SSH"
         uses: appleboy/scp-action@v0.1.7
         with:
