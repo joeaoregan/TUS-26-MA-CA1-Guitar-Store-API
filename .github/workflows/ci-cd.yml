@@ -22,9 +22,16 @@ jobs:
           java-version: "21"
           cache: maven
 
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+
       - name: "Stage 1: Compile"
         run: mvn clean compile -Dcheckstyle.skip
-        
+
       - name: "Stage 2: Test + Coverage (JaCoCo)"
         run: mvn test jacoco:report
 
@@ -49,44 +56,40 @@ jobs:
           push: true
           tags: joe0regan/guitar-store-api:latest
 
-      # Debugging step to check if the ANSIBLE_HOST secret is correctly set and resolvable
-      - name: "Prepare SSH key (for SCP/SSH actions)"
+      - name: "Prepare SSH key (for ssh command)"
+        shell: bash
+        env:
+          ANSIBLE_SSH_KEY: ${{ secrets.ANSIBLE_SSH_KEY }}
         run: |
           install -m 700 -d ~/.ssh
           printf "%s" "${ANSIBLE_SSH_KEY}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ls -la ~/.ssh
-        shell: bash
-        env:
-          ANSIBLE_SSH_KEY: ${{ secrets.ANSIBLE_SSH_KEY }}
 
       - name: "Debug: SSH handshake"
-        run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${ANSIBLE_USER}@${ANSIBLE_HOST} "hostname"
         shell: bash
         env:
           ANSIBLE_HOST: ${{ secrets.ANSIBLE_HOST }}
           ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
-
-      - name: "Prepare SSH key (mounted into scp container)"
         run: |
-          echo "HOME=$HOME"
-          install -m 700 -d "$HOME/.ssh"
-          printf "%s" "${ANSIBLE_SSH_KEY}" > "$HOME/.ssh/id_rsa"
-          chmod 600 "$HOME/.ssh/id_rsa"
-          ls -la "$HOME/.ssh"
-        shell: bash
-        env:
-          ANSIBLE_SSH_KEY: ${{ secrets.ANSIBLE_SSH_KEY }}
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${ANSIBLE_USER}@${ANSIBLE_HOST} "hostname"
 
-      - name: "Stage 7/8: Copy deploy files to Ansible server with SSH"
+      - name: "Stage 7: Copy deploy files to Ansible server (SCP)"
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.ANSIBLE_HOST }}
           username: ${{ secrets.ANSIBLE_USER }}
-          key_path: /github/home/.ssh/id_rsa
+          key: ${{ secrets.ANSIBLE_SSH_KEY }}
           source: "deploy-guitar-api.yml,Dockerfile"
           target: "/opt/docker"
           overwrite: true
           timeout: 60s
-          
+
+      - name: "Stage 8: Run Ansible playbook remotely"
+        shell: bash
+        env:
+          ANSIBLE_HOST: ${{ secrets.ANSIBLE_HOST }}
+          ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${ANSIBLE_USER}@${ANSIBLE_HOST} \
+            "cd /opt/docker && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml"
