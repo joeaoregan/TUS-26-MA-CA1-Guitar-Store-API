@@ -66,7 +66,8 @@ pipeline {
                             sourceFiles: 'deploy-guitar-api.yml, Dockerfile',
                             remoteDirectory: '/',
                             // execCommand: 'cd /opt/docker && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml'
-                            execCommand: 'cd /opt/docker && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml'
+                            // execCommand: 'cd /opt/docker && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml'
+                            execCommand: "cd /opt/docker && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml -u ansadmin -c local -e 'docker_user=${DOCKER_USER}'"
                         )
                     ])
                 ])
