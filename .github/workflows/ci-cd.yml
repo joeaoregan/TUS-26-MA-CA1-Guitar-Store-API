@@ -59,7 +59,14 @@ jobs:
         shell: bash
         env:
           ANSIBLE_SSH_KEY: ${{ secrets.ANSIBLE_SSH_KEY }}
-        # Delete this step after confirming the ANSIBLE_HOST value is correct and resolvable ^^^
+
+      - name: "Debug: SSH handshake"
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${ANSIBLE_USER}@${ANSIBLE_HOST} "hostname"
+        shell: bash
+        env:
+          ANSIBLE_HOST: ${{ secrets.ANSIBLE_HOST }}
+          ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
 
       - name: "Stage 7/8: Copy deploy files to Ansible server with SSH"
         uses: appleboy/scp-action@v0.1.7
@@ -70,4 +77,5 @@ jobs:
           source: "deploy-guitar-api.yml,Dockerfile"
           target: "/opt/docker"
           overwrite: true
+          timeout: 60s
 
