@@ -50,25 +50,15 @@ jobs:
           tags: joe0regan/guitar-store-api:latest
 
       # Debugging step to check if the ANSIBLE_HOST secret is correctly set and resolvable
-      - name: "Debug: SSH handshake | Prepare SSH Key"
+      - name: "Prepare SSH key (for SCP/SSH actions)"
         run: |
-          sudo apt-get update
-          sudo apt-get install -y openssh-client
-          mkdir -p ~/.ssh
+          install -m 700 -d ~/.ssh
           printf "%s" "${ANSIBLE_SSH_KEY}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          # ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa $ANSIBLE_USER@$ANSIBLE_HOST "hostname"
+          ls -la ~/.ssh
         shell: bash
         env:
           ANSIBLE_SSH_KEY: ${{ secrets.ANSIBLE_SSH_KEY }}
-
-      - name: "Debug: SSH handshake"
-        run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa $ANSIBLE_USER@$ANSIBLE_HOST "hostname"
-        shell: bash
-        env:
-          ANSIBLE_HOST: ${{ secrets.ANSIBLE_HOST }}
-          ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
         # Delete this step after confirming the ANSIBLE_HOST value is correct and resolvable ^^^
 
       - name: "Stage 7/8: Copy deploy files to Ansible server with SSH"
