@@ -73,14 +73,15 @@ pipeline {
                             sshTransfer(
                                 sourceFiles: 'deploy-guitar-api.yml, Dockerfile',
                                 remoteDirectory: '/',
-                                execCommand: '''
-                                    echo "Checking environment..."
-                                    whoami
-                                    ansible --version
-                                    echo "Running playbook..."
-                                    export ANSIBLE_HOST_KEY_CHECKING=False
-                                    ansible-playbook -i /etc/ansible/hosts /opt/docker/deploy-guitar-api.yml -u ansadmin -c local -e "docker_user=$DOCKER_USER"
-                                '''.stripIndent()
+                                // execCommand: '''
+                                //     echo "Checking environment..."
+                                //     whoami
+                                //     ansible --version
+                                //     echo "Running playbook..."
+                                //     export ANSIBLE_HOST_KEY_CHECKING=False
+                                //     ansible-playbook -i /etc/ansible/hosts /opt/docker/deploy-guitar-api.yml -u ansadmin -c local -e "docker_user=$DOCKER_USER"
+                                // '''.stripIndent()
+                                execCommand: "cd /opt/docker && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml -u ansadmin -c local -e 'docker_user=${DOCKER_USER}'"
                             )
                         ])
                     ])
