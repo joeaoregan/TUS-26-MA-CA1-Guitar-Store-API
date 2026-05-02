@@ -24,7 +24,7 @@ pipeline {
                 echo 'Stage 4: Analysing Code Quality (SonarCloud)...'
                 withCredentials([string(credentialsId: 'sonar-cloud-token', variable: 'SONAR_TOKEN')]) {
                     // bat "mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.token=${SONAR_TOKEN}"
-                    bat "mvn sonar:sonar -Dsonar.token=${SONAR_TOKEN}"
+                    bat 'mvn sonar:sonar -Dsonar.token=%SONAR_TOKEN%'
                 }
             }
         }
@@ -52,7 +52,7 @@ pipeline {
                 echo 'Pushing to Docker Hub...'
                 // Use the ID of your Docker Hub credentials from Jenkins
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-token', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    bat "docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}"
+                    bat 'docker login -u %DOCKER_USER% -p %DOCKER_PASS%'
                     bat 'docker push joe0regan/guitar-store-api:latest'
                 }
             }
@@ -67,7 +67,7 @@ pipeline {
                             remoteDirectory: '/',
                             // execCommand: 'cd /opt/docker && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml'
                             // execCommand: 'cd /opt/docker && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml'
-                            execCommand: "cd /opt/docker && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml -u ansadmin -c local -e 'docker_user=${DOCKER_USER}'"
+                            execCommand: cd /opt/docker && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml -u ansadmin -c local -e 'docker_user=%DOCKER_USER%'
                         )
                     ])
                 ])
