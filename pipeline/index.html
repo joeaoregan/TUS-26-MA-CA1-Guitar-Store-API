@@ -1980,6 +1980,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Detailed Diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jenkins-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jenkins Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-actions-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Actions Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2247,6 +2275,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Detailed Diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jenkins-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jenkins Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-actions-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Actions Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2335,8 +2391,13 @@
 <p>The final stage triggers the automated deployment on the target AWS Docker Host. Jenkins sends a remote command to Ansible, which executes a "Stop, Remove, Pull, and Run" sequence to ensure the latest version of the API is live on <code>port 8080</code>.  </p>
 <p><strong>Configuration</strong>: Exec command: <code>ansible-playbook -i /etc/ansible/hosts /opt/docker/deploy-guitar-api.yml</code>.</p>
 <h2 id="detailed-diagram">Detailed Diagram</h2>
-<p><img alt="Detailed Pipeline Diagram" src="../images/pipeline.png" /></p>
-<pre><code>Figure 2. Detailed Pipeline Diagram
+<h3 id="jenkins-pipeline">Jenkins Pipeline</h3>
+<p><img alt="Detailed Jenkins Pipeline Diagram" src="../images/pipeline-v3.png" /></p>
+<pre><code>Figure 2. Detailed Jenkins Pipeline Diagram
+</code></pre>
+<h3 id="github-actions-pipeline">GitHub Actions Pipeline</h3>
+<p><img alt="Detailed GitHub Actions Pipeline Diagram" src="../images/pipeline-github-actions.png" /></p>
+<pre><code>Figure 3. Detailed GitHub Actions Pipeline Diagram
 </code></pre>
 
 

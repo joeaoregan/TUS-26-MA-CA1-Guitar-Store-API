@@ -1,0 +1,72 @@
+@startuml
+!theme plain
+
+' --- Styling ---
+skinparam Shadowing true
+skinparam package {
+    BackgroundColor #F4ECF7
+    BorderColor #E8DAEF
+}
+skinparam component {
+    BackgroundColor #FFEFD5
+    BorderColor #FDEBD0
+}
+
+' --- Pipeline Stages ---
+
+
+
+
+package "Stage 1: Compile" as s1 {
+  component "mvn compile" as c1
+}
+
+package "Stage 2: Test" as s2 {
+  component "JUnit & Karate" as c2
+}
+
+package "Stage 3: Package" as s3 {
+  component "mvn package" as c3
+}
+
+package "Stage 4: Static Analysis" as s4 {
+  component "SonarCloud" as c4
+}
+
+package "Stage 5: Containerisation" as s5 {
+  component "Docker Build & Smoke Test" as c5
+}
+
+package "Stage 6: Artifact Delivery" as s6 {
+  component "Docker Hub Push" as c6
+}
+
+package "Stage 7: Ansible Config" as s7 {
+  component "SSH Handshake & Inventory" as c7
+}
+
+package "Stage 8: Deployment" as s8 {
+  component "Ansible Playbook & AWS EC2" as c8
+}
+
+s1 -r-> s2
+s2 -r-> s3
+s3 -r-> s4
+
+' The Bridge (Force s5 to start a new row)
+s4 -down-> s5
+
+' Row 2
+s5 -r-> s6
+s6 -r-> s7
+s7 -r-> s8
+
+' --- THE GRID LOCKS (Crucial for alignment) ---
+' This forces the vertical columns to line up
+s1 -[hidden]down-> s5
+s2 -[hidden]down-> s6
+s3 -[hidden]down-> s7
+s4 -[hidden]down-> s8
+
+
+@enduml

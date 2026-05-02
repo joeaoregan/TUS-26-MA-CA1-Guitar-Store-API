@@ -1,0 +1,46 @@
+@startuml name "GitHub Actions CI/CD Pipeline - Aligned"
+!theme plain
+skinparam componentStyle rectangle
+skinparam ArrowThickness 3
+skinparam ranksep 10
+skinparam RectangleBorderThickness 3
+
+title Deployment View: GitHub Actions Pipeline (Aligned with ci-cd.yml)
+
+actor Developer as dev
+node "**GitHub Repository**" as github #F6F8FA
+
+node "GitHub Actions Runner\n**Cloud-Hosted (Ubuntu)**" as gh_runner #EFF7FF {
+  component "**Stage 1**: Compile\nmvn clean compile" as s1
+  component "**Stage 2**: Test + Coverage\nmvn test jacoco:report" as s2
+  component "**Stage 3**: Package\nmvn package -DskipTests" as s3
+  component "**Stage 4**: SonarCloud Scan\nsonar-scanner" as s4
+  component "**Stage 5/6**: Docker login\ndocker login (Secrets)" as s5_login
+  component "**Stage 5/6**: Build & Push Image\ndocker build & push" as s6_push
+  component "**Stage 7**: Copy Files (SCP)\nTransfer to Ansible Server" as s7
+  component "**Stage 8**: Run Playbook\nAnsible Execution (SSH)" as s8
+}
+
+node "**Docker Hub**" as dockerhub #FFF3CD
+node "**AWS EC2** (Ansible)" as ec2_ansible #D4EDDA
+node "**AWS EC2** (Production)" as ec2_prod #D4EDDA
+
+' --- Flow ---
+dev -> github : git push
+github -> gh_runner : trigger workflow
+
+s1 ----> s2
+s2 ----> s3
+s3 ----> s4
+s4 ----> s5_login
+s5_login ----> s6_push
+s6_push ----> s7
+s7 ----> s8
+
+' --- External Connections ---
+s6_push -> dockerhub : Push Image
+s7 --> ec2_ansible : SCP Playbook/Dockerfile
+s8 -> ec2_ansible : SSH to Execute
+ec2_ansible -> ec2_prod : Deploy Container
+
+@enduml
