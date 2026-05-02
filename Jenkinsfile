@@ -82,12 +82,13 @@ pipeline {
                                 //     ansible-playbook -i /etc/ansible/hosts /opt/docker/deploy-guitar-api.yml -u ansadmin -c local -e "docker_user=$DOCKER_USER"
                                 // '''.stripIndent()
                                 // execCommand: "cd /opt/docker && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml -u ansadmin -c local -e 'docker_user=${DOCKER_USER}'"
-                                // execCommand: '''
-                                //     cd /opt/docker && export ANSIBLE_HOST_KEY_CHECKING=False &&
-                                //     ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml -u ansadmin -c local -e "docker_user=$DOCKER_USER"
-                                // '''.stripIndent()
-                                //execCommand: "export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml -u ansadmin -c local -e 'docker_user=${DOCKER_USER}'"
-                                execCommand: "cd /opt/docker && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml -u ansadmin -c local -e 'docker_user=${DOCKER_USER}'"
+                                //execCommand: "cd /opt/docker && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml -u ansadmin -c local -e 'docker_user=${DOCKER_USER}'"
+                                execCommand: """
+                                    export ANSIBLE_HOST_KEY_CHECKING=False && \
+                                    ansible-playbook -i /etc/ansible/hosts /opt/docker/deploy-guitar-api.yml \
+                                        -u ansadmin -c local \
+                                        -e docker_user=${DOCKER_USER}
+                                    """.stripIndent()
                             )
                         ])
                     ])
