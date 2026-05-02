@@ -12,6 +12,11 @@ pipeline {
                 echo 'Stage 2: Running Unit & Integration Tests...'
                 bat 'mvn test jacoco:report'
             }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
         }
         stage('Stage 3: Package') {
             steps {
