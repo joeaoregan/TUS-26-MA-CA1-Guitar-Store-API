@@ -48,12 +48,10 @@ pipeline {
                 echo 'Stage 5: Building Docker Image...'
 
                 bat 'docker rm -f test-container || rem'
-                bat 'docker rmi -f joe0regan/guitar-store-api:latest || rem'
 
                 bat """
                 for /f %%i in ('git rev-parse --short HEAD') do set GIT_SHA=%%i
                 echo GIT_SHA=%GIT_SHA%
-                docker rmi -f joe0regan/guitar-store-api:%GIT_SHA% || rem
 
                 docker build -t joe0regan/guitar-store-api:latest -t joe0regan/guitar-store-api:%GIT_SHA% .
 
@@ -89,16 +87,6 @@ pipeline {
                             sshTransfer(
                                 sourceFiles: 'deploy-guitar-api.yml, Dockerfile',
                                 remoteDirectory: '/opt/docker',
-                                // execCommand: '''
-                                //     echo "Checking environment..."
-                                //     whoami
-                                //     ansible --version
-                                //     echo "Running playbook..."
-                                //     export ANSIBLE_HOST_KEY_CHECKING=False
-                                //     ansible-playbook -i /etc/ansible/hosts /opt/docker/deploy-guitar-api.yml -u ansadmin -c local -e "docker_user=$DOCKER_USER"
-                                // '''.stripIndent()
-                                // execCommand: "cd /opt/docker && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml -u ansadmin -c local -e 'docker_user=${DOCKER_USER}'"
-                                //execCommand: "cd /opt/docker && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml -u ansadmin -c local -e 'docker_user=${DOCKER_USER}'"
                                 execCommand: """
                                     export ANSIBLE_HOST_KEY_CHECKING=False && \
                                     ansible-playbook -i /etc/ansible/hosts /opt/docker/deploy-guitar-api.yml \
