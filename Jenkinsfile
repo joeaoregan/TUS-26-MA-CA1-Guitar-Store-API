@@ -11,8 +11,7 @@ pipeline {
             steps {
                 echo 'Stage 2: Running Unit & Integration Tests...'
                 // Quicker than running the full verify phase, which also runs the integration tests
-                bat 'mvn test'
-                bat 'mvn jacoco:report'
+                bat 'mvn test jacoco:report'
             }
             post {
                 always {
@@ -22,14 +21,9 @@ pipeline {
         }
         stage('Stage 2b: Integration/API Tests (Karate)') {
             steps {
-                echo 'Stage 2b: Cleaning up zombie processes and running Karate tests...'
-                // The "set ERRORLEVEL=0" and "exit 0" ensure Jenkins doesn't stop if no process is found
-                bat """
-                    for /f "tokens=5" %%a in ('netstat -aon ^| findstr :9001') do taskkill /f /pid %%a || rem
-                    for /f "tokens=5" %%a in ('netstat -aon ^| findstr :8080') do taskkill /f /pid %%a || rem
-                    exit 0
-                """
-                bat 'mvn -DskipUnitTests verify -Dspring-boot.start.jmxPort=9002'
+                echo 'Stage 2b: Running Karate integration tests (Failsafe)...'
+                // Runs pre-integration-test phase, integration-test, post-integration-test, and verify
+                bat 'mvn -DskipUnitTests verify'
             }
         }
         stage('Stage 3: Package') {
