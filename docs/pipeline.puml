@@ -2,26 +2,26 @@
 !theme plain
 skinparam componentStyle rectangle
 
-skinparam ArrowThickness 2
-skinparam RectangleBorderThickness 2
+skinparam ArrowThickness 3
+skinparam RectangleBorderThickness 3
 skinparam nodesep 60
-skinparam ranksep 80
+skinparam ranksep 50
 skinparam NoteBackgroundColor #FEFFD2
 skinparam node {
   BackgroundColor #DDEEFF
   BorderColor #000000
-  FontSize 12
+  FontSize 14
 }
 skinparam artifact {
   BackgroundColor #FFDDDD
   BorderColor #000000
-  FontSize 12
+  FontSize 14
 }
 
 title Deployment View: Bitbucket -> Jenkins Pipeline -> Docker Hub -> Ansible (AWS EC2) -> Docker Deployment
 
 actor Developer as dev
-node "**Bitbucket Cloud**\njoeaoregan/TUS-26-MA-CA1-Guitar-Store-API" as bitbucket
+node "**Bitbucket Cloud**\njoeaoregan/TUS-26-MA-CA1-Guitar-Store-API" as bitbucket #D4EDDA
 
 node "CI Runner\n(Jenkins Pipeline)\nLocal Machine" as jenkins {
   component "**Stage 1**: Compile\nmvn clean compile -Dcheckstyle.skip" as s1_compile
@@ -32,24 +32,25 @@ node "CI Runner\n(Jenkins Pipeline)\nLocal Machine" as jenkins {
   component "**Stage 6**: Artifact Delivery\nDocker Hub\n- docker login\n- build + tag\n- docker push" as s6_delivery
 }
 
-note left of jenkins : All stages inside this box\nrun on the local developer\nmachine using Docker Desktop.
+note right of jenkins : All stages inside this box\nrun on the local developer\nmachine using Docker Desktop.
 
-node "**Docker Hub**\nContainer Registry" as dockerhub
+node "**Docker Hub**\nContainer Registry" as dockerhub #FFF3CD
 artifact "**Docker Image**\njoe0regan/guitar-store-api:<tag>" as image
 
-node "AWS EC2\nansible-server" as ec2_ansible {
+node "AWS EC2\nansible-server" as ec2_ansible #E8DAEF {
   component "**Stage 7**: Ansible Config\nSSH to ansible-server\nTransfer files:\n- deploy-guitar-api.yml\n- Dockerfile\n(to /opt/docker)" as s7_ansible_config
   component "**Stage 8**: Deployment\nSSH to ansible-server\ncd /opt/docker &&\nansible-playbook -i /etc/ansible/hosts \\\n  deploy-guitar-api.yml" as s8_deploy
 }
-  node "Docker Runtime\n(on EC2)" as ec2_docker {
-    component "Docker Engine" as docker_engine
-    component "Container\njoe0regan/guitar-store-api" as running_container
+
+node "Docker Runtime\n(on EC2)" as ec2_docker #E8DAEF {
+  component "Docker Engine" as docker_engine
+  component "Container\njoe0regan/guitar-store-api" as running_container
 }
 
 
 ' --- Trigger / CI flow ---
-dev --> bitbucket : git push (commit)
-bitbucket --> jenkins : webhook triggers pipeline
+dev -> bitbucket : git push (commit)
+bitbucket -> jenkins : webhook triggers pipeline
 
 s1_compile --> s2_test
 s2_test --> s3_package
@@ -59,7 +60,7 @@ s5_container --> s6_delivery
 
 ' --- Registry flow ---
 s6_delivery --> dockerhub : docker push
-dockerhub --> image
+dockerhub -> image
 
 ' --- Remote config + deploy flow ---
 jenkins --> ec2_ansible : SSH + scp\n(deploy-guitar-api.yml, Dockerfile)
@@ -70,5 +71,17 @@ s8_deploy --> dockerhub : docker login + docker pull\n(from playbook)
 s8_deploy --> docker_engine : docker run / update container
 docker_engine --> running_container
 
-running_container --> dev : API available\nhttp://34.250.0.2:8080\nSwagger UI / endpoints
+' --- running_container --> dev : Homepage\nhttp://34.250.0.2:80\nHomepage
+' --- running_container --> dev : API available\nhttp://34.250.0.2:8080\nSwagger UI / endpoints
+
+running_container -.-> dev : **Live Application (Port 80)**\nhttp://34.250.0.2\n(Static Content / UI)
+running_container -.-> dev : **API Documentation (Port 8080)**\nhttp://34.250.0.2:8080/swagger-ui.html\n(Endpoints / Swagger)
+
+note top of running_container
+  **Post-Deployment Testing:**
+  * Smoke test via Swagger UI
+  * HTTP GET verification on Port 80
+  * Docker container logs check
+end note
+
 @enduml
