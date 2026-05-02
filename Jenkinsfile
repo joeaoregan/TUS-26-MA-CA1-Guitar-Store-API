@@ -23,7 +23,8 @@ pipeline {
             steps {
                 echo 'Stage 2b: Running Karate integration tests (Failsafe)...'
                 // Runs pre-integration-test, integration-test, post-integration-test, and verify
-                bat 'mvn -DskipUnitTests verify'
+                // port conflict with SonarCloud analysis, so use a different one for the tests
+                bat 'mvn -DskipUnitTests verify -Dspring-boot.start.jmxPort=9002'
             }
         }
         stage('Stage 3: Package') {
