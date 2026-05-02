@@ -60,17 +60,24 @@ pipeline {
         stage('Stage 7 & 8: Remote Deployment') {
             steps {
                 echo 'Deploying to AWS EC2 via Ansible...'
-                sshPublisher(publishers: [
-                    sshPublisherDesc(configName: 'ansible-server', transfers: [
-                        sshTransfer(
-                            sourceFiles: 'deploy-guitar-api.yml, Dockerfile',
-                            remoteDirectory: '/',
-                            // execCommand: 'cd /opt/docker && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml'
-                            // execCommand: 'cd /opt/docker && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml'
-                            execCommand: cd /opt/docker && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml -u ansadmin -c local -e 'docker_user=%DOCKER_USER%'
-                        )
+                // Wrap variables in withCredentials so the DOCKER_USER is available for the execCommand
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-token', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    sshPublisher(publishers: [
+                        sshPublisherDesc(configName: 'ansible-server', transfers: [
+                            sshTransfer(
+                                sourceFiles: 'deploy-guitar-api.yml, Dockerfile',
+                                remoteDirectory: '/',
+                                execCommand: '''
+                                    cd /opt/docker &&
+                                    export ANSIBLE_HOST_KEY_CHECKING=False &&
+                                    ansible-playbook -i /etc/ansible/hosts deploy-guitar-api.yml \
+                                    -u ansadmin -c local \
+                                    -e "docker_user=\$DOCKER_USER"
+                                '''.stripIndent()
+                            )
+                        ])
                     ])
-                ])
+                }
             }
         }
     }
