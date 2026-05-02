@@ -21,7 +21,9 @@ pipeline {
         }
         stage('Stage 4: Static Analysis') {
             steps {
-                echo 'Stage 4: Analysing Code Quality (SonarCloud)...'
+                echo 'Stage 4: Static Analysis (Checkstyle + SonarCloud)...'
+                bat 'mvn -DskipTests checkstyle:checkstyle'
+                recordIssues tools: [checkStyle(pattern: '**/target/checkstyle-result.xml')]
                 withCredentials([string(credentialsId: 'sonar-cloud-token', variable: 'SONAR_TOKEN')]) {
                     // bat "mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.token=${SONAR_TOKEN}"
                     bat 'mvn sonar:sonar -Dsonar.token=%SONAR_TOKEN%'
