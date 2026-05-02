@@ -11,7 +11,8 @@ pipeline {
             steps {
                 echo 'Stage 2: Running Unit & Integration Tests...'
                 // Quicker than running the full verify phase, which also runs the integration tests
-                bat 'mvn test jacoco:report'
+                bat 'mvn test'
+                bat 'mvn jacoco:report'
             }
             post {
                 always {
@@ -21,9 +22,12 @@ pipeline {
         }
         stage('Stage 2b: Integration/API Tests (Karate)') {
             steps {
-                echo 'Stage 2b: Running Karate integration tests (Failsafe)...'
-                // Runs pre-integration-test, integration-test, post-integration-test, and verify
-                // port conflict with SonarCloud analysis, so use a different one for the tests
+                echo 'Stage 2b: Cleaning up zombie processes and running Karate tests...'
+                // Kill any process on port 9001 (JMX) or 8080 (App) to prevent BindException
+                bat """
+                    for /f "tokens=5" %%a in ('netstat -aon ^| findstr :9001') do taskkill /f /pid %%a || rem
+                    for /f "tokens=5" %%a in ('netstat -aon ^| findstr :8080') do taskkill /f /pid %%a || rem
+                """
                 bat 'mvn -DskipUnitTests verify -Dspring-boot.start.jmxPort=9002'
             }
         }
