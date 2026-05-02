@@ -164,6 +164,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.5.5</version>
 				<configuration>
+    			<skipTests>${skipUnitTests}</skipTests>
 					<excludes>
 						<!-- Prevents Surefire from running ITs during the 'test' phase -->
 						<exclude>**/*IT.java</exclude>

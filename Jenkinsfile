@@ -23,11 +23,13 @@ pipeline {
         stage('Stage 2b: Integration/API Tests (Karate)') {
             steps {
                 echo 'Stage 2b: Cleaning up zombie processes and running Karate tests...'
-                // Kill any process on port 9001 (JMX) or 8080 (App) to prevent BindException
-                bat '''
-                for /f "tokens=5" %%a in ('netstat -aon ^| findstr :9001') do taskkill /F /PID %%a || rem
-                '''
-                bat 'mvn -DskipUnitTests=true verify'
+                // The "set ERRORLEVEL=0" and "exit 0" ensure Jenkins doesn't stop if no process is found
+                bat """
+                    for /f "tokens=5" %%a in ('netstat -aon ^| findstr :9001') do taskkill /f /pid %%a || rem
+                    for /f "tokens=5" %%a in ('netstat -aon ^| findstr :8080') do taskkill /f /pid %%a || rem
+                    exit 0
+                """
+                bat 'mvn -DskipUnitTests verify -Dspring-boot.start.jmxPort=9002'
             }
         }
         stage('Stage 3: Package') {
