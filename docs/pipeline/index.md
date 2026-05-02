@@ -65,7 +65,7 @@ The final stage triggers the automated deployment on the target AWS Docker Host.
 
 ### Jenkins Pipeline
 
-![Detailed Jenkins Pipeline Diagram](../images/pipeline-v3.png)
+![Detailed Jenkins Pipeline Diagram](../images/pipeline-v5.png)
 
     Figure 2. Detailed Jenkins Pipeline Diagram
 
