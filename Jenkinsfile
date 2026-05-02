@@ -47,28 +47,36 @@ pipeline {
             steps {
                 echo 'Stage 5: Building Docker Image...'
 
-                // Clean up previous test container if it exists
                 bat 'docker rm -f test-container || rem'
+                bat 'docker rmi -f joe0regan/guitar-store-api:latest || rem'
 
-                bat 'docker build -t joe0regan/guitar-store-api:latest .'
+                bat """
+                for /f %%i in ('git rev-parse --short HEAD') do set GIT_SHA=%%i
+                echo GIT_SHA=%GIT_SHA%
+                docker rmi -f joe0regan/guitar-store-api:%GIT_SHA% || rem
 
-                echo 'Running Smoke Test on Container...'
-                bat 'docker run -d --name test-container -p 8081:8080 joe0regan/guitar-store-api:latest'
+                docker build -t joe0regan/guitar-store-api:latest -t joe0regan/guitar-store-api:%GIT_SHA% .
 
-                // 5 second wait to allow the container to start up
-                bat 'ping 127.0.0.1 -n 6 > nul'
-
-                bat 'docker stop test-container'
-                bat 'docker rm test-container'
+                echo Running Smoke Test on Container...
+                docker run -d --name test-container -p 8081:8080 joe0regan/guitar-store-api:latest
+                ping 127.0.0.1 -n 6 > nul
+                docker stop test-container
+                docker rm test-container
+                """
             }
         }
         stage('Stage 6: Artifact Delivery') {
             steps {
                 echo 'Pushing to Docker Hub...'
-                // Use the ID of your Docker Hub credentials from Jenkins
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-token', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    bat 'docker login -u %DOCKER_USER% -p %DOCKER_PASS%'
-                    bat 'docker push joe0regan/guitar-store-api:latest'
+                    bat """
+                    for /f %%i in ('git rev-parse --short HEAD') do set GIT_SHA=%%i
+                    echo Pushing tags: latest and %GIT_SHA%
+
+                    docker login -u %DOCKER_USER% -p %DOCKER_PASS%
+                    docker push joe0regan/guitar-store-api:latest
+                    docker push joe0regan/guitar-store-api:%GIT_SHA%
+                    """
                 }
             }
         }
