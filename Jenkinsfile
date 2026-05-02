@@ -10,12 +10,20 @@ pipeline {
         stage('Stage 2: Test') {
             steps {
                 echo 'Stage 2: Running Unit & Integration Tests...'
+                // Quicker than running the full verify phase, which also runs the integration tests
                 bat 'mvn test jacoco:report'
             }
             post {
                 always {
                     recordCoverage tools: [[parser: 'JACOCO', pattern: '**/target/site/jacoco/jacoco.xml']]
                 }
+            }
+        }
+        stage('Stage 2b: Integration/API Tests (Karate)') {
+            steps {
+                echo 'Stage 2b: Running Karate integration tests (Failsafe)...'
+                // Runs pre-integration-test, integration-test, post-integration-test, and verify
+                bat 'mvn -DskipUnitTests verify'
             }
         }
         stage('Stage 3: Package') {
