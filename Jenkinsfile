@@ -17,6 +17,7 @@ pipeline {
                 always {
                     recordCoverage tools: [[parser: 'JACOCO', pattern: '**/target/site/jacoco/jacoco.xml']]
                 }
+                junit '**/target/surefire-reports/*.xml'
             }
         }
         stage('Stage 2b: Integration/API Tests (Karate)') {
