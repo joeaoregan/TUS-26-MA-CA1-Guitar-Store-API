@@ -90,7 +90,7 @@ pipeline {
                                 execCommand: """
                                     export ANSIBLE_HOST_KEY_CHECKING=False && \
                                     ansible-playbook -i /etc/ansible/hosts /opt/docker/deploy-guitar-api.yml \
-                                        -u ansadmin -c local \
+                                        -u ansadmin \
                                         -e docker_user=${DOCKER_USER}
                                     """.stripIndent()
                             )

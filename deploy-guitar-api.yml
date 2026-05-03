@@ -14,5 +14,9 @@
     - name: Pull latest image from Docker Hub
       command: docker pull {{ docker_user }}/guitar-store-api:latest
 
-    - name: Run new container on Port 80 and 8080
-      command: docker run -d --name guitar-store-api-container -p 80:8080 -p 8080:8080 {{ docker_user }}/guitar-store-api:latest 
+    - name: Run new container (pull newest + restart on reboot)
+      command: >
+        docker run --pull=always -d --name guitar-store-api-container
+        --restart unless-stopped
+        -p 80:8080 -p 8080:8080
+        {{ docker_user }}/guitar-store-api:latest
