@@ -25,7 +25,7 @@ node "**Bitbucket Cloud**\njoeaoregan/TUS-26-MA-CA1-Guitar-Store-API" as bitbuck
 
 node "CI Runner\n(Jenkins Pipeline)\nLocal Machine" as jenkins {
   component "**Stage 1**: Compile\nmvn clean compile -Dcheckstyle.skip" as s1_compile
-  component "**Stage 2**: Test\nmvn test jacoco:report" as s2_test
+  component "**Stage 2**: Test\nmvn test jacoco:report\n**Stage 2b**: Verify\nmvn -DskipUnitTests verify" as s2_test
   component "**Stage 3**: Package\nmvn package -DskipTests -Dcheckstyle.skip" as s3_package
   component "**Stage 4**: Static Analysis\nSonarQube\nBuild step goals: sonar:sonar\n+ test reports\n+ quality gate" as s4_sonar
   component "**Stage 5**: Containerisation\nDocker build & smoke run\n- docker build -t guitar-store-api:latest .\n- docker images | findstr guitar-store-api\n- docker run --rm -entrypoint java guitar-store-api:latest -version" as s5_container

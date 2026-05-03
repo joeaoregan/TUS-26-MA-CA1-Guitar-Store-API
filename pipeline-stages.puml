@@ -54,7 +54,7 @@ s2 -r-> s3
 s3 -r-> s4
 
 ' The Bridge (Force s5 to start a new row)
-s4 -down-> s5
+' s4 -down-> s5
 
 ' Row 2
 s5 -r-> s6
