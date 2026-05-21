@@ -56,6 +56,7 @@
 
 - [View App on Render](https://tus-26-ma-ca1-guitar-store-api.onrender.com/)
 - [View Swagger UI API Docs on Render](https://tus-26-ma-ca1-guitar-store-api.onrender.com/swagger-ui/index.html)
+- [Docker Hub](https://hub.docker.com/r/joe0regan/guitar-store-api)
 
 #### Online MkDocs Documentation
 
