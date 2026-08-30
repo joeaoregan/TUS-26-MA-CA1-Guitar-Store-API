@@ -93,6 +93,9 @@
 
 ---
 
+> [!NOTE]
+> The database is automatically pre-populated using `data.sql` for repeatable testing.
+
 <details open>
   <summary>1. How to Run</summary>
 
@@ -115,9 +118,6 @@ git clone https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git
 - **Swagger UI:** http://localhost:8080/swagger-ui/index.html
 - **Test Page:** http://localhost:8080/hello (Test project running OK)
 - **H2 DB Console:** http://localhost:8080/h2-console (Check in-memory database)
-
-> [!NOTE]
-> The database is automatically pre-populated using `data.sql` for repeatable testing.
 
 </details>
 
@@ -174,11 +174,9 @@ git clone https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git
 5. **Pagination**
    The API supports pagination for endpoints returning collections.
 
-> [!WARNING]
-> **Validation Error (400):** Triggered by invalid inputs like negative prices.
-
-> [!WARNING]
+- **Validation Error (400):** Triggered by invalid inputs like negative prices.
 - **Resource Not Found (404):** Triggered when a model name does not exist in the database.
+
 </details>
 
 ---
