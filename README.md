@@ -211,7 +211,7 @@ git clone https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git
 <details>
   <summary>6. Diagrams</summary>
 
-![Class Diagram](src\main\resources\static\images\class-diagram.png)
+![Class Diagram](src/main/resources/static/images/class-diagram.png)
 
 ### System Architecture & Data Flow
 
@@ -222,7 +222,7 @@ This class diagram illustrates the API’s adherence to the Single Responsibilit
 - **Mapping Layer:** Utilizes BrandMapper and GuitarMapper to decouple internal JPA entities from external Data Transfer Objects (DTOs), preventing internal database details from leaking to the consumer.
 - **Persistence Layer:** Leverages Spring Data JPA repositories to manage data access and maintain referential integrity with the H2 database.
 
-![Sequence Diagram](src\main\resources\static\images\sequence-diagram.png)
+![Sequence Diagram](src/main/resources/static/images/sequence-diagram.png)
 
 ### API Request-Response Lifecycle
 
