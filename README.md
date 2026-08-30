@@ -307,8 +307,6 @@ Sample POST Body (Create Guitar):
 }
 ```
 
-**Note:** The `manufactureDate` must follow the ISO format YYYY-MM-DD
-
 **Resource:** Brands
 
 | Action        | Method | URL                   | Description                           |
@@ -326,12 +324,12 @@ Sample POST Body (Create Brand):
 }
 ```
 
-_For more information see [online docs](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/)_
-
 </details>
 
 > [!NOTE]
-> For more Endpoint information see [online docs](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/)
+> The `manufactureDate` must follow the ISO format YYYY-MM-DD
+> [!NOTE]
+> For more Endpoint information see [online docs](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/guide/9_end_points/)
 
 ---
 
@@ -355,13 +353,14 @@ Full testing documentation is available in the MkDocs site in the [Testing](http
 
 ![Pipeline Diagram](docs/images/maven-build-pipeline.png)
 
-###### The Pipeline
+    The Pipeline
 
 The pipeline is architected into eight distinct stages to provide clear separation of concerns. This ensures that if a build fails during Stage 4 (Static Analysis), the subsequent containerisation and deployment stages are blocked, preserving the integrity of the production environment.
 
-Full pipeline documentation is available in the MkDocs site in the [Pipeline](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/pipeline/) section.
-
 </details>
+
+> [!NOTE]
+> Full pipeline documentation is available in the MkDocs site in the [Pipeline](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/pipeline/) section.
 
 <p align="center">
 &copy; 2026 Joe O'Regan<br/>
