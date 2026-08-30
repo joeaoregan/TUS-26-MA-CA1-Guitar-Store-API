@@ -326,8 +326,9 @@ Sample POST Body (Create Brand):
 
 </details>
 
-> [!NOTE]
+> [!WARNING]
 > The `manufactureDate` must follow the ISO format YYYY-MM-DD
+
 > [!NOTE]
 > For more Endpoint information see [online docs](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/guide/9_end_points/)
 
