@@ -1,5 +1,8 @@
 # Guitar Store REST API
 
+> [!NOTE]
+> This project is built across multiple Continuous Assessment assignments.
+
 ## Microservices Architecture - CA1: REST API Assignment
 
 ## Continuous Build and Delivery - CA1: AI Assisted Testing
@@ -113,7 +116,8 @@ git clone https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git
 - **Test Page:** http://localhost:8080/hello (Test project running OK)
 - **H2 DB Console:** http://localhost:8080/h2-console (Check in-memory database)
 
-The database is automatically pre-populated using `data.sql` for repeatable testing.
+> [!NOTE]
+> The database is automatically pre-populated using `data.sql` for repeatable testing.
 
 </details>
 
@@ -170,7 +174,10 @@ The database is automatically pre-populated using `data.sql` for repeatable test
 5. **Pagination**
    The API supports pagination for endpoints returning collections.
 
-- **Validation Error (400):** Triggered by invalid inputs like negative prices.
+> [!WARNING] "Validation Error (400)"
+> **Validation Error (400):** Triggered by invalid inputs like negative prices.
+
+> [!WARNING] "Resource Not Found (404)"
 - **Resource Not Found (404):** Triggered when a model name does not exist in the database.
 </details>
 
