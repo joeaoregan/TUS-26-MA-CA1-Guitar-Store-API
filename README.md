@@ -213,6 +213,8 @@ git clone https://github.com/joeaoregan/TUS-26-MA-CA1-Guitar-Store-API.git
 
 ![Class Diagram](src/main/resources/static/images/class-diagram.png)
 
+    Class Diagram
+
 ### System Architecture & Data Flow
 
 This class diagram illustrates the API’s adherence to the Single Responsibility Principle through a strictly layered architecture.
@@ -223,6 +225,8 @@ This class diagram illustrates the API’s adherence to the Single Responsibilit
 - **Persistence Layer:** Leverages Spring Data JPA repositories to manage data access and maintain referential integrity with the H2 database.
 
 ![Sequence Diagram](src/main/resources/static/images/sequence-diagram.png)
+
+    Sequence Diagram
 
 ### API Request-Response Lifecycle
 
@@ -247,7 +251,9 @@ This sequence diagram illustrates the end-to-end flow of a RESTful request withi
 - **Auditing:** Automated metadata tracking via `BaseEntity` and `JpaAuditAware`
 - **Relationship:** Demonstrates a One-to-Many relationship between `Brands` and `Guitars` with Cascading Deletes.
 
-![Entity Relationship Diagram](src\main\resources\static\images\erd.png)
+![Entity Relationship Diagram](src/main/resources/static/images/erd.png)
+
+    Entity Relationship Diagram
 
 </details>
 
@@ -323,6 +329,9 @@ Sample POST Body (Create Brand):
 _For more information see [online docs](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/)_
 
 </details>
+
+> [!NOTE]
+> For more Endpoint information see [online docs](https://joeaoregan.github.io/TUS-26-MA-CA1-Guitar-Store-API/)
 
 ---
 
